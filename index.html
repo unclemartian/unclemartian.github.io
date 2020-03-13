@@ -124,14 +124,32 @@ git push -u origin hexo-source</code></pre><p>Now your Github should have hexo c
 </li>
 </ol>
 <h2 id="Public-to-master"><a href="#Public-to-master" class="headerlink" title="Public to master"></a>Public to master</h2><p>It is required that GitHub Pages <strong>MUST</strong> publish the (content of) public folder on <strong>master branch</strong>.</p>
-<ol>
-<li>Create .travis.yml in hexo folder.</li>
-</ol>
+<p>Create .travis.yml in hexo folder (alongside _config.yml &amp; package.json).</p>
+<pre><code>sudo: false
+language: node_js
+node_js:
+  - 10 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - hexo-source # build master branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  target_branch: master # generate static files to master
+  on:
+    branch: hexo-source
+  local-dir: public</code></pre><p>Commit to Github, and Travis CI should start automatically. </p>
+<p>Once it’s complete, I can checkout the published blog at: <a href="https://unclemartian.github.io/" target="_blank" rel="noopener">https://unclemartian.github.io/</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/13/Hexo-getting-started-self-guide/" data-id="ck7ps028e00000juhb6x7awcy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/13/Hexo-getting-started-self-guide/" data-id="ck7psa7z800000hmcbucm565a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +162,7 @@ git push -u origin hexo-source</code></pre><p>Now your Github should have hexo c
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/13/hello-world/" class="article-date">
-  <time datetime="2020-03-13T06:03:48.013Z" itemprop="datePublished">2020-03-13</time>
+  <time datetime="2020-03-13T06:11:41.809Z" itemprop="datePublished">2020-03-13</time>
 </a>
     
   </div>
@@ -180,7 +198,7 @@ git push -u origin hexo-source</code></pre><p>Now your Github should have hexo c
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/13/hello-world/" data-id="ck7ps028n00010juh681s97nn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/13/hello-world/" data-id="ck7psa7zu00010hmc5gyt99u5" class="article-share-link">Share</a>
       
       
     </footer>
