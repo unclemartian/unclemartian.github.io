@@ -66,5 +66,28 @@ Travis CI is a continuous integration & continuous delivery platform.
 
 It is required that GitHub Pages __MUST__ publish the (content of) public folder on __master branch__.
 
-1. Create .travis.yml in hexo folder.
+Create .travis.yml in hexo folder (alongside _config.yml & package.json).
 
+    sudo: false
+    language: node_js
+    node_js:
+      - 10 # use nodejs v10 LTS
+    cache: npm
+    branches:
+      only:
+        - hexo-source # build master branch only
+    script:
+      - hexo generate # generate static files
+    deploy:
+      provider: pages
+      skip-cleanup: true
+      github-token: $GH_TOKEN
+      keep-history: true
+      target_branch: master # generate static files to master
+      on:
+        branch: hexo-source
+      local-dir: public
+
+Commit to Github, and Travis CI should start automatically. 
+
+Once it's complete, I can checkout the published blog at: https://unclemartian.github.io/
