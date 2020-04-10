@@ -1,21 +1,21 @@
 ---
-title: blockchain-cross-border-payment
+title: Blockchain Cross-border Payment
 date: 2020-04-09 20:12:17
 tags:
 ---
 
 # Overview
 
-Cross-border payment flow: $136 trillion (2018 by McKinsey):
-
-![](/images/Cross-border-payment-2018-McKinsey.png)
+Cross-border payment flow worldwide: $136 trillion (2018 by McKinsey):
 
 1. 97.8% volume was B2B payment
 1. 64.8% revenue from B2B payment
 1. C2C has highest fee (5%)
 1. $15 billion was crypto-powered (i.e. 0.01%)
 
-## Crypto Payment
+![](/images/Cross-border-payment-2018-McKinsey.png)
+
+## Crypto Payment vs. Correspondent Bank
 
 1. Shorter settlement period
 1. Lower cost
@@ -124,3 +124,4 @@ has over traded about $1 billion BTC in 2019.
 # Reference
 
 https://medium.com/blockchain4all/crypto-powered-cross-border-payment-2-2-1f5ad4f2043e
+https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf
