@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Correspondent Banking in Payments | Hexo Blog of Uncle Martian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Opening MessageThe SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Correspondent Banking in Payments">
+<meta property="og:url" content="http://yoursite.com/2020/04/15/correspondent-banking-in-payments/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="Opening MessageThe SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with e">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-15T21:48:36.000Z">
+<meta property="article:modified_time" content="2020-04-15T22:15:06.981Z">
+<meta property="article:author" content="Uncle Martian">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo Blog of Uncle Martian" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo Blog of Uncle Martian</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">a crypto journey</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-correspondent-banking-in-payments" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/15/correspondent-banking-in-payments/" class="article-date">
+  <time datetime="2020-04-15T21:48:36.000Z" itemprop="datePublished">2020-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Correspondent Banking in Payments
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Opening-Message"><a href="#Opening-Message" class="headerlink" title="Opening Message"></a>Opening Message</h1><p>The SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with each other (either directly or through intermediary banks). Check <a href="https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/" target="_blank" rel="noopener">this link</a> out. </p>
+<h1 id="Swift"><a href="#Swift" class="headerlink" title="Swift"></a>Swift</h1><p>1973 The Society for Worldwide Interbank Financial Telecommunication (“S.W.I.F.T.”). Or SWIFT</p>
+<p>Not for profit organisation</p>
+<p>Provide hardware with global data centres, typically:</p>
+<ol>
+<li>banks connect via HSM</li>
+<li>corporates connect via a service bureau (who is host and manage a HSM).</li>
+</ol>
+<p>Typically the payload is message (FIN service) of file based (FileAct)</p>
+<blockquote>
+<p>FIN service: 基于SWIFT网络最主要的应用。即日常银行发送、接收、制作的业务报文都基于FIN服务。比如MT103、MT700等等报文。</p>
+</blockquote>
+<p>It can work in a number of modes (Realtime/Store and Forward) and in the case of Fin will perform basic validations on submittal.</p>
+<blockquote>
+<p>SWIFT FileAct: 提供交互和存储与转发两种文件自动传输方式，适合大批量数据的传输。</p>
+</blockquote>
+<h2 id="ISO20022"><a href="#ISO20022" class="headerlink" title="ISO20022"></a>ISO20022</h2><p>ISO20022 又称为UNIFI (UNIversal Financial Industry)</p>
+<p>是2004年由国际标准化组织制定并发布的国际标准，提供了一种面向业务建立通用报文的解决方案。</p>
+<p>ISO20022是一个以XML为基础之讯息标准，主要系由SWIFT组织XML讯息标准(SWIFT XML,MX)、贸易产业标准FIX组织标准(FIXml)及金融衍生性商品交易讯息标准(FpML)，为主要骨干所形成之架构。</p>
+<h2 id="MT103-MT202"><a href="#MT103-MT202" class="headerlink" title="MT103, MT202"></a>MT103, MT202</h2><p>MT103, MT202 are message types in SWIFT communication.</p>
+<p>MT103是银行客户的汇款格式，有汇款人，收款人名称和账户等信息，收款人可以凭以贷记收款人账户；<br>MT202是银行间头寸汇划报文格式，没有受益人名称和账号信息，收款行自然无法入账。</p>
+<p>swift MT103报文名称叫做 single customer credit transfer 也就是单笔客户的汇款<br>swift MT202报文名称叫做 general fin inst transfer 也就是金融机构间资金调拨报文</p>
+<p>MT 103 type corresponds to single credit customer transfer, in which a payment is settled directly to the account. Whereas, MT 202 is a cover transfer in which a correspondent bank’s NOSTRO account is involved through which remittance is further transferred to beneficiary.</p>
+<p>Generally wire transfers use a Swift MT103 to transfer money on behalf of their client. There are exeptions to this. Such as SEPA transfers in europe, internal book transfer, and in some countries they do not use use Swift for their own currency (like russia). Also note that sometimes payments get netted so the amount on the MT103 may be different.</p>
+<p>Banks use MT202 (and MT200) to transfer money on their own behalf and cash management purposes.</p>
+<p>So there are many MT103 send throughout the day for clients, and only a few MT202/MT200 are send for funding/defunding banks own nostro accounts.</p>
+<h1 id="Correspondent-Banking"><a href="#Correspondent-Banking" class="headerlink" title="Correspondent Banking"></a>Correspondent Banking</h1><p>Most domestic (ach) systems are file based, especially for low value clearing. Urgent or high value domestic payments will be message based.</p>
+<p>Globally, there is a progression to near real-time domestic payments. New systems are based on ISO20022 (file) , or Swift(message).</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers" target="_blank" rel="noopener">https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers</a><br><a href="https://www.quora.com/What-is-the-SWIFT-messaging-protocol" target="_blank" rel="noopener">https://www.quora.com/What-is-the-SWIFT-messaging-protocol</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/15/correspondent-banking-in-payments/" data-id="ck91w8acr0003a5pu5qu41p33" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/04/15/%E6%B6%A1%E8%BD%AE%E7%BD%91%E7%BB%9C-%E9%99%88%E5%BF%97%E5%BC%BA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">涡轮网络 &amp; 陈志强</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/04/15/correspondent-banking-in-payments/">Correspondent Banking in Payments</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/15/%E6%B6%A1%E8%BD%AE%E7%BD%91%E7%BB%9C-%E9%99%88%E5%BF%97%E5%BC%BA/">涡轮网络 &amp; 陈志强</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/09/blockchain-cross-border-payment/">Blockchain Cross-border Payment</a>
+          </li>
+        
+          <li>
+            <a href="/2020/04/07/Celo-an-overview/">Celo, an Overview</a>
+          </li>
+        
+          <li>
+            <a href="/2020/03/26/%E4%B8%AD%E5%9B%BD%E6%9C%80%E9%AB%98%E6%9D%83%E5%8A%9B%E6%9C%BA%E6%9E%84%E5%90%8D%E7%A7%B0%E5%8F%8A%E5%8C%BA%E5%88%AB/">中国最高权力机构名称及区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Uncle Martian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
