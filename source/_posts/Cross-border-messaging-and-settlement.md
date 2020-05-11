@@ -45,6 +45,11 @@ CLS is a __Payment versus Payment (PvP) settlement__ system.
 
 ## The consequences of Herstatt Risk
 
+> This type of risk is named after Bank Herstatt that failed in 1974 and refers to risks that span more than one market – usually involving foreign exchange or securities instruments. 
+> In the case of Bank Herstatt, the bank had entered into a number of foreign exchange deals and received payment from its European counterparts, but went into liquidation before it delivered the counter-value to its non European counterparts. 
+
+> The only way to eliminate settlement exposure of this nature entirely is to settle both the debit and credit transaction at the same time using real-time gross settlement (RTGS) processes.
+
 Today (2018) around 50% of cross-border FX transactions are processed via CLS
 
 There has been historically a lack of transparency related to the status of payments. 
@@ -53,5 +58,5 @@ some national payment systems (e.g. Fedwire and CHIPS in US, the Australian, Swi
 
 # Reference
 
-https://en.wikipedia.org/wiki/Payment_system
+https://wiki.treasurers.org/wiki/Payments_and_payment_systems
 https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf
