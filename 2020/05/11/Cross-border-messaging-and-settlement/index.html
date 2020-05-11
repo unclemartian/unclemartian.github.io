@@ -5,17 +5,17 @@
   
 
   
-  <title>Cross-border messaging and settlement | Hexo Blog of Uncle Martian</title>
+  <title>Cross-border settlement (SWIFT &amp; CLS) | Hexo Blog of Uncle Martian</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="区别Clearing and settlement systems主要分为：  Net settlement systems Real-time gross settlement (RTGS) systems  Cross-border messaging and settlement主要分为：  SWIFT (The Society for Worldwide Inter-bank Financ">
+  <meta name="description" content="几个系统的关联和区别Clearing and settlement systems主要分为：  Net settlement systems Real-time gross settlement (RTGS) systems  Cross-border messaging and settlement主要分为：  SWIFT (The Society for Worldwide Inter-ban">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cross-border messaging and settlement">
+<meta property="og:title" content="Cross-border settlement (SWIFT &amp; CLS)">
 <meta property="og:url" content="http://yoursite.com/2020/05/11/Cross-border-messaging-and-settlement/index.html">
 <meta property="og:site_name" content="Hexo Blog of Uncle Martian">
-<meta property="og:description" content="区别Clearing and settlement systems主要分为：  Net settlement systems Real-time gross settlement (RTGS) systems  Cross-border messaging and settlement主要分为：  SWIFT (The Society for Worldwide Inter-bank Financ">
+<meta property="og:description" content="几个系统的关联和区别Clearing and settlement systems主要分为：  Net settlement systems Real-time gross settlement (RTGS) systems  Cross-border messaging and settlement主要分为：  SWIFT (The Society for Worldwide Inter-ban">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-05-11T10:57:29.000Z">
-<meta property="article:modified_time" content="2020-05-11T06:58:20.792Z">
+<meta property="article:modified_time" content="2020-05-11T07:09:10.966Z">
 <meta property="article:author" content="Uncle Martian">
 <meta name="twitter:card" content="summary">
   
@@ -84,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Cross-border messaging and settlement
+      Cross-border settlement (SWIFT &amp; CLS)
     </h1>
   
 
@@ -92,33 +92,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>Clearing and settlement systems主要分为：</p>
+        <h1 id="几个系统的关联和区别"><a href="#几个系统的关联和区别" class="headerlink" title="几个系统的关联和区别"></a>几个系统的关联和区别</h1><p>Clearing and settlement systems主要分为：</p>
 <ol>
 <li>Net settlement systems</li>
 <li>Real-time gross settlement (RTGS) systems</li>
 </ol>
 <p>Cross-border messaging and settlement主要分为：</p>
 <ol>
-<li><p>SWIFT (The Society for Worldwide Inter-bank Financial Telecommunications)</p>
-</li>
-<li><p>TARGET2</p>
-</li>
-<li><p>The European Banking Association (EBA)</p>
-</li>
-<li><p>Continuous linked settlement (CLS)</p>
-<p>etc。</p>
-<h2 id="TARGET2"><a href="#TARGET2" class="headerlink" title="TARGET2"></a>TARGET2</h2></li>
+<li>SWIFT (The Society for Worldwide Inter-bank Financial Telecommunications)</li>
+<li>TARGET2</li>
+<li>The European Banking Association (EBA)</li>
+<li>Continuous linked settlement (CLS)</li>
 </ol>
-<p>Was originally introduced in 1999 to provide a real-time gross settlement system for the euro.</p>
+<p>etc。</p>
+<h2 id="TARGET2"><a href="#TARGET2" class="headerlink" title="TARGET2"></a>TARGET2</h2><p>Was originally introduced in 1999 to provide a real-time gross settlement system for the euro.</p>
 <h2 id="The-European-Banking-Association-EBA"><a href="#The-European-Banking-Association-EBA" class="headerlink" title="The European Banking Association (EBA)"></a>The European Banking Association (EBA)</h2><p>Was founded in 1985 to promote the European Currency Unit (ECU) </p>
 <h2 id="Continuous-linked-settlement-CLS"><a href="#Continuous-linked-settlement-CLS" class="headerlink" title="Continuous linked settlement (CLS)"></a>Continuous linked settlement (CLS)</h2><p>A number of the world’s largest <strong>foreign exchange banks</strong> have joined together in 2002 to form a company: CLS Services Limited. </p>
 <p>They are <strong>not allowed to compete for US domestic banking business</strong>. CLS Bank is regulated by the Federal Reserve Bank, the US Central Bank, and can handle transactions denominated in 17 currencies: <strong>GBP, USD, JPY, EUR</strong>, CHF, CAD, AUD, DKK, NOK, SEK, <strong>SGD, HKD</strong>, NZD, <strong>KRW</strong>, ZAR, MXN and ILS.</p>
 <p>has the ability to eliminate Herstatt risk (Payment vs Payment)</p>
+<h1 id="CLS-in-details"><a href="#CLS-in-details" class="headerlink" title="CLS in details"></a>CLS in details</h1><p>CLS is a <strong>Payment versus Payment (PvP) settlement</strong> system.</p>
+<blockquote>
+<p>Reduces the gross intraday liquidity required to settle individual FX transactions<br>but introduce a time specific intraday liquidity position, the pay-in/pay-out time for each currency – which in many instances is outside ‘normal’ settlement times. </p>
+</blockquote>
+<h2 id="The-consequences-of-Herstatt-Risk"><a href="#The-consequences-of-Herstatt-Risk" class="headerlink" title="The consequences of Herstatt Risk"></a>The consequences of Herstatt Risk</h2><p>Today (2018) around 50% of cross-border FX transactions are processed via CLS</p>
+<p>There has been historically a lack of transparency related to the status of payments. </p>
+<p>some national payment systems (e.g. Fedwire and CHIPS in US, the Australian, Swiss and Japanese RTGS systems) do not use SWIFT messages.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://en.wikipedia.org/wiki/Payment_system" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Payment_system</a><br><a href="https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf" target="_blank" rel="noopener">https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/11/Cross-border-messaging-and-settlement/" data-id="cka24xh9k00011nly1jbngp3i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/05/11/Cross-border-messaging-and-settlement/" data-id="cka25bdap000118qwbe1t0swq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -180,7 +184,7 @@
           </li>
         
           <li>
-            <a href="/2020/05/11/Cross-border-messaging-and-settlement/">Cross-border messaging and settlement</a>
+            <a href="/2020/05/11/Cross-border-messaging-and-settlement/">Cross-border settlement (SWIFT &amp; CLS)</a>
           </li>
         
           <li>
