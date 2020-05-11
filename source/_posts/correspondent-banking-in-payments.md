@@ -8,7 +8,33 @@ tags:
 
 The SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with each other (either directly or through intermediary banks). Check [this link](https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/) out.
 
-# SWIFT
+## definition 
+
+### Correspondent Bank
+
+“an arrangement under which one bank (correspondent) holds deposits owned by other banks (respondents) and provides payment and other services to those respondent banks” (BIS, 2016).
+
+### Settlement 
+
+“the discharge of an obligation in accordance with the terms of the underlying contract” (BIS, Glossary),
+
+## The Risks
+
+1. Market, 
+1. FX, 
+1. credit
+1. counterparty 
+1. regulatory risk (e.g. Anti-Money Laundering (AML) and Counter Terrorism Financing (CTF))
+
+What is __settlement risk__? The bank could default. (eg. Herstatt Bank)
+
+## Result
+
+Continued decrease in correspondent banking relationships, regulatory compliance is certainly playing a role
+
+50% of banks have <= 2 correspond banks
+
+# SWIFT Org
 
 1973 The Society for Worldwide Interbank Financial Telecommunication ("S.W.I.F.T."). Or SWIFT
 
@@ -98,6 +124,11 @@ https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT20
 https://www.quora.com/What-is-the-SWIFT-messaging-protocol
 
 ## Correspondent Bank
+
 https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled
 https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work
 https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp
+
+## Swift Institution
+
+https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf
