@@ -8,13 +8,13 @@ tags:
 
 The SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with each other (either directly or through intermediary banks). Check [this link](https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/) out.
 
-## definition 
+## Definition 
 
 ### Correspondent Bank
 
 “an arrangement under which one bank (correspondent) holds deposits owned by other banks (respondents) and provides payment and other services to those respondent banks” (BIS, 2016).
 
-### Settlement 
+### Settlement
 
 “the discharge of an obligation in accordance with the terms of the underlying contract” (BIS, Glossary),
 
