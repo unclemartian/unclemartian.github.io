@@ -1,6 +1,6 @@
 ---
 title: Hexo getting started self guide
-date: 2020-03-13 13:58:00
+date: 2099-09-09 13:58:00
 tags:
 ---
 
