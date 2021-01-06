@@ -57,6 +57,6 @@ F2Pool 创始人神鱼
 
 神鱼特意将它存到自己花 18 个小时算好的以「1LoveYoU」为开头的账户地址中。交易记录中写道：「执子之手，与子偕老。神鱼 to 冬冬。」
 
-![](/images/hybrid-crypto-collateralization/f2pool-shenyu.png)
+![](/images/f2pool-shenyu.png)
 
 神鱼说：“比特币和爱情一样，都是信仰。”
