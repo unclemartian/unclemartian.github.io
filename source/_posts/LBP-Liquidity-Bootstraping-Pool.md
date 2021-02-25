@@ -38,12 +38,16 @@ LBP (Liquidity Bootstraping Pool) 为荷兰式拍卖，或称 “降价式拍卖
 
 ![](/images/lbp-Exponential-Example-Pool-Weights.jpg)
 
-## multi tokens
+## If you're swapping multiple tokens
 
 the smart pool template allows for vectors of tokens and weights. So one option would be to start 80% XYZ, 10% DAI, 10% ETH and end at 33% XYZ, 33% DAI, 33% ETH. Allowing for users to purchase the project token in ETH or DAI.
 
-# Ref
+# Reference
 
 https://bitcointalk.org/index.php?topic=5319752.0
 https://www.tuoluocaijing.cn/article/detail-10043661.html
 https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4
+
+## Balancer pool
+
+https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about
