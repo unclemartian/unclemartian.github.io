@@ -1,7 +1,7 @@
 ---
 title: Hexo getting started self guide
-date: 2099-09-09 13:58:00
-tags:
+date: 2020-01-01 13:58:00
+tags: Hexo
 ---
 
 # Background 

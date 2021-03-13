@@ -1,7 +1,7 @@
 ---
 title: LBP (Liquidity Bootstraping Pool)
 date: 2021-02-25 06:58:58
-tags:
+tags: Defi借贷
 ---
 
 # Balancer LBP
