@@ -1,5 +1,5 @@
 ---
-title: 币圈知名大佬 整理（1）
+title: Crypto personnels list
 date: 2021-01-06 02:25:01
 tags: 人物
 ---
