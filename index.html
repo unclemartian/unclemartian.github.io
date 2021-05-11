@@ -68,6 +68,80 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MataMask-Dropped-Replaced" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/01/MataMask-Dropped-Replaced/" class="article-date">
+  <time datetime="2021-05-01T18:18:21.000Z" itemprop="datePublished">2021-05-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/01/MataMask-Dropped-Replaced/">MataMask状态：Dropped &amp; Replaced</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
+<p>有两种状态：</p>
+<ol>
+<li>Dropped Transaction</li>
+<li>Dropped &amp; Replaced Transaction</li>
+</ol>
+<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
+<p>是Ethereum nodes（也就是矿工）的操作。</p>
+<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
+<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
+<li><p>Ethereum nodes dropped it from transaction pool</p>
+<ul>
+<li>Ethereum nodes 指的是 Geth or Parity</li>
+<li>most likely due to lower gas price</li>
+</ul>
+</li>
+<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
+<ul>
+<li>depends on settings/limits of the individual clients</li>
+</ul>
+</li>
+</ul>
+<h1 id="Dropped-amp-Replaced-Transaction"><a href="#Dropped-amp-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
+<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
+<li>previous txhash invalidated</li>
+</ol>
+<h2 id="Dropped-amp-Replaced-原因"><a href="#Dropped-amp-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
+<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
+<ul>
+<li>a second tx with higher gas price was created to replace it</li>
+</ul>
+</li>
+<li><p>The Ethereum Node that the wallet/service connected to was not fully synced, and an incorrect nonce was used</p>
+</li>
+<li><p>User-initiated to replace or cancel a pending transaction</p>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://info.etherscan.com/transaction-dropped-replaced/" target="_blank" rel="noopener">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/05/01/MataMask-Dropped-Replaced/" data-id="ckojw7z17000f33qpgvjqashx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Auction-terminologies" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/04/16/Auction-terminologies/" class="article-date">
@@ -98,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/16/Auction-terminologies/" data-id="cko1eshtn0003zpwvbefk4frs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/16/Auction-terminologies/" data-id="ckojw7z0y000333qp37dg9t0k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -163,7 +237,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/07/top-10-auction-house/" data-id="cko1eshu8000yzpwv0abihozg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/07/top-10-auction-house/" data-id="ckojw7z1l000z33qp5xh80dtj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -199,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/03/14/Nft-Eco-system-as-of-Feb-2021/" data-id="cko1eshtw000fzpwvh58b3i9g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/03/14/Nft-Eco-system-as-of-Feb-2021/" data-id="ckojw7z18000h33qp46o7chhv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NFT%E8%A1%8C%E4%B8%9A/" rel="tag">NFT行业</a></li></ul>
@@ -284,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/03/01/Auction-models-%E4%B8%80%E4%BA%9B%E6%8B%8D%E5%8D%96%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/" data-id="cko1eshtk0001zpwvcohq4h47" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/03/01/Auction-models-%E4%B8%80%E4%BA%9B%E6%8B%8D%E5%8D%96%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/" data-id="ckojw7z0v000133qpbohffz78" class="article-share-link">Share</a>
       
       
     </footer>
@@ -341,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/02/25/LBP-Liquidity-Bootstraping-Pool/" data-id="cko1eshtv000ezpwvcm6s2zgq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/02/25/LBP-Liquidity-Bootstraping-Pool/" data-id="ckojw7z16000e33qp4vh0h9an" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Defi%E5%80%9F%E8%B4%B7/" rel="tag">Defi借贷</a></li></ul>
@@ -381,7 +455,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/01/06/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/" data-id="cko1eshtp0005zpwv4sl975fx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/01/06/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/" data-id="ckojw7z11000533qpflnba393" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E9%93%BE/" rel="tag">公链</a></li></ul>
@@ -393,9 +467,9 @@
 
 
   
-    <article id="post-F2Pool-创始人神鱼" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-F2Pool founder shenyu" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2021/01/06/F2Pool-%E5%88%9B%E5%A7%8B%E4%BA%BA%E7%A5%9E%E9%B1%BC/" class="article-date">
+    <a href="/2021/01/06/F2Pool%20founder%20shenyu/" class="article-date">
   <time datetime="2021-01-06T11:21:26.000Z" itemprop="datePublished">2021-01-06</time>
 </a>
     
@@ -407,7 +481,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/06/F2Pool-%E5%88%9B%E5%A7%8B%E4%BA%BA%E7%A5%9E%E9%B1%BC/">F2Pool 创始人神鱼</a>
+      <a class="article-title" href="/2021/01/06/F2Pool%20founder%20shenyu/">F2Pool 创始人神鱼</a>
     </h1>
   
 
@@ -443,7 +517,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/01/06/F2Pool-%E5%88%9B%E5%A7%8B%E4%BA%BA%E7%A5%9E%E9%B1%BC/" data-id="cko1eshtt000azpwvah8a6ipq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/01/06/F2Pool%20founder%20shenyu/" data-id="ckojw7z14000a33qp9n7zfjg7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -492,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/01/06/Crypto%20personnels%20list/" data-id="cko1eshts0009zpwvhhpth3ic" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/01/06/Crypto%20personnels%20list/" data-id="ckojw7z13000933qp28um5phc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9/" rel="tag">人物</a></li></ul>
@@ -533,50 +607,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/06/714-gao-pao-service/" data-id="cko1esht70000zpwv6d1gg9z5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-P网（Poloniex）and-（B网）Bittrex" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/22/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/" class="article-date">
-  <time datetime="2020-05-22T20:08:58.000Z" itemprop="datePublished">2020-05-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/22/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/">P网 Poloniex 和 B网 Bittrex</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Poloniex"><a href="#Poloniex" class="headerlink" title="Poloniex"></a>Poloniex</h1><p>Poloniex成立于2014年，俗称P网，是世界领先的加密货币国际站之一。Poloniex平台提供多种山寨币服务。</p>
-<p>Poloniex自2016年它的竞争对手Cryptsy消失以来，特别是2017年年初山寨币泡沫之后，拥有了非常快速增长的投资量，访问量从2017年2月每月700万增加到5月份的月增长3000万。</p>
-<p>Poloniex有友好的手机和电脑端服务界面，这是因为它是一个纯粹的数字货币国际站，不能使用法币。</p>
-<h1 id="Bittrex"><a href="#Bittrex" class="headerlink" title="Bittrex"></a>Bittrex</h1><p>Bittrex建立于2015年，是美国的比特币交易所，支持200多个交易对，山寨币为主，B网的交易量很大，每天的成交量达几十亿人民币，有不少中国玩家在B网交易和搬砖。</p>
-<p>B网是国内非常知名的数字货币交易网站，B圈都亲切称呼其为B网，主做币币交易，以山寨币为主，中国玩家很多，注册过程需要科学的上网，以下为区块链之家搜罗整理的使用教程，希望对家有所帮助。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/22/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/" data-id="cko1eshtx000hzpwvfzlc7984" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/06/714-gao-pao-service/" data-id="ckojw7z0h000033qp3j2s82l3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a></li></ul>
@@ -625,7 +656,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
     </div>
   </div>
 
@@ -636,6 +667,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/05/01/MataMask-Dropped-Replaced/">MataMask状态：Dropped &amp; Replaced</a>
+          </li>
         
           <li>
             <a href="/2021/04/16/Auction-terminologies/">Auction Terms</a>
@@ -651,10 +686,6 @@
         
           <li>
             <a href="/2021/03/01/Auction-models-%E4%B8%80%E4%BA%9B%E6%8B%8D%E5%8D%96%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/">Auction models 一些拍卖模式介绍</a>
-          </li>
-        
-          <li>
-            <a href="/2021/02/25/LBP-Liquidity-Bootstraping-Pool/">LBP (Liquidity Bootstraping Pool)</a>
           </li>
         
       </ul>

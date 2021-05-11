@@ -5,13 +5,17 @@
   
 
   
-  <title>Tag: 术语 | Hexo Blog of Uncle Martian</title>
+  <title>MataMask状态：Dropped &amp; Replaced | Hexo Blog of Uncle Martian</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo Blog of Uncle Martian">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%9C%AF%E8%AF%AD/index.html">
+  <meta name="description" content="Dropped &amp; Replaced is a tx status in MetaMask. 有两种状态：  Dropped Transaction Dropped &amp; Replaced Transaction  Dropped Transaction定义由broadcasted状态 –&gt; 变为dropped状态 是Ethereum nodes（也就是矿工）的操作。 A Dr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MataMask状态：Dropped &amp; Replaced">
+<meta property="og:url" content="http://yoursite.com/2021/05/01/MataMask-Dropped-Replaced/index.html">
 <meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="Dropped &amp; Replaced is a tx status in MetaMask. 有两种状态：  Dropped Transaction Dropped &amp; Replaced Transaction  Dropped Transaction定义由broadcasted状态 –&gt; 变为dropped状态 是Ethereum nodes（也就是矿工）的操作。 A Dr">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-01T18:18:21.000Z">
+<meta property="article:modified_time" content="2021-05-11T10:30:06.448Z">
 <meta property="article:author" content="Uncle Martian">
 <meta name="twitter:card" content="summary">
   
@@ -66,59 +70,89 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/06/714-gao-pao-service/" class="archive-article-date">
-  <time datetime="2020-12-06T01:09:22.000Z" itemprop="datePublished">Dec 6</time>
+        <section id="main"><article id="post-MataMask-Dropped-Replaced" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/05/01/MataMask-Dropped-Replaced/" class="article-date">
+  <time datetime="2021-05-01T18:18:21.000Z" itemprop="datePublished">2021-05-01</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/06/714-gao-pao-service/">714高炮 高炮业务</a>
+    <h1 class="article-title" itemprop="name">
+      MataMask状态：Dropped &amp; Replaced
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/05/22/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/" class="archive-article-date">
-  <time datetime="2020-05-22T20:08:58.000Z" itemprop="datePublished">May 22</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/22/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/">P网 Poloniex 和 B网 Bittrex</a>
-    </h1>
-  
+        <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
+<p>有两种状态：</p>
+<ol>
+<li>Dropped Transaction</li>
+<li>Dropped &amp; Replaced Transaction</li>
+</ol>
+<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
+<p>是Ethereum nodes（也就是矿工）的操作。</p>
+<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
+<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
+<li><p>Ethereum nodes dropped it from transaction pool</p>
+<ul>
+<li>Ethereum nodes 指的是 Geth or Parity</li>
+<li>most likely due to lower gas price</li>
+</ul>
+</li>
+<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
+<ul>
+<li>depends on settings/limits of the individual clients</li>
+</ul>
+</li>
+</ul>
+<h1 id="Dropped-amp-Replaced-Transaction"><a href="#Dropped-amp-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
+<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
+<li>previous txhash invalidated</li>
+</ol>
+<h2 id="Dropped-amp-Replaced-原因"><a href="#Dropped-amp-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
+<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
+<ul>
+<li>a second tx with higher gas price was created to replace it</li>
+</ul>
+</li>
+<li><p>The Ethereum Node that the wallet/service connected to was not fully synced, and an incorrect nonce was used</p>
+</li>
+<li><p>User-initiated to replace or cancel a pending transaction</p>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a href="https://info.etherscan.com/transaction-dropped-replaced/" target="_blank" rel="noopener">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/05/01/MataMask-Dropped-Replaced/" data-id="ckojw7z17000f33qpgvjqashx" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/04/16/Auction-terminologies/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Auction Terms</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
