@@ -103,5 +103,6 @@ Bidders can only decide if and when to exit the arena.
 
 # References
 
+https://en.wikipedia.org/wiki/Auction
 https://goodwaygroup.com/blog/first-price-vs-second-price-auction
 https://en.wikipedia.org/wiki/First-price_sealed-bid_auction
