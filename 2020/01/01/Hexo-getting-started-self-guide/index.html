@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo getting started self guide | Hexo Blog of Uncle Martian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="BackgroundBuild on Node.js, Hexo is a much more user-friendly blogging platform compared to Jekyll or Octopress. However, setting up the source&#x2F;public branch and Github Pages may not be so straight-fo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo getting started self guide">
+<meta property="og:url" content="http://yoursite.com/2020/01/01/Hexo-getting-started-self-guide/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="BackgroundBuild on Node.js, Hexo is a much more user-friendly blogging platform compared to Jekyll or Octopress. However, setting up the source&#x2F;public branch and Github Pages may not be so straight-fo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/hexo-setup-guide-overview.png">
+<meta property="article:published_time" content="2020-01-01T13:58:00.000Z">
+<meta property="article:modified_time" content="2021-09-10T08:53:32.516Z">
+<meta property="article:author" content="Uncle Martian">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/hexo-setup-guide-overview.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo Blog of Uncle Martian" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo Blog of Uncle Martian</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">a crypto journey</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Hexo-getting-started-self-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/01/Hexo-getting-started-self-guide/" class="article-date">
+  <time datetime="2020-01-01T13:58:00.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo getting started self guide
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Build on Node.js, Hexo is a much more user-friendly blogging platform compared to Jekyll or Octopress. However, setting up the source/public branch and Github Pages may not be so straight-forward.</p>
+<p>Here is my personal guide. I refer the the steps below: </p>
+<p><img src="/images/hexo-setup-guide-overview.png" alt=""></p>
+<h2 id="Setup-up-hexo-locally"><a href="#Setup-up-hexo-locally" class="headerlink" title="Setup up hexo locally"></a>Setup up hexo locally</h2><pre><code>npm install hexo-cli -g
+hexo init unclemartian-blog
+cd unclemartian-blog/
+npm i // npm install
+hexo g // generate
+hexo s // serve</code></pre><p>Now Hexo runs locally. </p>
+<h2 id="Upload-to-GitHub"><a href="#Upload-to-GitHub" class="headerlink" title="Upload to GitHub"></a>Upload to GitHub</h2><p>Now you can ‘git init’ and change your github config email and username, if you want to.</p>
+<p>Make sure public/ is gitignore-ed but the theme/ folder is not: </p>
+<pre><code>.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+debug.log</code></pre><p>Then create a repo named unclemartian.github.io</p>
+<pre><code>git checkout -B hexo-source
+git remote add origin git@github.com:unclemartian/unclemartian.github.io.git
+git push -u origin hexo-source</code></pre><p>Now your Github should have hexo code under <strong>hexo-source</strong> branch.</p>
+<h2 id="Setup-Travis-CI"><a href="#Setup-Travis-CI" class="headerlink" title="Setup Travis CI"></a>Setup Travis CI</h2><p>Travis CI is a continuous integration &amp; continuous delivery platform. </p>
+<ol>
+<li><p>Add Travis CI to your account.<br> <a href="https://github.com/marketplace/travis-ci" target="_blank" rel="noopener">https://github.com/marketplace/travis-ci</a></p>
+</li>
+<li><p>Go to Applications settings, configure Travis CI to have access to the repo.<br> <a href="https://github.com/settings/installations" target="_blank" rel="noopener">https://github.com/settings/installations</a></p>
+</li>
+<li><p>On Github, generate a new token with repo scopes. Note down the token value.<br> <a href="https://github.com/settings/tokens" target="_blank" rel="noopener">https://github.com/settings/tokens</a></p>
+</li>
+<li><p>On Travis page, go to your repo’s setting. Under <strong>Environment Variables</strong>, put <strong>GH_TOKEN</strong> as name and paste the token onto value. Click <strong>Add</strong>.<br> <a href="https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings" target="_blank" rel="noopener">https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings</a></p>
+</li>
+</ol>
+<h2 id="Public-to-master"><a href="#Public-to-master" class="headerlink" title="Public to master"></a>Public to master</h2><p>It is required that GitHub Pages <strong>MUST</strong> publish the (content of) public folder on <strong>master branch</strong>.</p>
+<p>Create .travis.yml in hexo folder (alongside _config.yml &amp; package.json).</p>
+<pre><code>sudo: false
+language: node_js
+node_js:
+  - 10 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - hexo-source # build master branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  target_branch: master # generate static files to master
+  on:
+    branch: hexo-source
+  local-dir: public</code></pre><p>Commit to Github, and Travis CI should start automatically. </p>
+<p>Once it’s complete, I can checkout the published blog at: <a href="https://unclemartian.github.io/" target="_blank" rel="noopener">https://unclemartian.github.io/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/01/Hexo-getting-started-self-guide/" data-id="ckte4hogh000c1zrlacw4e34y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/03/23/china-top-leaders-title/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          中共领导人-主席书记等头衔一览（中国最高领导人）
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Defi%E5%80%9F%E8%B4%B7/" rel="tag">Defi借贷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFT%E8%A1%8C%E4%B8%9A/" rel="tag">NFT行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9/" rel="tag">人物</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E9%93%BE/" rel="tag">公链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Defi%E5%80%9F%E8%B4%B7/" style="font-size: 10px;">Defi借贷</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NFT%E8%A1%8C%E4%B8%9A/" style="font-size: 10px;">NFT行业</a> <a href="/tags/%E4%BA%BA%E7%89%A9/" style="font-size: 20px;">人物</a> <a href="/tags/%E5%85%AC%E9%93%BE/" style="font-size: 15px;">公链</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 15px;">术语</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/10/some-ethereum-competitors-2021/">Some of the best Ethereum competitors in 2021</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/01/MataMask-Dropped-Replaced/">MataMask状态：Dropped &amp; Replaced</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/16/Auction-terminologies/">Auction Terms</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/07/top-10-auction-house/">世界十大拍卖行</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/14/Nft-Eco-system-as-of-Feb-2021/">Nft Eco-system as of Feb 2021</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Uncle Martian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
