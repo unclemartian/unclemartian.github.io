@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - 14 # try upgrade to nodejs v14
+  - 12 # try upgrade to nodejs v14
 cache: npm
 branches:
   only:
