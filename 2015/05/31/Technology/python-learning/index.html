@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Python learning notes | Hexo Blog of Uncle Martian</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Python BasicsPython does not use brackets to structure code, instead it uses whitespaces. To define a variableyou do not have to specify the datatype. find the datatype:print type(x)comment# This is a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python learning notes">
+<meta property="og:url" content="http://yoursite.com/2015/05/31/Technology/python-learning/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="Python BasicsPython does not use brackets to structure code, instead it uses whitespaces. To define a variableyou do not have to specify the datatype. find the datatype:print type(x)comment# This is a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-05-31T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-10T09:41:05.440Z">
+<meta property="article:author" content="Uncle Martian">
+<meta property="article:tag" content="Technology">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo Blog of Uncle Martian" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo Blog of Uncle Martian</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">a crypto journey</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Technology/python-learning" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/31/Technology/python-learning/" class="article-date">
+  <time datetime="2015-05-31T00:00:00.000Z" itemprop="datePublished">2015-05-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python learning notes
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Python-Basics"><a href="#Python-Basics" class="headerlink" title="Python Basics"></a>Python Basics</h1><p>Python does not use brackets to structure code, instead it uses whitespaces.</p>
+<h2 id="To-define-a-variable"><a href="#To-define-a-variable" class="headerlink" title="To define a variable"></a>To define a variable</h2><p>you do not have to specify the datatype.</p>
+<h2 id="find-the-datatype"><a href="#find-the-datatype" class="headerlink" title="find the datatype:"></a>find the datatype:</h2><pre><code>print type(x)</code></pre><h2 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h2><pre><code># This is a single line comment
+&apos;&apos;&apos; This is a multi-line Python
+comment. &apos;&apos;&apos;</code></pre><h2 id="ask-the-user-for-input"><a href="#ask-the-user-for-input" class="headerlink" title="ask the user for input"></a>ask the user for input</h2><p>using the raw_input function:</p>
+<pre><code>#!/usr/bin/env python
+
+x = int(raw_input(&quot;Enter x:&quot;))
+y = int(raw_input(&quot;Enter y:&quot;))
+
+sum = x + y
+print sum</code></pre><p>In the latest Python version you can use the input() function instead:</p>
+<pre><code>x = int(input(&quot;Enter x:&quot;))</code></pre><h2 id="do-operations-on-strings"><a href="#do-operations-on-strings" class="headerlink" title="do operations on strings:"></a>do operations on strings:</h2><pre><code>s = &quot;Hello Python&quot;
+print s       # prints whole string
+print s[0]    # prints &quot;H&quot;
+print s[0:2]  # prints &quot;He&quot;
+print s[2:4]  # prints &quot;ll&quot;
+print s[6:]   # prints &quot;Python&quot;
+print s + &apos; &apos; + s # print concatenated string.
+print s.replace(&apos;Hello&apos;,&apos;Thanks&apos;) # print a string with a replaced word</code></pre><h3 id="Python-String-compare"><a href="#Python-String-compare" class="headerlink" title="Python String compare"></a>Python String compare</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q == sentence:
+    print &apos;equal&apos;
+else:
+    print &apos;not equal&apos;</code></pre><h3 id="Python-String-contains"><a href="#Python-String-contains" class="headerlink" title="Python String contains"></a>Python String contains</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q in sentence:
+    print q + &quot; found in &quot; + sentence</code></pre><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code>l = [ &quot;Drake&quot;, &quot;Derp&quot;, &quot;Derek&quot;, &quot;Dominique&quot; ]
+
+print l     # prints all elements
+print l[0]  # print first element
+print l[1]  # prints second element
+
+l.append(&quot;Victoria&quot;)   # add element.
+print l                # print all elements
+l.remove(&quot;Derp&quot;)       # remove element.
+l.remove(&quot;Drake&quot;)      # remove element.
+print l                # print all elements.
+
+l.sort()    # sorts the list in alphabetical order
+l.reverse() # reverse order.</code></pre><p>iteration: </p>
+<pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="A-tuple-is-a-sequence-of-data"><a href="#A-tuple-is-a-sequence-of-data" class="headerlink" title="A tuple is a sequence of data."></a>A tuple is a sequence of data.</h2><p>It is defined as a sequence of elements separated by a comma.</p>
+<pre><code>point = (3,4)
+point2 = (2,6,12)
+
+print point
+print point[0]
+print point[1]
+
+print point2
+print point2[0]
+print point2[1]</code></pre><h2 id="A-dictionary"><a href="#A-dictionary" class="headerlink" title="A dictionary"></a>A dictionary</h2><p>is an unordered set of key:</p>
+<pre><code>words = {}
+words[&quot;Hello&quot;] = &quot;Bonjour&quot;
+words[&quot;Yes&quot;] = &quot;Oui&quot;
+words[&quot;No&quot;] = &quot;Non&quot;
+words[&quot;Bye&quot;] = &quot;Au Revoir&quot;
+
+print words            # print key-pairs.
+del words[&quot;Yes&quot;]       # delete a key-pair.
+print words            # print key-pairs.
+words[&quot;Yes&quot;] = &quot;Oui!&quot;  # add new key-pair.
+print words            # print key-pairs.</code></pre><p>Output:</p>
+<pre><code>{&apos;Yes&apos;: &apos;Oui&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;}
+{&apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;}
+{&apos;Yes&apos;: &apos;Oui!&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;}</code></pre><h2 id="Datatype-casting"><a href="#Datatype-casting" class="headerlink" title="Datatype casting"></a>Datatype casting</h2><table style="width:100%; " class="easy-table easy-table-cuscosky "><thead><tr><th>Function</th><th> Description</th></tr></thead><tbody><tr><td>int(x)</td><td> &nbsp;Converts x to an integer</td></tr><tr><td>long(x)</td><td> Converts x to a long integer</td></tr><tr><td>float(x)</td><td> Converts x to a floating point number</td></tr><tr><td>str(x)</td><td> Converts x to an string. &nbsp;x can be of the type float. integer or long.</td></tr><tr><td>hex(x)</td><td> Converts x integer to a hexadecimal string</td></tr><tr><td>chr(x)</td><td> Converts x integer to a character</td></tr><tr><td>ord(x)</td><td> Converts character x to an integer</td></tr></tbody></table>
+
+<pre><code>x = 3
+y = 2.15315315313532
+
+print &quot;We have defined two numbers,&quot;
+print &quot;x = &quot; + str(x)
+print &quot;y = &quot; + str(y)
+
+a = &quot;135.31421&quot;
+b = &quot;133.1112223&quot;
+
+c = float(a) + float(b)
+print c</code></pre><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><pre><code>print &quot;Guess my age&quot;
+guess = int(raw_input(&quot;Guess: &quot;))
+
+if guess &gt; 10 and guess &lt; 20:
+    print &quot;In range&quot;
+else:
+    print &quot;Out of range&quot;</code></pre><h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><pre><code>def doA():
+    a = 5
+
+def doB(a):
+    print a   # this will work
+
+doB(3)</code></pre><h2 id="For-loop-1"><a href="#For-loop-1" class="headerlink" title="For loop 1"></a>For loop 1</h2><pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="For-loop-2"><a href="#For-loop-2" class="headerlink" title="For loop 2"></a>For loop 2</h2><pre><code>for x in range(1,10):
+    for y in range(1,10):
+        print &quot;(&quot; + str(x) + &quot;,&quot; + str(y) + &quot;)&quot;</code></pre><h2 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h2><pre><code>while button_not_pressed:
+     drive()</code></pre><h1 id="Python-OOP"><a href="#Python-OOP" class="headerlink" title="Python OOP"></a>Python OOP</h1><h2 id="class-in-Python"><a href="#class-in-Python" class="headerlink" title="class in Python"></a>class in Python</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def sayHello(self):
+        print &quot;Hello, my name is &quot; + self.name
+
+# create virtual objects
+james = User(&quot;James&quot;)
+david = User(&quot;David&quot;)
+eric = User(&quot;Eric&quot;)
+
+# call methods owned by virtual objects
+james.sayHello()
+david.sayHello()</code></pre><h2 id="inheritance"><a href="#inheritance" class="headerlink" title="inheritance"></a>inheritance</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def printName(self):
+        print &quot;Name  = &quot; + self.name
+
+class Programmer(User):
+    def __init__(self, name):
+        self.name = name
+
+    def doPython(self):
+        print &quot;Programming Python&quot;
+
+brian = User(&quot;brian&quot;)
+brian.printName()
+
+diana = Programmer(&quot;Diana&quot;)
+diana.printName()
+diana.doPython()</code></pre><h2 id="polymorphism"><a href="#polymorphism" class="headerlink" title="polymorphism"></a>polymorphism</h2><pre><code>class Bear(object):
+def sound(self):
+    print &quot;Groarrr&quot;
+
+class Dog(object):
+def sound(self):
+    print &quot;Woof woof!&quot;
+
+def makeSound(animalType):
+animalType.sound()
+
+bearObj = Bear()
+dogObj = Dog()
+
+makeSound(bearObj)
+makeSound(dogObj)</code></pre><h2 id="polymorphism-with-abstract-class"><a href="#polymorphism-with-abstract-class" class="headerlink" title="polymorphism with abstract class"></a>polymorphism with abstract class</h2><pre><code>class Document:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Pdf(Document):
+    def show(self):
+        return &apos;Show pdf contents!&apos;
+
+class Word(Document):
+    def show(self):
+        return &apos;Show word contents!&apos;
+
+documents = [Pdf(&apos;Document1&apos;),
+             Pdf(&apos;Document2&apos;),
+             Word(&apos;Document3&apos;)]
+
+for document in documents:
+    print document.name + &apos;: &apos; + document.show()</code></pre><p>Output:</p>
+<pre><code>Document1: Show pdf contents!
+Document2: Show pdf contents!
+Document3: Show word contents!</code></pre><h2 id="another-example"><a href="#another-example" class="headerlink" title="another example"></a>another example</h2><p>of abstract class:</p>
+<pre><code>class Car:
+    def __init__(self, name):
+        self.name = name
+
+    def drive(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+    def stop(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Sportscar(Car):
+    def drive(self):
+        return &apos;Sportscar driving!&apos;
+
+    def stop(self):
+        return &apos;Sportscar breaking!&apos;
+
+class Truck(Car):
+    def drive(self):
+        return &apos;Truck driving slowly because heavily loaded.&apos;
+
+    def stop(self):
+        return &apos;Truck breaking!&apos;
+
+
+cars = [Truck(&apos;Bananatruck&apos;),
+        Truck(&apos;Orangetruck&apos;),
+        Sportscar(&apos;Z3&apos;)]
+
+for car in cars:
+    print car.name + &apos;: &apos; + car.drive()</code></pre><p>Output:</p>
+<pre><code>Bananatruck: Truck driving slowly because heavily loaded.
+Orangetruck: Truck driving slowly because heavily loaded.
+Z3: Sportscar driving!</code></pre><p>Reference: <a href="https://pythonspot.com/beginner/" target="_blank" rel="noopener">Python Beginner by pythonspot.com</a></p>
+<h1 id="Python-tricks"><a href="#Python-tricks" class="headerlink" title="Python tricks"></a>Python tricks</h1><h2 id="start-a-simple-HTTP-server"><a href="#start-a-simple-HTTP-server" class="headerlink" title="start a simple HTTP server:"></a>start a simple HTTP server:</h2><pre><code>python -m SimpleHTTPServer</code></pre><h2 id="Using-Zip"><a href="#Using-Zip" class="headerlink" title="Using Zip"></a>Using Zip</h2><p>to combine arrays</p>
+<pre><code>&gt;&gt;&gt; b = [[1, 2, 3, 4], [6, 5, 4, 3]]
+&gt;&gt;&gt; zip(*b)
+[(1, 6), (2, 5), (3, 4), (4, 3)]</code></pre><h2 id="We-know-that-“array-reverse-”-will-reverse-an-array"><a href="#We-know-that-“array-reverse-”-will-reverse-an-array" class="headerlink" title="We know that “array.reverse()” will reverse an array."></a>We know that “array.reverse()” will reverse an array.</h2><p>How do we reverse a string?</p>
+<pre><code>&gt;&gt;&gt; s = &quot;Hello world&quot;
+&gt;&gt;&gt; s = s[::-1]
+&gt;&gt;&gt; print s
+dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables" class="headerlink" title="Swapping variables"></a>Swapping variables</h2><pre><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 3
+&gt;&gt;&gt; b,a = a,b
+&gt;&gt;&gt; print a
+3
+&gt;&gt;&gt; print b
+1</code></pre><p>Reference: <a href="https://pythonspot.com/fun-tricks-with-python/" target="_blank" rel="noopener">Fun tricks with Python, pythonspot.com</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/05/31/Technology/python-learning/" data-id="ckte66twe001n29o605badhcw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Technology/" rel="tag">Technology</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/31/Technology/php-learning/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PHP learning notes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/24/Technology/regex/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Regular Expression Learning Notes</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Defi%E5%80%9F%E8%B4%B7/" rel="tag">Defi借贷</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NFT%E8%A1%8C%E4%B8%9A/" rel="tag">NFT行业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technology/" rel="tag">Technology</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E7%89%A9/" rel="tag">人物</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E9%93%BE/" rel="tag">公链</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%89%BA%E6%9C%AF/" rel="tag">艺术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="tag">读书笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Defi%E5%80%9F%E8%B4%B7/" style="font-size: 10px;">Defi借贷</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/NFT%E8%A1%8C%E4%B8%9A/" style="font-size: 10px;">NFT行业</a> <a href="/tags/Technology/" style="font-size: 20px;">Technology</a> <a href="/tags/%E4%BA%BA%E7%89%A9/" style="font-size: 15px;">人物</a> <a href="/tags/%E5%85%AC%E9%93%BE/" style="font-size: 12.5px;">公链</a> <a href="/tags/%E6%9C%AF%E8%AF%AD/" style="font-size: 12.5px;">术语</a> <a href="/tags/%E8%89%BA%E6%9C%AF/" style="font-size: 12.5px;">艺术</a> <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" style="font-size: 17.5px;">读书笔记</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/02/">February 2012</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2001/01/">January 2001</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/09/10/some-ethereum-competitors-2021/">Some of the best Ethereum competitors in 2021</a>
+          </li>
+        
+          <li>
+            <a href="/2021/05/01/MataMask-Dropped-Replaced/">MataMask状态：Dropped &amp; Replaced</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/16/Auction-terminologies/">Auction Terms</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/07/top-10-auction-house/">世界十大拍卖行</a>
+          </li>
+        
+          <li>
+            <a href="/2021/03/14/Nft-Eco-system-as-of-Feb-2021/">Nft Eco-system as of Feb 2021</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Uncle Martian<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
