@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="BackgroundBuild on Node.js, Hexo is a much more user-friendly blogging platform compared to Jekyll or Octopress. However, setting up the source&#x2F;public branch and Github Pages may not be so straight-fo">
@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/hexo-setup-guide-overview.png">
 <meta property="article:published_time" content="2020-01-01T13:58:00.000Z">
-<meta property="article:modified_time" content="2021-09-11T18:36:03.633Z">
+<meta property="article:modified_time" content="2021-09-11T20:10:24.081Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 18:36:03" itemprop="dateModified" datetime="2021-09-11T18:36:03+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-11 20:10:24" itemprop="dateModified" datetime="2021-09-11T20:10:24+00:00">2021-09-11</time>
               </span>
 
           
@@ -201,14 +201,35 @@
         <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Build on Node.js, Hexo is a much more user-friendly blogging platform compared to Jekyll or Octopress. However, setting up the source/public branch and Github Pages may not be so straight-forward.</p>
 <p>Here is my personal guide. I refer the the steps below: </p>
 <p><img src="/images/hexo-setup-guide-overview.png" alt=""></p>
-<h2 id="Setup-up-hexo-locally"><a href="#Setup-up-hexo-locally" class="headerlink" title="Setup up hexo locally"></a>Setup up hexo locally</h2><pre><code>npm install hexo-cli -g
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>有两种管理 Github Pages 的方法。</p>
+<p>一种是 Github 默认的 Pages 功能，我们只需要本地 hexo build 之后 hexo deploy 就好，原理是上传了本地编译好的 /public 文件夹。</p>
+<blockquote>
+<p>For GitHub pages deployment, you have to push the <strong>public folder</strong> of Hexo to the <strong>master branch</strong> of “yourname.github.io” repo in your GitHub account.<br>Make sure the repo name is correct. And “yourname” must match the GitHub account name.<br>After “hexo deploy”, the changes should be reflected within 5 seconds.</p>
+</blockquote>
+<p>第二种方式是，线上编译（使用 Trvis 免费版）。</p>
+<p>前者比较难管理 git remote，所以我决定用后者方式管理发布。</p>
+<h1 id="Step-One-Setup-up-hexo-locally"><a href="#Step-One-Setup-up-hexo-locally" class="headerlink" title="Step One: Setup up hexo locally"></a>Step One: Setup up hexo locally</h1><h2 id="如果已有-repo"><a href="#如果已有-repo" class="headerlink" title="如果已有 repo"></a>如果已有 repo</h2><p>注意一定不要 <strong>clone master branch</strong>，因为没有任何有效信息。</p>
+<p>一定要 <strong>clone hexo-source</strong> 这个 branch！！！</p>
+<pre><code>git clone -b hexo-source git@github.com:unclemartian/unclemartian.github.io.git
+cd unclemartian.github.io/
+git branch
+git clone https://github.com/theme-next/hexo-theme-next themes/next
+cd themes/next/
+rm -rf .git .gitattributes
+rm -rf .github/
+cd ../..
+git branch
+git status
+npm i
+hexo g
+hexo s</code></pre><p>为什么要删掉 theme 文件夹 里面的git信息呢？因为 git 使用 submodule 来管理嵌套的 repo，导致 travis 拿不到theme 的源码，之后的自动发布步骤，travis 会报错说 “no layout…”。</p>
+<p>所以，一定要把 theme 文件当作源码的一部分，check in 到 hexo 博客代码中去。（当然，我也看过说<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903751908605965">用 fork/merge 的方法</a>来管理，还可以得到 theme updates。太麻烦了，算了）。</p>
+<h2 id="如果是新建-repo"><a href="#如果是新建-repo" class="headerlink" title="如果是新建 repo"></a>如果是新建 repo</h2><pre><code>npm install hexo-cli -g
 hexo init unclemartian-blog
 cd unclemartian-blog/
 npm i // npm install
 hexo g // generate
-hexo s // serve</code></pre><p>Now Hexo runs locally. </p>
-<h2 id="Upload-to-GitHub"><a href="#Upload-to-GitHub" class="headerlink" title="Upload to GitHub"></a>Upload to GitHub</h2><p>Now you can ‘git init’ and change your github config email and username, if you want to.</p>
-<p>Make sure public/ is gitignore-ed but the theme/ folder is not: </p>
+hexo s // serve</code></pre><p>Next step, make sure public/ is gitignore-ed but the theme/ folder is not: </p>
 <pre><code>.DS_Store
 Thumbs.db
 db.json
@@ -216,12 +237,14 @@ db.json
 node_modules/
 public/
 .deploy*/
-debug.log</code></pre><p>Then create a repo named unclemartian.github.io</p>
+debug.log</code></pre><p>Then on GitHub, create a repo named unclemartian.github.io</p>
 <pre><code>git checkout -B hexo-source
 git remote add origin git@github.com:unclemartian/unclemartian.github.io.git
 git push -u origin hexo-source</code></pre><p>Now your Github should have hexo code under <strong>hexo-source</strong> branch.</p>
-<h2 id="Setup-Travis-CI"><a href="#Setup-Travis-CI" class="headerlink" title="Setup Travis CI"></a>Setup Travis CI</h2><p>Travis CI is a continuous integration &amp; continuous delivery platform. </p>
-<ol>
+<p>以上，Hexo 本地配置完成，我们转战线上发版。</p>
+<h1 id="Step-Two-Setup-Travis-CI"><a href="#Step-Two-Setup-Travis-CI" class="headerlink" title="Step Two: Setup Travis CI"></a>Step Two: Setup Travis CI</h1><p>Travis CI is a continuous integration &amp; continuous delivery platform. </p>
+<p>Travis-ci 主要功能，如开篇的图所示：拿到 hexo-source 的代码，运行 hexo generate，然后部署到 github 的 master 分支上，到此为止。余下的工作由 github pages 自动进行。</p>
+<h2 id="Basic-Setup"><a href="#Basic-Setup" class="headerlink" title="Basic Setup"></a>Basic Setup</h2><ol>
 <li><p>Add Travis CI to your account.<br> <a target="_blank" rel="noopener" href="https://github.com/marketplace/travis-ci">https://github.com/marketplace/travis-ci</a></p>
 </li>
 <li><p>Go to Applications settings, configure Travis CI to have access to the repo.<br> <a target="_blank" rel="noopener" href="https://github.com/settings/installations">https://github.com/settings/installations</a></p>
@@ -231,12 +254,12 @@ git push -u origin hexo-source</code></pre><p>Now your Github should have hexo c
 <li><p>On Travis page, go to your repo’s setting. Under <strong>Environment Variables</strong>, put <strong>GH_TOKEN</strong> as name and paste the token onto value. Click <strong>Add</strong>.<br> <a target="_blank" rel="noopener" href="https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings">https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings</a></p>
 </li>
 </ol>
-<h2 id="Public-to-master"><a href="#Public-to-master" class="headerlink" title="Public to master"></a>Public to master</h2><p>It is required that GitHub Pages <strong>MUST</strong> publish the (content of) public folder on <strong>master branch</strong>.</p>
-<p>Create .travis.yml in hexo folder (alongside _config.yml &amp; package.json).</p>
+<h2 id="publish-to-master"><a href="#publish-to-master" class="headerlink" title="publish to master"></a>publish to master</h2><p>It is required that GitHub Pages <strong>MUST</strong> publish the (content of) public folder on <strong>master branch</strong>.</p>
+<p>Create <strong>.travis.yml</strong> in hexo folder (alongside _config.yml &amp; package.json).</p>
 <pre><code>sudo: false
 language: node_js
 node_js:
-  - 10 # use nodejs v10 LTS
+  - 14 # use nodejs v10 LTS
 cache: npm
 branches:
   only:
@@ -252,7 +275,13 @@ deploy:
   on:
     branch: hexo-source
   local-dir: public</code></pre><p>Commit to Github, and Travis CI should start automatically. </p>
-<p>Once it’s complete, I can checkout the published blog at: <a target="_blank" rel="noopener" href="https://unclemartian.github.io/">https://unclemartian.github.io/</a></p>
+<h1 id="Last-monitor-and-release"><a href="#Last-monitor-and-release" class="headerlink" title="Last, monitor and release"></a>Last, monitor and release</h1><h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><ol>
+<li>查看 hexo-source 源码状态：<a target="_blank" rel="noopener" href="https://github.com/unclemartian/unclemartian.github.io/commits/hexo-source">https://github.com/unclemartian/unclemartian.github.io/commits/hexo-source</a></li>
+<li>查看 trvis-ci 状态：<a target="_blank" rel="noopener" href="https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds">https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds</a></li>
+<li>查看 master branch 部署状态：<a target="_blank" rel="noopener" href="https://github.com/unclemartian/unclemartian.github.io/commits/master">https://github.com/unclemartian/unclemartian.github.io/commits/master</a></li>
+<li>查看 Github Pages 部署的状态：<a target="_blank" rel="noopener" href="https://github.com/unclemartian/unclemartian.github.io/deployments">https://github.com/unclemartian/unclemartian.github.io/deployments</a></li>
+</ol>
+<p>Once it’s complete, checkout the published blog at: <a target="_blank" rel="noopener" href="https://unclemartian.github.io/">https://unclemartian.github.io/</a></p>
 
     </div>
 
@@ -336,7 +365,7 @@ deploy:
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-up-hexo-locally"><span class="nav-number">1.1.</span> <span class="nav-text">Setup up hexo locally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Upload-to-GitHub"><span class="nav-number">1.2.</span> <span class="nav-text">Upload to GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-Travis-CI"><span class="nav-number">1.3.</span> <span class="nav-text">Setup Travis CI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Public-to-master"><span class="nav-number">1.4.</span> <span class="nav-text">Public to master</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F"><span class="nav-number">1.1.</span> <span class="nav-text">注意</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step-One-Setup-up-hexo-locally"><span class="nav-number">2.</span> <span class="nav-text">Step One: Setup up hexo locally</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%B7%B2%E6%9C%89-repo"><span class="nav-number">2.1.</span> <span class="nav-text">如果已有 repo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%98%AF%E6%96%B0%E5%BB%BA-repo"><span class="nav-number">2.2.</span> <span class="nav-text">如果是新建 repo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Step-Two-Setup-Travis-CI"><span class="nav-number">3.</span> <span class="nav-text">Step Two: Setup Travis CI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Setup"><span class="nav-number">3.1.</span> <span class="nav-text">Basic Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#publish-to-master"><span class="nav-number">3.2.</span> <span class="nav-text">publish to master</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Last-monitor-and-release"><span class="nav-number">4.</span> <span class="nav-text">Last, monitor and release</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Useful-links"><span class="nav-number">4.1.</span> <span class="nav-text">Useful links</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -388,7 +417,7 @@ deploy:
   </span>
   <span class="author" itemprop="copyrightHolder">Uncle Martian</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
   </div>
 
         
