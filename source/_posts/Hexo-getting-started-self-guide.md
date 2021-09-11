@@ -1,6 +1,6 @@
 ---
 title: Hexo getting started self guide
-date: 2020-01-01 13:58:00
+date: 2000-01-01 13:58:00
 tags: Hexo
 ---
 
@@ -26,7 +26,7 @@ Here is my personal guide. I refer the the steps below:
 
 前者比较难管理 git remote，所以我决定用后者方式管理发布。
 
-# Step One: Setup up hexo locally
+# Step 1: setup hexo locally
 
 ## 如果已有 repo
 
@@ -82,7 +82,7 @@ Now your Github should have hexo code under __hexo-source__ branch.
 
 以上，Hexo 本地配置完成，我们转战线上发版。
 
-# Step Two: Setup Travis CI
+# Step 2: setup travis-ci
 
 Travis CI is a continuous integration & continuous delivery platform. 
 
@@ -102,7 +102,7 @@ Travis-ci 主要功能，如开篇的图所示：拿到 hexo-source 的代码，
 1. On Travis page, go to your repo’s setting. Under __Environment Variables__, put __GH_TOKEN__ as name and paste the token onto value. Click __Add__.
     https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings
 
-## publish to master
+## Publish to master
 
 It is required that GitHub Pages __MUST__ publish the (content of) public folder on __master branch__.
 
@@ -130,7 +130,7 @@ Create __.travis.yml__ in hexo folder (alongside _config.yml & package.json).
 
 Commit to Github, and Travis CI should start automatically. 
 
-# Last, monitor and release
+# Step 3: monitor and release
 
 ## Useful links
 
@@ -138,5 +138,23 @@ Commit to Github, and Travis CI should start automatically.
 1. 查看 trvis-ci 状态：https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds
 1. 查看 master branch 部署状态：https://github.com/unclemartian/unclemartian.github.io/commits/master
 1. 查看 Github Pages 部署的状态：https://github.com/unclemartian/unclemartian.github.io/deployments
+
+## Hexo commands abbreviation
+
+    # 常用
+    hexo n == hexo new
+    hexo g == hexo generate
+    hexo s == hexo server
+    
+    # 不要使用
+    hexo d == hexo deploy 
+
+## Hexo day-to-day
+
+以后每天更博之后，只需要运行3行代码，既可自动发版（甚至可以用VSCode自动化）：
+
+    git add .
+    git commit -m 'modify hexo get started guide' 
+    git push origin hexo-source 
 
 Once it's complete, checkout the published blog at: https://unclemartian.github.io/
