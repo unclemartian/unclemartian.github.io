@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Overviewnginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP proxy server.  For a long time, it has been running on many heavily loaded Russian sites, and recen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx tutorial">
+<meta property="og:url" content="http://yoursite.com/2015/04/30/learn%20technology/nginx/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="Overviewnginx [engine x] is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP proxy server.  For a long time, it has been running on many heavily loaded Russian sites, and recen">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-04-30T00:00:00.000Z">
+<meta property="article:modified_time" content="2021-09-11T18:36:03.637Z">
+<meta property="article:author" content="Uncle Martian">
+<meta property="article:tag" content="Technology">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2015/04/30/learn%20technology/nginx/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Nginx tutorial | Hexo Blog of Uncle Martian</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo Blog of Uncle Martian</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">a crypto journey</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/30/learn%20technology/nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx tutorial
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-04-30 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-30T00:00:00+00:00">2015-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-11 18:36:03" itemprop="dateModified" datetime="2021-09-11T18:36:03+00:00">2021-09-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>nginx [engine x] is <strong>an HTTP and reverse proxy server</strong>, a mail proxy server, and a generic TCP proxy server. </p>
+<p>For a long time, it has been running on many heavily loaded Russian sites, and recently, Netflix, Wordpress.com. </p>
+<p>Ref: <a target="_blank" rel="noopener" href="http://nginx.org/en/">nginx</a></p>
+<p><strong>nginx has one master process and several worker processes</strong>. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests. </p>
+<h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="start-nginx"><a href="#start-nginx" class="headerlink" title="start nginx"></a>start nginx</h2><pre><code>nginx</code></pre><h2 id="stop-nginx"><a href="#stop-nginx" class="headerlink" title="stop nginx"></a>stop nginx</h2><pre><code>nginx -s signal</code></pre><p>signal: </p>
+<ol>
+<li><p>stop — fast shutdown</p>
+</li>
+<li><p>quit — graceful shutdown</p>
+</li>
+<li><p>reload — reloading the configuration file</p>
+</li>
+<li><p>reopen — reopening the log files</p>
+</li>
+</ol>
+<h2 id="List-of-running-nginx-process"><a href="#List-of-running-nginx-process" class="headerlink" title="List of running nginx process"></a>List of running nginx process</h2><pre><code>ps -ax | grep nginx</code></pre><h1 id="config-file：-nginx-conf"><a href="#config-file：-nginx-conf" class="headerlink" title="config file： nginx.conf"></a>config file： nginx.conf</h1><p><strong>nginx.conf</strong></p>
+<p>By default, the configuration file is placed in <strong>/etc/nginx</strong>. (If not, check /usr/local/nginx/conf, or /usr/local/etc/nginx.)</p>
+<h2 id="first-part"><a href="#first-part" class="headerlink" title="first part"></a>first part</h2><pre><code>user www-data;
+worker_processes 4;
+pid /run/nginx.pid;
+
+events &#123;
+    worker_connections 768;
+    # multi_accept on;
+&#125;</code></pre><ol>
+<li><p>user</p>
+<p> Defines which Linux system user will own and run the Nginx server. Most Debian-based distributions use www-data</p>
+<p> In case you run two simultaneous web servers, or need another program’s user to have control over Nginx, you can play with it.</p>
+</li>
+<li><p>worker_process</p>
+<p> Defines how many threads, or simultaneous instances, of Nginx to run. </p>
+</li>
+<li><p>pid</p>
+<p> Defines where Nginx will write its master process ID, or PID. </p>
+<blockquote>
+<p>On my machine, the file /run/nginx.pid store a single number 724. </p>
+</blockquote>
+</li>
+</ol>
+<h2 id="http-part"><a href="#http-part" class="headerlink" title="http part"></a>http part</h2><pre><code>http &#123;
+
+    ##
+    # Basic Settings
+    ##
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    # server_tokens off;
+
+    # server_names_hash_bucket_size 64;
+    # server_name_in_redirect off;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    ##
+    # Logging Settings
+    ##
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    ##
+    # Gzip Settings
+    ##
+
+    gzip on;
+    gzip_disable &quot;msie6&quot;;
+
+    # gzip_vary on;
+    # gzip_proxied any;
+    # gzip_comp_level 6;
+    # gzip_buffers 16 8k;
+    # gzip_http_version 1.1;
+    # gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+    ##
+    # nginx-naxsi config
+    ##
+    # Uncomment it if you installed nginx-naxsi
+    ##
+
+    #include /etc/nginx/naxsi_core.rules;
+
+    ##
+    # nginx-passenger config
+    ##
+    # Uncomment it if you installed nginx-passenger
+    ##
+
+    #passenger_root /usr;
+    #passenger_ruby /usr/bin/ruby;
+
+    ##
+    # Virtual Host Configs
+    ##
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+&#125;</code></pre><p>Note: The HTTP block of the nginx.conf file contains the statement include <strong>/etc/nginx/sites-enabled/*;</strong>. This allows for server block configurations to be loaded in from separate files found in <strong>the sites-enabled sub-directory</strong>. </p>
+<p>Usually these are <strong>symlinks to files stored in /etc/nginx/sites-available/</strong>. By using symlinks you can quickly enable or disable a virtual server while preserving its configuration file. </p>
+<h1 id="config-file-for-sites"><a href="#config-file-for-sites" class="headerlink" title="config file for sites"></a>config file for sites</h1><h2 id="sites-available"><a href="#sites-available" class="headerlink" title="sites-available"></a>sites-available</h2><p><strong>/etc/nginx/sites-available/default</strong> is a template provided for you. </p>
+<pre><code>server &#123;
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name localhost;
+
+        location / &#123;
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ /index.html;
+                # Uncomment to enable naxsi on this location
+                # include /etc/nginx/naxsi.rules
+        &#125;
+&#125;</code></pre><p><strong>Do not modify this file</strong>. Generally, you’ll want to make a separate file with its own server block for each virtual domain on your server.  So do: </p>
+<pre><code>cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com</code></pre><h2 id="listen-directive"><a href="#listen-directive" class="headerlink" title="listen directive"></a>listen directive</h2><pre><code>listen 80 default_server;
+listen [::]:80 default_server ipv6only=on;</code></pre><p>The argument <strong>default_server</strong> means this virtual host will answer requests on port 80 that don’t match any other virtual host’s listen statement. </p>
+<p>The second statement listens over IPv6 and behaves in the same way.</p>
+<pre><code>listen     127.0.0.1:80;
+listen     localhost:80;</code></pre><p>Note: localhost is conventionally set as the hostname for 127.0.0.1 in /etc/hosts.</p>
+<pre><code>listen     80;
+listen     *:80;</code></pre><p>This will listen on all domains and IP addresses on port 80. <strong>listen 80;</strong> is equivalent to <strong>listen *:80;</strong></p>
+<pre><code>listen     12.34.56.77:80;
+listen     12.34.56.78:80;
+listen     12.34.56.79:80;       
+listen     12.34.56.79:8080;       </code></pre><p>This will listen on multiple IP/port. </p>
+<h2 id="server-name-directive"><a href="#server-name-directive" class="headerlink" title="server_name directive"></a>server_name directive</h2><p>Common:</p>
+<pre><code>server_name   example.com;</code></pre><p>Or</p>
+<pre><code>server_name   example.com www.example.com;</code></pre><p>Now this:</p>
+<pre><code>server_name   *.example.com;
+server_name   .example.com;</code></pre><p>will listen to all subdomains of example.com, including <a target="_blank" rel="noopener" href="http://www.example.com">www.example.com</a>, foo.example.com, etc. <strong>Both equivalent</strong>.</p>
+<pre><code>server_name   &quot;&quot;;</code></pre><p>If you set server_name to the empty quote set (”“), Nginx will process <strong>all requests that either</strong> do not have a hostname, <strong>or</strong> that have an unspecified hostname, such as requests for the IP address itself.</p>
+<h2 id="location-directive"><a href="#location-directive" class="headerlink" title="location directive"></a>location directive</h2><p><strong>location</strong> setting lets you configure how Nginx will respond to requests for resources within the server.</p>
+<p>eg. </p>
+<pre><code>location / &#123; &#125; 
+location /images/ &#123; &#125; 
+location /blog/ &#123; &#125; 
+location /planet/ &#123; &#125; 
+location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual path in the file system (that is under /etc/nginx/ folder). Or we can also set <strong>proxy_pass</strong> directive. </p>
+<p>Ref 1: <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/beginners_guide.html">nginx Beginner’s Guide</a></p>
+<p>Ref 2: <a target="_blank" rel="noopener" href="https://www.linode.com/docs/websites/nginx/basic-nginx-configuration#location-root-and-index">Basic Nginx Configuration by Linode</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Technology/" rel="tag"># Technology</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/04/28/learn%20technology/linux-directory/" rel="prev" title="Linux Directory Structure">
+      <i class="fa fa-chevron-left"></i> Linux Directory Structure
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/05/14/learn%20technology/ssh-keys-github/" rel="next" title="SSH keys setup for GitHub">
+      SSH keys setup for GitHub <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Basics"><span class="nav-number">2.</span> <span class="nav-text">Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#start-nginx"><span class="nav-number">2.1.</span> <span class="nav-text">start nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stop-nginx"><span class="nav-number">2.2.</span> <span class="nav-text">stop nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List-of-running-nginx-process"><span class="nav-number">2.3.</span> <span class="nav-text">List of running nginx process</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#config-file%EF%BC%9A-nginx-conf"><span class="nav-number">3.</span> <span class="nav-text">config file： nginx.conf</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#first-part"><span class="nav-number">3.1.</span> <span class="nav-text">first part</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http-part"><span class="nav-number">3.2.</span> <span class="nav-text">http part</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#config-file-for-sites"><span class="nav-number">4.</span> <span class="nav-text">config file for sites</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sites-available"><span class="nav-number">4.1.</span> <span class="nav-text">sites-available</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#listen-directive"><span class="nav-number">4.2.</span> <span class="nav-text">listen directive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-name-directive"><span class="nav-number">4.3.</span> <span class="nav-text">server_name directive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location-directive"><span class="nav-number">4.4.</span> <span class="nav-text">location directive</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Uncle Martian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uncle Martian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
