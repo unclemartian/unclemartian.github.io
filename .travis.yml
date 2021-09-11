@@ -1,13 +1,13 @@
 sudo: false
 language: node_js
 node_js:
-  - 12 # try upgrade to nodejs v14
+  - 14 # try upgrade to nodejs v14
 cache: npm
 branches:
   only:
     - hexo-source # build master branch only
 script:
-  - hexo generate # generate static files
+  - git clone https://github.com/theme-next/hexo-theme-next.git themes/next && hexo generate # generate static files
 deploy:
   provider: pages
   skip-cleanup: true
