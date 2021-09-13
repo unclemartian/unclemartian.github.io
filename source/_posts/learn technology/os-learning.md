@@ -1,7 +1,7 @@
 ---
-title: Operating System learning notes
+title: 【Tech】Operating System learning notes
 date: 2015-08-10 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # Definition

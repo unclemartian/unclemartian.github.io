@@ -1,7 +1,7 @@
 ---
-title: PHP learning notes
+title: 【Tech】PHP learning notes
 date: 2015-05-31 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # PHP language

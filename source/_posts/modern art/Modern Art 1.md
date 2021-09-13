@@ -1,5 +1,5 @@
 ---
-title: Modern Art and Ideas (Week 1), Introduction
+title: 【Modern Art】Week 1, Introduction
 date: 2016-07-31 10:00:00
 tags: arts
 ---

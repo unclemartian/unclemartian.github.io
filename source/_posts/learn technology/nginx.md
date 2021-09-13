@@ -1,7 +1,7 @@
 ---
-title: Nginx tutorial
+title: 【Tech】Nginx tutorial
 date: 2015-04-30 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # Overview

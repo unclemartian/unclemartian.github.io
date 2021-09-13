@@ -1,5 +1,5 @@
 ---
-title: Modern Art and Ideas (Week 1), Art Periods
+title: 【Modern Art】Week 2, Art Periods
 date: 2016-07-31 14:00:00
 tags: arts
 ---

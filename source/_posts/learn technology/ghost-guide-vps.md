@@ -1,7 +1,7 @@
 ---
-title: Quick setup guide of Ghost on VPS
+title: 【Tech】Quick setup guide of Ghost on VPS
 date: 2015-04-27 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # Motivation

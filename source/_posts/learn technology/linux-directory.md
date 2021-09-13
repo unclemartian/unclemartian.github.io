@@ -1,7 +1,7 @@
 ---
-title: Linux Directory Structure
+title: 【Tech】Linux Directory Structure
 date: 2015-04-28 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # Overview

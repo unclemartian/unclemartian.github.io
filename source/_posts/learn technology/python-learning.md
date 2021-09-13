@@ -1,7 +1,7 @@
 ---
-title: Python learning notes
+title: 【Tech】Python learning notes
 date: 2015-05-31 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # Python Basics

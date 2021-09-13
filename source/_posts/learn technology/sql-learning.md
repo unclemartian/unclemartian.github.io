@@ -1,7 +1,7 @@
 ---
-title: SQL learning notes
+title: 【Tech】SQL learning notes
 date: 2015-09-20 00:00:00
-tags: Technology
+tags: technology
 ---
 
 Raw data: 

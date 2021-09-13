@@ -1,7 +1,7 @@
 ---
-title: HTTP learning notes (2/3) security
+title: 【Tech】HTTP learning notes (2/3) security
 date: 2015-06-06 00:00:00
-tags: Technology
+tags: technology
 ---
 
 # _图解 http_读书笔记
