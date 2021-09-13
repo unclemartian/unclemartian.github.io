@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/learn%20crypoto/Stabletoken%20Overview%20Celo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/15/learn%20crypto/correspondent-banking-in-payments/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,335 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/04/07/learn%20crypoto/Stabletoken%20Overview%20Celo/" class="post-title-link" itemprop="url">Stabletoken Overview Celo</a>
+            <a href="/2020/04/15/learn%20crypto/correspondent-banking-in-payments/" class="post-title-link" itemprop="url">【Crypto】Correspondent Banking in Swift Payments</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-15 21:48:36" itemprop="dateCreated datePublished" datetime="2020-04-15T21:48:36+00:00">2020-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Opening-Message"><a href="#Opening-Message" class="headerlink" title="Opening Message"></a>Opening Message</h1><p>The SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with each other (either directly or through intermediary banks). Check <a target="_blank" rel="noopener" href="https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/">this link</a> out.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><h3 id="Correspondent-Bank"><a href="#Correspondent-Bank" class="headerlink" title="Correspondent Bank"></a>Correspondent Bank</h3><p>“an arrangement under which one bank (correspondent) holds deposits owned by other banks (respondents) and provides payment and other services to those respondent banks” (BIS, 2016).</p>
+<h3 id="Settlement"><a href="#Settlement" class="headerlink" title="Settlement"></a>Settlement</h3><p>“the discharge of an obligation in accordance with the terms of the underlying contract” (BIS, Glossary),</p>
+<h2 id="The-Risks"><a href="#The-Risks" class="headerlink" title="The Risks"></a>The Risks</h2><ol>
+<li>Market, </li>
+<li>FX, </li>
+<li>credit</li>
+<li>counterparty </li>
+<li>regulatory risk (e.g. Anti-Money Laundering (AML) and Counter Terrorism Financing (CTF))</li>
+</ol>
+<p>What is <strong>settlement risk</strong>? The bank could default. (eg. Herstatt Bank)</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>Continued decrease in correspondent banking relationships, regulatory compliance is certainly playing a role</p>
+<p>50% of banks have &lt;= 2 correspond banks</p>
+<h1 id="SWIFT-Org"><a href="#SWIFT-Org" class="headerlink" title="SWIFT Org"></a>SWIFT Org</h1><p>1973 The Society for Worldwide Interbank Financial Telecommunication (“S.W.I.F.T.”). Or SWIFT</p>
+<p>Not for profit organisation</p>
+<p>Provide hardware with global data centres, typically:</p>
+<ol>
+<li>banks connect via HSM</li>
+<li>corporates connect via a service bureau (who is host and manage a HSM).</li>
+</ol>
+<p>Typically the payload is message (FIN service) of file based (FileAct)</p>
+<blockquote>
+<p>FIN service: 基于SWIFT网络最主要的应用。即日常银行发送、接收、制作的业务报文都基于FIN服务。比如MT103、MT700等等报文。</p>
+</blockquote>
+<p>It can work in a number of modes (Realtime/Store and Forward) and in the case of Fin will perform basic validations on submittal.</p>
+<blockquote>
+<p>SWIFT FileAct: 提供交互和存储与转发两种文件自动传输方式，适合大批量数据的传输。</p>
+</blockquote>
+<h2 id="ISO20022"><a href="#ISO20022" class="headerlink" title="ISO20022"></a>ISO20022</h2><p>ISO20022 又称为UNIFI (UNIversal Financial Industry)</p>
+<p>是2004年由国际标准化组织制定并发布的国际标准，提供了一种面向业务建立通用报文的解决方案。</p>
+<p>ISO20022是一个以XML为基础之讯息标准，主要系由SWIFT组织XML讯息标准(SWIFT XML,MX)、贸易产业标准FIX组织标准(FIXml)及金融衍生性商品交易讯息标准(FpML)，为主要骨干所形成之架构。</p>
+<h2 id="MT103-MT202"><a href="#MT103-MT202" class="headerlink" title="MT103, MT202"></a>MT103, MT202</h2><p>MT103, MT202 are message types in SWIFT communication.</p>
+<ol>
+<li>swift MT103报文名称叫做 single customer credit transfer 也就是单笔客户的汇款</li>
+<li>swift MT202报文名称叫做 general fin inst transfer 也就是金融机构间资金调拨报文</li>
+</ol>
+<p>MT 103 type corresponds to single credit customer transfer, in which a payment is settled directly to the account. Whereas, MT 202 is a cover transfer in which a correspondent bank’s NOSTRO account is involved through which remittance is further transferred to beneficiary.</p>
+<p>Generally wire transfers use a Swift MT103 to transfer money on behalf of their client. There are exeptions to this. Such as SEPA transfers in europe, internal book transfer, and in some countries they do not use use Swift for their own currency (like russia). Also note that sometimes payments get netted so the amount on the MT103 may be different.</p>
+<p>Banks use MT202 (and MT200) to transfer money on their own behalf and cash management purposes.</p>
+<p>So there are many MT103 send throughout the day for clients, and only a few MT202/MT200 are send for funding/defunding banks own nostro accounts.</p>
+<h1 id="Correspondent-Banking"><a href="#Correspondent-Banking" class="headerlink" title="Correspondent Banking"></a>Correspondent Banking</h1><p>No bank have relationship with every possible bank that customers may want to transfer money to. So, they usually keep relationships with a correspondence bank; one (or multiple) banks for each transfer currency.</p>
+<p>Bank would transfer money from your account into a holding account; and send a notice to their correspondence bank (usually over SWIFT). </p>
+<p>Most domestic (ach) systems are file based, especially for low value clearing. Urgent or high value domestic payments will be message based.</p>
+<p>Globally, there is a progression to near real-time domestic payments. New systems are based on ISO20022 (file) , or Swift(message).</p>
+<h2 id="DNS-and-RTGS"><a href="#DNS-and-RTGS" class="headerlink" title="DNS and RTGS"></a>DNS and RTGS</h2><h3 id="deferred-net-settlement-DNS"><a href="#deferred-net-settlement-DNS" class="headerlink" title="deferred net settlement (DNS)"></a>deferred net settlement (DNS)</h3><p>also called Designated-time net settlement system (DNS).</p>
+<p>A net settlement mechanism which settles on a net basis at the end of a predefined settlement cycle.</p>
+<h3 id="Real-time-gross-settlement-RTGS"><a href="#Real-time-gross-settlement-RTGS" class="headerlink" title="Real-time gross settlement (RTGS)"></a>Real-time gross settlement (RTGS)</h3><p>Specialist funds transfer systems where the transfer of money takes place from one bank to any another on a “real-time” and on a “gross” basis.</p>
+<h2 id="Nostro-and-Vostro-accounts"><a href="#Nostro-and-Vostro-accounts" class="headerlink" title="Nostro and Vostro accounts"></a>Nostro and Vostro accounts</h2><p>Also called <strong>Correspondent bank account</strong>. Nostro and Vostro are variations on the Latin words “ours” and “yours,” respectively.</p>
+<p>These accounts are established to enable the domestic bank to make payments or money transfers on behalf of the foreign bank.</p>
+<p>Nostro accounts with debit balances are <strong>considered cash assets</strong>. Contrarily, Vostro accounts with a credit balance are <strong>considered liabilities</strong></p>
+<blockquote>
+<p>Both the Central Bank of China and Central Bank of France, credit the IOUs to the Bank. The Banks (namely Bank of China and BNP Paribas) now have an IOU Credit liability for further credit into the account of the beneficiary which would be Xing Framers and John Pierre Imports respectively.</p>
+</blockquote>
+<p><img src="/images/lemonade-money-transfer.jpg" alt=""></p>
+<h2 id="Pre-Fund-Model"><a href="#Pre-Fund-Model" class="headerlink" title="Pre-Fund Model"></a>Pre-Fund Model</h2><blockquote>
+<p>The pre-fund model is the most common and works on per corridor basis.<br>This model makes it possible for sending agents to settle the net amount with the beneficiary bank quickly.<br>Periodically, sending agent will replenish their prefunded account with the beneficiary banks using SWIFT. In some places, net off is not allowed.</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><h2 id="SWIFT-Protocol"><a href="#SWIFT-Protocol" class="headerlink" title="SWIFT Protocol"></a>SWIFT Protocol</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers">https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers</a><br><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-the-SWIFT-messaging-protocol">https://www.quora.com/What-is-the-SWIFT-messaging-protocol</a></p>
+<h2 id="Correspondent-Bank-1"><a href="#Correspondent-Bank-1" class="headerlink" title="Correspondent Bank"></a>Correspondent Bank</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled">https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled</a><br><a target="_blank" rel="noopener" href="https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work">https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work</a><br><a target="_blank" rel="noopener" href="https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp">https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp</a></p>
+<h2 id="Swift-Institution"><a href="#Swift-Institution" class="headerlink" title="Swift Institution"></a>Swift Institution</h2><p><a target="_blank" rel="noopener" href="https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf">https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/15/learn%20crypto/%E6%B6%A1%E8%BD%AE%E7%BD%91%E7%BB%9C-%E9%99%88%E5%BF%97%E5%BC%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/15/learn%20crypto/%E6%B6%A1%E8%BD%AE%E7%BD%91%E7%BB%9C-%E9%99%88%E5%BF%97%E5%BC%BA/" class="post-title-link" itemprop="url">【Crypto】涡轮网络 & 陈志强</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-15 05:57:53" itemprop="dateCreated datePublished" datetime="2020-04-15T05:57:53+00:00">2020-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>陈志强：前波场CTO、联合创始人、涡轮网络创始人兼CEO</p>
+<p>2019年5月10日，离开波场另起炉灶创立了“涡轮网络”</p>
+<p>还要与分布式存储项目Lambda联合共建涡轮网络生态。</p>
+<p>孙宇晨：陈某强、朱某超、谢某东等严重违反公司制度规章与法律，涉嫌职务侵占侵吞、收受贿赂、竞业禁止、侵犯公司商业秘密、知识产权，已于2019年1月被开除。</p>
+<p><img src="/images/%E9%99%88%E5%BF%97%E5%BC%BA.jpg" alt=""></p>
+<p>据说，陈志强已被查。</p>
+<p><a target="_blank" rel="noopener" href="https://www.sohu.com/a/319263639_100173412">https://www.sohu.com/a/319263639_100173412</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/09/learn%20crypto/blockchain-cross-border-payment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/09/learn%20crypto/blockchain-cross-border-payment/" class="post-title-link" itemprop="url">【Crypto】Blockchain Cross-border Payment</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-09 20:12:17" itemprop="dateCreated datePublished" datetime="2020-04-09T20:12:17+00:00">2020-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>Cross-border payment flow worldwide: $136 trillion (2018 by McKinsey):</p>
+<ol>
+<li>97.8% volume was B2B payment</li>
+<li>64.8% revenue from B2B payment</li>
+<li>C2C has highest fee (5%)</li>
+<li>$15 billion was crypto-powered (i.e. 0.01%)</li>
+</ol>
+<p><img src="/images/Cross-border-payment-2018-McKinsey.png" alt=""></p>
+<h2 id="Crypto-Payment-vs-Correspondent-Bank"><a href="#Crypto-Payment-vs-Correspondent-Bank" class="headerlink" title="Crypto Payment vs. Correspondent Bank"></a>Crypto Payment vs. Correspondent Bank</h2><ol>
+<li>Shorter settlement period</li>
+<li>Lower cost</li>
+</ol>
+<p>However,</p>
+<ol>
+<li>Volatility of value</li>
+<li>Fiat onramp and offramp</li>
+<li>Complicated UX</li>
+<li>Only have regional unicorns (bcuz offramp and BD to enroll users is a highly localized task)</li>
+</ol>
+<h2 id="Alternatives-Payment-Types"><a href="#Alternatives-Payment-Types" class="headerlink" title="Alternatives Payment Types"></a>Alternatives Payment Types</h2><ol>
+<li>Peer-to-peer marketplace -&gt; on/offramp network</li>
+<li>Big band gift cards -&gt; stablecoins</li>
+</ol>
+<p>New start-ups (non-crypto) including m-Pesa, Transferwise, Paypal and Veem.</p>
+<h1 id="Crypto-Start-ups"><a href="#Crypto-Start-ups" class="headerlink" title="Crypto Start-ups"></a>Crypto Start-ups</h1><h2 id="BitPay"><a href="#BitPay" class="headerlink" title="BitPay"></a>BitPay</h2><p><img src="/images/BitPay-Visa-Card.png" alt=""></p>
+<p><strong>Payment processor</strong>, fiat onramp and offramp, it supports settlement in 8 currencies.</p>
+<p>Cost-wise, BitPay charges receivers a <strong>1% flat fee</strong>. </p>
+<p>Takes 1 hour for crypto settlement, 2 days for US domestic fiat settlement.</p>
+<p>Processed $1 Billion in 2018.</p>
+<h2 id="Uphold-San-Francisco"><a href="#Uphold-San-Francisco" class="headerlink" title="Uphold, San Francisco"></a>Uphold, San Francisco</h2><p><img src="/images/uphold-wallet.png" alt=""></p>
+<p><strong>Payment APIs and SDKs</strong>, and issues stable tokens through <strong><a target="_blank" rel="noopener" href="https://universalprotocol.io/">Universal Protocol Alliance</a></strong>.</p>
+<p>Also offer crypto lending and borrowing through 3rd party. </p>
+<p>Since 2015, Uphold has powered $4 billion transactions.</p>
+<h2 id="Wirex-UK"><a href="#Wirex-UK" class="headerlink" title="Wirex, UK"></a>Wirex, UK</h2><p>B2C and B2B</p>
+<p>Supporting 9 cryptocurrencies and 11 fiat currencies via:</p>
+<ol>
+<li>a visa debit card</li>
+<li>a digital wallet</li>
+<li>newly launched <strong>Stellar-based token WRX</strong></li>
+<li>crypto on/offramp such as ACH, SEPA, SWIFT etc</li>
+</ol>
+<p>Processed $2 billion transactions as of 2019.</p>
+<p>The focus was global retail e-commerce market.</p>
+<p>Will offer <strong>savings account</strong> and <strong>crypto-backed loans</strong> in the near future</p>
+<h2 id="Coinify-Denmark"><a href="#Coinify-Denmark" class="headerlink" title="Coinify, Denmark"></a>Coinify, Denmark</h2><p>Enables merchants to accept blockchain payments</p>
+<p>over 30,000 businesses signed up </p>
+<p>Coinify focuses on 2B clients, estimated annual revenue $7 million.</p>
+<h2 id="Wyre-San-Francisco"><a href="#Wyre-San-Francisco" class="headerlink" title="Wyre, San Francisco"></a>Wyre, San Francisco</h2><p><img src="/images/Wyre-partners-list.png" alt=""></p>
+<p>Fiat onramps API for crypto businesses.</p>
+<p>completes transactions in less than 6 hours, charging less than 1%.</p>
+<p>Also offers OTC crypto trading services</p>
+<p>Usecases: </p>
+<ol>
+<li>enables GoLance for BTC payouts</li>
+<li>provide Opennode with BTC to Fiat merchant settlements</li>
+<li>enables Shapeshift, and BRD for buying/selling Bitcoin with ACH</li>
+</ol>
+<p>Completed over $750 million in bank-to-bank FX payments.</p>
+<h2 id="Terra"><a href="#Terra" class="headerlink" title="Terra"></a>Terra</h2><p>ICO in 2018. Instant settlement and low transaction fees on its own chain.</p>
+<p>Process over $850K on a daily basis through 650,000 users.</p>
+<p>Launched stable token in Meme pay, a popular messenger app in Mongolia.</p>
+<p>Users can also use KRT, the Terra’s KRW stable coin, to borrow BTC and ETH.</p>
+<h2 id="Paxful"><a href="#Paxful" class="headerlink" title="Paxful"></a>Paxful</h2><p>Bitcoin OTC platform, processes $25 million Bitcoin trading weekly.</p>
+<blockquote>
+<p>cross-border payment may not only be solved <strong>by payment processors</strong>, but also by peer-to-peer marketplace <strong>with an extension onramp offramp options</strong></p>
+</blockquote>
+<p>has over traded about $1 billion BTC in 2019. </p>
+<p> “2/3 of USD volume is actually attributable to USD denominated gift card trading.”</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://medium.com/blockchain4all/crypto-powered-cross-border-payment-2-2-1f5ad4f2043e">https://medium.com/blockchain4all/crypto-powered-cross-border-payment-2-2-1f5ad4f2043e</a><br><a target="_blank" rel="noopener" href="https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf">https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/07/learn%20crypto/Stabletoken%20Overview%20Celo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/07/learn%20crypto/Stabletoken%20Overview%20Celo/" class="post-title-link" itemprop="url">【Crypto】Stabletoken Overview Celo</a>
         </h2>
 
         <div class="post-meta">
@@ -182,7 +510,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
               </span>
 
           
@@ -283,7 +611,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
               </span>
 
           
@@ -457,7 +785,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
               </span>
 
           
@@ -725,7 +1053,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
               </span>
 
           
@@ -880,7 +1208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
               </span>
 
           
@@ -913,328 +1241,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/21/general%20knowledge/2016%20about%20patriotism/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/11/21/general%20knowledge/2016%20about%20patriotism/" class="post-title-link" itemprop="url">摘抄 关于爱国</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2016-11-21 11:07:56" itemprop="dateCreated datePublished" datetime="2016-11-21T11:07:56+00:00">2016-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>People like to take a side and be proud of their choices. The easiest and less brain intensive way to show their superiority is by hating the alternatives.</p>
-<h1 id="爱过和文革"><a href="#爱过和文革" class="headerlink" title="爱过和文革"></a>爱过和文革</h1><p>我来说几个有爱国之心的人。</p>
-<p>第一个，胡适的儿子胡思杜，不愿意和父母一起去台湾，把父母给的财产全部捐给国家，结局请百度。<br>第二个，傅作义的堂弟傅作恭，美国哥伦比亚大学水利工程学博士，回国来报效祖国，结局请百度。<br>第三个，舒庆春（老舍），北平和平解放的重要人物之一，结局请百度。<br>第四个，田汉（国歌作者），早年留学日本，为了建设祖国回到国内，结局请百度。</p>
-<p>我猜李嘉诚不过是不想当第五个才把资产卖掉而已</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/21/general%20knowledge/2016%20china%20super%20rich/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/11/21/general%20knowledge/2016%20china%20super%20rich/" class="post-title-link" itemprop="url">摘抄 关于中国富豪</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2016-11-21 11:07:56" itemprop="dateCreated datePublished" datetime="2016-11-21T11:07:56+00:00">2016-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="中国的超级富豪"><a href="#中国的超级富豪" class="headerlink" title="中国的超级富豪"></a>中国的超级富豪</h1><p>报告显示，个人财富至少为人民币1000万元的中国人在2012年达到105万，较上年增加了3%。那些财富至少为1亿元的“超级富豪”2012年增至64500人，增幅2%。</p>
-<p>报告显示，中国富人平均拥有财富5900万元，去年他们的支出占其财富的比重为3%，其中很多花在了旅行上。</p>
-<p>2013年9月10日――尽管经济形势和地缘政治的诸多不确定因素持续存在，2013年世界超富人群数量达到了空前的199,235人，总计共拥有约28万亿美元的财富。超富人群数量与去年相比增幅超过6%，财富总值增长了2万亿美元，超过了印度的GDP。</p>
-<p>Wealth-X与瑞银于今日联合发布的《2013世界超级财富报告》称，全球亿万富豪人数已超过2000人，净值总额达6.5万亿美元，相当于世界超高净值（UHNW）总额的23%。尽管该部分人群只占全球超高净值人口的1%，其净值总额却远远超过了其他任何财富阶层。报告将总资产达到3000万美元及以上的个人定义为超高净值人群。该报告中的其它重要结论：</p>
-<p>全球超高净值人群数量的增长很大程度上归功于北美和欧洲，这两个地区的超高净值人数增长近1万人，财富共计增加1.5万亿美元。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/07/31/art%20and%20entertainment/Modern%20Art%202/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/07/31/art%20and%20entertainment/Modern%20Art%202/" class="post-title-link" itemprop="url">Modern Art and Ideas (Week 1), Art Periods</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2016-07-31 14:00:00" itemprop="dateCreated datePublished" datetime="2016-07-31T14:00:00+00:00">2016-07-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>A course by <a target="_blank" rel="noopener" href="https://www.coursera.org/learn/modern-art-ideas">MoMA and Coursera</a></p>
-<h1 id="Art-period"><a href="#Art-period" class="headerlink" title="Art period"></a>Art period</h1><p>An art period is a phase in the development of the <strong>work of an artist, a group or art movement</strong>, from <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Art_periods">Wikipedia</a></p>
-<ol>
-<li><p>Renaissance<br> 1300 - 1602</p>
-</li>
-<li><p>Renaissance to Neoclassicism (新古典主义)<br> 1520 - 1830</p>
-</li>
-<li><p>Romanticism<br> 1979 - 1880</p>
-</li>
-<li><p>Romanticism to Modern Art<br> 1803 - 1854</p>
-</li>
-<li><p>Modern Art<br> 1860 - 1945</p>
-</li>
-<li><p>Contemporary art<br> 1946 - present</p>
-</li>
-</ol>
-<h1 id="Modern-Art-timeline"><a href="#Modern-Art-timeline" class="headerlink" title="Modern Art timeline"></a>Modern Art timeline</h1><ol>
-<li><p>IMPRESSIONISM<br>(C.1870-1890)</p>
-</li>
-<li><p>POST IMPRESSIONISM<br>(C.1885-1905)</p>
-</li>
-<li><p>FAUVISM<br>(1905-1910)</p>
-</li>
-<li><p>GERMAN EXPRESSIONISM<br>(1905-1925)</p>
-</li>
-<li><p>ABSTRACT ART<br>(C.1907 ONWARDS)</p>
-</li>
-<li><p>CUBISM<br>(1907-1915)</p>
-</li>
-<li><p>FUTURISM<br>(1909-1914)</p>
-</li>
-<li><p>SUPREMATISM<br>(C.1915-1925)</p>
-</li>
-<li><p>CONSTRUCTIVISM<br>(C.1913-1930)</p>
-</li>
-<li><p>DE STIJL<br>(C.1917-1931)</p>
-</li>
-</ol>
-<h2 id="IMPRESSIONISM-C-1870-1890"><a href="#IMPRESSIONISM-C-1870-1890" class="headerlink" title="IMPRESSIONISM (C.1870-1890)"></a>IMPRESSIONISM (C.1870-1890)</h2><p>a colorful style of painting in France</p>
-<p>searched for a more exact <strong>analysis of the effects of color and light</strong> in nature. </p>
-<p>capture the atmosphere of <strong>a particular time of day</strong> (or different weather)</p>
-<p><img src="/images/modern_art_history/moma-1-monet.jpg" alt="CLAUDE MONET (1840-1926) &#39;Rouen Cathedral in Full Sunlight&#39;, 1893-94 (oil on canvas)"></p>
-<h3 id="Artists"><a href="#Artists" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Claude Monet</strong>, Pierre Auguste Renoir 雷诺阿, Edgar Degas 德加, Camille Pissarro 毕沙罗, Alfred Sisley 西斯莱, Henri de Toulouse Lautrec 罗特列克</p>
-<h2 id="POST-IMPRESSIONISM-C-1885-1905"><a href="#POST-IMPRESSIONISM-C-1885-1905" class="headerlink" title="POST IMPRESSIONISM (C.1885-1905)"></a>POST IMPRESSIONISM (C.1885-1905)</h2><p><strong>not a particular style</strong>, but a collective title given to a few artists </p>
-<p>developed a range of <strong>personal styles</strong>, influenced the development of art in the 20th century</p>
-<p><img src="/images/modern_art_history/moma-1-vangogh.jpg" alt="VINCENT VAN GOGH (1853-90)
-&#39;Café Terrace at Night&#39;, 1888 (oil on canvas)"></p>
-<blockquote>
-<p><strong>Cézanne</strong> was an important influence on <strong>Picasso</strong> and Braque in their development of <strong>Cubism</strong>. </p>
-</blockquote>
-<blockquote>
-<p><strong>Van Gogh’s vigorous and vibrant painting</strong> technique was one of the touchstones of both <strong>Fauvism and Expressionism</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>Gauguin’s symbolic color</strong> and Seurat’s pointillist technique were an inspiration to ‘Les Fauves’ 野兽派.</p>
-</blockquote>
-<p><img src="/images/modern_art_history/moma-1-cezanne.png" alt="Paul Cézanne, Apples and Oranges (1899)"></p>
-<h3 id="Artists-1"><a href="#Artists-1" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Paul Cézanne 塞尚</strong>, Paul Gauguin 高更, <strong>Vincent Van Gogh</strong>, Georges Seurat 修拉</p>
-<h2 id="FAUVISM-野兽派-1905-1910"><a href="#FAUVISM-野兽派-1905-1910" class="headerlink" title="FAUVISM 野兽派 (1905-1910)"></a>FAUVISM 野兽派 (1905-1910)</h2><p>Developed in France at the beginning of the 20th century by <strong>Henri Matisse</strong>, André Derain</p>
-<p><strong>joyful style</strong> of painting that delighted in using <strong>outrageously bold colors</strong>, color be used at its highest pitch to express the artist’s feelings (rather than describe what it looks like)</p>
-<ol>
-<li><strong>extremely simplified</strong> drawing</li>
-<li>intensely <strong>exaggerated color</strong></li>
-<li>a major influence on <strong>German Expressionism</strong></li>
-</ol>
-<p><img src="/images/modern_art_history/moma-1-matisse.jpg" alt="HENRI MATISSE (1869-1954)
-&#39;The Open Window, Collioure&#39;, 1905 (oil on canvas)"></p>
-<h3 id="Artists-2"><a href="#Artists-2" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Henri Matisse 马蒂斯</strong>, André Derain 德兰</p>
-<h2 id="GERMAN-EXPRESSIONISM-德国表现主义-1905-1925"><a href="#GERMAN-EXPRESSIONISM-德国表现主义-1905-1925" class="headerlink" title="GERMAN EXPRESSIONISM 德国表现主义 (1905-1925)"></a>GERMAN EXPRESSIONISM 德国表现主义 (1905-1925)</h2><p>an <strong>emotional or spiritual vision</strong> of the world</p>
-<p> inspiration from <strong>Vincent Van Gogh</strong> and Edvard Munch, also <strong>German Gothic</strong> and ‘primitive art’</p>
-<p><img src="/images/modern_art_history/moma-1-kirchner.jpg" alt="ERNST LUDWIG KIRCHNER (1880-1938) &#39;The Red Tower at Halle&#39;, 1915 (oil on canvas)"></p>
-<h3 id="Artists-3"><a href="#Artists-3" class="headerlink" title="Artists"></a>Artists</h3><p>Die Brücke, Der Blaue Reiter</p>
-<h2 id="ABSTRACT-ART-C-1907-ONWARDS"><a href="#ABSTRACT-ART-C-1907-ONWARDS" class="headerlink" title="ABSTRACT ART (C.1907 ONWARDS)"></a>ABSTRACT ART (C.1907 ONWARDS)</h2><p><strong>withdraw part of something</strong> in order to consider it separately (‘something’ = visual elements of a subject: its line, shape, tone, pattern, texture, form)</p>
-<ol>
-<li><p><strong>Semi-Abstraction</strong> is where the image still has one foot in representational art, (see <strong>Cubism and Futurism</strong>). </p>
-<p> selects, develops and <strong>refines specific visual elements</strong> (e.g. line, color and shape), to create a <strong>poetic reconstruction or simplified essence</strong> of the original subject</p>
-</li>
-<li><p><strong>Pure Abstraction</strong> is where the artist uses visual elements <strong>independently</strong> as the actual subject of the work itself. (see <strong>Suprematism</strong>, De Stijl and Minimalism).</p>
-</li>
-</ol>
-<p><strong>the roots of modern abstract art</strong> are to be found in <strong>Cubism</strong></p>
-<p><img src="/images/modern_art_history/moma-1-braque.jpg" alt="GEORGES BRAQUE (1882-1963) &#39;Violin and Pitcher&#39;, 1910 (oil on canvas)"></p>
-<h3 id="Artists-4"><a href="#Artists-4" class="headerlink" title="Artists"></a>Artists</h3><p>Concluded below.</p>
-<h2 id="CUBISM-立体主义-1907-1915"><a href="#CUBISM-立体主义-1907-1915" class="headerlink" title="CUBISM 立体主义 (1907-1915)"></a>CUBISM 立体主义 (1907-1915)</h2><p>invented around 1907 in Paris by <strong>Pablo Picasso</strong> and <strong>Georges Braque</strong>. It was the first abstract style of modern art.</p>
-<p>ignore the traditions of perspective drawing and show you <strong>many views of a subject at one time</strong></p>
-<p>they drew on the <strong>expressive energy</strong> of art from other cultures, particularly African art</p>
-<p>two phases: Analytical Cubism (pre-1912) and Synthetic Cubism (post-1912). </p>
-<p><img src="/images/modern_art_history/moma-1-picasso.jpg" alt="PABLO PICASSO (1881-1973) &#39;Ambroise Vollard 一个人名&#39;, 1915 (oil on canvas)"></p>
-<h3 id="Artists-5"><a href="#Artists-5" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Pablo Picasso</strong>, <strong>Georges Braque 布拉克</strong>, Juan Gris, Fernand Leger, Robert Delaunay, Albert Gleizes, Jean Metzinger, Louis Marcoussis, Marie Laurencin</p>
-<h2 id="FUTURISM-1909-1914"><a href="#FUTURISM-1909-1914" class="headerlink" title="FUTURISM (1909-1914)"></a>FUTURISM (1909-1914)</h2><p>revolutionary Italian movement that <strong>celebrate modernity</strong>, attacked the long tradition of Italian art in favour of a new avant-garde 先锋派</p>
-<p>They <strong>glorified industrialization, technology, and transport</strong> along with the speed, noise and energy of urban life. </p>
-<p>adopted the <strong>visual vocabulary of Cubism</strong> to express their ideas - but appear more dynamic</p>
-<p><img src="/images/modern_art_history/moma-1-balla.jpg" alt="GIACOMO BALLA (1871-1959) &#39;The Rhythm of the Violinist&#39;, 1912 (oil on canvas)"></p>
-<h3 id="Artists-6"><a href="#Artists-6" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Filippo Tommaso Marinetti 马里内蒂</strong>, Umberto Boccioni, Giacomo Balla, Gino Severini, the musician Luigi Russolo, the architect Antonio Sant’Elia</p>
-<h2 id="SUPREMATISM-至上主义-C-1915-1925"><a href="#SUPREMATISM-至上主义-C-1915-1925" class="headerlink" title="SUPREMATISM 至上主义 (C.1915-1925)"></a>SUPREMATISM 至上主义 (C.1915-1925)</h2><p>developed in 1915 by the Russian artist <strong>Kazimir Malevich</strong></p>
-<p><strong>geometric style of abstract</strong> painting derived from elements of <strong>Cubism and Futurism</strong></p>
-<p>Malevich rejected any use of representational images, believing that <strong>the non-representational forms of pure abstraction had a greater spiritual power</strong></p>
-<blockquote>
-<p>Suprematism: pure abstraction that advocated a mystical approach to art</p>
-</blockquote>
-<blockquote>
-<p>Constructivism (the major Russian art movement of the 20th Century): served the social and political ideology of the state</p>
-</blockquote>
-<p><img src="/images/modern_art_history/moma-1-malevich.jpg" alt="KAZIMIR MALEVICH (1879-1935) &#39;Suprematism&#39;, 1915 (oil on canvas)"></p>
-<h3 id="Artists-7"><a href="#Artists-7" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Kazimir Malevich 卡济米尔·马列维奇</strong></p>
-<h2 id="CONSTRUCTIVISM-构成主义-C-1913-1930"><a href="#CONSTRUCTIVISM-构成主义-C-1913-1930" class="headerlink" title="CONSTRUCTIVISM 构成主义 (C.1913-1930)"></a>CONSTRUCTIVISM 构成主义 (C.1913-1930)</h2><p>same geometric language as Suprematism</p>
-<p>abandoned its <strong>mystical vision</strong> in favour of their ‘<strong>Socialism of vision</strong>‘ - a Utopian glimpse of a mechanized modernity according to the ideals of the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/October_Revolution">October Revolution</a> (1917)</p>
-<p>However, it’s eventually repressed and replaced by <strong>Socialist Realism</strong></p>
-<p><img src="/images/modern_art_history/moma-1-el_lissitzky.jpg" alt="EL LISSITZKY (1890-1941) &#39;The Red Wedge&#39;, 1919 (lithograph)"></p>
-<h3 id="Artists-8"><a href="#Artists-8" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Vladimir Tatlin 塔特林</strong>, Alexander Rodchenko, El Lissitzky 利西茨基 and Naum Gabo</p>
-<h2 id="DE-STIJL-风格主义-C-1917-1931"><a href="#DE-STIJL-风格主义-C-1917-1931" class="headerlink" title="DE STIJL 风格主义 (C.1917-1931)"></a>DE STIJL 风格主义 (C.1917-1931)</h2><p>a Dutch ‘style’ of pure abstraction</p>
-<p>Mondrian was a deeply spiritual man who was intent on <strong>developing a universal visual language</strong> that was free from any <strong>hint of nationalism</strong> that led to the Great War.</p>
-<p>refined the elements to <strong>a grid of lines and primary colors</strong> (a series of compositions that explored his universal principles of harmony)</p>
-<p>Vertical lines embodied the direction and energy of the sun’s rays, countered by horizontal lines relating to the earth’s movement around it</p>
-<p><img src="/images/modern_art_history/moma-1-mondrian.jpg" alt="PIET MONDRIAN (1872-1944) &#39;Composition with White and Yellow&#39;, 1942 (oil on canvas)"></p>
-<h3 id="Artists-9"><a href="#Artists-9" class="headerlink" title="Artists"></a>Artists</h3><p><strong>Piet Mondrian 蒙德里安</strong>, Theo Van Doesburg, Bart van der Leck</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="http://www.artyfactory.com/art_appreciation/timelines/modern_art_timeline.htm">http://www.artyfactory.com/art_appreciation/timelines/modern_art_timeline.htm</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1300,7 +1310,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-count">58</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
