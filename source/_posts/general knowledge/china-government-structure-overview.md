@@ -1,7 +1,7 @@
 ---
 title: China government structure overview
 date: 2020-03-26 17:28:24
-tags:
+tags: knowledge
 ---
 
 # 中国最高权力机构名称及区别

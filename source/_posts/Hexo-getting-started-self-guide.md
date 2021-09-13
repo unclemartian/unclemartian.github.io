@@ -134,19 +134,23 @@ Commit to Github, and Travis CI should start automatically.
 
 ## Useful links
 
-1. 查看 hexo-source 源码状态：https://github.com/unclemartian/unclemartian.github.io/commits/hexo-source
-1. 查看 trvis-ci 状态：https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds
-1. 查看 master branch 部署状态：https://github.com/unclemartian/unclemartian.github.io/commits/master
-1. 查看 Github Pages 部署的状态：https://github.com/unclemartian/unclemartian.github.io/deployments
+1. 查看 hexo-source 源码状态：
+    https://github.com/unclemartian/unclemartian.github.io/commits/hexo-source
+1. 查看 trvis-ci 状态：
+    https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds
+1. 查看 master branch 部署状态：
+    https://github.com/unclemartian/unclemartian.github.io/commits/master
+1. 查看 Github Pages 部署的状态：
+    https://github.com/unclemartian/unclemartian.github.io/deployments
 
 ## Hexo commands abbreviation
 
-    # 常用
+    #常用
     hexo n == hexo new
     hexo g == hexo generate
     hexo s == hexo server
     
-    # 不要使用
+    #不要使用
     hexo d == hexo deploy 
 
 ## Hexo day-to-day

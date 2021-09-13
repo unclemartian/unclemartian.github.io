@@ -1,7 +1,7 @@
 ---
 title: 中本聪和Gavin Andresen
 date: 2020-05-13 19:17:55
-tags: 人物
+tags: crypto people
 ---
 
 Gavin Andresen，是比特币奠基人之一

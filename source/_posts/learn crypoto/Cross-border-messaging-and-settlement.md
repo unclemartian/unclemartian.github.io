@@ -1,7 +1,7 @@
 ---
 title: Cross-border settlement (SWIFT & CLS)
 date: 2020-05-11 10:57:29
-tags:
+tags: crypto
 ---
 
 # 几个系统的关联和区别

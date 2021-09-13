@@ -1,7 +1,7 @@
 ---
 title: 中共领导人-主席书记等头衔一览（中国最高领导人）
 date: 2020-03-23 11:52:10
-tags:
+tags: knowledge
 ---
 
 # Background

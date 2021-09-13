@@ -1,7 +1,7 @@
 ---
 title: Blockchain Cross-border Payment
 date: 2020-04-09 20:12:17
-tags:
+tags: crypto
 ---
 
 # Overview

@@ -1,7 +1,7 @@
 ---
 title: Auction models 一些拍卖模式介绍
 date: 2021-03-01 23:22:28
-tags:
+tags: nft
 ---
 
 # English Auction

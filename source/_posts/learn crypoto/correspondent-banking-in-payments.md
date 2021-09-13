@@ -1,7 +1,7 @@
 ---
 title: Correspondent Banking in Swift Payments
 date: 2020-04-15 21:48:36
-tags:
+tags: crypto
 ---
 
 # Opening Message

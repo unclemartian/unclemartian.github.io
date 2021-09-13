@@ -1,7 +1,7 @@
 ---
 title: Modern Art and Ideas (Week 1), Introduction
 date: 2016-07-31 10:00:00
-tags: 艺术
+tags: arts
 ---
 
 A course by [MoMA and Coursera](https://www.coursera.org/learn/modern-art-ideas)

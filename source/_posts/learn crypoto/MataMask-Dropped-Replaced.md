@@ -1,7 +1,7 @@
 ---
 title: 'MataMask状态：Dropped & Replaced'
 date: 2021-05-01 18:18:21
-tags:
+tags: crypto
 ---
 
 __Dropped & Replaced__ is a tx status in MetaMask.

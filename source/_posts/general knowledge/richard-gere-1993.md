@@ -1,7 +1,7 @@
 ---
 title: Richard Gere 1993
 date: 2021-09-11 00:00:00
-tags: 读书笔记
+tags: people
 ---
 
 > Could not think of a better title for this. 
