@@ -114,6 +114,11 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
@@ -142,6 +147,91 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/25/learn%20crypoto/LBP-Liquidity-Bootstraping-Pool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/25/learn%20crypoto/LBP-Liquidity-Bootstraping-Pool/" class="post-title-link" itemprop="url">LBP (Liquidity Bootstraping Pool)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-25 06:58:58" itemprop="dateCreated datePublished" datetime="2021-02-25T06:58:58+00:00">2021-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Balancer-LBP"><a href="#Balancer-LBP" class="headerlink" title="Balancer LBP"></a>Balancer LBP</h1><p>A <strong>Balancer Liquidity Bootstrapping Pool</strong> is a tool designed to allow a project to generate liquidity from a smaller amount of seed capital than would normally be required. </p>
+<p>This is achieved through variable weighting of assets.</p>
+<h2 id="Price-adjustment"><a href="#Price-adjustment" class="headerlink" title="Price adjustment"></a>Price adjustment</h2><p>The liquidity guide pool also provides the project party with the ability to quickly adjust the weight, which can reduce the value of the tokens in the pool by adjusting the proportion of reserve assets, and prevent the eventual price surge due to early speculation. </p>
+<p>Under such a design mechanism, the opening price is usually deliberately set higher, and the lower price may appear in the later stage of the event.</p>
+<p>So the users who want to participate in LBP need to pay attention to this risk, and when the project is popular enough, this risk will be reduced.</p>
+<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
+<li>The price is relatively stable, not easy to lose control</li>
+<li>Reduce the “front-running” of advanced trading bots and experts.</li>
+<li>Some projects can support multiple tokens to participate in exchange</li>
+</ol>
+<h1 id="Example-Mask-token"><a href="#Example-Mask-token" class="headerlink" title="Example: Mask token"></a>Example: Mask token</h1><p>在此次 LBP 活动启动时，我们将会投入共计 400 万个 $MASK 以及 80 万美元的 $USDC。起始售价为 $3.9。具体:</p>
+<p><img src="/images/lbp-balancer-mask.png" alt=""></p>
+<p>注意：开盘价高，所有USDC都权重是95%，Mask的权重是5%。这样即节约了USDC，又发送出去了很多token份额。一石二鸟。</p>
+<blockquote>
+<p>An LBP allows projects to create meaningful liquidity and distribution at launch</p>
+</blockquote>
+<p>LBP (Liquidity Bootstraping Pool) 为荷兰式拍卖，或称 “降价式拍卖”。其拍卖价格将由高到低依次递减，请大家在参与 LBP 前先详细了解它的运作方式，请在自己预期的价格范围内进行购买，切勿盲目 FOMO。Balancer LBP 能够通过改变预定的资金权重，在没有任何参与者购买的情况下，拍卖品会随着时间变长而降低价格。</p>
+<p><img src="/images/lbp-Exponential-Example-Pool-Weights.jpg" alt=""></p>
+<h2 id="If-you’re-swapping-multiple-tokens"><a href="#If-you’re-swapping-multiple-tokens" class="headerlink" title="If you’re swapping multiple tokens"></a>If you’re swapping multiple tokens</h2><p>the smart pool template allows for vectors of tokens and weights. So one option would be to start 80% XYZ, 10% DAI, 10% ETH and end at 33% XYZ, 33% DAI, 33% ETH. Allowing for users to purchase the project token in ETH or DAI.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bitcointalk.org/index.php?topic=5319752.0">https://bitcointalk.org/index.php?topic=5319752.0</a><br><a target="_blank" rel="noopener" href="https://www.tuoluocaijing.cn/article/detail-10043661.html">https://www.tuoluocaijing.cn/article/detail-10043661.html</a><br><a target="_blank" rel="noopener" href="https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4">https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4</a></p>
+<h2 id="Balancer-pool"><a href="#Balancer-pool" class="headerlink" title="Balancer pool"></a>Balancer pool</h2><p><a target="_blank" rel="noopener" href="https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about">https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -177,7 +267,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -243,7 +333,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -331,7 +421,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -408,7 +498,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -475,7 +565,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -544,7 +634,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -614,7 +704,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
+                <time title="Modified: 2021-09-13 07:01:17" itemprop="dateModified" datetime="2021-09-13T07:01:17+00:00">2021-09-13</time>
               </span>
 
           
@@ -666,88 +756,6 @@
 </li>
 </ol>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/6jo1pWQjlS0Z95pivGTFNw">https://mp.weixin.qq.com/s/6jo1pWQjlS0Z95pivGTFNw</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/learn%20crypoto/Satoshi%20and%20Gavin-Andresen/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/13/learn%20crypoto/Satoshi%20and%20Gavin-Andresen/" class="post-title-link" itemprop="url">中本聪和Gavin Andresen</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-13 19:17:55" itemprop="dateCreated datePublished" datetime="2020-05-13T19:17:55+00:00">2020-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-11 20:33:37" itemprop="dateModified" datetime="2021-09-11T20:33:37+00:00">2021-09-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Gavin Andresen，是比特币奠基人之一</p>
-<p>他已成为了比特币现金(BCH)最重要的支持者之一</p>
-<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>真名 Gavin Bell</p>
-<ol>
-<li>1988年从普林斯顿大学计算机系毕业，一直从事软件工程师</li>
-<li>硅谷计算公司Silicon Graphics任职7年</li>
-<li>随后为盲人专用的网络游戏研发3D画图软件产品。</li>
-<li>2010年，中本聪本人邀请Andresen加入比特币行业</li>
-<li>2010年创立了 Bitcoin Faucet网站，每名访问者免费获得5枚比特币</li>
-<li>2011年，接受中情局的邀请（4天前，Satoshi最后一封邮件）</li>
-<li>2013年，Andresen创立了非盈利比特币基金组织，作为比特币管理的最高层。</li>
-<li>2013年比特币基金组织支付了他209648美元报酬。</li>
-<li>2015年，Gavin建议社区扩容至20MB，被中国矿工集体抗议</li>
-<li>2016年，Gavin组织Bitcoin Classic。并且他对Craig Wright表示支持</li>
-</ol>
-<p>后来，Gavin转而支持 BCH。</p>
-<h2 id="观点"><a href="#观点" class="headerlink" title="观点"></a>观点</h2><p>Gavin一直是大区块的支持者</p>
-<p><a target="_blank" rel="noopener" href="https://www.leiphone.com/news/201406/the-man-who-really-built-bitcoin.html">https://www.leiphone.com/news/201406/the-man-who-really-built-bitcoin.html</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vdAaIkag_ihdq2Th3VX0lg">https://mp.weixin.qq.com/s/vdAaIkag_ihdq2Th3VX0lg</a></p>
 
       
     </div>
@@ -832,13 +840,15 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
