@@ -36,6 +36,8 @@ Now simulate the installation first, then actually install:
     sudo apt install -s -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
     sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
 
+then:
+
     sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
     sudo apt-get install mysql-client=5.7.34-1ubuntu18.04
     sudo apt-get install -s mysql-community-server=5.7.34-1ubuntu18.04
@@ -95,7 +97,7 @@ Try to update mysql-server and you will get notified:
     CREATE USER 'alex'@'%' IDENTIFIED BY 'aliuchuang';
     select host,user,password_last_changed from mysql.user;
 
-Config privileges
+## Config privileges
 
 Now flash privileges for non-root users:
 
@@ -128,7 +130,9 @@ If you are on ubuntu 18:
 
 If you are on ubuntu 20, use DBeaver. 
 
-    To uninstall
+
+# To uninstall
+
     service mysql status
     service mysql stop
     sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*

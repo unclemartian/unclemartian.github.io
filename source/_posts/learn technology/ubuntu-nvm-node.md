@@ -28,6 +28,16 @@ tags: ubuntu
 
 You may need to uninstall the system version node/npm, otherwise sudo have issues.
 
+A pretty simple work-around would be:
+
+    sudo vi ~/.bashrc
+
+Content：
+
+    alias node='$NVM_BIN/node'
+    alias npm='$NVM_BIN/npm'
+    alias sudo='sudo env PATH=$PATH:$NVM_BIN'
+
 # Change node registry to taobao
 
     npm config get registry
