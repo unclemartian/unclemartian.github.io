@@ -130,16 +130,25 @@ Qv2ray仅需下载以下三件套：
 
     curl ifconfig.me
 
-### Test vpn
+### Test VPN
 
 Test whether proxy / trojan really works
 
     curl google.com
     echo $https_proxy
 
-## Use 1 machine as proxy
+## Use another machine as proxy
 
-TODO
+假如 somehow 你的机器无法 config proxy，你可以使用另一台机器：
+
+1. 在公用机器上 Config Qv2ray: 监听地址 = 0.0.0.0
+
+![](/images/qv2ray-listen-address.png)
+
+2. 在私人机器上 Set manual proxy: 
+
+    Proxy: （公用机器的地址，比如 192.168.31.105）
+    Port: 8889
 
 ## Terminal proxy
 
