@@ -151,6 +151,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/14/learn%20technology/ubuntu-vpn-trojan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/14/learn%20technology/ubuntu-vpn-trojan/" class="post-title-link" itemprop="url">【Tech】VPN / Trojan on Ubuntu / Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-09-14 10:00:00 / Modified: 03:43:14" itemprop="dateCreated datePublished" datetime="2021-09-14T10:00:00+00:00">2021-09-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>2 softwares to run Trojan: </p>
+<ol>
+<li>Trojan client : <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan">https://github.com/trojan-gfw/trojan</a></li>
+<li>Qv2ray : <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">https://github.com/Qv2ray/Qv2ray</a></li>
+</ol>
+<h2 id="trojan-vpn-and-ssr-的区别"><a href="#trojan-vpn-and-ssr-的区别" class="headerlink" title="trojan, vpn and ssr 的区别"></a>trojan, vpn and ssr 的区别</h2><p>TODO</p>
+<h1 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h1><h2 id="Install-trojan-client-on-Ubuntu"><a href="#Install-trojan-client-on-Ubuntu" class="headerlink" title="Install trojan client on Ubuntu"></a>Install trojan client on Ubuntu</h2><p>For 18.10 &amp; 19.04</p>
+<pre><code>sudo add-apt-repository ppa:greaterfire/trojan
+sudo apt-get update
+sudo apt-get install trojan</code></pre><p>For &gt;= 19.04 </p>
+<pre><code>sudo apt-get install trojan</code></pre><p>On Manjaro:</p>
+<pre><code>sudo pacman -S trojan</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions">Binary &amp; Package Distributions · trojan-gfw/trojan Wiki</a></p>
+<h2 id="Trojan-client-config"><a href="#Trojan-client-config" class="headerlink" title="Trojan client config"></a>Trojan client config</h2><p>Put config.json under /etc/trojan/config.json (for Arch) 或者 /usr/local/trojan/config.json (for Ubuntu)</p>
+<pre><code>sudo mv /etc/trojan/config.json /etc/trojan/config.json.backup
+sudo vi /etc/trojan/config.json</code></pre><p>To test that trojan is working, run the one-time command:</p>
+<pre><code>/usr/local/trojan/trojan -c /usr/local/trojan/config.json</code></pre><h2 id="Run-on-system-daemon"><a href="#Run-on-system-daemon" class="headerlink" title="Run on system daemon"></a>Run on system daemon</h2><p>Simply, enable trojan：</p>
+<pre><code>systemctl enable trojan
+systemctl start trojan</code></pre><p>If trojan service isn’t available: </p>
+<pre><code>cd /etc/systemd/system/
+sudo vi trojan.service</code></pre><p>Input: </p>
+<pre><code>[Unit]
+Description=trojan
+Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
+After=network.target
+
+[Service]
+Type=simple
+StandardError=journal
+User=nobody
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+ExecStart=/usr/local/trojan/trojan -c /usr/local/trojan/config.json
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target</code></pre><p>Then add to auto-run and config system-wide alias: </p>
+<pre><code>systemctl enable trojan</code></pre><p>Optionally, add alias for quick run: </p>
+<pre><code>sudo vi ~/.bashrc
+# add the following line:
+alias trojan=&apos;/usr/local/trojan/trojan -c /usr/local/trojan/config.json&apos;</code></pre><p>Above, configed trojan successfully on system level. Welcome to beyound the wall. </p>
+<h2 id="Browser-config"><a href="#Browser-config" class="headerlink" title="Browser config"></a>Browser config</h2><p>Next step, download SwitchyOmega for Chrome and Firefox, config SOCKS5</p>
+<p>Download url: <a target="_blank" rel="noopener" href="https://github.com/FelisCatus/SwitchyOmega/releases">https://github.com/FelisCatus/SwitchyOmega/releases</a></p>
+<p>Local file: </p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi">https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi</a></li>
+<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx">https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx</a></li>
+</ol>
+<p>Go to switchyomega config and set (default) to “SOCKS5” protocol and “127.0.0.1” server, “1080” port. </p>
+<p>Done! </p>
+<h2 id="Known-Issue"><a href="#Known-Issue" class="headerlink" title="Known Issue"></a>Known Issue</h2><p>If you see “unknown protocol” error, then you have mis-configed <strong>http</strong> instead of <strong>socks5</strong>. </p>
+<h1 id="Qv2ray"><a href="#Qv2ray" class="headerlink" title="Qv2ray"></a>Qv2ray</h1><p>Qv2ray仅需下载以下三件套：</p>
+<ol>
+<li><p>Main app: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases">https://github.com/Qv2ray/Qv2ray/releases</a></p>
+</li>
+<li><p>Trojan plugin: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3">https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3</a></p>
+<ol>
+<li>注意：trojan plugin 和 qv2ray 版本必须对应</li>
+</ol>
+</li>
+<li><p>v2core: <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-core/releases">https://github.com/v2fly/v2ray-core/releases</a></p>
+<ol>
+<li>或者 <a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>注意选择：v2ray-linux-64.zip</li>
+</ol>
+</li>
+</ol>
+<h1 id="After-installation"><a href="#After-installation" class="headerlink" title="After installation"></a>After installation</h1><h2 id="Troubleshoot"><a href="#Troubleshoot" class="headerlink" title="Troubleshoot"></a>Troubleshoot</h2><h3 id="Check-IP-address"><a href="#Check-IP-address" class="headerlink" title="Check IP address"></a>Check IP address</h3><pre><code>curl ifconfig.me</code></pre><h3 id="Test-vpn"><a href="#Test-vpn" class="headerlink" title="Test vpn"></a>Test vpn</h3><p>Test whether proxy / trojan really works</p>
+<pre><code>curl google.com
+echo $https_proxy</code></pre><h2 id="Use-1-machine-as-proxy"><a href="#Use-1-machine-as-proxy" class="headerlink" title="Use 1 machine as proxy"></a>Use 1 machine as proxy</h2><p>TODO</p>
+<h2 id="Terminal-proxy"><a href="#Terminal-proxy" class="headerlink" title="Terminal proxy"></a>Terminal proxy</h2><p>对于 Qv2ray: </p>
+<pre><code>export http_proxy=http://127.0.0.1:8889
+export https_proxy=http://127.0.0.1:8889</code></pre><p>或者：</p>
+<pre><code>export http_proxy=http://127.0.0.1:8889
+export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：</p>
+<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
+<pre><code>alias fanqiang=&apos;export http_proxy=http://127.0.0.1:8889 &amp;&amp; export https_proxy=socks5://127.0.0.1:1089&apos;</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/13/learn%20technology/ubuntu-mount-apfs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -174,10 +308,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-09-13 00:00:00 / Modified: 16:10:19" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
+              <time title="Created: 2021-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
+              </span>
 
           
 
@@ -243,7 +383,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
               </span>
 
           
@@ -308,7 +448,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
               </span>
 
           
@@ -384,7 +524,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
               </span>
 
           
@@ -463,7 +603,7 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
               </span>
 
           
@@ -533,7 +673,7 @@ go version</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
               </span>
 
           
@@ -565,9 +705,8 @@ apt-cache policy mysql-server</code></pre><p>We can see</p>
 <p>For example: “apt-get -s install <package_name>“ will simulate installing the package, showing you what packages will be installed and configured.</p>
 </blockquote>
 <pre><code>sudo apt install -s -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
-sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
-
-sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*</code></pre><p>then:</p>
+<pre><code>sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
 sudo apt-get install mysql-client=5.7.34-1ubuntu18.04
 sudo apt-get install -s mysql-community-server=5.7.34-1ubuntu18.04
 sudo apt-get install mysql-community-server=5.7.34-1ubuntu18.04</code></pre><p>Or simply:</p>
@@ -603,8 +742,7 @@ Pin-Priority: 1001</code></pre><p>Try to update mysql-server and you will get no
 select version();
 CREATE USER &apos;michael&apos;@&apos;%&apos; IDENTIFIED BY &apos;ran&apos;;
 CREATE USER &apos;alex&apos;@&apos;%&apos; IDENTIFIED BY &apos;aliuchuang&apos;;
-select host,user,password_last_changed from mysql.user;</code></pre><p>Config privileges</p>
-<p>Now flash privileges for non-root users:</p>
+select host,user,password_last_changed from mysql.user;</code></pre><h2 id="Config-privileges"><a href="#Config-privileges" class="headerlink" title="Config privileges"></a>Config privileges</h2><p>Now flash privileges for non-root users:</p>
 <pre><code>mysql -u root -p
 use mysql;
 select host, user from user; 
@@ -619,8 +757,7 @@ flush privileges;</code></pre><p>Allow remote access of MySQL:</p>
 <pre><code>service mysql restart
 systemctl restart mysql</code></pre><h1 id="Install-an-MySQL-client"><a href="#Install-an-MySQL-client" class="headerlink" title="Install an MySQL client"></a>Install an MySQL client</h1><p>If you are on ubuntu 18: </p>
 <pre><code>sudo apt-get install emma</code></pre><p>If you are on ubuntu 20, use DBeaver. </p>
-<pre><code>To uninstall
-service mysql status
+<h1 id="To-uninstall"><a href="#To-uninstall" class="headerlink" title="To uninstall"></a>To uninstall</h1><pre><code>service mysql status
 service mysql stop
 sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
 sudo rm -rf /etc/mysql /var/lib/mysql
@@ -675,7 +812,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
+                <time title="Modified: 2021-09-14 03:43:14" itemprop="dateModified" datetime="2021-09-14T03:43:14+00:00">2021-09-14</time>
               </span>
 
           
@@ -701,7 +838,11 @@ nvm ls-remote</code></pre></li>
 <pre><code>nvm use 12</code></pre></li>
 </ol>
 <h2 id="Please-Note"><a href="#Please-Note" class="headerlink" title="Please Note"></a>Please Note</h2><p>You may need to uninstall the system version node/npm, otherwise sudo have issues.</p>
-<h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
+<p>A pretty simple work-around would be:</p>
+<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
+<pre><code>alias node=&apos;$NVM_BIN/node&apos;
+alias npm=&apos;$NVM_BIN/npm&apos;
+alias sudo=&apos;sudo env PATH=$PATH:$NVM_BIN&apos;</code></pre><h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
 npm config set registry https://registry.npm.taobao.org/
 npm config set registry https://registry.npmjs.org/</code></pre><h2 id="To-check"><a href="#To-check" class="headerlink" title="To check"></a>To check</h2><pre><code>npm info underscore
 npm --registry https://registry.npm.taobao.org info underscore
@@ -709,108 +850,6 @@ npm config get registry</code></pre><h1 id="Useful-npm-packages"><a href="#Usefu
 <pre><code>npm install -g eslint yarn now truffle vue-cli hexo-cli
 npm install -g --force npx</code></pre><p>To check your globally-installed packges:</p>
 <pre><code>npm list -g --depth 0</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/01/learn%20crypto/MataMask-Dropped-Replaced/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/01/learn%20crypto/MataMask-Dropped-Replaced/" class="post-title-link" itemprop="url">【Crypto】MataMask状态：Dropped & Replaced</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-01 18:18:21" itemprop="dateCreated datePublished" datetime="2021-05-01T18:18:21+00:00">2021-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-09-13 16:10:19" itemprop="dateModified" datetime="2021-09-13T16:10:19+00:00">2021-09-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
-<p>有两种状态：</p>
-<ol>
-<li>Dropped Transaction</li>
-<li>Dropped &amp; Replaced Transaction</li>
-</ol>
-<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
-<p>是Ethereum nodes（也就是矿工）的操作。</p>
-<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
-<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
-<li><p>Ethereum nodes dropped it from transaction pool</p>
-<ul>
-<li>Ethereum nodes 指的是 Geth or Parity</li>
-<li>most likely due to lower gas price</li>
-</ul>
-</li>
-<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
-<ul>
-<li>depends on settings/limits of the individual clients</li>
-</ul>
-</li>
-</ul>
-<h1 id="Dropped-amp-Replaced-Transaction"><a href="#Dropped-amp-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
-<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
-<li>previous txhash invalidated</li>
-</ol>
-<h2 id="Dropped-amp-Replaced-原因"><a href="#Dropped-amp-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
-<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
-<ul>
-<li>a second tx with higher gas price was created to replace it</li>
-</ul>
-</li>
-<li><p>The Ethereum Node that the wallet/service connected to was not fully synced, and an incorrect nonce was used</p>
-</li>
-<li><p>User-initiated to replace or cancel a pending transaction</p>
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://info.etherscan.com/transaction-dropped-replaced/">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
-
       
     </div>
 
@@ -894,7 +933,7 @@ npm install -g --force npx</code></pre><p>To check your globally-installed packg
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
