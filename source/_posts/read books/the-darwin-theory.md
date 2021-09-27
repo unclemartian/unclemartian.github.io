@@ -1,7 +1,7 @@
 ---
-title: 知识
+title: 【Read】摘抄：达尔文理论
 date: 2017-05-21 11:25:08
-tags: book
+tags: books
 ---
 
 # 达尔文理论

@@ -18,7 +18,7 @@ tags: ubuntu
     ls /etc/apt/
     sudo cp -ra /etc/apt/sources.list /etc/apt/sources.list.backup
 
-Next check current system'sodename:
+Next check current system's codename: 
 
     lsb_release -a
 

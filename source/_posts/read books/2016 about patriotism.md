@@ -1,7 +1,7 @@
 ---
-title: 摘抄 关于爱国
+title: 【Read】摘抄：关于爱国
 date: 2016-11-21 11:07:56
-tags: book
+tags: books
 ---
 
 People like to take a side and be proud of their choices. The easiest and less brain intensive way to show their superiority is by hating the alternatives.

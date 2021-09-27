@@ -1,7 +1,7 @@
 ---
-title: 摘抄 关于中国富豪
+title: 【Read】摘抄：关于中国富豪
 date: 2016-11-21 11:07:56
-tags: book
+tags: books
 ---
 
 # 中国的超级富豪

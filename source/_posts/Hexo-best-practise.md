@@ -22,19 +22,19 @@ tags: Hexo
 1. 每篇 post 都需要有 prefix，如 【Crypto】，【Tech】
 1. 每个 prefix 都对应一些特定的 tags，比如 nft 对应【Crypto】
 
-举例：
+__具体安排如下__
 
-Blog posts：
-
-* 【Crypto】Auction models 一些拍卖模式介绍
-    * tag：nft
-    * tag：defi
-    * tag：crypto people
-* 【Tech】HTTP learning notes (1/3) all about http
-    * tag：ubuntu
-    * tag：technology
-* 【Modern Art】Week 2, Art Periods
-* 【读书笔记】明朝那些事2
+* 【Crypto】
+    * tags: nft
+    * tags: defi
+    * tags: crypto people
+* 【Tech】
+    * tags: ubuntu
+    * tags: technology
+* 【Read】
+    * tags: arts
+    * tags: books
+    * tags: knowledge
 
 # Hexo day-to-day
 
