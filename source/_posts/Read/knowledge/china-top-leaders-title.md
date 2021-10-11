@@ -1,5 +1,5 @@
 ---
-title: 中共领导人-主席书记等头衔一览（中国最高领导人）
+title: 【Read】中共领导人-主席书记等头衔一览（中国最高领导人）
 date: 2020-03-23 11:52:10
 tags: knowledge
 ---
@@ -114,7 +114,7 @@ __中华人民共和国最高领导人__为“非官方”称谓。不一定是�
 1. 中央对台工作领导小组组长
 1. 中央网络安全和信息化委员会主任
 
-For more information on the details of these organization, check out the next post. 
+For more information on the details of these organization, check out the next post.
 
 # Reference
 

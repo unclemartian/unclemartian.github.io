@@ -1,16 +1,16 @@
 ---
-title: Richard Gere 1993
+title: 【Read】Richard Gere 1993
 date: 2021-09-11 00:00:00
 tags: people
 ---
 
-> Could not think of a better title for this. 
+> Could not think of a better title for this.
 
 Richard Gere，美国演员。代表作《美国舞男》、《军官与绅士》、《一级恐惧》、《风月俏佳人》、《芝加哥》等。
 
 他在20多岁开始对佛教感兴趣，首先在Kyozan Joshu Sasaki领导下学习禅宗佛教。他在尼泊尔和印度遇到了许多藏族僧侣和喇嘛。
 
-In 1993, Gere used his time at Oscar stage to criticize the Chinese government, which led to an Oscars ban that lasted for years. 
+In 1993, Gere used his time at Oscar stage to criticize the Chinese government, which led to an Oscars ban that lasted for years.
 
 Watch: https://www.youtube.com/watch?v=kZy6Q8l2aOY
 

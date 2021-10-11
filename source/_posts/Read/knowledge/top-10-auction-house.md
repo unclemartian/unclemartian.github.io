@@ -1,5 +1,5 @@
 ---
-title: 世界十大拍卖行
+title: 【Read】世界十大拍卖行
 date: 2021-04-07 19:17:41
 tags: knowledge
 ---
@@ -32,7 +32,7 @@ Auction house	Auction turnover	Sold lots	Top result
 
 7	Beijing Council	北京匡时国际拍卖 $21,924,500	120	$3,758,000
 
-8	Beijing Hanhai 
+8	Beijing Hanhai
 北京翰海 $21,712,000	651	$1,773,500
 
 9	Yongle auction 北京永乐国际拍卖有限公司
