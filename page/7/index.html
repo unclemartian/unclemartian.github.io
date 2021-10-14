@@ -151,6 +151,236 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/06/Tech/http-learning-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/06/06/Tech/http-learning-2/" class="post-title-link" itemprop="url">【Tech】HTTP learning notes (2/3) security</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-06-06 00:00:00" itemprop="dateCreated datePublished" datetime="2015-06-06T00:00:00+00:00">2015-06-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="图解-http-读书笔记"><a href="#图解-http-读书笔记" class="headerlink" title="_图解 http_读书笔记"></a>_图解 http_读书笔记</h1><p><em><a target="_blank" rel="noopener" href="http://www.amazon.co.jp/HTTP%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8-%E4%B8%8A%E9%87%8E-%E5%AE%A3/dp/479812625X">HTTP の教科書</a></em> by Tricorder CEO 上野宣</p>
+<h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><h2 id="Disadvantages-of-HTTP"><a href="#Disadvantages-of-HTTP" class="headerlink" title="Disadvantages of HTTP:"></a>Disadvantages of HTTP:</h2><ol>
+<li>通信使用明文(不加密),内容可能会被窃听</li>
+<li>不验证通信方的身份,因此有可能遭遇伪装</li>
+<li>无法证明报文的完整性,所以有可能已遭篡改</li>
+</ol>
+<p>按 TCP/IP 协议族的工作机制,通信内容在所有的通信线路上都有可能遭到窥视。</p>
+<p>窃听相同段上的通信并非难事。只需要收集在互联网上流动的数据包(帧)就行了。对于收集来的数据包的解析工作,可交给那些抓包(Packet Capture)或嗅探器(Sniffer)工具。</p>
+<h2 id="1-内容的加密"><a href="#1-内容的加密" class="headerlink" title="1. 内容的加密"></a>1. 内容的加密</h2><p>把 HTTP 报 文里所含的内容进行加密处理。</p>
+<p>由于该方式不同于 SSL 或 TLS 将整个通信线路加密处理,所以内容仍 有被篡改的风险。比如,从某个 Web 网站上下载内容,是无法确定客户端下载的文件和服务器上存放的文件是否前后一致的。文件内容在传输途中可能已 经被篡改为其他的内容。</p>
+<p>{&lt;1&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-06%20at%204.56.22%20PM.png" alt=""></p>
+<p>像这样,请求或响应在传输途中,遭攻击者拦截并篡改内容的攻击 称为中间人攻击(Man-in-the-Middle attack,MITM)。</p>
+<p>使用 HTTP 协议确定报文完整性的方法,常用MD5 和 SHA-1 等散列值校验的方法,以及用来确认文件的数字签名方法。但事实上并不便捷、可靠。</p>
+<p>用户需要手动下载验证文件。浏览器无法自动帮用户检查。</p>
+<p>而且PGP 和 MD5 本身被改写的话,用户是没有办法意识到的。</p>
+<h2 id="2-通信的加密-TLS-SSL"><a href="#2-通信的加密-TLS-SSL" class="headerlink" title="2. 通信的加密: TLS/SSL"></a>2. 通信的加密: TLS/SSL</h2><p>HTTP 协议中没有加密机制,但可以通 过和 SSL(Secure Socket Layer,安全套接层)或 TLS(Transport Layer Security,安全层传输协议)的组合使用,加密 HTTP 的通信内容。</p>
+<p>Transport Layer Security (TLS) and its predecessor, Secure Sockets Layer (SSL), are cryptographic protocols designed to provide communications security over a computer network. </p>
+<p>当使用 SSL 时,它的处理速度会 变慢。一是指通信慢，因为大量的SSL 通信。另一是指由于大量消耗 CPU 及内存等资源,导致处理速度变慢。和使用 HTTP 相比,网络负载可能会变慢 2 到 100 倍。</p>
+<p>针对速度变慢这一问题,并没有根本性的解决方案,我们会使用 SSL 加速器这种(专用服务器)硬件来改善该问题。该硬件为 SSL 通信 专用硬件,相对软件来讲,能够提高数倍 SSL 的计算速度。</p>
+<h3 id="Why-not-HTTPS"><a href="#Why-not-HTTPS" class="headerlink" title="Why not HTTPS?"></a>Why not HTTPS?</h3><p>每当那些访问量较多的 Web 网站在进行加密处理时,它们所承 担着的负载不容小觑。并且，使用的证书必须向认证机 构(CA)购买。</p>
+<h2 id="HTTP-加密-认证-完整性保护-HTTPS"><a href="#HTTP-加密-认证-完整性保护-HTTPS" class="headerlink" title="HTTP+ 加密 + 认证 + 完整性保护 =HTTPS"></a>HTTP+ 加密 + 认证 + 完整性保护 =HTTPS</h2><p>HTTPS 并非是应用层的一种新协议。</p>
+<ol>
+<li>HTTP: 直接和 TCP 通信。</li>
+<li>HTTPS: 先和 SSL 通信,再由 SSL 和 TCP 通信了。</li>
+</ol>
+<p>简言之,所谓 HTTPS,其实就是 身披 SSL 协议这层外壳的 HTTP。(TLS and SSL encrypt data in the application layer)</p>
+<p>SSL 是独立于 HTTP 的协议,所以不光是 HTTP 协议,其他运行在 应用层的 SMTP 和 Telnet 等协议均可配合 SSL 协议使用。可以说 SSL 是当今世界上应用最为广泛的网络安全技术。</p>
+<h2 id="密钥"><a href="#密钥" class="headerlink" title="密钥"></a>密钥</h2><ol>
+<li>common key crypto system</li>
+<li>private/public key</li>
+</ol>
+<p>要想根据密文和公开密钥,恢复到信息原文是异常困难的, 因为解密过程就是在对离散对数进行求值,这并非轻而易举就能办到。</p>
+<h3 id="HTTPS-采用混合加密机制"><a href="#HTTPS-采用混合加密机制" class="headerlink" title="HTTPS 采用混合加密机制"></a>HTTPS 采用混合加密机制</h3><p>HTTPS 采用共享密钥加密和公开密钥加密两者并用的混合加密机制。<br>因为公开密钥加密处理速度慢。</p>
+<p>在交换密钥环节使用公开密钥加密方式,之后的建立通信交换报文阶段 则使用共享密钥加密方式。</p>
+<h2 id="how-HTTPS-works"><a href="#how-HTTPS-works" class="headerlink" title="how HTTPS works"></a>how HTTPS works</h2><ol>
+<li><p>数字证书认证机构(CA,Certificate Authority) 颁发公开密钥证书。</p>
+<p> website 向数字证书认证机构提出公开密钥的申请。CA 在判明提出申请者的身份之后,会对已申请的 public key 做数字签名,然 后分配这个已签名的公开密钥, 并将该公开密钥放入公钥证书后绑定在 一起。</p>
+</li>
+<li><p>client side request this certificate</p>
+<p> website 会将这份由数字证书认证机构颁发的公钥证书发送给客户 端,以进行公开密钥加密方式通信。公钥证书也可叫做数字证书或直接 称为证书。</p>
+<p> 接到证书的 client browser 可使用数字证书认证机构的公开密钥,对那张证 书上的数字签名进行验证</p>
+</li>
+<li><p>How does client know CA’s public key, then?</p>
+<p> 多数浏览器开发商发布版 本时,会事先在内部植入常用认证机关的公开密钥。</p>
+</li>
+</ol>
+<p>{&lt;2&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-06%20at%209.25.16%20PM.png" alt=""></p>
+<blockquote>
+<p>2011 年 7 月,荷兰的一家名叫 DigiNotar 的 认证机构曾遭黑客不法入侵,颁布了 google.com 和 twitter.com 等网站 的伪造证书事件。这一事件从根本上撼动了 SSL 的可信度。</p>
+</blockquote>
+<p>{&lt;3&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-06%20at%209.28.47%20PM.png" alt=""></p>
+<h2 id="SSL-客户端证书"><a href="#SSL-客户端证书" class="headerlink" title="SSL 客户端证书"></a>SSL 客户端证书</h2><p>HTTPS 中还可以使用客户端证书。以客户端证书进行客户端认证, 证明服务器正在通信的对方始终是预料之内的客户端, 银行的网上银行就采用了客户端证书。</p>
+<p>but it’s not widely used because:</p>
+<ol>
+<li>not everyone likes (or knows how) to install a certificate.</li>
+<li>certificate costs</li>
+<li>if you hack into root access, the certificate will be available to you</li>
+</ol>
+<p>现状是,安全性极高的认证机构可颁发客户端证书但仅用于特殊用 途的业务。</p>
+<h2 id="自签名证书"><a href="#自签名证书" class="headerlink" title="自签名证书"></a>自签名证书</h2><p>使用 OpenSSL 这套开源程序,每个人都可以构建一套属于自 己的认证机构,从而自己给自己颁发服务器证书。</p>
+<p>浏览器访问该服务器时,会显示“无法确认连接安全性”</p>
+<h1 id="Authentication"><a href="#Authentication" class="headerlink" title="Authentication"></a>Authentication</h1><p>HTTP/1.1 使用的认证方式:</p>
+<ol>
+<li>BASIC 认证(基本认证)</li>
+<li>DIGEST 认证(摘要认证)</li>
+<li>SSL 客户端认证</li>
+<li>FormBase 认证(基于表单认证)</li>
+</ol>
+<h2 id="BASIC-认证"><a href="#BASIC-认证" class="headerlink" title="BASIC 认证"></a>BASIC 认证</h2><p>since HTTP/1.0</p>
+<p>simplest technique for enforcing access controls to web resources because it doesn’t require cookies, session identifier and login pages. 现在仍有一部分的网站会使用这种认证方式。</p>
+<p>{&lt;4&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-06%20at%209.53.21%20PM.png" alt=""></p>
+<p>The BA mechanism provides no confidentiality protection for the transmitted credentials. They are merely encoded with Base64 in transit, but not encrypted or hashed in any way. </p>
+<h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><p>Convert 8-bit-padded (256-based) ASCII characters into Base64 scheme. Which is to say, convert 3 ASCII letters (24 bits) will be encoded into 4 Base64 letter (4 * 6 = 26). ‘Man’ converts to ‘TWFu’. </p>
+<p>{&lt;5&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-06%20at%2010.02.13%20PM.png" alt=""></p>
+<p>在 HTTP 等非加密通信的线路上进行 BASIC 认证的过程中, 如果被人窃听,被盗的可能性极高。另外，browser无<br>法实现认证注销操作。</p>
+<p>Basic Authentication is, therefore, typically used over HTTPS.</p>
+<h2 id="DIGEST-认证"><a href="#DIGEST-认证" class="headerlink" title="DIGEST 认证"></a>DIGEST 认证</h2><p>since HTTP/1.1</p>
+<p>{&lt;6&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-06%20at%2010.23.21%20PM.png" alt=""></p>
+<ol>
+<li><p>when requested, server 会随着状态码 401 Authorization Required,返回带 WWW-Authenticate 首部字段, which 包含 realm 和 nonce 这两个字段的信息。(nonce 是一种任意随机字符串)。</p>
+</li>
+<li><p>client will return DIGEST 认证必须的首部字段 Authorization 信息, which 包含 username、realm、nonce、uri 和response 的字段信息。其中,realm 和 nonce 就是之前从服务器接收到的响应中的字段。<strong>response 也可叫做 Request-Digest,存放经过 MD5 运算后 的密码字符串,形成响应码</strong>。</p>
+</li>
+<li><p>server 接收到包含首部字段 Authorization 请求, 确认 认证信息，并返回包含 Request-URI 资源的响应。</p>
+</li>
+</ol>
+<p>Technically, digest authentication is an application of MD5 cryptographic hashing with usage of nonce values to prevent replay attacks. It uses the HTTP protocol. </p>
+<p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Digest_access_authentication#Disadvantages">Digest access authentication is vulnerable to</a> a man-in-the-middle (MitM) attack.</p>
+<h2 id="SSL-客户端证书-1"><a href="#SSL-客户端证书-1" class="headerlink" title="SSL 客户端证书"></a>SSL 客户端证书</h2><ol>
+<li>事先将客户端证书分发给客户 端,且客户端必须安装此证书。</li>
+<li>when requested, server 发送 Certificate Request 报文,要求客户端提供客户端证书。</li>
+<li>client send <strong>Client Certificate</strong>.</li>
+<li>server validate and <strong>retrieve public key of client</strong>, then they start HTTPS.</li>
+</ol>
+<h2 id="Form-based-认证"><a href="#Form-based-认证" class="headerlink" title="Form-based 认证"></a>Form-based 认证</h2><p>由于使用上的便利性及安全性问题,HTTP 协议标准提供的 BASIC 认证和 DIGEST 认证几乎不怎么使用。另外,SSL 客户端认证虽然具有 高度的安全等级,但因为导入及维持费用等问题,还尚未普及。</p>
+<p>反观，SSH 和 FTP, 服务器与客户端之间的认证是合乎标准规范的, 并且满足了基本的安全需求,因此 widely 使用。</p>
+<p>对于 Web 网站的认证功能,能够满足 其安全使用级别的标准规范并不存在,所以只好使用由 Web 应用程序 各自实现基于表单的认证方式。</p>
+<p>Form-based 认证的标准规范尚未有定论,<strong>一般会使用 Cookie 来管理 Session(会话)</strong>。</p>
+<h2 id="Session-管理及-Cookie-应用"><a href="#Session-管理及-Cookie-应用" class="headerlink" title="Session 管理及 Cookie 应用"></a>Session 管理及 Cookie 应用</h2><p>我们使用 Cookie 来管理 Session,以弥补 HTTP 协议中不存在的状态管理功能。</p>
+<p>Usign session id in Cookie is pretty easy process:</p>
+<p>{&lt;7&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-06-07%20at%2010.01.47%20AM.png" alt=""></p>
+<ol>
+<li><p>客户端把用户 ID 和密码等登录信息放入报文的实体部分, 通常是以 POST 方法把请求发送给服务器。而这时<strong>会使用 HTTPS 通信来进行</strong> HTML 表单画面的显示和用户输入 数据的发送。</p>
+</li>
+<li><p>服务器会发放用以识别用户的 Session ID (首部字段 Set-Cookie 内写入 Session ID 如 PHPSESSID=028a8c)。然后把用户的认 证状态与 Session ID 绑定后记录在服务器端(maybe a database, develop end will manage)。</p>
+</li>
+<li><p>客户端将 Cookie 保存在本地。浏览器下次 会自动发送 Cookie,所以 Session ID 也随之发送到服务器。</p>
+</li>
+</ol>
+<p>You must not lose your session id, otherwise someone can act like they were you. </p>
+<p>Web server will manage <strong>expiration of sessions</strong>. </p>
+<p>To avoid 跨站脚本攻击(XSS), set HTTPonly as TRUE, for session cookie. </p>
+<p>另外</p>
+<blockquote>
+<p>一种安全的保存方法是,先利用给密码加盐(salt)的方式<br>增加额外信息,再使用散列(hash)函数计算出散列值后保存。</p>
+<p>salt 其实就是由服务器随机生成的一个字符串,但是要保证长度足够长。把它和密码字符串相连接(前后都可以)生成散 列值。</p>
+<p>当两个用户使用了同一个密码时,由于随机生成的 salt 值不同,对应 的散列值也将是不同的。这样一来,很大程度上减少了密码特征, 攻击者也 就很难利用自己手中的密码特征库进行破解。</p>
+</blockquote>
+<h2 id="HTTPonly"><a href="#HTTPonly" class="headerlink" title="HTTPonly"></a>HTTPonly</h2><p>HttpOnly cookies can only be used when transmitted via HTTP (or HTTPS). They are not accessible through non-HTTP APIs such as JavaScript. </p>
+<p><a target="_blank" rel="noopener" href="http://cookiecontroller.com/internet-cookies/secure-cookies/">This limits the potential damage many cross site script attacks can cause</a> – specifically, the attacks that target cookie data.</p>
+<h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><h3 id="Can-we-put-session-id-in-URL-instead-of-in-cookie"><a href="#Can-we-put-session-id-in-URL-instead-of-in-cookie" class="headerlink" title="Can we put session id in URL instead of in cookie?"></a>Can we put session id in URL instead of in cookie?</h3><p>Yes, but definitely not a good practise (even if we send these messages thru HTTPS). <a target="_blank" rel="noopener" href="http://security.stackexchange.com/questions/14093/why-is-passing-the-session-id-as-url-parameter-insecure">Here is a great post discussing about it</a>:</p>
+<ol>
+<li><p>if you send over a link to someone, he might use your session id and have full access to your account.</p>
+</li>
+<li><p>possibility of <strong>session fixation attacks</strong>, which means hackers send a prepared URL with a known session id to the user, and entice the user to log in. Once user does, hacker would have a session with priviledges. It’s not possible with cookies. </p>
+</li>
+<li><p>putting anything in the URL makes it more likely that it will leak. This can be through a Referer header in a linked resource, from access to the endpoint with browser history records, from brute force history sniffing, inappropriately protected web logs, and so on. </p>
+</li>
+</ol>
+<p>A little history.</p>
+<blockquote>
+<p>the reason (session-in-URL) was typically done in the past was to support browsers without cookies enabled. This is less and less a concern these days, and the usability problems of not being to share links, in addition to the session fixation attacks, mean that session-in-URL is usually avoided today.</p>
+</blockquote>
+<h3 id="Can-we-sent-session-id-via-non-encrypted-HTTP"><a href="#Can-we-sent-session-id-via-non-encrypted-HTTP" class="headerlink" title="Can we sent session id via non-encrypted HTTP?"></a>Can we sent session id via non-encrypted HTTP?</h3><p><a target="_blank" rel="noopener" href="http://security.stackexchange.com/questions/81998/should-a-session-id-ever-be-sent-over-an-unencrypted-connection">For Google, the SSIDcookie is marked with the Secure flag</a>. This means that it won’t be sent by the browser over a plain HTTP connection.</p>
+<blockquote>
+<p>[Google] store the important stuff (for example, HSID, NID and SSID) as HTTPonly</p>
+</blockquote>
+<p>However, <strong>(HTTP transfer) may be acceptable for Session IDs that do not allow access to sensitive information</strong>. For example, you may set a cookie so you can let a user add items to their basket. When they proceed to checkout, the insecure session is transferred to secure session over HTTPS. An attacker can only intercept the insecure session and possibly add or change basket items, but once transferred to HTTPS, user can review the basket before placing order. Additionally, all personal details are considered anonymous until the HTTPS checkout is reached.</p>
+<p>Google use non secure and non-http only cookies for items in a similar way.</p>
+<p><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/709085/secure-cookies-and-mixed-https-http-site-usage">A suggestion is</a>:</p>
+<blockquote>
+<p>you should never trust any content sent over a non-secured connection. privacy is seen as more important than ever, even for actions that aren’t critical to the authentication, such as writing comments, uploading photos, and more.</p>
+</blockquote>
+<blockquote>
+<p>Google announced that HTTPS-only sites will benefit in search engine rankings.</p>
+</blockquote>
+<blockquote>
+<p>So… make the whole site use HTTPS. A few years back this might not have been feasible mainly because of CDNs not providing HTTPS support. However, today it’s mainly a question of balancing development and operational costs.</p>
+</blockquote>
+<h3 id="how-to-manage-session-if-client-disables-cookie"><a href="#how-to-manage-session-if-client-disables-cookie" class="headerlink" title="how to manage session if client disables cookie?"></a>how to manage session if client disables cookie?</h3><p><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/1795998/manage-session-when-broswer-has-disable-cookies">Two way</a>. First of which is more standard, that is to <strong>pass session id thru URLs</strong>. This requires developer to append session id to EVERY url. eg. </p>
+<pre><code>/path/to/page</code></pre><p>becomes</p>
+<pre><code>/path/to/page?sessionid=ASDFG-ASDFG-ASDFG-ASDFG-ASDFG</code></pre><p>Second way, if to use info in the HTTP header as identifier of the user, i.e: </p>
+<blockquote>
+<p>By combining the Http UserAgent, RemoteIp and RemoteXfip you can get close to uniquely identifying a user, but there is no guarantees that this key is 100% unique.</p>
+</blockquote>
+<h2 id="attacks"><a href="#attacks" class="headerlink" title="attacks"></a>attacks</h2><h3 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h3><p>Cross-site scripting (XSS) is a type of computer security vulnerability typically found in Web applications. XSS enables attackers to inject client-side script into Web pages viewed by other users. </p>
+<h3 id="Man-in-the-middle-attack"><a href="#Man-in-the-middle-attack" class="headerlink" title="Man-in-the-middle attack"></a>Man-in-the-middle attack</h3><p>Man-in-the-middle attack (MitM) is an attack where the attacker secretly relays and possibly alters the communication between two parties who believe they are directly communicating with each other. </p>
+<h3 id="Session-fixation"><a href="#Session-fixation" class="headerlink" title="Session fixation"></a>Session fixation</h3><p>Session fixation attacks attempt to exploit the vulnerability of a system which allows one person to fixate (set) another person’s session identifier (SID). </p>
+<p>Most session fixation attacks are web based, and most rely on session identifiers being accepted from URLs (query string) or POST data.</p>
+<p>example</p>
+<blockquote>
+<p>Mallory visits <a target="_blank" rel="noopener" href="http://vulnerable.example.com/">http://vulnerable.example.com/</a> and checks which SID is returned. For example, the server may respond: Set-Cookie: SID=0D6441FEA4496C2.</p>
+<p>Mallory is now able to send Alice an e-mail: “Check out this new cool feature on our bank, <a target="_blank" rel="noopener" href="http://vulnerable.example.com/?SID=0D6441FEA4496C2.&quot;">http://vulnerable.example.com/?SID=0D6441FEA4496C2.&quot;</a></p>
+<p>Alice logs on, with fixated session identifier SID=0D6441FEA4496C2.</p>
+<p>Mallory visits <a target="_blank" rel="noopener" href="http://vulnerable.example.com/?SID=0D6441FEA4496C2">http://vulnerable.example.com/?SID=0D6441FEA4496C2</a> and now has unlimited access to Alice’s account.</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/php-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +412,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -407,7 +637,7 @@ class NameSub1 extends Name
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -696,7 +926,7 @@ dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -824,7 +1054,7 @@ dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -965,7 +1195,7 @@ git push origin master</code></pre><p>You should see it works fine. Notice how w
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -1178,7 +1408,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -1301,7 +1531,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
+                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
               </span>
 
           
@@ -1322,335 +1552,6 @@ unzip -d ghost-folder ghost-zip</code></pre><h2 id="set-dependency"><a href="#se
 sudo npm install —-production</code></pre><h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><pre><code>cp config.example.js config.js  
 nano config.js</code></pre><p>Now change the url of production to the public IP or domain name. </p>
 <h2 id="start-ghost"><a href="#start-ghost" class="headerlink" title="start ghost"></a>start ghost</h2><pre><code>npm start —-production</code></pre><h1 id="Configurations"><a href="#Configurations" class="headerlink" title="Configurations"></a>Configurations</h1><p>to be continued..</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/26/Tech/git-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/04/26/Tech/git-tutorial/" class="post-title-link" itemprop="url">【Tech】Git Learning Notes</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2015-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-26T00:00:00+00:00">2015-04-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-11 10:00:51" itemprop="dateModified" datetime="2021-10-11T10:00:51+00:00">2021-10-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h1><p><strong>Remote connections are more like bookmarks</strong>. </p>
-<p>git remote command is really just an easier way to pass URLs.</p>
-<p>When you clone a repository with git clone, it automatically creates a remote connection called <strong>origin</strong>.</p>
-<h1 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h1><p>The git fetch command imports commits from a remote repository into your local repo</p>
-<p>The resulting commits are <strong>stored as remote branches</strong> instead of the normal local branches</p>
-<p>Fetching is what you do when you want to see what everybody else has been working on. Since fetched content is represented as a remote branch, it has absolutely no effect on your local development work.</p>
-<h2 id="Remote-branches"><a href="#Remote-branches" class="headerlink" title="Remote branches"></a>Remote branches</h2><p>Remote branches are just like local branches, except they represent commits from somebody else’s repository. You can check out a remote branch just like a local one, but this <strong>puts you in a detached HEAD state</strong> (just like checking out an old commit). You can think of them as <strong>read-only branches</strong>.</p>
-<h1 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h1><p>This is the same as </p>
-<pre><code>git fetch &lt;remote&gt; </code></pre><p>followed by </p>
-<pre><code>git merge origin/&lt;current-branch&gt;</code></pre><h2 id="alternative"><a href="#alternative" class="headerlink" title="alternative"></a>alternative</h2><pre><code>git pull --rebase &lt;remote&gt; 
-(eg. git pull --rebase origin)</code></pre><p>Same as the above command, but <strong>instead of using git merge</strong> to integrate the remote branch with the local one, use <strong>git rebase</strong>.</p>
-<h2 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h2><p>–rebase option can be used to ensure a linear history by preventing unnecessary merge commits.</p>
-<p>In fact, pulling with –rebase is such a common workflow that there is a dedicated configuration option for it:</p>
-<pre><code>git config --global branch.autosetuprebase always</code></pre><h1 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h1><p>After you’re ready to share your commits with others, you (optionally) <strong>clean them up with an interactive rebase</strong>, then push them to the central repository.</p>
-<p>You should only push to repositories that have been created with the <strong>–bare flag</strong>. It’s important to <strong>never push to another developer’s repository</strong>.</p>
-<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>The following example describes one of the <strong>standard methods</strong> for publishing local contributions to the central repository.</p>
-<pre><code>git checkout master
-git fetch origin master
-git rebase -i origin/master
-# Squash commits, fix up commit messages etc.
-git push origin master</code></pre><p>reference: <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/syncing">Atlassian Tutorials on Git</a></p>
-<h1 id="Pull-request"><a href="#Pull-request" class="headerlink" title="Pull request"></a>Pull request</h1><p><strong>pull requests</strong> are a mechanism for a developer to notify team members that they have completed a feature. </p>
-<p>But, the pull request is more than just a notification—it’s a dedicated forum for discussing the proposed feature. If there are any problems with the changes, teammates can post feedback in the pull request.</p>
-<h2 id="pull-request-anatomy"><a href="#pull-request-anatomy" class="headerlink" title="pull-request anatomy"></a>pull-request anatomy</h2><p>You will need to provide 4 pieces of information to file a pull request: </p>
-<ol>
-<li>the source repository, </li>
-<li>the source branch, </li>
-<li>the destination repository, </li>
-<li>the destination branch.</li>
-</ol>
-<h1 id="Example-Process"><a href="#Example-Process" class="headerlink" title="Example Process"></a>Example Process</h1><p>Pull requests can be used in conjunction with the Feature Branch Workflow, the Gitflow Workflow, or the Forking Workflow. But a pull request requires either two distinct branches or two distinct repositories, so they will not work with the Centralized Workflow. </p>
-<ol>
-<li><p>A developer creates the feature in a dedicated branch in their local repo.</p>
-</li>
-<li><p>The developer pushes the branch to a public Bitbucket repository.</p>
-</li>
-<li><p>The developer files a pull request via Bitbucket.<br>The rest of the team reviews the code, discusses it, and alters it.</p>
-</li>
-<li><p>The project maintainer merges the feature into the official repository and closes the pull request.</p>
-</li>
-</ol>
-<p>reference: <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/making-a-pull-request">Atlassian Tutorials on Git</a></p>
-<h1 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h1><p><strong>git branch</strong> is a way to request a brand new working directory, staging area, and project history. </p>
-<h2 id="Git-Vs-SVN"><a href="#Git-Vs-SVN" class="headerlink" title="Git Vs. SVN"></a>Git Vs. SVN</h2><p>Git branches is more lightweight than SVN’s. </p>
-<p>Instead of <strong>copying files from directory to directory</strong>, Git stores a branch <strong>as a reference to a commit</strong>. In this sense, a branch represents the tip of a series of commits — not a container for commits. </p>
-<h2 id="branch-basics"><a href="#branch-basics" class="headerlink" title="branch basics"></a>branch basics</h2><pre><code>git branch</code></pre><p>List all branches</p>
-<pre><code>git branch &lt;branch&gt;</code></pre><p>Create a new branch called <branch> (but don’t checkout).</p>
-<pre><code>git checkout -b &lt;new-branch&gt;</code></pre><p>Create and check out <new-branch>. </p>
-<pre><code>git branch -d &lt;branch&gt;</code></pre><p>Delete the specified branch (safe).</p>
-<pre><code>git branch -D &lt;branch&gt;</code></pre><p>Force delete the specified branch, even if it has unmerged changes. </p>
-<pre><code>git branch -m &lt;branch&gt;</code></pre><p>Rename current branch to <branch>.</p>
-<h2 id="Detached-HEADs"><a href="#Detached-HEADs" class="headerlink" title="Detached HEADs"></a>Detached HEADs</h2><p>Remember that the HEAD is Git’s way of referring to the current snapshot. </p>
-<p>Internally, <strong>git checkout</strong> command simply updates the HEAD to point to either the <strong>specified branch or commit</strong>.</p>
-<p>When it points to a branch, Git doesn’t complain, but <strong>when you check out a commit</strong>, it switches into a “detached HEAD” state.</p>
-<p>{&lt;1&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen-Shot-2015-05-11-at-8-53-09-PM.png" alt=""></p>
-<p>If you were to start developing a feature while in a detached HEAD state, there would be no branch allowing you to get back to it.</p>
-<p>However, if you’re just looking at an old commit, it doesn’t really matter if you’re in a detached HEAD state or not.</p>
-<h1 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h1><h2 id="merge-basics"><a href="#merge-basics" class="headerlink" title="merge basics"></a>merge basics</h2><pre><code>git merge &lt;branch&gt;</code></pre><p>Merge the branch into the current branch. </p>
-<pre><code>git merge --no-ff &lt;branch&gt;</code></pre><p>Merge the branch into the current branch, but always generate a merge commit (even if it was a fast-forward merge).</p>
-<h2 id="fast-forward"><a href="#fast-forward" class="headerlink" title="fast forward"></a>fast forward</h2><p>A fast-forward merge can occur when there is a linear path from the current branch tip to the target branch. </p>
-<p>{&lt;2&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen-Shot-2015-05-11-at-9-53-17-PM.png" alt=""></p>
-<p>Instead of “actually” merging the branches, Git only moves the current branch tip up to the target branch tip. </p>
-<h2 id="3-way-merge"><a href="#3-way-merge" class="headerlink" title="3-way merge"></a>3-way merge</h2><p>When there is not a linear path to the target branch, Git will do <strong>3-way merge</strong>. It use a dedicated commit to tie together the two histories. </p>
-<p>{&lt;3&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen-Shot-2015-05-11-at-9-57-48-PM.png" alt=""></p>
-<p>Three commits are used to generate the merge commit: </p>
-<ol>
-<li>two branch tips</li>
-<li>their common ancestor.</li>
-</ol>
-<h2 id="Conflicts"><a href="#Conflicts" class="headerlink" title="Conflicts"></a>Conflicts</h2><p>When both branches modify the same file, you’ll resolve the conflicts manually. After that, do a normal commit. </p>
-<p>Note that merge conflicts will only occur in the event of a 3-way merge.</p>
-<h2 id="Conventions"><a href="#Conventions" class="headerlink" title="Conventions"></a>Conventions</h2><p>While you can use either of these merge strategies, many developers like to use fast-forward merges (facilitated through rebasing) for <strong>small features</strong> or bug fixes, while reserving 3-way merges for the integration of <strong>longer-running features</strong>. </p>
-<p>In the latter case, the resulting merge commit serves as a symbolic joining of the two branches.</p>
-<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><p>3-way merge</p>
-<pre><code># Start a new feature
-git checkout -b new-feature master
-
-# Edit some files
-git add &lt;file&gt;
-git commit -m &quot;Start a feature&quot;
-
-# Edit some files
-git add &lt;file&gt;
-git commit -m &quot;Finish a feature&quot;
-
-# Develop the master branch
-git checkout master
-
-# Edit some files
-git add &lt;file&gt;
-git commit -m &quot;Make some super-stable changes to master&quot;
-
-# Merge in the new-feature branch
-git merge new-feature
-git branch -d new-feature</code></pre><p>reference: <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/using-branches">Atlassian Tutorials on Git</a></p>
-<h1 id="Git-workflows"><a href="#Git-workflows" class="headerlink" title="Git workflows"></a>Git workflows</h1><p>Remember this is guidelines rather than concrete rules. We’ll cover the first 3:</p>
-<ol>
-<li><p>Centralized Workflow</p>
-</li>
-<li><p>Feature Branch Workflow</p>
-</li>
-<li><p>Gitflow Workflow</p>
-</li>
-<li><p>Forking Workflow</p>
-</li>
-</ol>
-<h1 id="Centralized-Workflow"><a href="#Centralized-Workflow" class="headerlink" title="Centralized Workflow"></a>Centralized Workflow</h1><ol>
-<li><p>Each developer modify and commit into <strong>master branch</strong>.</p>
-</li>
-<li><p>After the change, <strong>fetch</strong> the updated central commits.</p>
-</li>
-<li><p><strong>rebase</strong> their changes.</p>
-</li>
-<li><p>If local changes directly conflict with upstream commits, Git will <strong>pause the rebasing</strong> and asks you to manually resolve the conflicts.</p>
-</li>
-</ol>
-<h2 id="example"><a href="#example" class="headerlink" title="example"></a>example</h2><p>Mary:</p>
-<pre><code>git clone ssh://user@host/path/to/repo.git
-git status # View the state of the repo
-git add &lt;some-file&gt; # Stage a file
-git commit # Commit a file&lt;/some-file&gt;
-git push origin master</code></pre><p>Bill:</p>
-<pre><code>git push origin master
-error: failed to push some refs to &apos;/path/to/repo.git&apos;
-hint: Updates were rejected because the tip of your current branch is behind
-hint: its remote counterpart. Merge the remote changes (e.g. &apos;git pull&apos;)
-hint: before pushing again.
-hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.</code></pre><p>Then, Bill would do:</p>
-<pre><code>git pull --rebase origin master
-CONFLICT (content): Merge conflict in &lt;some-file&gt;
-# Unmerged paths:
-# (use &quot;git reset HEAD &lt;some-file&gt;...&quot; to unstage)
-# (use &quot;git add/rm &lt;some-file&gt;...&quot; as appropriate to mark resolution)
-#
-# both modified: &lt;some-file&gt;</code></pre><p>Bill solve some conflicts, then</p>
-<pre><code>git add &lt;some-file&gt;
-git rebase --continue
-## after rebase successful,
-git push origin master</code></pre><h1 id="Feature-Branch-Workflow"><a href="#Feature-Branch-Workflow" class="headerlink" title="Feature Branch Workflow"></a>Feature Branch Workflow</h1><p>The core idea is that <strong>all feature development take place in a dedicated branch</strong> instead of the master branch. So that:</p>
-<ol>
-<li><p>a branch is a feature, having highly-focused purpose.</p>
-</li>
-<li><p>master branch will never contain broken code</p>
-</li>
-<li><p>possible to leverage <strong>pull requests</strong></p>
-</li>
-</ol>
-<p>Note: Feature branches can and should be <strong>pushed to the central repository</strong>.</p>
-<h2 id="pull-request"><a href="#pull-request" class="headerlink" title="pull request"></a>pull request</h2><p>Once someone completes a feature, they don’t immediately merge it into master.</p>
-<p>Instead, they push feature branch to central server and <strong>file a pull request</strong>.</p>
-<p>Code review shall happen here.</p>
-<h2 id="example-1"><a href="#example-1" class="headerlink" title="example"></a>example</h2><p>Mary creates and checkout a branch if it doesn’t already exist (with -b):</p>
-<pre><code>git checkout -b marys-feature master
-# edits, stages, and commits changes
-git status
-git add &lt;some-file&gt;
-git commit
-git push -u origin marys-feature</code></pre><p>-u is used to add it as a remote tracking branch. Now her feature is finished, she’ll do:</p>
-<pre><code>git push</code></pre><p>Then a pull request.</p>
-<p>After the code review, Mary still can work on this branch like she did before, or even Bill can pull marys-feature into his local repository and work on it. Until the pull request is accepted, either Mary or Bill do:</p>
-<pre><code>git checkout master
-git pull
-git pull origin marys-feature
-git push</code></pre><p>{&lt;1&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-05-15%20at%2011.18.54%20AM.png" alt=""></p>
-<blockquote>
-<p><strong>git pull origin marys-feature</strong> merges central repository’s copy of marys-feature to local master. (You could also use a simple <strong>git merge marys-feature</strong>, but the command shown above makes sure you’re always pulling the most up-to-date version of the feature branch.)</p>
-</blockquote>
-<blockquote>
-<p>If you find it hard to understand, read <a target="_blank" rel="noopener" href="http://superuser.com/a/163048">Pull for another Git branch without switching, from superuser.com</a>:</p>
-</blockquote>
-<pre><code>git checkout live
-git pull origin master</code></pre><blockquote>
-<blockquote>
-<p>This will attempt a merge of the remote master and your live branch.</p>
-</blockquote>
-</blockquote>
-<h2 id="discussion-merge-vs-rebase"><a href="#discussion-merge-vs-rebase" class="headerlink" title="discussion: merge vs. rebase"></a>discussion: merge vs. rebase</h2><p>This process often results in a merge commit. Some developers like this because it’s like <strong>a symbolic joining of the feature</strong> with the rest of the code base. But, if you’re partial to a linear history, it’s possible to <strong>rebase the feature</strong> onto the tip of master before executing the merge, resulting in a fast-forward merge.</p>
-<h1 id="Gitflow-Workflow"><a href="#Gitflow-Workflow" class="headerlink" title="Gitflow Workflow"></a>Gitflow Workflow</h1><p>Gitflow Workflow defines a <strong>strict branching model</strong> designed around the project release. It assigns <strong>very specific roles</strong> to different branches and defines how and when they should interact.</p>
-<h2 id="master-and-develop"><a href="#master-and-develop" class="headerlink" title="master and develop"></a>master and develop</h2><p>The master branch stores the official release history, and the develop branch serves as an integration branch for features.</p>
-<p><strong>Tag all commits</strong> in the master branch with <strong>a version number</strong>.</p>
-<h2 id="feature-branches"><a href="#feature-branches" class="headerlink" title="feature branches"></a>feature branches</h2><p>Each new feature should reside in its own branch, which can be pushed to the central repository for backup/collaboration. But, instead of branching off of master, <strong>feature branches use develop as their parent branch</strong>.</p>
-<blockquote>
-<p>Note that feature branches combined with the develop branch is, for all intents and purposes, the <strong>Feature Branch Workflow</strong>.</p>
-</blockquote>
-<p>{&lt;2&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-05-15%20at%204.19.16%20PM.png" alt=""></p>
-<blockquote>
-<p>branch off: develop</p>
-<p>merge into: develop</p>
-</blockquote>
-<h2 id="release-branches"><a href="#release-branches" class="headerlink" title="release branches"></a>release branches</h2><p>For release, you fork a release branch off of develop, and prepare:</p>
-<ol>
-<li>bug fixes</li>
-<li>documentation generation</li>
-<li>other release-oriented tasks</li>
-</ol>
-<p><strong>No new features</strong> can be added after this point.</p>
-<p>Once ready for release, this branch will get <strong>merged into master</strong> and tagged with a version number. In addition, it should be <strong>merged back into develop</strong>.</p>
-<p>{&lt;3&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-05-15%20at%204.27.35%20PM.png" alt=""></p>
-<blockquote>
-<p>branch off: develop</p>
-<p>merge into: master, develop</p>
-<p>naming convention: release-* or release/*</p>
-</blockquote>
-<h2 id="hotfix-branches"><a href="#hotfix-branches" class="headerlink" title="hotfix branches"></a>hotfix branches</h2><p>Maintenance or “hotfix” branches are used to quickly patch production releases.</p>
-<p>This is the only branch that should <strong>fork directly off of master</strong>.</p>
-<p>Once fixed, it’s <strong>merged into both master and develop</strong> (or the current release branch), and master should be tagged with an updated version number.</p>
-<p>You can think of maintenance branches as ad hoc release branches that work directly with master.</p>
-<p>{&lt;4&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-05-15%20at%204.32.26%20PM.png" alt=""></p>
-<blockquote>
-<p>branch off: master</p>
-<p>merge into: master, develop</p>
-</blockquote>
-<h2 id="example-2"><a href="#example-2" class="headerlink" title="example"></a>example</h2><h3 id="create-master-and-develop"><a href="#create-master-and-develop" class="headerlink" title="create master and develop"></a>create master and develop</h3><pre><code>git branch develop
-git push -u origin develop</code></pre><p><strong>develop</strong> will contain the complete history of the project, whereas <strong>master</strong> will contain an abridged version.</p>
-<p>Bill now clone the central repository and create a tracking branch for develop:</p>
-<pre><code>git clone ssh://user@host/path/to/repo.git
-git checkout -b develop origin/develop</code></pre><h3 id="develop-stage"><a href="#develop-stage" class="headerlink" title="develop stage"></a>develop stage</h3><p>Now Mary and Bill both work on their own features:</p>
-<pre><code>git checkout -b some-feature develop
-# make changes
-git status
-git add &lt;some-file&gt;
-git commit</code></pre><p>Once Mary finishes a feature, she can do a pull request, or this:</p>
-<pre><code>git pull origin develop
-git checkout develop
-git merge some-feature
-git push
-git branch -d some-feature</code></pre><h3 id="release-stage"><a href="#release-stage" class="headerlink" title="release stage"></a>release stage</h3><p>While Bill is still working on his feature, Mary starts to prepare the first official release</p>
-<pre><code>git checkout -b release-0.1 develop</code></pre><p>She’ll clean up the release, test everything, update the documentation. Now the release is feature-frozen.</p>
-<p>Once the release is ready, Mary merges it into master and develop, then deletes the release branch. (can also do pull request here)</p>
-<pre><code>git checkout master
-git merge release-0.1
-git push
-git checkout develop
-git merge release-0.1
-git push
-git branch -d release-0.1</code></pre><p>When merging something into master, you should tag the commit for easy reference:</p>
-<pre><code>git tag -a 0.1 -m &quot;Initial public release&quot; master
-git push --tags</code></pre><h3 id="maintenance-stage"><a href="#maintenance-stage" class="headerlink" title="maintenance stage"></a>maintenance stage</h3><p>If a bug is found:</p>
-<pre><code>git checkout -b issue-#001 master
-# Fix the bug
-git checkout master
-git merge issue-#001
-git push</code></pre><p>Then include it in develop, and delete the branch:</p>
-<pre><code>git checkout develop
-git merge issue-#001
-git push
-git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#Final-note-on-workflows" class="headerlink" title="Final note on workflows"></a>Final note on workflows</h1><p>They are not hard-and-fast rules for using Git in the workplace. So, don’t be afraid to adopt some aspects of a workflow and disregard others. The goal should always be to make Git work for you, not the other way around.</p>
-<p>Reference: <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing Workflows by atlassian</a></p>
-<h1 id="Forking"><a href="#Forking" class="headerlink" title="Forking"></a>Forking</h1><p>We have discussed about Centralized, Feature branch &amp; Gitflow in <a href="/git-workflows-feature-branch-gitflow-and-fork/">previous post</a>. </p>
-<p>Now, Forking Workflow is <strong>fundamentally different</strong> than the other workflows. Instead of using a single server-side repository to act as the “central” codebase, it gives every developer a server-side repository. </p>
-<p>Developers push to their own server-side repositories, and <strong>only the project maintainer</strong> can push to the official repository. </p>
-<p>This allows the maintainer to <strong>accept commits</strong> from any developer without giving them write access to the official codebase.</p>
-<p>This is an ideal workflow for open source projects.</p>
-<h2 id="How-It-Works"><a href="#How-It-Works" class="headerlink" title="How It Works"></a>How It Works</h2><ol>
-<li><p>developer fork the official repository to create a copy of it on the server.</p>
-</li>
-<li><p>no other developers are allowed to push to it, but they can pull changes from it</p>
-</li>
-<li><p>after he makes changes, he commits and push the commit to their own public repository - not the official one. Then, they file a pull request with the main repository.</p>
-</li>
-<li><p>maintainer pulls the contributor’s changes into their local repository, checks to make sure it doesn’t break the project, merges it into his local master branch, then pushes the master branch to the official repository </p>
-</li>
-</ol>
-<h2 id="example-3"><a href="#example-3" class="headerlink" title="example"></a>example</h2><p>For a thorough example, read the ref link below. </p>
-<p>Reference link: <a target="_blank" rel="noopener" href="https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow">Forking Workflow by atlassian.com</a></p>
 
       
     </div>
@@ -1735,7 +1636,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
