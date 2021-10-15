@@ -151,6 +151,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/15/Tech/debian9-on-wankeyun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/15/Tech/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Debian 9.9 on Wky</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-10-15 00:00:00 / Modified: 14:49:30" itemprop="dateCreated datePublished" datetime="2021-10-15T00:00:00+00:00">2021-10-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 Debian 版的 Armbian 系统。</p>
+<p>硬件信息如下：<br>     <strong>__   _</strong>   <strong>_  __</strong><br>    / <strong>_| ( _ ) / _ | _</strong>|<br>    _<em>_ \ / _ | | | |<strong>_ <br>     _</strong>) | (</em>) | |<em>| |__</em>) |<br>    |<strong><em>_/ \</em></strong>/ _<strong>/|__</strong>/</p>
+<pre><code>Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
+System load:   0.70 0.52 0.26      Up time:       7 min
+Memory usage:  8 % of 996MB      IP:            192.168.31.33
+Usage of /:    25% of 6.4G</code></pre><p>Debian 9.9 （stretch）</p>
+<pre><code>root@aml:~# lsb_release -a
+No LSB modules are available.
+Distributor ID:    Debian
+Description:    Debian GNU/Linux 9.9 (stretch)
+Release:    9.9
+Codename:    stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
+<p>然后插上wky，自动重装系统（不用刷inphic底包），很方便。</p>
+<h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><pre><code>cd /etc/apt/
+vi sources.list</code></pre><p>Content (note that Tsinghua and 163.com sources DO NOT WORK): </p>
+<pre><code>deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free</code></pre><h3 id="For-docker"><a href="#For-docker" class="headerlink" title="For docker"></a>For docker</h3><pre><code>https://mirrors.ustc.edu.cn/docker-ce</code></pre><p>如果签名报错，运行这一行：</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥（例如648ACFD622F3D138）</code></pre><p>就好了。</p>
+<h2 id="Some-useful-apt-to-install"><a href="#Some-useful-apt-to-install" class="headerlink" title="Some useful apt to install"></a>Some useful apt to install</h2><pre><code>apt install python-setuptools
+apt install tmux
+apt install mosh</code></pre><h2 id="Install-Webmin"><a href="#Install-Webmin" class="headerlink" title="Install Webmin"></a>Install Webmin</h2><p>国外版的宝塔。</p>
+<pre><code>/etc/apt/sources.list.d/
+vi webmin.list</code></pre><p>内容：</p>
+<pre><code>deb http://download.webmin.com/download/repository sarge contrib</code></pre><p>然后：</p>
+<pre><code>wget http://www.webmin.com/jcameron-key.asc --no-check-certificate
+apt-key add jcameron-key.asc
+apt update
+apt install webmin</code></pre><p>然后就可以在 10000 端口查看 webmin 面板了。</p>
+<h1 id="自动同步-挂在U盘"><a href="#自动同步-挂在U盘" class="headerlink" title="自动同步 + 挂在U盘"></a>自动同步 + 挂在U盘</h1><h2 id="挂载-U盘"><a href="#挂载-U盘" class="headerlink" title="挂载 U盘"></a>挂载 U盘</h2><p>TODO</p>
+<p>一定不要修改 fstab。教训。</p>
+<h2 id="同步软件"><a href="#同步软件" class="headerlink" title="同步软件"></a>同步软件</h2><ol>
+<li>resilio sync</li>
+<li>syncthing</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/11/Crypto/nft-2-types/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +284,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -258,7 +360,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -389,7 +491,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -462,7 +564,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -551,7 +653,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -627,7 +729,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -776,7 +878,7 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
+                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
               </span>
 
           
@@ -793,71 +895,6 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
           <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>encrypted APFS can only run in read-only mode on Ubuntu </p>
 <h2 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h2><p>Instruction: <a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">https://github.com/sgan81/apfs-fuse</a></p>
 <p>Find out the <device> using Disk tool, like this: <strong>/dev/sda5</strong>, or <strong>/dev/sdb1</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Crypto/some-ethereum-competitors-2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/12/Crypto/some-ethereum-competitors-2021/" class="post-title-link" itemprop="url">【Crypto】Some of the best Ethereum competitors in 2021</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-12 15:55:13" itemprop="dateCreated datePublished" datetime="2021-09-12T15:55:13+00:00">2021-09-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-14 21:01:12" itemprop="dateModified" datetime="2021-10-14T21:01:12+00:00">2021-10-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>TODO</p>
 
       
     </div>
@@ -942,7 +979,7 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">67</span>
+          <span class="site-state-item-count">68</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
