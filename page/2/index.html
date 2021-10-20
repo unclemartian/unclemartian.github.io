@@ -151,6 +151,222 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/14/Tech/ubuntu-vpn-trojan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/14/Tech/ubuntu-vpn-trojan/" class="post-title-link" itemprop="url">【Tech】VPN / Trojan on Ubuntu / Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-14 10:00:00" itemprop="dateCreated datePublished" datetime="2021-09-14T10:00:00+00:00">2021-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>2 softwares to run Trojan: </p>
+<ol>
+<li>Trojan client : <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan">https://github.com/trojan-gfw/trojan</a></li>
+<li>Qv2ray : <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">https://github.com/Qv2ray/Qv2ray</a></li>
+</ol>
+<h2 id="trojan-vpn-and-ssr-的区别"><a href="#trojan-vpn-and-ssr-的区别" class="headerlink" title="trojan, vpn and ssr 的区别"></a>trojan, vpn and ssr 的区别</h2><p>TODO</p>
+<h1 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h1><h2 id="Install-trojan-client-on-Ubuntu"><a href="#Install-trojan-client-on-Ubuntu" class="headerlink" title="Install trojan client on Ubuntu"></a>Install trojan client on Ubuntu</h2><p>For 18.10 &amp; 19.04</p>
+<pre><code>sudo add-apt-repository ppa:greaterfire/trojan
+sudo apt-get update
+sudo apt-get install trojan</code></pre><p>For &gt;= 19.04 </p>
+<pre><code>sudo apt-get install trojan</code></pre><p>On Manjaro:</p>
+<pre><code>sudo pacman -S trojan</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions">Binary &amp; Package Distributions · trojan-gfw/trojan Wiki</a></p>
+<h2 id="Trojan-client-config"><a href="#Trojan-client-config" class="headerlink" title="Trojan client config"></a>Trojan client config</h2><p>Put config.json under /etc/trojan/config.json (for Arch) 或者 /usr/local/trojan/config.json (for Ubuntu)</p>
+<pre><code>sudo mv /etc/trojan/config.json /etc/trojan/config.json.backup
+sudo vi /etc/trojan/config.json</code></pre><p>To test that trojan is working, run the one-time command:</p>
+<pre><code>/usr/local/trojan/trojan -c /usr/local/trojan/config.json</code></pre><h2 id="Run-on-system-daemon"><a href="#Run-on-system-daemon" class="headerlink" title="Run on system daemon"></a>Run on system daemon</h2><p>Simply, enable trojan：</p>
+<pre><code>systemctl enable trojan
+systemctl start trojan</code></pre><p>If trojan service isn’t available: </p>
+<pre><code>cd /etc/systemd/system/
+sudo vi trojan.service</code></pre><p>Input: </p>
+<pre><code>[Unit]
+Description=trojan
+Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
+After=network.target
+
+[Service]
+Type=simple
+StandardError=journal
+User=nobody
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+ExecStart=/usr/local/trojan/trojan -c /usr/local/trojan/config.json
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target</code></pre><p>Then add to auto-run and config system-wide alias: </p>
+<pre><code>systemctl enable trojan</code></pre><p>Optionally, add alias for quick run: </p>
+<pre><code>sudo vi ~/.bashrc
+# add the following line:
+alias trojan=&apos;/usr/local/trojan/trojan -c /usr/local/trojan/config.json&apos;</code></pre><p>Above, configed trojan successfully on system level. Welcome to beyound the wall. </p>
+<h2 id="Browser-config"><a href="#Browser-config" class="headerlink" title="Browser config"></a>Browser config</h2><p>Next step, download SwitchyOmega for Chrome and Firefox, config SOCKS5</p>
+<p>Download url: <a target="_blank" rel="noopener" href="https://github.com/FelisCatus/SwitchyOmega/releases">https://github.com/FelisCatus/SwitchyOmega/releases</a></p>
+<p>Local file: </p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi">https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi</a></li>
+<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx">https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx</a></li>
+</ol>
+<p>Go to switchyomega config and set (default) to “SOCKS5” protocol and “127.0.0.1” server, “1080” port. </p>
+<p>Done! </p>
+<h2 id="Known-Issue"><a href="#Known-Issue" class="headerlink" title="Known Issue"></a>Known Issue</h2><p>If you see “unknown protocol” error, then you have mis-configed <strong>http</strong> instead of <strong>socks5</strong>. </p>
+<h1 id="Qv2ray"><a href="#Qv2ray" class="headerlink" title="Qv2ray"></a>Qv2ray</h1><p>Qv2ray仅需下载以下三件套：</p>
+<ol>
+<li><p>Main app: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases">https://github.com/Qv2ray/Qv2ray/releases</a></p>
+</li>
+<li><p>Trojan plugin: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3">https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3</a></p>
+<ol>
+<li>注意：trojan plugin 和 qv2ray 版本必须对应</li>
+</ol>
+</li>
+<li><p>v2core: <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-core/releases">https://github.com/v2fly/v2ray-core/releases</a></p>
+<ol>
+<li>或者 <a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>注意选择：v2ray-linux-64.zip</li>
+</ol>
+</li>
+</ol>
+<h1 id="After-installation"><a href="#After-installation" class="headerlink" title="After installation"></a>After installation</h1><h2 id="Troubleshoot"><a href="#Troubleshoot" class="headerlink" title="Troubleshoot"></a>Troubleshoot</h2><h3 id="Check-IP-address"><a href="#Check-IP-address" class="headerlink" title="Check IP address"></a>Check IP address</h3><pre><code>curl ifconfig.me</code></pre><h3 id="Test-VPN"><a href="#Test-VPN" class="headerlink" title="Test VPN"></a>Test VPN</h3><p>Test whether proxy / trojan really works</p>
+<pre><code>curl google.com
+echo $https_proxy</code></pre><h2 id="Use-another-machine-as-proxy"><a href="#Use-another-machine-as-proxy" class="headerlink" title="Use another machine as proxy"></a>Use another machine as proxy</h2><p>假如 somehow 你的机器无法 config proxy，你可以使用另一台机器：</p>
+<ol>
+<li>在公用机器上 Config Qv2ray: 监听地址 = 0.0.0.0</li>
+</ol>
+<p><img src="/images/qv2ray-listen-address.png" alt=""></p>
+<ol start="2">
+<li><p>在私人机器上 Set manual proxy: </p>
+<p> Proxy: （公用机器的地址，比如 192.168.31.105）<br> Port: 8889</p>
+</li>
+</ol>
+<h2 id="Terminal-proxy"><a href="#Terminal-proxy" class="headerlink" title="Terminal proxy"></a>Terminal proxy</h2><p>对于 Qv2ray: </p>
+<pre><code>export http_proxy=http://127.0.0.1:8889
+export https_proxy=http://127.0.0.1:8889</code></pre><p>或者：</p>
+<pre><code>export http_proxy=http://127.0.0.1:8889
+export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：</p>
+<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
+<pre><code>alias fanqiang=&apos;export http_proxy=http://127.0.0.1:8889 &amp;&amp; export https_proxy=socks5://127.0.0.1:1089&apos;</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/13/Tech/ubuntu-mount-apfs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/13/Tech/ubuntu-mount-apfs/" class="post-title-link" itemprop="url">【Tech】Mount APFS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>encrypted APFS can only run in read-only mode on Ubuntu </p>
+<h2 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h2><p>Instruction: <a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">https://github.com/sgan81/apfs-fuse</a></p>
+<p>Find out the <device> using Disk tool, like this: <strong>/dev/sda5</strong>, or <strong>/dev/sdb1</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Crypto/some-ethereum-competitors-2021/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +398,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
               </span>
 
           
@@ -247,7 +463,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
               </span>
 
           
@@ -323,7 +539,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
               </span>
 
           
@@ -396,7 +612,7 @@ java -version</code></pre><p>To switch java version that you want to use: </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
               </span>
 
           
@@ -475,7 +691,7 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
               </span>
 
           
@@ -545,7 +761,7 @@ go version</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
+                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
               </span>
 
           
@@ -649,234 +865,6 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/Tech/ubuntu-nvm-node/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/01/Tech/ubuntu-nvm-node/" class="post-title-link" itemprop="url">【Tech】Install Node/npm using Nvm</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+00:00">2021-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><h2 id="Use-‘nvm’-to-manage-node-versions"><a href="#Use-‘nvm’-to-manage-node-versions" class="headerlink" title="Use ‘nvm’ to manage node versions"></a>Use ‘nvm’ to manage node versions</h2><ol>
-<li><p>Install nvm<br> <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">https://github.com/nvm-sh/nvm#install--update-script</a></p>
-</li>
-<li><p>Check current node versions</p>
-<pre><code>nvm ls
-nvm ls-remote</code></pre></li>
-<li><p>Install node and npm</p>
-<pre><code>nvm install v12</code></pre></li>
-<li><p>Use the following command</p>
-<pre><code>nvm use 12</code></pre></li>
-</ol>
-<h2 id="Please-Note"><a href="#Please-Note" class="headerlink" title="Please Note"></a>Please Note</h2><p>You may need to uninstall the system version node/npm, otherwise sudo have issues.</p>
-<p>A pretty simple work-around would be:</p>
-<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
-<pre><code>alias node=&apos;$NVM_BIN/node&apos;
-alias npm=&apos;$NVM_BIN/npm&apos;
-alias sudo=&apos;sudo env PATH=$PATH:$NVM_BIN&apos;</code></pre><h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org/
-npm config set registry https://registry.npmjs.org/</code></pre><h2 id="To-check"><a href="#To-check" class="headerlink" title="To check"></a>To check</h2><pre><code>npm info underscore
-npm --registry https://registry.npm.taobao.org info underscore
-npm config get registry</code></pre><h1 id="Useful-npm-packages"><a href="#Useful-npm-packages" class="headerlink" title="Useful npm packages"></a>Useful npm packages</h1><p>You might need to install these just in case you need them:</p>
-<pre><code>npm install -g eslint yarn now truffle vue-cli hexo-cli
-npm install -g --force npx</code></pre><p>To check your globally-installed packges:</p>
-<pre><code>npm list -g --depth 0</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/13/Tech/ubuntu-system-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/13/Tech/ubuntu-system-commands/" class="post-title-link" itemprop="url">【Tech】Ubuntu System Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-13T00:00:00+00:00">2021-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-15 14:49:30" itemprop="dateModified" datetime="2021-10-15T14:49:30+00:00">2021-10-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="System-commands"><a href="#System-commands" class="headerlink" title="System commands"></a>System commands</h1><h2 id="Check-version-of-Ubuntu"><a href="#Check-version-of-Ubuntu" class="headerlink" title="Check version of Ubuntu"></a>Check version of Ubuntu</h2><pre><code>lsb_release -a
-cat /etc/issue
-cat /etc/os-release
-hostnamectl</code></pre><h2 id="Ubuntu-switch-to-Aliyun-source"><a href="#Ubuntu-switch-to-Aliyun-source" class="headerlink" title="Ubuntu switch to Aliyun source"></a>Ubuntu switch to Aliyun source</h2><pre><code>ls /etc/apt/
-sudo cp -ra /etc/apt/sources.list /etc/apt/sources.list.backup</code></pre><p>Next check current system’s codename: </p>
-<pre><code>lsb_release -a</code></pre><p>把’TODO’的地方换成上面的Codename</p>
-<pre><code>deb http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse</code></pre><p>Alternatively, 也可以用 163网易源（以 Ubuntu 20.04 focal 为例）：</p>
-<pre><code>deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse</code></pre><p>Done, after this do: sudo apt-get update and upgrade.</p>
-<h2 id="Ubuntu-安装中文输入法"><a href="#Ubuntu-安装中文输入法" class="headerlink" title="Ubuntu 安装中文输入法"></a>Ubuntu 安装中文输入法</h2><p>Uninstall ibus first, then install fcitx: </p>
-<pre><code>sudo apt-get purge ibus
-sudo apt-get autoremove
-sudo apt-get install fcitx</code></pre><p>Then go to system language config, install Chinese and apply system-wide.</p>
-<p>Change input from ibus to fcitx. Reboot system.<br>Then run:</p>
-<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
-sudo apt -f install</code></pre><h3 id="默认输入法-切换简繁体字"><a href="#默认输入法-切换简繁体字" class="headerlink" title="默认输入法 切换简繁体字"></a>默认输入法 切换简繁体字</h3><p>Use “Ctrl + Shift + F”</p>
-<h2 id="设置-alias-短命令"><a href="#设置-alias-短命令" class="headerlink" title="设置 alias 短命令"></a>设置 alias 短命令</h2><pre><code>alias new_name=&apos;old command&apos;</code></pre><p>要创建永久别名，您必须.bashrc在主目录中编辑文件。</p>
-<h2 id="系统无法读写"><a href="#系统无法读写" class="headerlink" title="系统无法读写"></a>系统无法读写</h2><p>Encounter “Missing write access to /usr/local/lib/node_modules”</p>
-<p>Run the following: </p>
-<pre><code>sudo chown -R $USER /usr/local</code></pre><p>Reference：<a target="_blank" rel="noopener" href="https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules">https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules</a></p>
-<h2 id="Ubuntu16-04挂载exfat格式U盘"><a href="#Ubuntu16-04挂载exfat格式U盘" class="headerlink" title="Ubuntu16.04挂载exfat格式U盘"></a>Ubuntu16.04挂载exfat格式U盘</h2><pre><code>sudo apt-get install exfat-fuse</code></pre><h2 id="Check-disk-usage"><a href="#Check-disk-usage" class="headerlink" title="Check disk usage"></a>Check disk usage</h2><pre><code>df -h | grep -v &apos;/snap\|tmp&apos;</code></pre><p>The -v inverses the grep search</p>
-<p>The | 实现grep OR的操作</p>
-<p>Example output:</p>
-<pre><code>Filesystem       Size  Used Avail Use% Mounted on
-udev             3.8G     0  3.8G   0% /dev
-/dev/nvme0n1p8    26G  5.1G   20G  21% /
-/dev/nvme0n1p9    35G  6.3G   27G  20% /usr
-/dev/nvme0n1p7   343M  139M  178M  44% /boot
-/dev/nvme0n1p10   54G  4.0G   47G   8% /home</code></pre><h1 id="Software-commands"><a href="#Software-commands" class="headerlink" title="Software commands"></a>Software commands</h1><h2 id="Install-software-using-Snap"><a href="#Install-software-using-Snap" class="headerlink" title="Install software using Snap"></a>Install software using Snap</h2><p>Snap is the command-line version of “Ubuntu Software”, but the latter is very slow.</p>
-<pre><code>snap search figma-linux
-snap install figma-linux 
-snap list
-snap info figma-linux</code></pre><h2 id="Permission-issues-for-Resilio-Sync"><a href="#Permission-issues-for-Resilio-Sync" class="headerlink" title="Permission issues for Resilio Sync"></a>Permission issues for Resilio Sync</h2><blockquote>
-<p>user_group is a group name of current user, by default it’s the same as user name (can be checked by running id command)</p>
-</blockquote>
-<p>Refer to:<br><a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux">https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux</a></p>
-<p>In my case I ran:</p>
-<pre><code>sudo usermod -aG harry rslsync
-sudo usermod -aG rslsync harry
-sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
-<h2 id="Install-XMind-8-on-Ubuntu-20"><a href="#Install-XMind-8-on-Ubuntu-20" class="headerlink" title="Install XMind 8 on Ubuntu 20"></a>Install XMind 8 on Ubuntu 20</h2><p>新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。</p>
-<ol>
-<li><p>解压缩 “xmind-8-update9-linux.zip” 到桌面。</p>
-</li>
-<li><p>创建 XMind8.desktop 以下内容：</p>
-<p> [Desktop Entry]<br> Name=XMind8<br> Exec=/home/michael/Desktop/xmind-8-update9-linux/XMind_amd64/XMind<br> Path=/home/michael/Desktop/xmind-8-update9-linux/XMind_amd64<br> Terminal=false<br> Type=Application<br> Icon=xmind<br> Comment=Xmind8<br> Categories=Utility;</p>
-</li>
-<li><p>一定注意，Path= 这个地方很重要，否则xmind将会无法找到 config。</p>
-<p> Refer to <a target="_blank" rel="noopener" href="https://bbs.deepin.org/post/174888">https://bbs.deepin.org/post/174888</a></p>
-</li>
-<li><p>然后，右键点击这个 icon，选择 allow launching。<br>就可以啦～ </p>
-</li>
-<li><p>optionally，可以把这个 icon 复制到系统 applications 文件夹，如下：</p>
-<p> sudo cp xmind-8.desktop /usr/share/applications/</p>
-</li>
-</ol>
-<h2 id="Install-screen-recorder"><a href="#Install-screen-recorder" class="headerlink" title="Install screen recorder"></a>Install screen recorder</h2><pre><code>sudo apt install python3-cairo python3-xlib kazam</code></pre><h2 id="Install-video-player"><a href="#Install-video-player" class="headerlink" title="Install video player"></a>Install video player</h2><pre><code>sudo apt-get install vlc -y</code></pre><h2 id="Install-Brackets"><a href="#Install-Brackets" class="headerlink" title="Install Brackets"></a>Install Brackets</h2><pre><code>sudo snap install brackets --classic</code></pre><h2 id="Install-Chrome"><a href="#Install-Chrome" class="headerlink" title="Install Chrome"></a>Install Chrome</h2><p>Use the deb file. </p>
-<p>Remove Chromium since it’s not possible to sync with Google any more. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -946,7 +934,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
