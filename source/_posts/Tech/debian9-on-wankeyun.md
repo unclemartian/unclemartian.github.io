@@ -1,12 +1,12 @@
 ---
-title: 【Tech】 Debian 9.9 on Wky
+title: 【Tech】 Armbian/Debian on Wky 安装教程
 date: 2021-10-15 00:00:00
 tags: ubuntu
 ---
 
 # Debian 9
 
-以 玩客云 硬件为例，测试使用 Debian 版的 Armbian 系统。
+以 玩客云 硬件为例，测试使用 Debian 9.9 版的 Armbian 系统。
 
 硬件信息如下：
      ____   ___   ___  ____
@@ -49,6 +49,13 @@ Debian 9.9 （stretch）
 #选择Asia
 #选择Shanghai
 #然后依次选择 back exit 退出。
+
+## hostname
+
+Check / Change:
+
+    hostname
+    sudo hostname armbian-wky
 
 ## 换源
 
@@ -118,3 +125,53 @@ TODO
 1. resilio sync
 1. syncthing
 
+### Resilio-sync
+
+    apt install resilio-sync
+    systemctl status resilio
+    systemctl start resilio-sync
+    systemctl status resilio-sync
+    systemctl enable resilio-sync
+
+查看：
+
+https://192.168.123.215:8888/gui/
+
+### Syncthing
+
+    sudo apt install syncthing
+    syncthing --version 
+
+For Debian:
+
+    cd /lib/systemd/system/
+
+For Ubuntu:
+
+    cd /etc/systemd/system/
+
+Note the following config is ready:
+
+    cat syncthing@.service
+    sudo systemctl enable syncthing@$USER
+
+After this, __/etc/systemd/system/multi-user.target.wants/syncthing@root.service__ is created. 
+
+Run syncthing:
+
+    sudo systemctl start syncthing@$USER
+    sudo systemctl status syncthing@$USER
+    vi /root/.config/syncthing/config.xml
+    
+将 <address>127.0.0.1:8384</address> 改成 0.0.0.0:8384
+
+tls=“false” 改成 true
+
+然后：
+
+    sudo systemctl restart syncthing@$USER
+    sudo systemctl status syncthing@$USER
+
+查看：
+
+https://192.168.123.215:8384
