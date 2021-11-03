@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-03 09:00:00 / Modified: 14:42:08" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+              <time title="Created: 2021-11-03 09:00:00 / Modified: 17:03:14" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
             </span>
 
           
@@ -192,9 +192,9 @@
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：</p>
 <ol>
-<li>Phicomm N1（S905）</li>
-<li>Wankeyun（S805）</li>
-<li>CM201-1 （S905L）</li>
+<li>Phicomm N1（S905D / 2G）</li>
+<li>Wankeyun（S805 / 1G）</li>
+<li>CM201-1 （S905L / 1G）</li>
 <li>CM2000</li>
 </ol>
 <p>其中每个设备都可以刷3种系统：</p>
@@ -277,7 +277,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
@@ -408,7 +408,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
@@ -424,9 +424,8 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
       
           <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
 <pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
-a***</code></pre><p>N1盒子</p>
-<pre><code>ssh arm@192.168.123.242
-a***</code></pre><h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
+a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
+<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
 tmux attach -t 0 (or simply tmux attach)
 tmux detach -a</code></pre><p>窗口操作：</p>
 <pre><code>Ctrl+b % Split current pane horizontally
@@ -494,7 +493,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
@@ -629,21 +628,17 @@ systemctl status smbd
 (maybe optional)smbpasswd -a smb</code></pre><p>然后</p>
 <pre><code>sudo vi /etc/samba/smb.conf
 
-##########################
-[N1]
-comment = n1-white
-available = yes
-browseable = yes
-create mode = 0664
-directory mmode = 0775
-force create mode = 0775
-force directory mode = 0775
-path = /home/arm
-public = yes
-read only = no
-writable = yes
-
-systemctl restart smbd
+[wky]
+    comment = wky-arm
+    path = /home/rslsync/Resilio Sync/
+    comment = share all
+    browseable = yes
+    public = yes
+    writable = yes
+    valid users = wky
+    force user = wky
+    force group = wky</code></pre><p>重启：</p>
+<pre><code>systemctl restart smbd
 systemctl status smbd</code></pre><p>权限有问题。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a></p>
 
@@ -696,7 +691,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
@@ -772,7 +767,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
@@ -903,7 +898,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
@@ -976,7 +971,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 17:03:14" itemprop="dateModified" datetime="2021-11-03T17:03:14+00:00">2021-11-03</time>
               </span>
 
           
