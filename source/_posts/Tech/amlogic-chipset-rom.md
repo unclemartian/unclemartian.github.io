@@ -67,3 +67,5 @@ Armbian 经常把 Android系统搞坏。哎。
 最佳的固件就是 5.77版本的 Debian stretch。
 
 5.99 / 20.10 版本我没成功过。
+
+# WKY刷机

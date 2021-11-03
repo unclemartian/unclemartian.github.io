@@ -8,9 +8,14 @@ tags: ubuntu
 
 ## Use 'nvm' to manage node versions
 
-1. Install nvm
-    https://github.com/nvm-sh/nvm#install--update-script
+1. Install nvm (参考 https://github.com/nvm-sh/nvm#install--update-script)
     
+		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
+	or:
+	
+		wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
 2. Check current node versions
 
         nvm ls
