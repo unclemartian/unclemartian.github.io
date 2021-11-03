@@ -48,3 +48,22 @@ http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html
 
 这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。
 
+![](/images/usb-burning-tool-n1.jpg)
+
+## EmuElec
+
+Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。
+
+所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。
+
+刷机过程我已经忘了。
+
+## Armbian
+
+Armbian 经常把 Android系统搞坏。哎。
+
+另外，试用了桌面版的 Debian 9，实在是没什么可用性，而且有时候无法自动连接 Wifi。不建议玩儿。
+
+最佳的固件就是 5.77版本的 Debian stretch。
+
+5.99 / 20.10 版本我没成功过。

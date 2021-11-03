@@ -219,9 +219,9 @@ tls=“false” 改成 true
 
 https://192.168.123.215:8384
 
-# 桌面环境
+# 系统配置
 
-## 配置自动登陆
+## 桌面环境的自动登陆
 
 	sudo vi /etc/lightdm/lightdm.conf
 
