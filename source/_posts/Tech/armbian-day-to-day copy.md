@@ -6,20 +6,35 @@ tags: ubuntu
 
 # SSH 登陆
 
+WKY
+
     export LC_ALL="en_US.UTF-8" && mosh root@192.168.123.215
     a***
 
-## Tmux 
+N1盒子
+
+	ssh arm@192.168.123.242
+	a***
+	
+## Tmux
 
     tmux ls
     tmux attach -t 0 (or simply tmux attach)
     tmux detach -a
 
-To detach current: 
+窗口操作：
 
-    Ctrl + b, then ‘d'
+	Ctrl+b % Split current pane horizontally
+	Ctrl+b " Split current pane vertically
+	Ctrl+b 0 Switch to window 0 (by number)
+	Ctrl+b o Go to the next pane
+	Ctrl+b ; Toggle between the current and previous pane
+	Ctrl+b x Close the current pane
+	Ctrl+b d detach current pane
 
-# 控制台和应用
+参考 https://linuxize.com/post/getting-started-with-tmux/
+
+# WKY控制台
 
 Webmin 在 10,000 端口。
 
@@ -42,3 +57,6 @@ https://192.168.123.215:8384
     wky
     a***
 
+# N1桌面系统
+
+RDP：192.168.123.242:3389

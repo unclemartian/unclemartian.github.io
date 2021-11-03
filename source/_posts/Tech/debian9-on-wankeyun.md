@@ -1,20 +1,22 @@
 ---
-title: 【Tech】 Armbian/Debian on Wky 安装教程
+title: 【Tech】 Armbian/Debian on N1/Wky 安装教程
 date: 2021-10-15 00:00:00
 tags: ubuntu
 ---
 
+这里使用 N1 和 玩客云（简称wky）。
+
 # Debian 9
 
-以 玩客云 硬件为例，测试使用 Debian 9.9 版的 Armbian 系统。
+以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 / Debian 9.9 版的 Armbian 系统。
 
 硬件信息如下：
+
      ____   ___   ___  ____
     / ___| ( _ ) / _ \| ___|
     \___ \ / _ \| | | |___ \
      ___) | (_) | |_| |___) |
     |____/ \___/ \___/|____/
-
 
     Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
     System load:   0.70 0.52 0.26  	Up time:       7 min
@@ -30,11 +32,52 @@ Debian 9.9 （stretch）
     Release:	9.9
     Codename:	stretch
 
+而N1，则是使用 ARMBIAN 5.77 / Debian 9.8 版的固件:
+
+	 ____  ___   ___  ____  
+	/ ___|/ _ \ / _ \| ___| 
+	\___ \ (_) | | | |___ \ 
+	 ___) \__, | |_| |___) |
+	|____/  /_/ \___/|____/ 
+							
+
+	Welcome to ARMBIAN 5.77 user-built Debian GNU/Linux 9 (stretch) 5.0.2-aml-s905   
+	System load:   2.21 2.80 2.86   Up time:       6:33 hours               
+	Memory usage:  30 % of 1838MB   Zram usage:    26 % of 919Mb    IP:            169.254.10.11 192.168.123.242
+	CPU temp:      50°C             
+	Usage of /:    11% of 29G       storage/:      44% of 128M 
+
+更新至最新版 stretch：
+
+	arm@armbian-n1-white-32g:~$ lsb_release -a
+	No LSB modules are available.
+	Distributor ID: Debian
+	Description:    Debian GNU/Linux 9.13 (stretch)
+	Release:        9.13
+	Codename:       stretch
+
 ## Armbian installation
+
+### on WKY
 
 只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。
 
-然后插上wky，自动重装系统（不用刷inphic底包），很方便。
+然后插上wky，自动重装系统装如EMMC（不用刷inphic底包），很方便。
+
+WKY可能不支持卡载 armbian？
+
+### on N1
+
+N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块钱的U盘，故无法确定卡载系统的稳定性。
+
+刷机很简单，将这两个固件任选其一：
+
+1. Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_20190401.img
+1. Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_desktop_20190401.img
+
+用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。
+
+如果无法启动，通过 Reboot to Elec apk来引导一下就行。
 
 ## Check 32 bit or 64 bit
 
@@ -175,3 +218,28 @@ tls=“false” 改成 true
 查看：
 
 https://192.168.123.215:8384
+
+# 桌面环境
+
+## 配置自动登陆
+
+	sudo vi /etc/lightdm/lightdm.conf
+
+Remove the # and change it to have your username after (for example: autologin-user=test).
+
+## 中文支持
+
+	sudo apt-get install ttf-wqy-zenhei
+	sudo vi /etc/locale.gen
+
+去掉zh_CN.UTF-8前面的# 保存
+
+	fc-cache -v
+	sudo vi /etc/default/locale 
+
+在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8
+
+# Reference
+
+https://leeyr.com/323.html
+https://www.znds.com/tv-1197649-1-1.html
