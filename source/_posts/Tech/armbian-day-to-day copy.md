@@ -11,11 +11,8 @@ WKY
     export LC_ALL="en_US.UTF-8" && mosh root@192.168.123.215
     a***
 
-N1盒子
+wky上面有两个账户：root和wky，密码一样。
 
-	ssh arm@192.168.123.242
-	a***
-	
 ## Tmux
 
     tmux ls

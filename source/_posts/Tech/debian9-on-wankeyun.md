@@ -272,7 +272,6 @@ Add
 
 	wiki
 
-
 ## Samba
 
 	apt-get install samba
@@ -283,19 +282,18 @@ Add
 
 	sudo vi /etc/samba/smb.conf
 
-	##########################
-	[N1]
-	comment = n1-white
-	available = yes
-	browseable = yes
-	create mode = 0664
-	directory mmode = 0775
-	force create mode = 0775
-	force directory mode = 0775
-	path = /home/arm
-	public = yes
-	read only = no
-	writable = yes
+	[wky]
+		comment = wky-arm
+		path = /home/rslsync/Resilio Sync/
+		comment = share all
+		browseable = yes
+		public = yes
+		writable = yes
+		valid users = wky
+		force user = wky
+		force group = wky
+
+重启：
 
 	systemctl restart smbd
 	systemctl status smbd

@@ -8,9 +8,9 @@ tags: ubuntu
 
 晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：
 
-1. Phicomm N1（S905）
-1. Wankeyun（S805）
-1. CM201-1 （S905L）
+1. Phicomm N1（S905D / 2G）
+1. Wankeyun（S805 / 1G）
+1. CM201-1 （S905L / 1G）
 1. CM2000
 
 其中每个设备都可以刷3种系统：
