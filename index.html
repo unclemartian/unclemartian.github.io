@@ -151,6 +151,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/03/Tech/amlogic-chipset-rom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/03/Tech/amlogic-chipset-rom/" class="post-title-link" itemprop="url">【Tech】 Amlogic 晶晨芯片刷机教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-03 09:00:00 / Modified: 13:28:18" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：</p>
+<ol>
+<li>Phicomm N1（S905）</li>
+<li>Wankeyun（S805）</li>
+<li>CM201-1 （S905L）</li>
+<li>CM2000</li>
+</ol>
+<p>其中每个设备都可以刷3种系统：</p>
+<ol>
+<li>Android for TV</li>
+<li>Armbian for Linux</li>
+<li>Emuelec for gaming</li>
+</ol>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>CM201-1 这个机器，启动Android一直没问题，但是无论换什么 dtb，armbian 都无法 boot。所以，就当电视盒子用吧。</p>
+<p>CM2000 这个机器，不但无法刷 armbian，连Android底包都坏了。重刷之后可以使用TV box，但是无 Wifi。</p>
+<p>wky是最容易刷的。</p>
+<p>N1有个问题，就是Android底包经常被弄坏（同时armbian正常可用）。重刷一下 android 系统就好了。</p>
+<blockquote>
+<p>为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于armbian，8G的一个都没成功。不知道为什么。</p>
+</blockquote>
+<h1 id="N1刷机"><a href="#N1刷机" class="headerlink" title="N1刷机"></a>N1刷机</h1><h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>对于 n1 盒子来说，使用这个Android底包就行：<strong>斐讯盒子N1_YYFROM夏杰语音实用版</strong></p>
+<p><a target="_blank" rel="noopener" href="http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html">http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html</a></p>
+<p>刷机很简单。（需要去设备管理器种调整一下usb驱动，参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/awkdzqvk/）">https://post.smzdm.com/p/awkdzqvk/）</a></p>
+<p>要注意2点：</p>
+<ol>
+<li>Usb burning tool 软件中，先按“开始”，再连接 usb，否则 n1 连上直接就断开。</li>
+<li>一定要取消“擦除flash”和“擦除bootloader”。参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/ax025099/">https://post.smzdm.com/p/ax025099/</a></li>
+</ol>
+<p>这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/install-openmediavault/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +269,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -313,7 +400,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -327,18 +414,29 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
+          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
+<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
+a***</code></pre><p>N1盒子</p>
+<pre><code>ssh arm@192.168.123.242
 a***</code></pre><h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
 tmux attach -t 0 (or simply tmux attach)
-tmux detach -a</code></pre><p>To detach current: </p>
-<pre><code>Ctrl + b, then ‘d&apos;</code></pre><h1 id="控制台和应用"><a href="#控制台和应用" class="headerlink" title="控制台和应用"></a>控制台和应用</h1><p>Webmin 在 10,000 端口。</p>
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
 <p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
 <pre><code>wky
 a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
 <pre><code>wky
 a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
 <pre><code>wky
-a***</code></pre>
+a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>RDP：192.168.123.242:3389</p>
+
       
     </div>
 
@@ -371,7 +469,7 @@ a***</code></pre>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/15/Tech/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Armbian/Debian on Wky 安装教程</a>
+            <a href="/2021/10/15/Tech/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Armbian/Debian on N1/Wky 安装教程</a>
         </h2>
 
         <div class="post-meta">
@@ -388,7 +486,7 @@ a***</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -402,9 +500,16 @@ a***</code></pre>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 Debian 9.9 版的 Armbian 系统。</p>
-<p>硬件信息如下：<br>     <strong>__   _</strong>   <strong>_  __</strong><br>    / <strong>_| ( _ ) / _ | _</strong>|<br>    _<em>_ \ / _ | | | |<strong>_ <br>     _</strong>) | (</em>) | |<em>| |__</em>) |<br>    |<strong><em>_/ \</em></strong>/ _<strong>/|__</strong>/</p>
-<pre><code>Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
+          <p>这里使用 N1 和 玩客云（简称wky）。</p>
+<h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 / Debian 9.9 版的 Armbian 系统。</p>
+<p>硬件信息如下：</p>
+<pre><code> ____   ___   ___  ____
+/ ___| ( _ ) / _ \| ___|
+\___ \ / _ \| | | |___ \
+ ___) | (_) | |_| |___) |
+|____/ \___/ \___/|____/
+
+Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
 System load:   0.70 0.52 0.26      Up time:       7 min
 Memory usage:  8 % of 996MB      IP:            192.168.31.33
 Usage of /:    25% of 6.4G</code></pre><p>Debian 9.9 （stretch）</p>
@@ -413,8 +518,35 @@ No LSB modules are available.
 Distributor ID:    Debian
 Description:    Debian GNU/Linux 9.9 (stretch)
 Release:    9.9
-Codename:    stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
-<p>然后插上wky，自动重装系统（不用刷inphic底包），很方便。</p>
+Codename:    stretch</code></pre><p>而N1，则是使用 ARMBIAN 5.77 / Debian 9.8 版的固件:</p>
+<pre><code> ____  ___   ___  ____  
+/ ___|/ _ \ / _ \| ___| 
+\___ \ (_) | | | |___ \ 
+ ___) \__, | |_| |___) |
+|____/  /_/ \___/|____/ 
+
+
+Welcome to ARMBIAN 5.77 user-built Debian GNU/Linux 9 (stretch) 5.0.2-aml-s905   
+System load:   2.21 2.80 2.86   Up time:       6:33 hours               
+Memory usage:  30 % of 1838MB   Zram usage:    26 % of 919Mb    IP:            169.254.10.11 192.168.123.242
+CPU temp:      50°C             
+Usage of /:    11% of 29G       storage/:      44% of 128M </code></pre><p>更新至最新版 stretch：</p>
+<pre><code>arm@armbian-n1-white-32g:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 9.13 (stretch)
+Release:        9.13
+Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><h3 id="on-WKY"><a href="#on-WKY" class="headerlink" title="on WKY"></a>on WKY</h3><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
+<p>然后插上wky，自动重装系统装如EMMC（不用刷inphic底包），很方便。</p>
+<p>WKY可能不支持卡载 armbian？</p>
+<h3 id="on-N1"><a href="#on-N1" class="headerlink" title="on N1"></a>on N1</h3><p>N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块钱的U盘，故无法确定卡载系统的稳定性。</p>
+<p>刷机很简单，将这两个固件任选其一：</p>
+<ol>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_20190401.img</li>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_desktop_20190401.img</li>
+</ol>
+<p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
+<p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
 <h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
 <h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
 <pre><code>hostname
@@ -469,6 +601,12 @@ vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384
 <pre><code>sudo systemctl restart syncthing@$USER
 sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 <p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<h1 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h1><h2 id="配置自动登陆"><a href="#配置自动登陆" class="headerlink" title="配置自动登陆"></a>配置自动登陆</h2><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
+sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
+<pre><code>fc-cache -v
+sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a></p>
 
       
     </div>
@@ -519,7 +657,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -595,7 +733,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -726,7 +864,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -799,7 +937,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -839,82 +977,6 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 <li>猫盘 100块钱以内。</li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/26/Crypto/top%20selling%20nft%20and%20consensus/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/26/Crypto/top%20selling%20nft%20and%20consensus/" class="post-title-link" itemprop="url">【Crypto】Top selling NFTs and their consensus</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-26T00:00:00+00:00">2021-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Community-Consensus"><a href="#Community-Consensus" class="headerlink" title="Community Consensus"></a>Community Consensus</h1><p>这里以 2 个超高价成交的 NFT 为例子，探索一下 nft 社区共识形成的方式。</p>
-<ol>
-<li>CryptoPunk #7804 sold by Dylan Field</li>
-<li>CryptoPunk sold by Sillytuna</li>
-</ol>
-<blockquote>
-<p>CryptoPunk was a low-res, algorithmically generated picture NFT.</p>
-</blockquote>
-<h1 id="The-digital-Mona-Lisa"><a href="#The-digital-Mona-Lisa" class="headerlink" title="The digital Mona Lisa"></a>The digital Mona Lisa</h1><p>CryptoPunk #7804, the ‘digital Mona Lisa.’ according to Dylan Field. </p>
-<p><a href=""></a></p>
-<h2 id="Dylan-Field"><a href="#Dylan-Field" class="headerlink" title="Dylan Field"></a>Dylan Field</h2><p>CEO of Figma.</p>
-<p>Used to live in a house with <strong>Juan Benet</strong>, creator of IPFS and Filecoin.</p>
-<h1 id="The-Masked-Alien-Cryptopunk"><a href="#The-Masked-Alien-Cryptopunk" class="headerlink" title="The Masked Alien Cryptopunk"></a>The Masked Alien Cryptopunk</h1>
       
     </div>
 
@@ -998,7 +1060,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

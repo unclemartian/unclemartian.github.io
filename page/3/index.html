@@ -151,6 +151,145 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/02/Tech/ubuntu-mysql-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/02/Tech/ubuntu-mysql-install/" class="post-title-link" itemprop="url">【Tech】Install MySQL 5.7 on Ubuntu 20.04</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T00:00:00+00:00">2021-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><pre><code>apt-get update
+apt-get install wget
+mkdir /downloads
+cd /downloads
+wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+# if the prompt is closed by accident, run:
+sudo dpkg-reconfigure mysql-apt-config</code></pre><p>Here, select MySQL 5.7, you will be prompt that Ubuntu 20.04 does not support MySQL 5.7. </p>
+<p>Don’t worry, select Ubuntu bionic. Then OK. </p>
+<pre><code>sudo apt-get update
+apt-cache policy mysql-server</code></pre><p>We can see</p>
+<pre><code>5.7.35-1ubuntu18.04 500 
+   500 http://repo.mysql.com/apt/ubuntu bionic/mysql-5.7 amd64 Packages</code></pre><p>Now simulate the installation first, then actually install:</p>
+<blockquote>
+<p>Use the -s flag to simulate an action. </p>
+<p>For example: “apt-get -s install <package_name>“ will simulate installing the package, showing you what packages will be installed and configured.</p>
+</blockquote>
+<pre><code>sudo apt install -s -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*</code></pre><p>then:</p>
+<pre><code>sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
+sudo apt-get install mysql-client=5.7.34-1ubuntu18.04
+sudo apt-get install -s mysql-community-server=5.7.34-1ubuntu18.04
+sudo apt-get install mysql-community-server=5.7.34-1ubuntu18.04</code></pre><p>Or simply:</p>
+<pre><code>sudo apt-get install -s mysql-server=5.7.35-1ubuntu18.04
+sudo apt-get install mysql-server=5.7.35-1ubuntu18.04
+mysql -V
+mysql -u root -p</code></pre><p>As a next-step, you need to check status of your wirefall and open up Port 3306:</p>
+<pre><code>sudo ufw status
+sudo ufw allow 80
+sudo ufw allow 3306</code></pre><h2 id="Prevent-MySql-upgrade"><a href="#Prevent-MySql-upgrade" class="headerlink" title="Prevent MySql upgrade"></a>Prevent MySql upgrade</h2><p>Modify this file: </p>
+<pre><code>vi /etc/apt/preferences.d/mysql</code></pre><p>File content: </p>
+<pre><code>Package: mysql-server
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-client
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-community-server
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-community-client
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-apt-config
+Pin: version 0.8.12-1
+Pin-Priority: 1001</code></pre><p>Try to update mysql-server and you will get notified: </p>
+<pre><code>mysql-server is already the newest version (5.7.35-1ubuntu18.04). 
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</code></pre><h1 id="Run-MySQL"><a href="#Run-MySQL" class="headerlink" title="Run MySQL"></a>Run MySQL</h1><pre><code>mysql -u root -p
+select version();
+CREATE USER &apos;michael&apos;@&apos;%&apos; IDENTIFIED BY &apos;ran&apos;;
+CREATE USER &apos;alex&apos;@&apos;%&apos; IDENTIFIED BY &apos;aliuchuang&apos;;
+select host,user,password_last_changed from mysql.user;</code></pre><h2 id="Config-privileges"><a href="#Config-privileges" class="headerlink" title="Config privileges"></a>Config privileges</h2><p>Now flash privileges for non-root users:</p>
+<pre><code>mysql -u root -p
+use mysql;
+select host, user from user; 
+update user set host = &apos;%&apos; where user = &apos;root&apos;;
+select host, user from user;
+flush privileges;</code></pre><p>Allow remote access of MySQL:</p>
+<p>因为默认3306端口只允许本地访问的，注释掉这行</p>
+<pre><code>sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# By default we only accept connections from localhost
+# bind-address  = 127.0.0.1</code></pre><p>Restart MySQL: </p>
+<pre><code>service mysql restart
+systemctl restart mysql</code></pre><h1 id="Install-an-MySQL-client"><a href="#Install-an-MySQL-client" class="headerlink" title="Install an MySQL client"></a>Install an MySQL client</h1><p>If you are on ubuntu 18: </p>
+<pre><code>sudo apt-get install emma</code></pre><p>If you are on ubuntu 20, use DBeaver. </p>
+<h1 id="To-uninstall"><a href="#To-uninstall" class="headerlink" title="To uninstall"></a>To uninstall</h1><pre><code>service mysql status
+service mysql stop
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a target="_blank" rel="noopener" href="https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/">https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wang666/p/10218950.html">https://www.cnblogs.com/wang666/p/10218950.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenlove/p/9552438.html">https://www.cnblogs.com/chenlove/p/9552438.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/Tech/ubuntu-nvm-node/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +321,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -269,7 +408,7 @@ npm install -g --force npx</code></pre><p>To check your globally-installed packg
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -410,7 +549,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -512,7 +651,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -580,7 +719,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -673,7 +812,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -784,7 +923,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -819,72 +958,6 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
 <h2 id="If-you’re-swapping-multiple-tokens"><a href="#If-you’re-swapping-multiple-tokens" class="headerlink" title="If you’re swapping multiple tokens"></a>If you’re swapping multiple tokens</h2><p>the smart pool template allows for vectors of tokens and weights. So one option would be to start 80% XYZ, 10% DAI, 10% ETH and end at 33% XYZ, 33% DAI, 33% ETH. Allowing for users to purchase the project token in ETH or DAI.</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bitcointalk.org/index.php?topic=5319752.0">https://bitcointalk.org/index.php?topic=5319752.0</a><br><a target="_blank" rel="noopener" href="https://www.tuoluocaijing.cn/article/detail-10043661.html">https://www.tuoluocaijing.cn/article/detail-10043661.html</a><br><a target="_blank" rel="noopener" href="https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4">https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4</a></p>
 <h2 id="Balancer-pool"><a href="#Balancer-pool" class="headerlink" title="Balancer pool"></a>Balancer pool</h2><p><a target="_blank" rel="noopener" href="https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about">https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/06/Crypto/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/06/Crypto/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/" class="post-title-link" itemprop="url">【Crypto】Consensus：PoW, VRF, DAG, Tendermint etc</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-06 15:29:54" itemprop="dateCreated datePublished" datetime="2021-01-06T15:29:54+00:00">2021-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Popular-ones"><a href="#Popular-ones" class="headerlink" title="Popular ones"></a>Popular ones</h1><p>PoW<br>PoS<br>DPoS</p>
-<h2 id="VRF"><a href="#VRF" class="headerlink" title="VRF"></a>VRF</h2><h2 id="DAG"><a href="#DAG" class="headerlink" title="DAG"></a>DAG</h2><h2 id="Sharding"><a href="#Sharding" class="headerlink" title="Sharding"></a>Sharding</h2><h2 id="Hotstuff"><a href="#Hotstuff" class="headerlink" title="Hotstuff"></a>Hotstuff</h2><h2 id="Tendermint"><a href="#Tendermint" class="headerlink" title="Tendermint"></a>Tendermint</h2><p>TODO</p>
 
       
     </div>
@@ -969,7 +1042,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Debian 9以 玩客云 硬件为例，测试使用 Debian 9.9 版的 Armbian 系统。 硬件信息如下：     __   _   _  __    &#x2F; _| ( _ ) &#x2F; _ | _|    __ \ &#x2F; _ | | | |_      _) | () | || |__) |    |_&#x2F; \&#x2F; _&#x2F;|__&#x2F; Welcome to ARMBIAN 5.88 user-built De">
+  <meta name="description" content="这里使用 N1 和 玩客云（简称wky）。 Debian 9以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 &#x2F; Debian 9.9 版的 Armbian 系统。 硬件信息如下：  ____   ___   ___  ____ &#x2F; ___| ( _ ) &#x2F; _ \| ___| \___ \ &#x2F; _ \| | | |___ \  ___) | (_) | |_| |___) | |____">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Tech】 Armbian&#x2F;Debian on Wky 安装教程">
+<meta property="og:title" content="【Tech】 Armbian&#x2F;Debian on N1&#x2F;Wky 安装教程">
 <meta property="og:url" content="http://yoursite.com/2021/10/15/Tech/debian9-on-wankeyun/index.html">
 <meta property="og:site_name" content="Hexo Blog of Uncle Martian">
-<meta property="og:description" content="Debian 9以 玩客云 硬件为例，测试使用 Debian 9.9 版的 Armbian 系统。 硬件信息如下：     __   _   _  __    &#x2F; _| ( _ ) &#x2F; _ | _|    __ \ &#x2F; _ | | | |_      _) | () | || |__) |    |_&#x2F; \&#x2F; _&#x2F;|__&#x2F; Welcome to ARMBIAN 5.88 user-built De">
+<meta property="og:description" content="这里使用 N1 和 玩客云（简称wky）。 Debian 9以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 &#x2F; Debian 9.9 版的 Armbian 系统。 硬件信息如下：  ____   ___   ___  ____ &#x2F; ___| ( _ ) &#x2F; _ \| ___| \___ \ &#x2F; _ \| | | |___ \  ___) | (_) | |_| |___) | |____">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-15T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-20T00:34:07.997Z">
+<meta property="article:modified_time" content="2021-11-03T13:28:18.984Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>【Tech】 Armbian/Debian on Wky 安装教程 | Hexo Blog of Uncle Martian</title>
+  <title>【Tech】 Armbian/Debian on N1/Wky 安装教程 | Hexo Blog of Uncle Martian</title>
   
 
 
@@ -170,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【Tech】 Armbian/Debian on Wky 安装教程
+          【Tech】 Armbian/Debian on N1/Wky 安装教程
         </h1>
 
         <div class="post-meta">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-10-20 00:34:07" itemprop="dateModified" datetime="2021-10-20T00:34:07+00:00">2021-10-20</time>
+                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
               </span>
 
           
@@ -201,9 +201,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 Debian 9.9 版的 Armbian 系统。</p>
-<p>硬件信息如下：<br>     <strong>__   _</strong>   <strong>_  __</strong><br>    / <strong>_| ( _ ) / _ | _</strong>|<br>    _<em>_ \ / _ | | | |<strong>_ <br>     _</strong>) | (</em>) | |<em>| |__</em>) |<br>    |<strong><em>_/ \</em></strong>/ _<strong>/|__</strong>/</p>
-<pre><code>Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
+        <p>这里使用 N1 和 玩客云（简称wky）。</p>
+<h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 / Debian 9.9 版的 Armbian 系统。</p>
+<p>硬件信息如下：</p>
+<pre><code> ____   ___   ___  ____
+/ ___| ( _ ) / _ \| ___|
+\___ \ / _ \| | | |___ \
+ ___) | (_) | |_| |___) |
+|____/ \___/ \___/|____/
+
+Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
 System load:   0.70 0.52 0.26      Up time:       7 min
 Memory usage:  8 % of 996MB      IP:            192.168.31.33
 Usage of /:    25% of 6.4G</code></pre><p>Debian 9.9 （stretch）</p>
@@ -212,8 +219,35 @@ No LSB modules are available.
 Distributor ID:    Debian
 Description:    Debian GNU/Linux 9.9 (stretch)
 Release:    9.9
-Codename:    stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
-<p>然后插上wky，自动重装系统（不用刷inphic底包），很方便。</p>
+Codename:    stretch</code></pre><p>而N1，则是使用 ARMBIAN 5.77 / Debian 9.8 版的固件:</p>
+<pre><code> ____  ___   ___  ____  
+/ ___|/ _ \ / _ \| ___| 
+\___ \ (_) | | | |___ \ 
+ ___) \__, | |_| |___) |
+|____/  /_/ \___/|____/ 
+
+
+Welcome to ARMBIAN 5.77 user-built Debian GNU/Linux 9 (stretch) 5.0.2-aml-s905   
+System load:   2.21 2.80 2.86   Up time:       6:33 hours               
+Memory usage:  30 % of 1838MB   Zram usage:    26 % of 919Mb    IP:            169.254.10.11 192.168.123.242
+CPU temp:      50°C             
+Usage of /:    11% of 29G       storage/:      44% of 128M </code></pre><p>更新至最新版 stretch：</p>
+<pre><code>arm@armbian-n1-white-32g:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 9.13 (stretch)
+Release:        9.13
+Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><h3 id="on-WKY"><a href="#on-WKY" class="headerlink" title="on WKY"></a>on WKY</h3><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
+<p>然后插上wky，自动重装系统装如EMMC（不用刷inphic底包），很方便。</p>
+<p>WKY可能不支持卡载 armbian？</p>
+<h3 id="on-N1"><a href="#on-N1" class="headerlink" title="on N1"></a>on N1</h3><p>N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块钱的U盘，故无法确定卡载系统的稳定性。</p>
+<p>刷机很简单，将这两个固件任选其一：</p>
+<ol>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_20190401.img</li>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_desktop_20190401.img</li>
+</ol>
+<p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
+<p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
 <h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
 <h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
 <pre><code>hostname
@@ -268,6 +302,12 @@ vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384
 <pre><code>sudo systemctl restart syncthing@$USER
 sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 <p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<h1 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h1><h2 id="配置自动登陆"><a href="#配置自动登陆" class="headerlink" title="配置自动登陆"></a>配置自动登陆</h2><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
+sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
+<pre><code>fc-cache -v
+sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a></p>
 
     </div>
 
@@ -351,7 +391,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Debian-9"><span class="nav-number">1.</span> <span class="nav-text">Debian 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Armbian-installation"><span class="nav-number">1.1.</span> <span class="nav-text">Armbian installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check-32-bit-or-64-bit"><span class="nav-number">1.2.</span> <span class="nav-text">Check 32 bit or 64 bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">修改系统时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hostname"><span class="nav-number">1.4.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.5.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-docker"><span class="nav-number">1.5.1.</span> <span class="nav-text">For docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-useful-apt-to-install"><span class="nav-number">1.6.</span> <span class="nav-text">Some useful apt to install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webmin"><span class="nav-number">1.7.</span> <span class="nav-text">Install Webmin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-%E6%8C%82%E5%9C%A8U%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">自动同步 + 挂在U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD-U%E7%9B%98"><span class="nav-number">2.1.</span> <span class="nav-text">挂载 U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">同步软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Resilio-sync"><span class="nav-number">2.2.1.</span> <span class="nav-text">Resilio-sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syncthing"><span class="nav-number">2.2.2.</span> <span class="nav-text">Syncthing</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Debian-9"><span class="nav-number">1.</span> <span class="nav-text">Debian 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Armbian-installation"><span class="nav-number">1.1.</span> <span class="nav-text">Armbian installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#on-WKY"><span class="nav-number">1.1.1.</span> <span class="nav-text">on WKY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-N1"><span class="nav-number">1.1.2.</span> <span class="nav-text">on N1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check-32-bit-or-64-bit"><span class="nav-number">1.2.</span> <span class="nav-text">Check 32 bit or 64 bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">修改系统时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hostname"><span class="nav-number">1.4.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.5.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-docker"><span class="nav-number">1.5.1.</span> <span class="nav-text">For docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-useful-apt-to-install"><span class="nav-number">1.6.</span> <span class="nav-text">Some useful apt to install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webmin"><span class="nav-number">1.7.</span> <span class="nav-text">Install Webmin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-%E6%8C%82%E5%9C%A8U%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">自动同步 + 挂在U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD-U%E7%9B%98"><span class="nav-number">2.1.</span> <span class="nav-text">挂载 U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">同步软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Resilio-sync"><span class="nav-number">2.2.1.</span> <span class="nav-text">Resilio-sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syncthing"><span class="nav-number">2.2.2.</span> <span class="nav-text">Syncthing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">3.</span> <span class="nav-text">桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86"><span class="nav-number">3.1.</span> <span class="nav-text">配置自动登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81"><span class="nav-number">3.2.</span> <span class="nav-text">中文支持</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -365,7 +405,7 @@ sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
