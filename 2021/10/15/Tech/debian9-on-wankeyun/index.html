@@ -28,7 +28,7 @@
 <meta property="og:description" content="这里使用 N1 和 玩客云（简称wky）。 Debian 9以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 &#x2F; Debian 9.9 版的 Armbian 系统。 硬件信息如下：  ____   ___   ___  ____ &#x2F; ___| ( _ ) &#x2F; _ \| ___| \___ \ &#x2F; _ \| | | |___ \  ___) | (_) | |_| |___) | |____">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-15T00:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-03T14:27:51.624Z">
+<meta property="article:modified_time" content="2021-11-03T14:42:08.209Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
@@ -187,7 +187,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -248,6 +248,8 @@ Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armb
 </ol>
 <p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
 <p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
+<h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><p>默认密码 default：</p>
+<p>root/1234</p>
 <h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
 <h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
 <pre><code>hostname
@@ -302,11 +304,40 @@ vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384
 <pre><code>sudo systemctl restart syncthing@$USER
 sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 <p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
-<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境的自动登陆"><a href="#桌面环境的自动登陆" class="headerlink" title="桌面环境的自动登陆"></a>桌面环境的自动登陆</h2><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h2><p>Debian可以有桌面系统。</p>
+<h3 id="配置远程登陆"><a href="#配置远程登陆" class="headerlink" title="配置远程登陆"></a>配置远程登陆</h3><pre><code>sudo apt install xrdp xorgxrdp
+sudo systemctl enable xrdp
+sudo reboot</code></pre><p>然后就可以用windows remote 软件来登陆了。Mac也可以。</p>
+<p>端口号3389。</p>
+<h3 id="桌面自动登陆"><a href="#桌面自动登陆" class="headerlink" title="桌面自动登陆"></a>桌面自动登陆</h3><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
 <h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
 sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
 <pre><code>fc-cache -v
 sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8</p>
+<h2 id="自动化-Hexo"><a href="#自动化-Hexo" class="headerlink" title="自动化 Hexo"></a>自动化 Hexo</h2><pre><code>sudo vi /root/.bashrc
+source /root/.bashrc </code></pre><p>Add</p>
+<pre><code>alias wiki=&quot;cd /home/rslsync/Resilio\ Sync/yellowpage/unclemartian &amp;&amp; git status &amp;&amp; git add . &amp;&amp; git commit -m &apos;auto hexo post update&apos; &amp;&amp; git push origin hexo-source &amp;&amp; git status&quot;</code></pre><p>下次，只需要执行一行就行了：</p>
+<pre><code>wiki</code></pre><h2 id="Samba"><a href="#Samba" class="headerlink" title="Samba"></a>Samba</h2><pre><code>apt-get install samba
+systemctl status smbd
+(maybe optional)smbpasswd -a smb</code></pre><p>然后</p>
+<pre><code>sudo vi /etc/samba/smb.conf
+
+##########################
+[N1]
+comment = n1-white
+available = yes
+browseable = yes
+create mode = 0664
+directory mmode = 0775
+force create mode = 0775
+force directory mode = 0775
+path = /home/arm
+public = yes
+read only = no
+writable = yes
+
+systemctl restart smbd
+systemctl status smbd</code></pre><p>权限有问题。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a></p>
 
     </div>
@@ -391,7 +422,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Debian-9"><span class="nav-number">1.</span> <span class="nav-text">Debian 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Armbian-installation"><span class="nav-number">1.1.</span> <span class="nav-text">Armbian installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#on-WKY"><span class="nav-number">1.1.1.</span> <span class="nav-text">on WKY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-N1"><span class="nav-number">1.1.2.</span> <span class="nav-text">on N1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check-32-bit-or-64-bit"><span class="nav-number">1.2.</span> <span class="nav-text">Check 32 bit or 64 bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">修改系统时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hostname"><span class="nav-number">1.4.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.5.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-docker"><span class="nav-number">1.5.1.</span> <span class="nav-text">For docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-useful-apt-to-install"><span class="nav-number">1.6.</span> <span class="nav-text">Some useful apt to install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webmin"><span class="nav-number">1.7.</span> <span class="nav-text">Install Webmin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-%E6%8C%82%E5%9C%A8U%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">自动同步 + 挂在U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD-U%E7%9B%98"><span class="nav-number">2.1.</span> <span class="nav-text">挂载 U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">同步软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Resilio-sync"><span class="nav-number">2.2.1.</span> <span class="nav-text">Resilio-sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syncthing"><span class="nav-number">2.2.2.</span> <span class="nav-text">Syncthing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83%E7%9A%84%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86"><span class="nav-number">3.1.</span> <span class="nav-text">桌面环境的自动登陆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81"><span class="nav-number">3.2.</span> <span class="nav-text">中文支持</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Debian-9"><span class="nav-number">1.</span> <span class="nav-text">Debian 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Armbian-installation"><span class="nav-number">1.1.</span> <span class="nav-text">Armbian installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#on-WKY"><span class="nav-number">1.1.1.</span> <span class="nav-text">on WKY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-N1"><span class="nav-number">1.1.2.</span> <span class="nav-text">on N1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E6%AC%A1%E5%90%AF%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">首次启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check-32-bit-or-64-bit"><span class="nav-number">1.3.</span> <span class="nav-text">Check 32 bit or 64 bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="nav-number">1.4.</span> <span class="nav-text">修改系统时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hostname"><span class="nav-number">1.5.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.6.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-docker"><span class="nav-number">1.6.1.</span> <span class="nav-text">For docker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-useful-apt-to-install"><span class="nav-number">1.7.</span> <span class="nav-text">Some useful apt to install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webmin"><span class="nav-number">1.8.</span> <span class="nav-text">Install Webmin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-%E6%8C%82%E5%9C%A8U%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">自动同步 + 挂在U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD-U%E7%9B%98"><span class="nav-number">2.1.</span> <span class="nav-text">挂载 U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">同步软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Resilio-sync"><span class="nav-number">2.2.1.</span> <span class="nav-text">Resilio-sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syncthing"><span class="nav-number">2.2.2.</span> <span class="nav-text">Syncthing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.</span> <span class="nav-text">桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86"><span class="nav-number">3.1.1.</span> <span class="nav-text">配置远程登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86"><span class="nav-number">3.1.2.</span> <span class="nav-text">桌面自动登陆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81"><span class="nav-number">3.2.</span> <span class="nav-text">中文支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96-Hexo"><span class="nav-number">3.3.</span> <span class="nav-text">自动化 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Samba"><span class="nav-number">3.4.</span> <span class="nav-text">Samba</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

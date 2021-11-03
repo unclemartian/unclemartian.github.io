@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-03 09:00:00 / Modified: 14:27:51" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+              <time title="Created: 2021-11-03 09:00:00 / Modified: 14:42:08" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
             </span>
 
           
@@ -277,7 +277,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -408,7 +408,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -494,7 +494,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -555,6 +555,8 @@ Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armb
 </ol>
 <p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
 <p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
+<h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><p>默认密码 default：</p>
+<p>root/1234</p>
 <h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
 <h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
 <pre><code>hostname
@@ -609,11 +611,40 @@ vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384
 <pre><code>sudo systemctl restart syncthing@$USER
 sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 <p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
-<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境的自动登陆"><a href="#桌面环境的自动登陆" class="headerlink" title="桌面环境的自动登陆"></a>桌面环境的自动登陆</h2><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h2><p>Debian可以有桌面系统。</p>
+<h3 id="配置远程登陆"><a href="#配置远程登陆" class="headerlink" title="配置远程登陆"></a>配置远程登陆</h3><pre><code>sudo apt install xrdp xorgxrdp
+sudo systemctl enable xrdp
+sudo reboot</code></pre><p>然后就可以用windows remote 软件来登陆了。Mac也可以。</p>
+<p>端口号3389。</p>
+<h3 id="桌面自动登陆"><a href="#桌面自动登陆" class="headerlink" title="桌面自动登陆"></a>桌面自动登陆</h3><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
 <h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
 sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
 <pre><code>fc-cache -v
 sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8</p>
+<h2 id="自动化-Hexo"><a href="#自动化-Hexo" class="headerlink" title="自动化 Hexo"></a>自动化 Hexo</h2><pre><code>sudo vi /root/.bashrc
+source /root/.bashrc </code></pre><p>Add</p>
+<pre><code>alias wiki=&quot;cd /home/rslsync/Resilio\ Sync/yellowpage/unclemartian &amp;&amp; git status &amp;&amp; git add . &amp;&amp; git commit -m &apos;auto hexo post update&apos; &amp;&amp; git push origin hexo-source &amp;&amp; git status&quot;</code></pre><p>下次，只需要执行一行就行了：</p>
+<pre><code>wiki</code></pre><h2 id="Samba"><a href="#Samba" class="headerlink" title="Samba"></a>Samba</h2><pre><code>apt-get install samba
+systemctl status smbd
+(maybe optional)smbpasswd -a smb</code></pre><p>然后</p>
+<pre><code>sudo vi /etc/samba/smb.conf
+
+##########################
+[N1]
+comment = n1-white
+available = yes
+browseable = yes
+create mode = 0664
+directory mmode = 0775
+force create mode = 0775
+force directory mode = 0775
+path = /home/arm
+public = yes
+read only = no
+writable = yes
+
+systemctl restart smbd
+systemctl status smbd</code></pre><p>权限有问题。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a></p>
 
       
@@ -665,7 +696,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -741,7 +772,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -872,7 +903,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
@@ -945,7 +976,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:42:08" itemprop="dateModified" datetime="2021-11-03T14:42:08+00:00">2021-11-03</time>
               </span>
 
           
