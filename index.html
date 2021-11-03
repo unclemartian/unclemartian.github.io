@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-03 09:00:00 / Modified: 13:28:18" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+              <time title="Created: 2021-11-03 09:00:00 / Modified: 14:27:51" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
             </span>
 
           
@@ -219,6 +219,14 @@
 <li>一定要取消“擦除flash”和“擦除bootloader”。参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/ax025099/">https://post.smzdm.com/p/ax025099/</a></li>
 </ol>
 <p>这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。</p>
+<p><img src="/images/usb-burning-tool-n1.jpg" alt=""></p>
+<h2 id="EmuElec"><a href="#EmuElec" class="headerlink" title="EmuElec"></a>EmuElec</h2><p>Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。</p>
+<p>所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。</p>
+<p>刷机过程我已经忘了。</p>
+<h2 id="Armbian"><a href="#Armbian" class="headerlink" title="Armbian"></a>Armbian</h2><p>Armbian 经常把 Android系统搞坏。哎。</p>
+<p>另外，试用了桌面版的 Debian 9，实在是没什么可用性，而且有时候无法自动连接 Wifi。不建议玩儿。</p>
+<p>最佳的固件就是 5.77版本的 Debian stretch。</p>
+<p>5.99 / 20.10 版本我没成功过。</p>
 
       
     </div>
@@ -269,7 +277,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           
@@ -400,7 +408,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           
@@ -486,7 +494,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           
@@ -601,7 +609,7 @@ vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384
 <pre><code>sudo systemctl restart syncthing@$USER
 sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
 <p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
-<h1 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h1><h2 id="配置自动登陆"><a href="#配置自动登陆" class="headerlink" title="配置自动登陆"></a>配置自动登陆</h2><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境的自动登陆"><a href="#桌面环境的自动登陆" class="headerlink" title="桌面环境的自动登陆"></a>桌面环境的自动登陆</h2><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
 <h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
 sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
 <pre><code>fc-cache -v
@@ -657,7 +665,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           
@@ -733,7 +741,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           
@@ -864,7 +872,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           
@@ -937,7 +945,7 @@ sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 13:28:18" itemprop="dateModified" datetime="2021-11-03T13:28:18+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-03 14:27:51" itemprop="dateModified" datetime="2021-11-03T14:27:51+00:00">2021-11-03</time>
               </span>
 
           

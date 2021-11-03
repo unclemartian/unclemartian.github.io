@@ -27,11 +27,13 @@
 <meta property="og:site_name" content="Hexo Blog of Uncle Martian">
 <meta property="og:description" content="前言晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：  Phicomm N1（S905） Wankeyun（S805） CM201-1 （S905L） CM2000  其中每个设备都可以刷3种系统：  Android for TV Armbian for Linux Emuelec for gaming  结果CM201-1 这个机器，启动Android一直没">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/usb-burning-tool-n1.jpg">
 <meta property="article:published_time" content="2021-11-03T09:00:00.000Z">
-<meta property="article:modified_time" content="2021-11-03T13:28:18.984Z">
+<meta property="article:modified_time" content="2021-11-03T14:27:51.624Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/usb-burning-tool-n1.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2021/11/03/Tech/amlogic-chipset-rom/">
 
@@ -181,7 +183,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-11-03 09:00:00 / Modified: 13:28:18" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+              <time title="Created: 2021-11-03 09:00:00 / Modified: 14:27:51" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
             </span>
 
           
@@ -224,6 +226,14 @@
 <li>一定要取消“擦除flash”和“擦除bootloader”。参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/ax025099/">https://post.smzdm.com/p/ax025099/</a></li>
 </ol>
 <p>这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。</p>
+<p><img src="/images/usb-burning-tool-n1.jpg" alt=""></p>
+<h2 id="EmuElec"><a href="#EmuElec" class="headerlink" title="EmuElec"></a>EmuElec</h2><p>Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。</p>
+<p>所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。</p>
+<p>刷机过程我已经忘了。</p>
+<h2 id="Armbian"><a href="#Armbian" class="headerlink" title="Armbian"></a>Armbian</h2><p>Armbian 经常把 Android系统搞坏。哎。</p>
+<p>另外，试用了桌面版的 Debian 9，实在是没什么可用性，而且有时候无法自动连接 Wifi。不建议玩儿。</p>
+<p>最佳的固件就是 5.77版本的 Debian stretch。</p>
+<p>5.99 / 20.10 版本我没成功过。</p>
 
     </div>
 
@@ -304,7 +314,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#N1%E5%88%B7%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">N1刷机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-number">3.1.</span> <span class="nav-text">Android</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#N1%E5%88%B7%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">N1刷机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-number">3.1.</span> <span class="nav-text">Android</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EmuElec"><span class="nav-number">3.2.</span> <span class="nav-text">EmuElec</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Armbian"><span class="nav-number">3.3.</span> <span class="nav-text">Armbian</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
