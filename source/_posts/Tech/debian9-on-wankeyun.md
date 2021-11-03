@@ -79,6 +79,12 @@ N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块
 
 如果无法启动，通过 Reboot to Elec apk来引导一下就行。
 
+## 首次启动
+
+默认密码 default：
+
+root/1234
+
 ## Check 32 bit or 64 bit
 
     getconf LONG_BIT
@@ -221,7 +227,21 @@ https://192.168.123.215:8384
 
 # 系统配置
 
-## 桌面环境的自动登陆
+## 桌面环境
+
+Debian可以有桌面系统。
+
+### 配置远程登陆
+
+	sudo apt install xrdp xorgxrdp
+	sudo systemctl enable xrdp
+	sudo reboot
+
+然后就可以用windows remote 软件来登陆了。Mac也可以。
+
+端口号3389。
+
+### 桌面自动登陆
 
 	sudo vi /etc/lightdm/lightdm.conf
 
@@ -238,6 +258,49 @@ Remove the # and change it to have your username after (for example: autologin-u
 	sudo vi /etc/default/locale 
 
 在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8
+
+## 自动化 Hexo
+
+	sudo vi /root/.bashrc
+	source /root/.bashrc 
+
+Add
+
+	alias wiki="cd /home/rslsync/Resilio\ Sync/yellowpage/unclemartian && git status && git add . && git commit -m 'auto hexo post update' && git push origin hexo-source && git status"
+
+下次，只需要执行一行就行了：
+
+	wiki
+
+
+## Samba
+
+	apt-get install samba
+	systemctl status smbd
+	(maybe optional)smbpasswd -a smb
+
+然后
+
+	sudo vi /etc/samba/smb.conf
+
+	##########################
+	[N1]
+	comment = n1-white
+	available = yes
+	browseable = yes
+	create mode = 0664
+	directory mmode = 0775
+	force create mode = 0775
+	force directory mode = 0775
+	path = /home/arm
+	public = yes
+	read only = no
+	writable = yes
+
+	systemctl restart smbd
+	systemctl status smbd
+
+权限有问题。
 
 # Reference
 
