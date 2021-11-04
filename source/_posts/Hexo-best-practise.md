@@ -1,5 +1,5 @@
 ---
-title: Hexo day-to-day best practise
+title: Hexo day to day best practise
 date: 2000-01-01 13:58:00
 tags: Hexo
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Tech】 Armbian/Debian on N1/Wky 安装教程
+title: 【Tech】 Debian 9 (Armbian) on N1/Wky 安装教程
 date: 2021-10-15 00:00:00
 tags: ubuntu
 ---

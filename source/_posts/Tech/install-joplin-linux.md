@@ -14,13 +14,13 @@ https://joplinapp.org/terminal/
 
 按照官方的说法，是这样的：
 
-1. install Node
+1. Install Node/npm
 1. Run this：
 
 	NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
 	sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
 	
-也就是，joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。
+也就是，Joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。
 
 问题是，很多依赖都在github上面，需要翻墙才能取到。
 

@@ -8,10 +8,10 @@ tags: ubuntu
 
 晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：
 
-1. Phicomm N1（S905D / 2G）
-1. Wankeyun（S805 / 1G）
-1. CM201-1 （S905L / 1G）
-1. CM2000
+1. __Phicomm N1__（S905D / 2G）
+1. __玩客云__（S805 / 1G）
+1. CM201-1 魔百盒（S905L / 1G）
+1. CM2000 红
 
 其中每个设备都可以刷3种系统：
 
@@ -21,15 +21,23 @@ tags: ubuntu
 
 # 结果
 
-CM201-1 这个机器，启动Android一直没问题，但是无论换什么 dtb，armbian 都无法 boot。所以，就当电视盒子用吧。
+CM201-1 魔百盒这个机器，启动 Armbian 一直没问题，但是无论换什么 dtb，Armbian 都无法 boot。所以，就当电视盒子吧，还挺好用的。
 
-CM2000 这个机器，不但无法刷 armbian，连Android底包都坏了。重刷之后可以使用TV box，但是无 Wifi。
+> 这个帖子提到一个奇淫巧技，不知道能不能用，摘抄如下：
+> 
+> 使用adb shell reboot update发现启动失败，多次尝试也是如此。
+> 
+> 。。。受到启发，把启动盘根目录下的aml_autoscript.zip改名为update.zip,输入adb shell reboot update命令后直接引导进入armbian
+> 
+> https://blog.csdn.net/u012481946/article/details/113774089
 
-wky是最容易刷的。
+CM2000 这个机器，不但无法刷 Armbian，连Android底包都坏了。重刷之后可以使用TV box 功能，但是无 Wifi，插线用。
 
-N1有个问题，就是Android底包经常被弄坏（同时armbian正常可用）。重刷一下 android 系统就好了。
+wky是最容易刷的。我在其中一个上面装了 Armbian 跑同步盘，十分稳定。
 
-> 为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于armbian，8G的一个都没成功。不知道为什么。
+N1有个问题，就是Android底包经常被弄坏（Armbian正常可启动）。只要重刷一下 Android 系统就好了。
+
+> 为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于 Armbian，8G的一个都没成功。不知道为什么。
 
 # N1刷机
 
@@ -50,13 +58,17 @@ http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html
 
 ![](/images/usb-burning-tool-n1.jpg)
 
+参考：https://post.smzdm.com/p/a25gpgx7/
+
 ## EmuElec
 
 Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。
 
 所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。
 
-刷机过程我已经忘了。
+刷机过程，参考这里：
+
+https://www.cnblogs.com/milton/p/11883811.html
 
 ## Armbian
 
