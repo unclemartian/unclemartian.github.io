@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Tech/-tech-1111111/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Tech/install-joplin-linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/04/Tech/-tech-1111111/" class="post-title-link" itemprop="url">【Tech】 Install Joplin on Linux</a>
+            <a href="/2021/11/04/Tech/install-joplin-linux/" class="post-title-link" itemprop="url">【Tech】 Install Joplin on Linux</a>
         </h2>
 
         <div class="post-meta">
@@ -174,16 +174,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2021-11-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-04T00:00:00+00:00">2021-11-04</time>
+              <time title="Created: 2021-11-04 00:00:00 / Modified: 18:51:20" itemprop="dateCreated datePublished" datetime="2021-11-04T00:00:00+00:00">2021-11-04</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
-              </span>
 
           
 
@@ -200,13 +194,13 @@
 <p><a target="_blank" rel="noopener" href="https://joplinapp.org/terminal/">https://joplinapp.org/terminal/</a></p>
 <h2 id="Instruction"><a href="#Instruction" class="headerlink" title="Instruction"></a>Instruction</h2><p>按照官方的说法，是这样的：</p>
 <ol>
-<li><p>install Node</p>
+<li><p>Install Node/npm</p>
 </li>
 <li><p>Run this：</p>
 <p> NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin<br> sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin</p>
 </li>
 </ol>
-<p>也就是，joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。</p>
+<p>也就是，Joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。</p>
 <p>问题是，很多依赖都在github上面，需要翻墙才能取到。</p>
 <pre><code>:~# npm config get registry
 https://registry.npm.taobao.org/</code></pre><p>实际多次测试表明，换taobao源不能解决问题：</p>
@@ -265,10 +259,16 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-11-03 09:00:00 / Modified: 19:39:44" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+              <time title="Created: 2021-11-03 09:00:00" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+              </span>
 
           
 
@@ -283,10 +283,10 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
       
           <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：</p>
 <ol>
-<li>Phicomm N1（S905D / 2G）</li>
-<li>Wankeyun（S805 / 1G）</li>
-<li>CM201-1 （S905L / 1G）</li>
-<li>CM2000</li>
+<li><strong>Phicomm N1</strong>（S905D / 2G）</li>
+<li><strong>玩客云</strong>（S805 / 1G）</li>
+<li>CM201-1 魔百盒（S905L / 1G）</li>
+<li>CM2000 红</li>
 </ol>
 <p>其中每个设备都可以刷3种系统：</p>
 <ol>
@@ -294,12 +294,18 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
 <li>Armbian for Linux</li>
 <li>Emuelec for gaming</li>
 </ol>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>CM201-1 这个机器，启动Android一直没问题，但是无论换什么 dtb，armbian 都无法 boot。所以，就当电视盒子用吧。</p>
-<p>CM2000 这个机器，不但无法刷 armbian，连Android底包都坏了。重刷之后可以使用TV box，但是无 Wifi。</p>
-<p>wky是最容易刷的。</p>
-<p>N1有个问题，就是Android底包经常被弄坏（同时armbian正常可用）。重刷一下 android 系统就好了。</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>CM201-1 魔百盒这个机器，启动 Armbian 一直没问题，但是无论换什么 dtb，Armbian 都无法 boot。所以，就当电视盒子吧，还挺好用的。</p>
 <blockquote>
-<p>为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于armbian，8G的一个都没成功。不知道为什么。</p>
+<p>这个帖子提到一个奇淫巧技，不知道能不能用，摘抄如下：</p>
+<p>使用adb shell reboot update发现启动失败，多次尝试也是如此。</p>
+<p>。。。受到启发，把启动盘根目录下的aml_autoscript.zip改名为update.zip,输入adb shell reboot update命令后直接引导进入armbian</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012481946/article/details/113774089">https://blog.csdn.net/u012481946/article/details/113774089</a></p>
+</blockquote>
+<p>CM2000 这个机器，不但无法刷 Armbian，连Android底包都坏了。重刷之后可以使用TV box 功能，但是无 Wifi，插线用。</p>
+<p>wky是最容易刷的。我在其中一个上面装了 Armbian 跑同步盘，十分稳定。</p>
+<p>N1有个问题，就是Android底包经常被弄坏（Armbian正常可启动）。只要重刷一下 Android 系统就好了。</p>
+<blockquote>
+<p>为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于 Armbian，8G的一个都没成功。不知道为什么。</p>
 </blockquote>
 <h1 id="N1刷机"><a href="#N1刷机" class="headerlink" title="N1刷机"></a>N1刷机</h1><h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>对于 n1 盒子来说，使用这个Android底包就行：<strong>斐讯盒子N1_YYFROM夏杰语音实用版</strong></p>
 <p><a target="_blank" rel="noopener" href="http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html">http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html</a></p>
@@ -311,9 +317,11 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
 </ol>
 <p>这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。</p>
 <p><img src="/images/usb-burning-tool-n1.jpg" alt=""></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://post.smzdm.com/p/a25gpgx7/">https://post.smzdm.com/p/a25gpgx7/</a></p>
 <h2 id="EmuElec"><a href="#EmuElec" class="headerlink" title="EmuElec"></a>EmuElec</h2><p>Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。</p>
 <p>所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。</p>
-<p>刷机过程我已经忘了。</p>
+<p>刷机过程，参考这里：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/milton/p/11883811.html">https://www.cnblogs.com/milton/p/11883811.html</a></p>
 <h2 id="Armbian"><a href="#Armbian" class="headerlink" title="Armbian"></a>Armbian</h2><p>Armbian 经常把 Android系统搞坏。哎。</p>
 <p>另外，试用了桌面版的 Debian 9，实在是没什么可用性，而且有时候无法自动连接 Wifi。不建议玩儿。</p>
 <p>最佳的固件就是 5.77版本的 Debian stretch。</p>
@@ -368,7 +376,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
               </span>
 
           
@@ -499,7 +507,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
               </span>
 
           
@@ -533,7 +541,8 @@ a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="header
 <pre><code>wky
 a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
 <pre><code>wky
-a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>RDP：192.168.123.242:3389</p>
+a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
+<p>RDP：192.168.123.242:3389</p>
 
       
     </div>
@@ -567,7 +576,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/10/15/Tech/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Armbian/Debian on N1/Wky 安装教程</a>
+            <a href="/2021/10/15/Tech/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Debian 9 (Armbian) on N1/Wky 安装教程</a>
         </h2>
 
         <div class="post-meta">
@@ -584,7 +593,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
               </span>
 
           
@@ -782,7 +791,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
               </span>
 
           
@@ -858,7 +867,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
               </span>
 
           
@@ -989,7 +998,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-03 19:39:44" itemprop="dateModified" datetime="2021-11-03T19:39:44+00:00">2021-11-03</time>
+                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
               </span>
 
           
