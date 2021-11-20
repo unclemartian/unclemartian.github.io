@@ -8,7 +8,7 @@ tags: ubuntu
 
 我安装失败了。
 
-进了 登陆页面，然后无法登陆，我也不知道为什么。吧 commands 记录在这里，没时间继续弄了。
+进了 登陆页面，然后无法登陆，我也不知道为什么。把 commands 记录在这里，没时间继续弄了。
 
 Add the package repositories:
 

@@ -28,7 +28,7 @@ On Opensea, each NFT have traits:
 
 以下具体说明。
 
-# 1 Trait Rarity Ranking
+# 1 - Trait Rarity Ranking
 
 Simply comparing the rarest trait of each NFT（只选最小值），例如：
 
@@ -40,7 +40,7 @@ Simply comparing the rarest trait of each NFT（只选最小值），例如：
 
 It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.
 
-# 2 Average Trait Rarity
+# 2 - Average Trait Rarity
 
 Averaging the rarity of traits that exist on the NFT.
 
@@ -56,7 +56,7 @@ It puts too much weight on the overall rarity of every trait, but NFTs with sing
 
 Their rarity value gets too ‘diluted’ by the other traits.
 
-# 3 Statistical Rarity
+# 3 - Statistical Rarity
 
 This become a somewhat popular method and is used very often in community made spreadsheets.
 
@@ -70,7 +70,7 @@ Basically: calculate the overall rarity of an NFT by multiplying all of it’s t
 1. Ape #9941’s statistical rarity is 0.00000056965722%
 1. Ape #9542’s statistical rarity is 0.00000044983967%
 
-# 4 Rarity Score
+# 4 - Rarity Score
 
 这是个比较特别的计算方法。
 
@@ -97,7 +97,7 @@ Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。
 
 Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。
 
-我觉得 Rarity Score 最好。用作者的原话讲：
+我觉得 Rarity Score 最好。用 __rarity.tools__ 作者的原话讲：
 
 > Rarity Score give results that give enough emphasis to __single rare traits__ and also includes __overall trait rarities__ in its calculation. 
 
