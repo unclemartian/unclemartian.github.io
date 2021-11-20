@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -210,20 +210,20 @@
 </li>
 </ol>
 <p>以下具体说明。</p>
-<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 Trait Rarity Ranking"></a>1 Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
+<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 - Trait Rarity Ranking"></a>1 - Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
 <ol>
 <li>Ape #73 s rarest trait is Sold Gold Fur which 0.46% have</li>
 <li>Ape #9941’s rarest trait is Bored Unshaven Dagger which 0.28% have</li>
 <li>Ape #9542’s rarest trait is Bored Unshaven Pizza which 0.26% have</li>
 </ol>
 <h2 id="weakness"><a href="#weakness" class="headerlink" title="weakness"></a>weakness</h2><p>It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.</p>
-<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 Average Trait Rarity"></a>2 Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
+<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 - Average Trait Rarity"></a>2 - Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
 <p><img src="/images/nft-calculate-rarity-2.png" alt=""></p>
 <p>以上的例子如果按照 trait rairty ranking，NFT 1 是最 rare 的，因为 rarity = 10%</p>
 <p>但按照 average trait，那么显然 NFT 2 更 rare。</p>
 <h2 id="weakness-1"><a href="#weakness-1" class="headerlink" title="weakness"></a>weakness</h2><p>It puts too much weight on the overall rarity of every trait, but NFTs with single super rare trait are not valued enough.</p>
 <p>Their rarity value gets too ‘diluted’ by the other traits.</p>
-<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 Statistical Rarity"></a>3 Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
+<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 - Statistical Rarity"></a>3 - Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
 <p>It was first <a target="_blank" rel="noopener" href="https://achekroud.substack.com/p/d8f13e0a-ae26-40e4-bff2-beacb2916ff0">mentioned by Adam Chekroud</a>. </p>
 <p>Basically: calculate the overall rarity of an NFT by multiplying all of it’s trait rarities together.</p>
 <p><img src="/images/nft-calculate-rarity-3.png" alt=""></p>
@@ -232,7 +232,7 @@
 <li>Ape #9941’s statistical rarity is 0.00000056965722%</li>
 <li>Ape #9542’s statistical rarity is 0.00000044983967%</li>
 </ol>
-<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 Rarity Score"></a>4 Rarity Score</h1><p>这是个比较特别的计算方法。</p>
+<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 - Rarity Score"></a>4 - Rarity Score</h1><p>这是个比较特别的计算方法。</p>
 <blockquote>
 <p>[Rarity Score for a Trait Value] = 1 / ([Number of Items with that Trait Value] / [Total Number of Items in Collection])</p>
 </blockquote>
@@ -246,7 +246,7 @@
 <h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p>Rarity Score 的好处是，不但考虑了所有的 traits，而且对于某些非常 rare 的 traits，有很好的突出的效果。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。</p>
 <p>Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。</p>
-<p>我觉得 Rarity Score 最好。用作者的原话讲：</p>
+<p>我觉得 Rarity Score 最好。用 <strong>rarity.tools</strong> 作者的原话讲：</p>
 <blockquote>
 <p>Rarity Score give results that give enough emphasis to <strong>single rare traits</strong> and also includes <strong>overall trait rarities</strong> in its calculation. </p>
 </blockquote>
@@ -304,7 +304,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -395,7 +395,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -516,7 +516,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -531,7 +531,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
 
       
           <h1 id="OpenMediaVault"><a href="#OpenMediaVault" class="headerlink" title="OpenMediaVault"></a>OpenMediaVault</h1><p>我安装失败了。</p>
-<p>进了 登陆页面，然后无法登陆，我也不知道为什么。吧 commands 记录在这里，没时间继续弄了。</p>
+<p>进了 登陆页面，然后无法登陆，我也不知道为什么。把 commands 记录在这里，没时间继续弄了。</p>
 <p>Add the package repositories:</p>
 <pre><code>cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list
 deb https://packages.openmediavault.org/public arrakis main
@@ -647,7 +647,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -733,7 +733,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -931,7 +931,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
@@ -1007,7 +1007,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
               </span>
 
           
