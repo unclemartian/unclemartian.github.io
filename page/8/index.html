@@ -151,6 +151,295 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/python-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/31/Tech/python-learning/" class="post-title-link" itemprop="url">【Tech】Python learning notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-31 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-31T00:00:00+00:00">2015-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Python-Basics"><a href="#Python-Basics" class="headerlink" title="Python Basics"></a>Python Basics</h1><p>Python does not use brackets to structure code, instead it uses whitespaces.</p>
+<h2 id="To-define-a-variable"><a href="#To-define-a-variable" class="headerlink" title="To define a variable"></a>To define a variable</h2><p>you do not have to specify the datatype.</p>
+<h2 id="find-the-datatype"><a href="#find-the-datatype" class="headerlink" title="find the datatype:"></a>find the datatype:</h2><pre><code>print type(x)</code></pre><h2 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h2><pre><code># This is a single line comment
+&apos;&apos;&apos; This is a multi-line Python
+comment. &apos;&apos;&apos;</code></pre><h2 id="ask-the-user-for-input"><a href="#ask-the-user-for-input" class="headerlink" title="ask the user for input"></a>ask the user for input</h2><p>using the raw_input function:</p>
+<pre><code>#!/usr/bin/env python
+
+x = int(raw_input(&quot;Enter x:&quot;))
+y = int(raw_input(&quot;Enter y:&quot;))
+
+sum = x + y
+print sum</code></pre><p>In the latest Python version you can use the input() function instead:</p>
+<pre><code>x = int(input(&quot;Enter x:&quot;))</code></pre><h2 id="do-operations-on-strings"><a href="#do-operations-on-strings" class="headerlink" title="do operations on strings:"></a>do operations on strings:</h2><pre><code>s = &quot;Hello Python&quot;
+print s       # prints whole string
+print s[0]    # prints &quot;H&quot;
+print s[0:2]  # prints &quot;He&quot;
+print s[2:4]  # prints &quot;ll&quot;
+print s[6:]   # prints &quot;Python&quot;
+print s + &apos; &apos; + s # print concatenated string.
+print s.replace(&apos;Hello&apos;,&apos;Thanks&apos;) # print a string with a replaced word</code></pre><h3 id="Python-String-compare"><a href="#Python-String-compare" class="headerlink" title="Python String compare"></a>Python String compare</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q == sentence:
+    print &apos;equal&apos;
+else:
+    print &apos;not equal&apos;</code></pre><h3 id="Python-String-contains"><a href="#Python-String-contains" class="headerlink" title="Python String contains"></a>Python String contains</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q in sentence:
+    print q + &quot; found in &quot; + sentence</code></pre><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code>l = [ &quot;Drake&quot;, &quot;Derp&quot;, &quot;Derek&quot;, &quot;Dominique&quot; ]
+
+print l     # prints all elements
+print l[0]  # print first element
+print l[1]  # prints second element
+
+l.append(&quot;Victoria&quot;)   # add element.
+print l                # print all elements
+l.remove(&quot;Derp&quot;)       # remove element.
+l.remove(&quot;Drake&quot;)      # remove element.
+print l                # print all elements.
+
+l.sort()    # sorts the list in alphabetical order
+l.reverse() # reverse order.</code></pre><p>iteration: </p>
+<pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="A-tuple-is-a-sequence-of-data"><a href="#A-tuple-is-a-sequence-of-data" class="headerlink" title="A tuple is a sequence of data."></a>A tuple is a sequence of data.</h2><p>It is defined as a sequence of elements separated by a comma.</p>
+<pre><code>point = (3,4)
+point2 = (2,6,12)
+
+print point
+print point[0]
+print point[1]
+
+print point2
+print point2[0]
+print point2[1]</code></pre><h2 id="A-dictionary"><a href="#A-dictionary" class="headerlink" title="A dictionary"></a>A dictionary</h2><p>is an unordered set of key:</p>
+<pre><code>words = &#123;&#125;
+words[&quot;Hello&quot;] = &quot;Bonjour&quot;
+words[&quot;Yes&quot;] = &quot;Oui&quot;
+words[&quot;No&quot;] = &quot;Non&quot;
+words[&quot;Bye&quot;] = &quot;Au Revoir&quot;
+
+print words            # print key-pairs.
+del words[&quot;Yes&quot;]       # delete a key-pair.
+print words            # print key-pairs.
+words[&quot;Yes&quot;] = &quot;Oui!&quot;  # add new key-pair.
+print words            # print key-pairs.</code></pre><p>Output:</p>
+<pre><code>&#123;&apos;Yes&apos;: &apos;Oui&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;
+&#123;&apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;
+&#123;&apos;Yes&apos;: &apos;Oui!&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;</code></pre><h2 id="Datatype-casting"><a href="#Datatype-casting" class="headerlink" title="Datatype casting"></a>Datatype casting</h2><table style="width:100%; " class="easy-table easy-table-cuscosky "><thead><tr><th>Function</th><th> Description</th></tr></thead><tbody><tr><td>int(x)</td><td> &nbsp;Converts x to an integer</td></tr><tr><td>long(x)</td><td> Converts x to a long integer</td></tr><tr><td>float(x)</td><td> Converts x to a floating point number</td></tr><tr><td>str(x)</td><td> Converts x to an string. &nbsp;x can be of the type float. integer or long.</td></tr><tr><td>hex(x)</td><td> Converts x integer to a hexadecimal string</td></tr><tr><td>chr(x)</td><td> Converts x integer to a character</td></tr><tr><td>ord(x)</td><td> Converts character x to an integer</td></tr></tbody></table>
+
+<pre><code>x = 3
+y = 2.15315315313532
+
+print &quot;We have defined two numbers,&quot;
+print &quot;x = &quot; + str(x)
+print &quot;y = &quot; + str(y)
+
+a = &quot;135.31421&quot;
+b = &quot;133.1112223&quot;
+
+c = float(a) + float(b)
+print c</code></pre><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><pre><code>print &quot;Guess my age&quot;
+guess = int(raw_input(&quot;Guess: &quot;))
+
+if guess &gt; 10 and guess &lt; 20:
+    print &quot;In range&quot;
+else:
+    print &quot;Out of range&quot;</code></pre><h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><pre><code>def doA():
+    a = 5
+
+def doB(a):
+    print a   # this will work
+
+doB(3)</code></pre><h2 id="For-loop-1"><a href="#For-loop-1" class="headerlink" title="For loop 1"></a>For loop 1</h2><pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="For-loop-2"><a href="#For-loop-2" class="headerlink" title="For loop 2"></a>For loop 2</h2><pre><code>for x in range(1,10):
+    for y in range(1,10):
+        print &quot;(&quot; + str(x) + &quot;,&quot; + str(y) + &quot;)&quot;</code></pre><h2 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h2><pre><code>while button_not_pressed:
+     drive()</code></pre><h1 id="Python-OOP"><a href="#Python-OOP" class="headerlink" title="Python OOP"></a>Python OOP</h1><h2 id="class-in-Python"><a href="#class-in-Python" class="headerlink" title="class in Python"></a>class in Python</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def sayHello(self):
+        print &quot;Hello, my name is &quot; + self.name
+
+# create virtual objects
+james = User(&quot;James&quot;)
+david = User(&quot;David&quot;)
+eric = User(&quot;Eric&quot;)
+
+# call methods owned by virtual objects
+james.sayHello()
+david.sayHello()</code></pre><h2 id="inheritance"><a href="#inheritance" class="headerlink" title="inheritance"></a>inheritance</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def printName(self):
+        print &quot;Name  = &quot; + self.name
+
+class Programmer(User):
+    def __init__(self, name):
+        self.name = name
+
+    def doPython(self):
+        print &quot;Programming Python&quot;
+
+brian = User(&quot;brian&quot;)
+brian.printName()
+
+diana = Programmer(&quot;Diana&quot;)
+diana.printName()
+diana.doPython()</code></pre><h2 id="polymorphism"><a href="#polymorphism" class="headerlink" title="polymorphism"></a>polymorphism</h2><pre><code>class Bear(object):
+def sound(self):
+    print &quot;Groarrr&quot;
+
+class Dog(object):
+def sound(self):
+    print &quot;Woof woof!&quot;
+
+def makeSound(animalType):
+animalType.sound()
+
+bearObj = Bear()
+dogObj = Dog()
+
+makeSound(bearObj)
+makeSound(dogObj)</code></pre><h2 id="polymorphism-with-abstract-class"><a href="#polymorphism-with-abstract-class" class="headerlink" title="polymorphism with abstract class"></a>polymorphism with abstract class</h2><pre><code>class Document:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Pdf(Document):
+    def show(self):
+        return &apos;Show pdf contents!&apos;
+
+class Word(Document):
+    def show(self):
+        return &apos;Show word contents!&apos;
+
+documents = [Pdf(&apos;Document1&apos;),
+             Pdf(&apos;Document2&apos;),
+             Word(&apos;Document3&apos;)]
+
+for document in documents:
+    print document.name + &apos;: &apos; + document.show()</code></pre><p>Output:</p>
+<pre><code>Document1: Show pdf contents!
+Document2: Show pdf contents!
+Document3: Show word contents!</code></pre><h2 id="another-example"><a href="#another-example" class="headerlink" title="another example"></a>another example</h2><p>of abstract class:</p>
+<pre><code>class Car:
+    def __init__(self, name):
+        self.name = name
+
+    def drive(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+    def stop(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Sportscar(Car):
+    def drive(self):
+        return &apos;Sportscar driving!&apos;
+
+    def stop(self):
+        return &apos;Sportscar breaking!&apos;
+
+class Truck(Car):
+    def drive(self):
+        return &apos;Truck driving slowly because heavily loaded.&apos;
+
+    def stop(self):
+        return &apos;Truck breaking!&apos;
+
+
+cars = [Truck(&apos;Bananatruck&apos;),
+        Truck(&apos;Orangetruck&apos;),
+        Sportscar(&apos;Z3&apos;)]
+
+for car in cars:
+    print car.name + &apos;: &apos; + car.drive()</code></pre><p>Output:</p>
+<pre><code>Bananatruck: Truck driving slowly because heavily loaded.
+Orangetruck: Truck driving slowly because heavily loaded.
+Z3: Sportscar driving!</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://pythonspot.com/beginner/">Python Beginner by pythonspot.com</a></p>
+<h1 id="Python-tricks"><a href="#Python-tricks" class="headerlink" title="Python tricks"></a>Python tricks</h1><h2 id="start-a-simple-HTTP-server"><a href="#start-a-simple-HTTP-server" class="headerlink" title="start a simple HTTP server:"></a>start a simple HTTP server:</h2><pre><code>python -m SimpleHTTPServer</code></pre><h2 id="Using-Zip"><a href="#Using-Zip" class="headerlink" title="Using Zip"></a>Using Zip</h2><p>to combine arrays</p>
+<pre><code>&gt;&gt;&gt; b = [[1, 2, 3, 4], [6, 5, 4, 3]]
+&gt;&gt;&gt; zip(*b)
+[(1, 6), (2, 5), (3, 4), (4, 3)]</code></pre><h2 id="We-know-that-“array-reverse-”-will-reverse-an-array"><a href="#We-know-that-“array-reverse-”-will-reverse-an-array" class="headerlink" title="We know that “array.reverse()” will reverse an array."></a>We know that “array.reverse()” will reverse an array.</h2><p>How do we reverse a string?</p>
+<pre><code>&gt;&gt;&gt; s = &quot;Hello world&quot;
+&gt;&gt;&gt; s = s[::-1]
+&gt;&gt;&gt; print s
+dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables" class="headerlink" title="Swapping variables"></a>Swapping variables</h2><pre><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 3
+&gt;&gt;&gt; b,a = a,b
+&gt;&gt;&gt; print a
+3
+&gt;&gt;&gt; print b
+1</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://pythonspot.com/fun-tricks-with-python/">Fun tricks with Python, pythonspot.com</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/24/Tech/regex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +471,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -310,7 +599,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -451,7 +740,7 @@ git push origin master</code></pre><p>You should see it works fine. Notice how w
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -664,7 +953,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -787,7 +1076,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -858,7 +1147,7 @@ nano config.js</code></pre><p>Now change the url of production to the public IP 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -1187,7 +1476,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
+                <time title="Modified: 2021-11-20 08:45:31" itemprop="dateModified" datetime="2021-11-20T08:45:31+00:00">2021-11-20</time>
               </span>
 
           
@@ -1254,89 +1543,10 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/09/18/Read/books/%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%A7%B0%E4%B8%8E%E5%85%AC%E5%8A%A1%E5%91%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/09/18/Read/books/%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%A7%B0%E4%B8%8E%E5%85%AC%E5%8A%A1%E5%91%98/" class="post-title-link" itemprop="url">【Read】摘抄：信息不对称与公务员</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2014-09-18T00:00:00+00:00">2014-09-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-04 18:51:20" itemprop="dateModified" datetime="2021-11-04T18:51:20+00:00">2021-11-04</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="lt-lt-1984-gt-gt"><a href="#lt-lt-1984-gt-gt" class="headerlink" title="&lt;&lt;1984&gt;&gt;"></a>&lt;&lt;1984&gt;&gt;</h1><p>他想，他已经死了。他觉得只有到现在，当他开始能够把他的思想理出头绪的时候，他才采取了决定性的步骤。一切行动的后果都包括在行动本身里面。他写道：思想罪不会带来死亡：思想罪本身就是死亡。</p>
-<h1 id="HK-China"><a href="#HK-China" class="headerlink" title="HK China"></a>HK China</h1><p>那时有关 中国对香港的国家主权体现 官方定义所发生的唯一一次大风波 是邓小平对从1997年6月30日午夜开始 中国军队是否在香港驻扎的问题公开发怒 整整30年之前 就在中英交接条约的最后文本敲定之际 邓小平当着所有被接见的记者们的面 怒斥两个领导人——黄华和耿飚 这两位已经表示解放军在港不驻军 以免影响国际社会对香港的信心 而邓小平在镜头前怒斥耿飊及黄华 指在香港不驻军是 胡说八道 这令在场的人大惊失色 更是令香港惊慌失措 英国也傻了眼</p>
-<p><a target="_blank" rel="noopener" href="http://www.ftchinese.com/story/00105795">http://www.ftchinese.com/story/00105795</a></p>
-<h1 id="公务员-信息不对称"><a href="#公务员-信息不对称" class="headerlink" title="公务员 信息不对称"></a>公务员 信息不对称</h1><p>为什么那个村里中学还没毕业就出去闯荡的狗蛋，十几年后衣锦还乡，开着李华看一辈子报纸喝一辈子茶水，拿一辈子hui色收入都买不起的某订制级豪车，乡亲们一瞬间忘记了那个从小到大奖状贴了一墙的尖子生李华，之前对李华考上公务员的种种夸耀，恨不能全部收回来，贴在狗蛋身上，而李华只能望着绝尘而去，怀疑这一生？</p>
-<p>村民甚至分不清楚公务员的概念，想当然地以为，当官=公务员=有钱。而在这种理解程度上，不管李华当的是村支书，还是一个比较新潮的公务员，比如可以是市妇联主任的助手，或者是海关安检看X光扫描的小兵，在村民对于这种没有对公务员的判定范围有一个清楚的了解下，那他们听了后，会摆出”O“的嘴型与我懂得的表情，然后笑嘻嘻地说：”当官好啊。“</p>
-<p>在狗蛋没回来之前，李华拥有对公务员信息解释的垄断权。<br>显而易见，李华信息量要大于村民。<br><strong>这就是一种信息不对称</strong>。</p>
-<p>李华认为自己是成功，还是失败，这都不重要，<strong>重要的是，他在极力维持这种信息不对称，无论是出于什么目的</strong>。但是，不幸的是，狗蛋的出现，打破了这种信息不对称</p>
-<p>狗蛋从最直观的角度，满足了村民心底原始级欲望（此处为金钱），以一个胜利者（信息不对称破坏者）的姿态，打破了李华对于成功定义的垄断。在狗蛋没回来之前，大家都认为，从这小山沟沟里走出去，并能混出个样样，取得成功唯一的途径便是像李华那样用功读书，将来成为一个官（公务员）。 </p>
-<p>而走出这个山沟，对成功的理解则不一样。<strong>这，正是一种信息不对称</strong>。</p>
-<p>既然发觉到信息不对称，并有可以逆转这种不对称，甚至有可以打破不对称规则的机会，为什么人们就是不做？</p>
-<p>答案很简单：自我否定与，对短期收益的认可，大过了长期收益的认可。</p>
-<p>因为功利心在作祟，使我们丧失了对于一件事物基本的思辨能力，以至于，哪怕这件事只要坚持下来，并长期去做，就会获得巨大收益，但仅仅因为其需求一定量的时间付出，便放弃了这件事。</p>
-<p><a target="_blank" rel="noopener" href="http://www.zhihu.com/question/24709876/answer/28701787">http://www.zhihu.com/question/24709876/answer/28701787</a></p>
-<h1 id="中国护照bug"><a href="#中国护照bug" class="headerlink" title="中国护照bug"></a>中国护照bug</h1><p>国内很多敏感人物可以避过bug通行全球，同时保留多国籍。这些敏感人物人手两/多个护照，一个中国的一个圣基茨及尼维斯的再加上一个深圳户口，因为深圳户口有香港“一签多行”的功能，他们先利用港澳通行证到香港，再用第二本护照合法离境，返回时仍然用港澳通行证从香港入境。巧妙地避过了出入境记录的bug，既不用办签证也避免了被国内政府发现第二国籍。</p>
-<p>国内的出入境处只知道他们出入了香港，并不知道他们在香港还去了别的国家，从而避免被注销国籍。 </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1402,7 +1612,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
