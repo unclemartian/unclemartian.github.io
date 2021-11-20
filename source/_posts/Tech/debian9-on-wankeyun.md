@@ -1,5 +1,5 @@
 ---
-title: 【Tech】 Debian 9 (Armbian) on N1/Wky 安装教程
+title: 【Tech】 Debian 9 (Armbian) on N1/Wky 使用教程
 date: 2021-10-15 00:00:00
 tags: ubuntu
 ---
@@ -304,3 +304,5 @@ Add
 
 https://leeyr.com/323.html
 https://www.znds.com/tv-1197649-1-1.html
+https://post.smzdm.com/p/alpwnxmp/
+https://blog.ztluo.dev/post/0057-phicomm-n1/
