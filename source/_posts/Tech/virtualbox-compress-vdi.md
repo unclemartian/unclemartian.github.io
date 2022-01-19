@@ -1,6 +1,6 @@
 ---
 title: 【Tech】 How to compress VDI file for VirtualBox
-date: 202-01-01 00:00:00
+date: 2020-12-01 00:00:00
 tags: ubuntu
 ---
 

@@ -111,7 +111,9 @@ Check / Change:
     cd /etc/apt/
     vi sources.list
 
-Content (note that Tsinghua and 163.com sources DO NOT WORK): 
+### For Debian 9 stretch
+
+Note that Tsinghua and 163.com sources DO NOT WORK.
 
     deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
@@ -125,15 +127,54 @@ Content (note that Tsinghua and 163.com sources DO NOT WORK):
     deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
     deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
 
-### For docker
-
-    https://mirrors.ustc.edu.cn/docker-ce
-
 如果签名报错，运行这一行：
 
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥（例如648ACFD622F3D138）
 
 就好了。
+
+For docker
+
+    https://mirrors.ustc.edu.cn/docker-ce
+
+### For Ubuntu 18 bionic
+
+这个比较难搞，arm 版本的源不好找。
+
+不是 “Failed to fetch” 就是 certificate 有问题。
+
+亲测以下可用:
+
+	# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+	# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+	# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+	# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+	deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+	# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+
+或者：
+
+	deb http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+	deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+
+	deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+	deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+
+	deb http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+	deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+	deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+	deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+
+	deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+	deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+	deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+	deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+
+Reference: https://www.bianchengquan.com/article/453596.html
+和 https://www.jianshu.com/p/fd3a2d153505
 
 ## Some useful apt to install 
 
