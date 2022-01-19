@@ -151,6 +151,167 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/10/Tech/virtualbox-mount-shared-folder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/10/Tech/virtualbox-mount-shared-folder/" class="post-title-link" itemprop="url">【Tech】 How to mount shared folder for VirtualBox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-10T00:00:00+00:00">2022-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Mount shared folders in VirtualBox.</p>
+<h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
+<pre><code>cd /media/osboxes/VBox_GAs_6.1.28
+sudo ./VBoxLinuxAdditions.run
+sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>一定要记得，这里输入“shared”。</p>
+<p><img src="/images/virtualbox-mount-shared-folder.png" alt=""></p>
+<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>如果没有自动加载，可以这样手动加载：</p>
+<pre><code>cd ~/Desktop/
+mkdir shared-folder
+sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行了。</p>
+<p>如果权限出了问题，可以：</p>
+<pre><code>sudo adduser $USER vboxsf</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/28/Crypto/crypto-people/interview-ryan-zurrer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/28/Crypto/crypto-people/interview-ryan-zurrer/" class="post-title-link" itemprop="url">【Crypto】 Ryan Zurrer 与 theDAO</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-28T00:00:00+00:00">2021-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ryan-Zurrer"><a href="#Ryan-Zurrer" class="headerlink" title="Ryan Zurrer"></a>Ryan Zurrer</h1><ul>
+<li>Polychain 前合伙人</li>
+<li>后来 Web 3 Foundation 总监</li>
+<li>后来重启 theDAO 项目</li>
+</ul>
+<h1 id="Key-Take-aways"><a href="#Key-Take-aways" class="headerlink" title="Key Take-aways"></a>Key Take-aways</h1><p>以下是 Ryan 的观点。</p>
+<ol>
+<li>亚洲市场微妙。不能用美国的投资逻辑。</li>
+<li>唯一能在中国实现商业化取得成功的方法：找本地合作伙伴，给予激励，实现双赢。</li>
+<li>中国人更喜欢社会主义、喜欢强权政府、喜欢资源聚合，只为完成一件事情。</li>
+<li>798 艺术区的艺术在进化：从 90年代表达伤心、愤怒和政治宣言的「伤痕艺术「 到今天的比较自信、表现民族精神风貌的艺术表达。</li>
+</ol>
+<blockquote>
+<p>以前可以看到金发女性更多出现在艺术作品里，等我过几年再回来，就成了更自信的表达中国独有的女性美的作品。</p>
+</blockquote>
+<p>Web 3.0</p>
+<ul>
+<li>Web 2.0 是一个中心化网络，一个资本和权利协同统治的网络。</li>
+<li>MakerDAO 是一套中国哲学的项目 —— 核心团队有比较强的决策权，也包括一票否决权。</li>
+<li>百度 CEO 说过，中国人喜欢放弃隐私或者说是愿意为了方便而做出妥协。这与 web 3.0 并不矛盾 —— 这是用户为中心。</li>
+</ul>
+<h1 id="theDao"><a href="#theDao" class="headerlink" title="theDao"></a>theDao</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80354805">https://zhuanlan.zhihu.com/p/80354805</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/18/Crypto/rarity-calculation-methods/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +343,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
               </span>
 
           
@@ -304,7 +465,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
               </span>
 
           
@@ -395,7 +556,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
               </span>
 
           
@@ -516,7 +677,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
               </span>
 
           
@@ -647,7 +808,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
               </span>
 
           
@@ -733,7 +894,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
+                <time title="Modified: 2022-01-19 19:50:45" itemprop="dateModified" datetime="2022-01-19T19:50:45+00:00">2022-01-19</time>
               </span>
 
           
@@ -800,7 +961,7 @@ Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armb
 <h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
 <pre><code>hostname
 sudo hostname armbian-wky</code></pre><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><pre><code>cd /etc/apt/
-vi sources.list</code></pre><p>Content (note that Tsinghua and 163.com sources DO NOT WORK): </p>
+vi sources.list</code></pre><h3 id="For-Debian-9-stretch"><a href="#For-Debian-9-stretch" class="headerlink" title="For Debian 9 stretch"></a>For Debian 9 stretch</h3><p>Note that Tsinghua and 163.com sources DO NOT WORK.</p>
 <pre><code>deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
 deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
 
@@ -811,8 +972,36 @@ deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
 deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
 
 deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
-deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free</code></pre><h3 id="For-docker"><a href="#For-docker" class="headerlink" title="For docker"></a>For docker</h3><pre><code>https://mirrors.ustc.edu.cn/docker-ce</code></pre><p>如果签名报错，运行这一行：</p>
+deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free</code></pre><p>如果签名报错，运行这一行：</p>
 <pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥（例如648ACFD622F3D138）</code></pre><p>就好了。</p>
+<p>For docker</p>
+<pre><code>https://mirrors.ustc.edu.cn/docker-ce</code></pre><h3 id="For-Ubuntu-18-bionic"><a href="#For-Ubuntu-18-bionic" class="headerlink" title="For Ubuntu 18 bionic"></a>For Ubuntu 18 bionic</h3><p>这个比较难搞，arm 版本的源不好找。</p>
+<p>不是 “Failed to fetch” 就是 certificate 有问题。</p>
+<p>亲测以下可用:</p>
+<pre><code># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</code></pre><p>或者：</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://www.bianchengquan.com/article/453596.html">https://www.bianchengquan.com/article/453596.html</a><br>和 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd3a2d153505">https://www.jianshu.com/p/fd3a2d153505</a></p>
 <h2 id="Some-useful-apt-to-install"><a href="#Some-useful-apt-to-install" class="headerlink" title="Some useful apt to install"></a>Some useful apt to install</h2><pre><code>apt install python-setuptools
 apt install tmux
 apt install mosh</code></pre><h2 id="Install-Webmin"><a href="#Install-Webmin" class="headerlink" title="Install Webmin"></a>Install Webmin</h2><p>国外版的宝塔。</p>
@@ -881,213 +1070,6 @@ systemctl status smbd
 <pre><code>systemctl restart smbd
 systemctl status smbd</code></pre><p>权限有问题。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a><br><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/alpwnxmp/">https://post.smzdm.com/p/alpwnxmp/</a><br><a target="_blank" rel="noopener" href="https://blog.ztluo.dev/post/0057-phicomm-n1/">https://blog.ztluo.dev/post/0057-phicomm-n1/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/11/Crypto/nft-2-types/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/11/Crypto/nft-2-types/" class="post-title-link" itemprop="url">【Crypto】 NFT 未来的2条发展路线</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-11T00:00:00+00:00">2021-10-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="2条路线"><a href="#2条路线" class="headerlink" title="2条路线"></a>2条路线</h1><ol>
-<li>精品化路线（IP    化）</li>
-</ol>
-<blockquote>
-<p>MekaVerse 的爆火，首先得益于项目结合了高达这一大 IP。</p>
-<p>尽管并未获得官方授权，但未来可能构成 Meka 宇宙，赋予了用户足够的想象空间，这可能也将是 NFT 市场接下来的一大发展趋势，类似的项目还有比如 The Project Zero、CryptoBots 等。</p>
-</blockquote>
-<ol>
-<li><p>可编程化路线</p>
-<p>参考 Loot</p>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/Crypto/loot-master-wiki/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/29/Crypto/loot-master-wiki/" class="post-title-link" itemprop="url">【Crypto】Loot master wiki</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-29T00:00:00+00:00">2021-09-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-11-20 17:22:53" itemprop="dateModified" datetime="2021-11-20T17:22:53+00:00">2021-11-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Loot-Intro"><a href="#Loot-Intro" class="headerlink" title="Loot Intro"></a>Loot Intro</h1><p>Loot 是由 Dom Hofmann 发起、靠社区推动的一个 NFT 项目。</p>
-<p>上线于2021年8月27日。</p>
-<p><a target="_blank" rel="noopener" href="https://etherscan.io/address/0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7">https://etherscan.io/address/0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7</a></p>
-<blockquote>
-<p>Dom Hofmann, 视频共享应用程序 Vine 的联合创始人</p>
-</blockquote>
-<p>每一枚 Loot 代表一组具有随机稀缺特性的冒险装备</p>
-<ol>
-<li>upper body<ol>
-<li>武器（Weapons）</li>
-<li>头甲（Head Armor）</li>
-<li>胸甲（Chest Armor）</li>
-</ol>
-</li>
-<li>lower body<ol>
-<li>腰甲（Waist Armor）</li>
-<li>手甲（Hand Armor）</li>
-<li>脚甲（Foot Armor）</li>
-</ol>
-</li>
-<li>accessory<ol>
-<li>项链（Necklaces）</li>
-<li>戒指（Rings）</li>
-</ol>
-</li>
-</ol>
-<h1 id="特点总结"><a href="#特点总结" class="headerlink" title="特点总结"></a>特点总结</h1><p>表面：NFT 从 JPG 到 TXT 的一次<strong>呈现形式</strong>的创新。</p>
-<p>深层：往后看。</p>
-<h2 id="Before-Loot"><a href="#Before-Loot" class="headerlink" title="Before Loot"></a>Before Loot</h2><h3 id="NFT所有权-–-gt-通过-hash-value-锁定的一个-JPG-文件"><a href="#NFT所有权-–-gt-通过-hash-value-锁定的一个-JPG-文件" class="headerlink" title="NFT所有权 –&gt; 通过 hash value 锁定的一个 JPG 文件"></a>NFT所有权 –&gt; 通过 hash value 锁定的一个 JPG 文件</h3><p><img src="/images/loot-before-loot.jpeg" alt=""></p>
-<p>具体操作：</p>
-<ol>
-<li><p>发行方将 JPG 数据映射成一串 signature (哈希指纹) 用于完整性校验。例如 <a target="_blank" rel="noopener" href="https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b">https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b</a></p>
-</li>
-<li><p>将该 ipfs signature、文件路径与内容描述、发行信息、创作者签名等信息构成 Metadata (元数据)。例如 <a target="_blank" rel="noopener" href="https://metadata.theunstablehorsesyard.com/horse/32">https://metadata.theunstablehorsesyard.com/horse/32</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Metadata：</span><br><span class="line">&#123;&quot;image&quot;:&quot;https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b&quot;,&quot;description&quot;:&quot;The Unstable Horses Yard are unique collectibles, with provably randomized traits and physical attributes. Own, trade, and play in the 3D world with your unique horse.&quot;,&quot;attributes&quot;:[&#123;&quot;trait_type&quot;:&quot;hoof&quot;,&quot;value&quot;:&quot;Paper&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;clothes&quot;,&quot;value&quot;:&quot;Muskateer&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;ear&quot;,&quot;value&quot;:&quot;Earrings&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;eyes expression&quot;,&quot;value&quot;:&quot;Unstable&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;eyes&quot;,&quot;value&quot;:&quot;Monocle&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;neck&quot;,&quot;value&quot;:&quot;Love Necklace&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mane&quot;,&quot;value&quot;:&quot;Blonde&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mouth expression&quot;,&quot;value&quot;:&quot;Closed Mouth&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mouth&quot;,&quot;value&quot;:&quot;Cigarette&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;hat&quot;,&quot;value&quot;:&quot;Ribbon&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;breed&quot;,&quot;value&quot;:&quot;Zebra Cross&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;Generation&quot;,&quot;value&quot;:1,&quot;display_type&quot;:&quot;number&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;Stamina&quot;,&quot;value&quot;:98,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Strength&quot;,&quot;value&quot;:86,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Natural Speed&quot;,&quot;value&quot;:77,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Adaptibility&quot;,&quot;value&quot;:99,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Pedigree&quot;,&quot;value&quot;:90,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Instability&quot;,&quot;value&quot;:60,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Alertness&quot;,&quot;value&quot;:80,&quot;max_value&quot;:100&#125;]&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Metadata 很长，通常不存在链上，而是将储存 Metadata 的路径再次以哈希摘要的形式上传至区块链。</p>
-<ol>
-<li>参考上述例子，这个链接最终存在了链上： <a target="_blank" rel="noopener" href="https://metadata.theunstablehorsesyard.com/horse/32">https://metadata.theunstablehorsesyard.com/horse/32</a> （合约地址： <a target="_blank" rel="noopener" href="https://etherscan.io/address/0x0e4245ccb9954ead73f8bab13607cd2d86efc84c#readContract）">https://etherscan.io/address/0x0e4245ccb9954ead73f8bab13607cd2d86efc84c#readContract）</a></li>
-<li>更好的办法是，存在 IPFS上，这样数据安全性更靠谱一点。</li>
-</ol>
-</li>
-</ol>
-<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>metadata 和 ownership 是分离的</p>
-<ol>
-<li>可能导致数据可用性和数据完整性问题</li>
-<li>如果把原始图像全都上链，又会占用本就稀缺的公共资源</li>
-<li>上面那个例子更为甚者，中心化网站可以直接修改 metadata 内容。</li>
-</ol>
-<h3 id="进一步问题"><a href="#进一步问题" class="headerlink" title="进一步问题"></a>进一步问题</h3><p>IP 的进化、游戏道具的升级，无法解决。</p>
-<blockquote>
-<p>目前在 Axie Infinity 等游戏中通过「孵化」<strong>生成一个新的 NFT</strong> 来达到这一目的。</p>
-</blockquote>
-<h2 id="After-Loot"><a href="#After-Loot" class="headerlink" title="After Loot"></a>After Loot</h2><p>将 NFT 的“art”层从“information”层剥离，只保留txt。有点类似 Ubuntu 和 Linux kernel 的关系。</p>
-<ol>
-<li>可组合性、互操作性，更多元体验；</li>
-<li>程序化生成技术 (GenArt) 中引入了<strong>社交随机性</strong>元素。</li>
-</ol>
-<p><img src="/images/loot-after-loot.jpeg" alt=""></p>
-<h1 id="Generative-art"><a href="#Generative-art" class="headerlink" title="Generative art"></a>Generative art</h1><p>又称：<strong>程序化生成（procedural generation）</strong></p>
-<p>Loot 是程序化生成（procedural generation）的一种实例。</p>
-<p>Crypto Punks 的项目方 Larva Labs 也率先开发了此类产品 Autoglyphs。</p>
-<p>曾经不知名的链上生成类艺术品 NFT 培育平台 Art Blocks 已然实现周交易量排名第 5</p>
-<blockquote>
-<p>Art Blocks 是一个邀请制艺术家培育平台，为艺术家提供了程序化生成算法的创作平台。培育出的作品集对应的生成算法脚本（例如 p5js）将作为一个 project 储存于以太坊智能合约。<br>收藏家可根据作品风格挑选 project，购买的 NFT 将根据内置随机种子产生一组随机变量，该变量控制生成算法生成一幅符合该风格的作品，不限于 静态图像、 3D 模型 或 可交互的体验（鼠标互动）。</p>
-</blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/908208201053.htm">https://www.chainnews.com/articles/908208201053.htm</a>?<br><a target="_blank" rel="noopener" href="https://medium.com/treum_io/on-chain-artwork-nfts-f0556653c9f3">https://medium.com/treum_io/on-chain-artwork-nfts-f0556653c9f3</a></p>
 
       
     </div>
@@ -1172,7 +1154,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">74</span>
+          <span class="site-state-item-count">76</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1206,7 +1188,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
