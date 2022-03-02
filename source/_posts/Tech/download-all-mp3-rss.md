@@ -28,11 +28,9 @@ https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss
 
 And I used this command to exact all MP3 links:
 
-```
-export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837
+    export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837
 
-curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o '<enclosure url="[^"]*' | grep -o '[^"]*$'
-```
+    curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o '<enclosure url="[^"]*' | grep -o '[^"]*$'
 
 Here are the results: 
 
