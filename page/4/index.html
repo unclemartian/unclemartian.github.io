@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -151,6 +151,114 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/Tech/ubuntu-nvm-node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/01/Tech/ubuntu-nvm-node/" class="post-title-link" itemprop="url">【Tech】Install Node/npm using Nvm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+00:00">2021-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><h2 id="Use-‘nvm’-to-manage-node-versions"><a href="#Use-‘nvm’-to-manage-node-versions" class="headerlink" title="Use ‘nvm’ to manage node versions"></a>Use ‘nvm’ to manage node versions</h2><ol>
+<li><p>Install nvm (参考 <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">https://github.com/nvm-sh/nvm#install--update-script</a>)</p>
+<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</code></pre><p> or:</p>
+<pre><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</code></pre></li>
+</ol>
+<blockquote>
+<p>You may be stuck here, right after you saw this:</p>
+</blockquote>
+<pre><code>=&gt; Downloading nvm from git to &apos;/home/ubuntu/.nvm&apos;
+=&gt; Cloning into &apos;/home/ubuntu/.nvm&apos;...
+remote: Enumerating objects: 354, done.
+remote: Counting objects: 100% (354/354), done.
+remote: Compressing objects: 100% (302/302), done.
+remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
+Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
+Resolving deltas: 100% (40/40), done.</code></pre><blockquote>
+<p>Wait patiently for a bit. If still no lock, paste this to ~/.bashrc</p>
+</blockquote>
+<pre><code>export NVM_DIR=&quot;$HOME/.nvm&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><blockquote>
+<p>and run the following. You are all set!</p>
+</blockquote>
+<pre><code>source ~/.bashrc</code></pre><ol start="2">
+<li><p>Check current node versions</p>
+<pre><code>nvm ls
+nvm ls-remote</code></pre></li>
+<li><p>Install node and npm</p>
+<pre><code>nvm install v12</code></pre></li>
+<li><p>Use the following command</p>
+<pre><code>nvm use 12</code></pre></li>
+</ol>
+<h2 id="Please-Note"><a href="#Please-Note" class="headerlink" title="Please Note"></a>Please Note</h2><p>You may need to uninstall the system version node/npm, otherwise sudo have issues.</p>
+<p>A pretty simple work-around would be:</p>
+<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
+<pre><code>alias node=&apos;$NVM_BIN/node&apos;
+alias npm=&apos;$NVM_BIN/npm&apos;
+alias sudo=&apos;sudo env PATH=$PATH:$NVM_BIN&apos;</code></pre><h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
+npm config set registry https://registry.npm.taobao.org/
+npm config set registry https://registry.npmjs.org/</code></pre><h2 id="To-check"><a href="#To-check" class="headerlink" title="To check"></a>To check</h2><pre><code>npm info underscore
+npm --registry https://registry.npm.taobao.org info underscore
+npm config get registry</code></pre><h1 id="Useful-npm-packages"><a href="#Useful-npm-packages" class="headerlink" title="Useful npm packages"></a>Useful npm packages</h1><p>You might need to install these just in case you need them:</p>
+<pre><code>npm install -g eslint yarn now truffle vue-cli hexo-cli
+npm install -g --force npx</code></pre><p>To check your globally-installed packges:</p>
+<pre><code>npm list -g --depth 0</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/13/Tech/ubuntu-system-commands/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +290,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -323,7 +431,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -422,7 +530,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -524,7 +632,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -592,7 +700,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -685,7 +793,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -796,7 +904,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -846,76 +954,10 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/06/Crypto/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/06/Crypto/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/" class="post-title-link" itemprop="url">【Crypto】Consensus：PoW, VRF, DAG, Tendermint etc</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-01-06 15:29:54" itemprop="dateCreated datePublished" datetime="2021-01-06T15:29:54+00:00">2021-01-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Popular-ones"><a href="#Popular-ones" class="headerlink" title="Popular ones"></a>Popular ones</h1><p>PoW<br>PoS<br>DPoS</p>
-<h2 id="VRF"><a href="#VRF" class="headerlink" title="VRF"></a>VRF</h2><h2 id="DAG"><a href="#DAG" class="headerlink" title="DAG"></a>DAG</h2><h2 id="Sharding"><a href="#Sharding" class="headerlink" title="Sharding"></a>Sharding</h2><h2 id="Hotstuff"><a href="#Hotstuff" class="headerlink" title="Hotstuff"></a>Hotstuff</h2><h2 id="Tendermint"><a href="#Tendermint" class="headerlink" title="Tendermint"></a>Tendermint</h2><p>TODO</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -981,7 +1023,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

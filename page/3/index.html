@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -151,6 +151,73 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/13/Tech/ubuntu-mount-apfs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/13/Tech/ubuntu-mount-apfs/" class="post-title-link" itemprop="url">【Tech】Mount APFS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>encrypted APFS can only run in read-only mode on Ubuntu </p>
+<h2 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h2><p>Instruction: <a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">https://github.com/sgan81/apfs-fuse</a></p>
+<p>Find out the <device> using Disk tool, like this: <strong>/dev/sda5</strong>, or <strong>/dev/sdb1</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Crypto/some-ethereum-competitors-2021/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -247,7 +314,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -267,10 +334,10 @@
 <h2 id="Install-WeChat"><a href="#Install-WeChat" class="headerlink" title="Install WeChat"></a>Install WeChat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin.com.wechat_2.6.2.31deepin0_i386.deb</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
 
 <h2 id="WeChat-Version-Too-Old-Issue"><a href="#WeChat-Version-Too-Old-Issue" class="headerlink" title="WeChat Version Too Old Issue"></a>WeChat Version Too Old Issue</h2><p>Please update your WeChat Windows installer if you encounter this problem.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /tmp/wechat</span><br><span class="line"><span class="built_in">cd</span> /tmp/wechat</span><br><span class="line">wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe</span><br><span class="line">env WINEPREFIX=/home/<span class="variable">$&#123;USER&#125;</span>/.deepinwine/Deepin-WeChat deepin-wine WeChatSetup.exe</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /tmp/wechat</span><br><span class="line"><span class="built_in">cd</span> /tmp/wechat</span><br><span class="line">wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe</span><br><span class="line"><span class="built_in">env</span> WINEPREFIX=/home/<span class="variable">$&#123;USER&#125;</span>/.deepinwine/Deepin-WeChat deepin-wine WeChatSetup.exe</span><br></pre></td></tr></table></figure>
 
 <h2 id="WeChat-font-issue"><a href="#WeChat-font-issue" class="headerlink" title="WeChat font issue"></a>WeChat font issue</h2><p>Download:<br><a target="_blank" rel="noopener" href="https://github.com/qiuhuachuan/fonts/blob/main/MSYH.TTC">https://github.com/qiuhuachuan/fonts/blob/main/MSYH.TTC</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp ~/Downloads/msyh.ttc ~/.deepinwine/Deepin-WeChat/drive_c/windows/Fonts</span><br><span class="line">vim ~/.deepinwine/Deepin-WeChat/font.reg</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ~/Downloads/msyh.ttc ~/.deepinwine/Deepin-WeChat/drive_c/windows/Fonts</span><br><span class="line">vim ~/.deepinwine/Deepin-WeChat/font.reg</span><br></pre></td></tr></table></figure>
 
 <p>File content: </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line"><span class="string">&quot;MS Shell Dlg&quot;</span>=<span class="string">&quot;msyh&quot;</span></span><br><span class="line"><span class="string">&quot;MS Shell Dlg 2&quot;</span>=<span class="string">&quot;msyh&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]</span><br><span class="line"><span class="string">&quot;Lucida Sans Unicode&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft Sans Serif&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;MS Sans Serif&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma Bold&quot;</span>=<span class="string">&quot;msyhbd.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;msyh&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial Black&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br></pre></td></tr></table></figure>
@@ -327,7 +394,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -403,7 +470,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -476,7 +543,7 @@ java -version</code></pre><p>To switch java version that you want to use: </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -555,7 +622,7 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -625,7 +692,7 @@ go version</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -729,98 +796,10 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/Tech/ubuntu-nvm-node/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/01/Tech/ubuntu-nvm-node/" class="post-title-link" itemprop="url">【Tech】Install Node/npm using Nvm</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+00:00">2021-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><h2 id="Use-‘nvm’-to-manage-node-versions"><a href="#Use-‘nvm’-to-manage-node-versions" class="headerlink" title="Use ‘nvm’ to manage node versions"></a>Use ‘nvm’ to manage node versions</h2><ol>
-<li><p>Install nvm (参考 <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">https://github.com/nvm-sh/nvm#install--update-script</a>)</p>
-<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</code></pre><p> or:</p>
-<pre><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</code></pre></li>
-<li><p>Check current node versions</p>
-<pre><code>nvm ls
-nvm ls-remote</code></pre></li>
-<li><p>Install node and npm</p>
-<pre><code>nvm install v12</code></pre></li>
-<li><p>Use the following command</p>
-<pre><code>nvm use 12</code></pre></li>
-</ol>
-<h2 id="Please-Note"><a href="#Please-Note" class="headerlink" title="Please Note"></a>Please Note</h2><p>You may need to uninstall the system version node/npm, otherwise sudo have issues.</p>
-<p>A pretty simple work-around would be:</p>
-<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
-<pre><code>alias node=&apos;$NVM_BIN/node&apos;
-alias npm=&apos;$NVM_BIN/npm&apos;
-alias sudo=&apos;sudo env PATH=$PATH:$NVM_BIN&apos;</code></pre><h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org/
-npm config set registry https://registry.npmjs.org/</code></pre><h2 id="To-check"><a href="#To-check" class="headerlink" title="To check"></a>To check</h2><pre><code>npm info underscore
-npm --registry https://registry.npm.taobao.org info underscore
-npm config get registry</code></pre><h1 id="Useful-npm-packages"><a href="#Useful-npm-packages" class="headerlink" title="Useful npm packages"></a>Useful npm packages</h1><p>You might need to install these just in case you need them:</p>
-<pre><code>npm install -g eslint yarn now truffle vue-cli hexo-cli
-npm install -g --force npx</code></pre><p>To check your globally-installed packges:</p>
-<pre><code>npm list -g --depth 0</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -886,7 +865,7 @@ npm install -g --force npx</code></pre><p>To check your globally-installed packg
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

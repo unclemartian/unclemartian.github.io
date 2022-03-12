@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -151,6 +151,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/05/Crypto/sybil-attack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/05/Crypto/sybil-attack/" class="post-title-link" itemprop="url">【Crypto】 Sybil Attack</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-05T00:00:00+00:00">2022-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Sybil-Attack"><a href="#Sybil-Attack" class="headerlink" title="Sybil Attack"></a>Sybil Attack</h1><p>2002年，由微软研究院的John R. Douceur在《the Sybil Attack》提出，它是p2p网络中的一种攻击形式，主要是针对服务器节点的攻击。</p>
+<blockquote>
+<p>Flora Rhea Schreiberie 在1973年的小说《女巫》（Sybil）改编的同名电影，是一个化名Sybil Dorsett的女人心理治疗的故事。</p>
+<p>她被诊断为分离性身份认同障碍，兼具16种人格。我的那个天。高度精分一枚。</p>
+</blockquote>
+<h2 id="Why-exist"><a href="#Why-exist" class="headerlink" title="Why exist?"></a>Why exist?</h2><p>女巫攻击之所以存在：</p>
+<ol>
+<li>网络中很难保证每一个未知的节点是一个确定的“身份”。</li>
+<li>而女巫攻击是攻击数据冗余机制的一种有效手段。</li>
+</ol>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ol>
+<li>矿工利用n个身份，承诺会存储n份数据。但是，实际上只存储小于n份的数据，但谎报自己存储了n份数据。</li>
+<li>羊毛党在一台计算机上通过软件切换ip手段大量薅羊毛；</li>
+<li>网络投票的时候，可以通过利用多个ip地址来作假等</li>
+<li>很多公司也利用女巫攻击来获得google等搜索引擎的排名，骗取大量用户去点击。</li>
+</ol>
+<h1 id="联盟链中的-sybil-attack"><a href="#联盟链中的-sybil-attack" class="headerlink" title="联盟链中的 sybil attack"></a>联盟链中的 sybil attack</h1><p>联盟链当中，女巫攻击问题更为棘手。</p>
+<p>因为公有链的共识机制是不依赖节点数量的，所以不存在女巫攻击的风险。而联盟链为了提高共识效率，将节点数减少在一定范围内。就相当于把共识机制变简单了，所以攻击也变得简单了。这样，女巫攻击就有了“用武之地”。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.tuoluo.cn/article/detail-9992848.html">https://www.tuoluo.cn/article/detail-9992848.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://0xzx.com/2022021204132081029.html">https://0xzx.com/2022021204132081029.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/01/Tech/download-all-mp3-rss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +266,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -198,8 +282,7 @@
       
           <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>For some reason, certain podcast are not accessible in China. Thus for good audio RSS content that I am afraid of missing out, downloading them and keep it offline is a nice idea. </p>
 <p>However, most RSS clients are not tailored for my use case, so instead of using any tools, I did some research and finally was able to download all MP3 from this podcast: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss</span><br></pre></td></tr></table></figure>
-
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss">https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss</a></p>
 <h1 id="First-try"><a href="#First-try" class="headerlink" title="First try"></a>First try</h1><p>I did some research on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_podcast_clients"><strong>podcatcher softwares</strong></a>, and no luck finding a good one. </p>
 <p>Failed. </p>
 <h1 id="Second-try"><a href="#Second-try" class="headerlink" title="Second try"></a>Second try</h1><p>Got some help from: </p>
@@ -275,7 +358,7 @@ curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieF
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -350,7 +433,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -457,7 +540,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -579,7 +662,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -670,7 +753,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -791,7 +874,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -887,96 +970,10 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/armbian-day-to-day%20copy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/19/Tech/armbian-day-to-day%20copy/" class="post-title-link" itemprop="url">【Tech】 Armbian day to day 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-19 09:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T09:00:00+00:00">2021-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
-<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
-a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
-<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
-tmux attach -t 0 (or simply tmux attach)
-tmux detach -a</code></pre><p>窗口操作：</p>
-<pre><code>Ctrl+b % Split current pane horizontally
-Ctrl+b &quot; Split current pane vertically
-Ctrl+b 0 Switch to window 0 (by number)
-Ctrl+b o Go to the next pane
-Ctrl+b ; Toggle between the current and previous pane
-Ctrl+b x Close the current pane
-Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
-<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
-<p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
-<pre><code>wky
-a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
-<pre><code>wky
-a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
-<pre><code>wky
-a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
-<p>RDP：192.168.123.242:3389</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1042,7 +1039,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

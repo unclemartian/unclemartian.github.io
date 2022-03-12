@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -151,6 +151,92 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/armbian-day-to-day%20copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/19/Tech/armbian-day-to-day%20copy/" class="post-title-link" itemprop="url">【Tech】 Armbian day to day 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-19 09:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T09:00:00+00:00">2021-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
+<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
+a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
+<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
+tmux attach -t 0 (or simply tmux attach)
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<pre><code>wky
+a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
+<p>RDP：192.168.123.242:3389</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/15/Tech/debian9-on-wankeyun/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +268,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -408,7 +494,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -484,7 +570,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -615,7 +701,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -688,7 +774,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -777,7 +863,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -853,7 +939,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
+                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
               </span>
 
           
@@ -967,77 +1053,10 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/13/Tech/ubuntu-mount-apfs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/13/Tech/ubuntu-mount-apfs/" class="post-title-link" itemprop="url">【Tech】Mount APFS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-02 18:22:07" itemprop="dateModified" datetime="2022-03-02T18:22:07+00:00">2022-03-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>encrypted APFS can only run in read-only mode on Ubuntu </p>
-<h2 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h2><p>Instruction: <a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">https://github.com/sgan81/apfs-fuse</a></p>
-<p>Find out the <device> using Disk tool, like this: <strong>/dev/sda5</strong>, or <strong>/dev/sdb1</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1103,7 +1122,7 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
