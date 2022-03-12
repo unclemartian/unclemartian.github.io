@@ -16,6 +16,27 @@ tags: ubuntu
 	
 		wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
+> You may be stuck here, right after you saw this:
+
+    => Downloading nvm from git to '/home/ubuntu/.nvm'
+    => Cloning into '/home/ubuntu/.nvm'...
+    remote: Enumerating objects: 354, done.
+    remote: Counting objects: 100% (354/354), done.
+    remote: Compressing objects: 100% (302/302), done.
+    remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
+    Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
+    Resolving deltas: 100% (40/40), done.
+
+> Wait patiently for a bit. If still no lock, paste this to ~/.bashrc
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+> and run the following. You are all set!
+
+    source ~/.bashrc
+
 2. Check current node versions
 
         nvm ls

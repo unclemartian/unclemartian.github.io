@@ -10,9 +10,7 @@ For some reason, certain podcast are not accessible in China. Thus for good audi
 
 However, most RSS clients are not tailored for my use case, so instead of using any tools, I did some research and finally was able to download all MP3 from this podcast: 
 
-```
 https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss
-```
 
 # First try
 
