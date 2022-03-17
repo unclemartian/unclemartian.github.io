@@ -151,6 +151,145 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/02/Tech/ubuntu-mysql-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/02/Tech/ubuntu-mysql-install/" class="post-title-link" itemprop="url">【Tech】Install MySQL 5.7 on Ubuntu 20.04</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T00:00:00+00:00">2021-09-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><pre><code>apt-get update
+apt-get install wget
+mkdir /downloads
+cd /downloads
+wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+# if the prompt is closed by accident, run:
+sudo dpkg-reconfigure mysql-apt-config</code></pre><p>Here, select MySQL 5.7, you will be prompt that Ubuntu 20.04 does not support MySQL 5.7. </p>
+<p>Don’t worry, select Ubuntu bionic. Then OK. </p>
+<pre><code>sudo apt-get update
+apt-cache policy mysql-server</code></pre><p>We can see</p>
+<pre><code>5.7.35-1ubuntu18.04 500 
+   500 http://repo.mysql.com/apt/ubuntu bionic/mysql-5.7 amd64 Packages</code></pre><p>Now simulate the installation first, then actually install:</p>
+<blockquote>
+<p>Use the -s flag to simulate an action. </p>
+<p>For example: “apt-get -s install <package_name>“ will simulate installing the package, showing you what packages will be installed and configured.</p>
+</blockquote>
+<pre><code>sudo apt install -s -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*</code></pre><p>then:</p>
+<pre><code>sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
+sudo apt-get install mysql-client=5.7.34-1ubuntu18.04
+sudo apt-get install -s mysql-community-server=5.7.34-1ubuntu18.04
+sudo apt-get install mysql-community-server=5.7.34-1ubuntu18.04</code></pre><p>Or simply:</p>
+<pre><code>sudo apt-get install -s mysql-server=5.7.35-1ubuntu18.04
+sudo apt-get install mysql-server=5.7.35-1ubuntu18.04
+mysql -V
+mysql -u root -p</code></pre><p>As a next-step, you need to check status of your wirefall and open up Port 3306:</p>
+<pre><code>sudo ufw status
+sudo ufw allow 80
+sudo ufw allow 3306</code></pre><h2 id="Prevent-MySql-upgrade"><a href="#Prevent-MySql-upgrade" class="headerlink" title="Prevent MySql upgrade"></a>Prevent MySql upgrade</h2><p>Modify this file: </p>
+<pre><code>vi /etc/apt/preferences.d/mysql</code></pre><p>File content: </p>
+<pre><code>Package: mysql-server
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-client
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-community-server
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-community-client
+Pin: version 5.7.35-1ubuntu18.04
+Pin-Priority: 1001
+
+Package: mysql-apt-config
+Pin: version 0.8.12-1
+Pin-Priority: 1001</code></pre><p>Try to update mysql-server and you will get notified: </p>
+<pre><code>mysql-server is already the newest version (5.7.35-1ubuntu18.04). 
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</code></pre><h1 id="Run-MySQL"><a href="#Run-MySQL" class="headerlink" title="Run MySQL"></a>Run MySQL</h1><pre><code>mysql -u root -p
+select version();
+CREATE USER &apos;michael&apos;@&apos;%&apos; IDENTIFIED BY &apos;ran&apos;;
+CREATE USER &apos;alex&apos;@&apos;%&apos; IDENTIFIED BY &apos;aliuchuang&apos;;
+select host,user,password_last_changed from mysql.user;</code></pre><h2 id="Config-privileges"><a href="#Config-privileges" class="headerlink" title="Config privileges"></a>Config privileges</h2><p>Now flash privileges for non-root users:</p>
+<pre><code>mysql -u root -p
+use mysql;
+select host, user from user; 
+update user set host = &apos;%&apos; where user = &apos;root&apos;;
+select host, user from user;
+flush privileges;</code></pre><p>Allow remote access of MySQL:</p>
+<p>因为默认3306端口只允许本地访问的，注释掉这行</p>
+<pre><code>sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# By default we only accept connections from localhost
+# bind-address  = 127.0.0.1</code></pre><p>Restart MySQL: </p>
+<pre><code>service mysql restart
+systemctl restart mysql</code></pre><h1 id="Install-an-MySQL-client"><a href="#Install-an-MySQL-client" class="headerlink" title="Install an MySQL client"></a>Install an MySQL client</h1><p>If you are on ubuntu 18: </p>
+<pre><code>sudo apt-get install emma</code></pre><p>If you are on ubuntu 20, use DBeaver. </p>
+<h1 id="To-uninstall"><a href="#To-uninstall" class="headerlink" title="To uninstall"></a>To uninstall</h1><pre><code>service mysql status
+service mysql stop
+sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+sudo rm -rf /etc/mysql /var/lib/mysql
+sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a target="_blank" rel="noopener" href="https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/">https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wang666/p/10218950.html">https://www.cnblogs.com/wang666/p/10218950.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenlove/p/9552438.html">https://www.cnblogs.com/chenlove/p/9552438.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/Tech/ubuntu-nvm-node/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +321,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -290,7 +429,7 @@ npm install -g --force npx</code></pre><p>To check your globally-installed packg
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -431,7 +570,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -530,7 +669,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -632,7 +771,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -700,7 +839,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -793,7 +932,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -854,91 +993,6 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
 </ol>
 <h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Auction">https://en.wikipedia.org/wiki/Auction</a><br><a target="_blank" rel="noopener" href="https://goodwaygroup.com/blog/first-price-vs-second-price-auction">https://goodwaygroup.com/blog/first-price-vs-second-price-auction</a></p>
 <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/First-price_sealed-bid_auction">https://en.wikipedia.org/wiki/First-price_sealed-bid_auction</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/25/Crypto/LBP-Liquidity-Bootstraping-Pool/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/25/Crypto/LBP-Liquidity-Bootstraping-Pool/" class="post-title-link" itemprop="url">【Crypto】LBP (Liquidity Bootstraping Pool)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-02-25 06:58:58" itemprop="dateCreated datePublished" datetime="2021-02-25T06:58:58+00:00">2021-02-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Balancer-LBP"><a href="#Balancer-LBP" class="headerlink" title="Balancer LBP"></a>Balancer LBP</h1><p>A <strong>Balancer Liquidity Bootstrapping Pool</strong> is a tool designed to allow a project to generate liquidity from a smaller amount of seed capital than would normally be required. </p>
-<p>This is achieved through variable weighting of assets.</p>
-<h2 id="Price-adjustment"><a href="#Price-adjustment" class="headerlink" title="Price adjustment"></a>Price adjustment</h2><p>The liquidity guide pool also provides the project party with the ability to quickly adjust the weight, which can reduce the value of the tokens in the pool by adjusting the proportion of reserve assets, and prevent the eventual price surge due to early speculation. </p>
-<p>Under such a design mechanism, the opening price is usually deliberately set higher, and the lower price may appear in the later stage of the event.</p>
-<p>So the users who want to participate in LBP need to pay attention to this risk, and when the project is popular enough, this risk will be reduced.</p>
-<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
-<li>The price is relatively stable, not easy to lose control</li>
-<li>Reduce the “front-running” of advanced trading bots and experts.</li>
-<li>Some projects can support multiple tokens to participate in exchange</li>
-</ol>
-<h1 id="Example-Mask-token"><a href="#Example-Mask-token" class="headerlink" title="Example: Mask token"></a>Example: Mask token</h1><p>在此次 LBP 活动启动时，我们将会投入共计 400 万个 $MASK 以及 80 万美元的 $USDC。起始售价为 $3.9。具体:</p>
-<p><img src="/images/lbp-balancer-mask.png" alt=""></p>
-<p>注意：开盘价高，所有USDC都权重是95%，Mask的权重是5%。这样即节约了USDC，又发送出去了很多token份额。一石二鸟。</p>
-<blockquote>
-<p>An LBP allows projects to create meaningful liquidity and distribution at launch</p>
-</blockquote>
-<p>LBP (Liquidity Bootstraping Pool) 为荷兰式拍卖，或称 “降价式拍卖”。其拍卖价格将由高到低依次递减，请大家在参与 LBP 前先详细了解它的运作方式，请在自己预期的价格范围内进行购买，切勿盲目 FOMO。Balancer LBP 能够通过改变预定的资金权重，在没有任何参与者购买的情况下，拍卖品会随着时间变长而降低价格。</p>
-<p><img src="/images/lbp-Exponential-Example-Pool-Weights.jpg" alt=""></p>
-<h2 id="If-you’re-swapping-multiple-tokens"><a href="#If-you’re-swapping-multiple-tokens" class="headerlink" title="If you’re swapping multiple tokens"></a>If you’re swapping multiple tokens</h2><p>the smart pool template allows for vectors of tokens and weights. So one option would be to start 80% XYZ, 10% DAI, 10% ETH and end at 33% XYZ, 33% DAI, 33% ETH. Allowing for users to purchase the project token in ETH or DAI.</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bitcointalk.org/index.php?topic=5319752.0">https://bitcointalk.org/index.php?topic=5319752.0</a><br><a target="_blank" rel="noopener" href="https://www.tuoluocaijing.cn/article/detail-10043661.html">https://www.tuoluocaijing.cn/article/detail-10043661.html</a><br><a target="_blank" rel="noopener" href="https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4">https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4</a></p>
-<h2 id="Balancer-pool"><a href="#Balancer-pool" class="headerlink" title="Balancer pool"></a>Balancer pool</h2><p><a target="_blank" rel="noopener" href="https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about">https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about</a></p>
 
       
     </div>
@@ -1023,7 +1077,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

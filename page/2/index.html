@@ -151,6 +151,137 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/install-openmediavault/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/19/Tech/install-openmediavault/" class="post-title-link" itemprop="url">【Tech】 Install OpenMediaVault on Debian</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-19 13:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T13:00:00+00:00">2021-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OpenMediaVault"><a href="#OpenMediaVault" class="headerlink" title="OpenMediaVault"></a>OpenMediaVault</h1><p>我安装失败了。</p>
+<p>进了 登陆页面，然后无法登陆，我也不知道为什么。把 commands 记录在这里，没时间继续弄了。</p>
+<p>Add the package repositories:</p>
+<pre><code>cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list
+deb https://packages.openmediavault.org/public arrakis main
+# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis main
+## Uncomment the following line to add software from the proposed repository.
+# deb https://packages.openmediavault.org/public arrakis-proposed main
+# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis-proposed main
+## This software is not part of OpenMediaVault, but is offered by third-party
+## developers as a service to OpenMediaVault users.
+# deb https://packages.openmediavault.org/public arrakis partner
+# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis partner
+EOF</code></pre><p>Install the openmediavault 4 (Arrakis) package:</p>
+<pre><code>export LANG=C
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+
+wget -O &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot; https://packages.openmediavault.org/public/archive.key
+apt-key add &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot;
+
+apt-get update
+apt-get --allow-unauthenticated install openmediavault-keyring
+
+apt-get update
+apt-get --yes --auto-remove --show-upgraded \
+    --allow-downgrades --allow-change-held-packages \
+    --no-install-recommends \
+    --option Dpkg::Options::=&quot;--force-confdef&quot; \
+    --option DPkg::Options::=&quot;--force-confold&quot; \
+    install postfix openmediavault</code></pre><p>如果到这，安装不成功，往下看。</p>
+<p>更新omv源</p>
+<pre><code>echo &quot;deb Index of /public arrakis main&quot; &gt; /etc/apt/sources.list.d/openmediavault.list</code></pre><p>下载添加key</p>
+<pre><code>apt-key adv --recv-keys --keyserver OpenPGP Keyserver 7E7A6C592EF35D13 24863F0C716B980B</code></pre><p>语言包及环境变量等设置</p>
+<pre><code>export LANG=C
+
+export DEBIAN_FRONTEND=noninteractive
+
+export APT_LISTCHANGES_FRONTEND=none</code></pre><p>安装omv</p>
+<pre><code>apt update
+
+apt install openmediavault-keyring postfix
+
+apt install openmediavault
+
+If not working: 
+
+apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options::=&quot;--force-confold&quot; install openmediavault</code></pre><p>You will get the following screen: </p>
+<pre><code>Complete the installation                                                                                                                                                │
+    │                                                                                                                                                                          │
+    │ To complete the installation you need to run the following command:                                                                                                      │
+    │                                                                                                                                                                          │
+    │  omv-initsystem                                                                                                                                                          │
+    │                                                                                                                                                                          │
+    │                                                                                                                                                                          │
+    │ To manage the system visit the openmediavault web control panel via a web browser:                                                                                       │
+    │                                                                                                                                                                          │
+    │  http://&lt;IP or hostname&gt;                                                                                                                                                 │
+    │                                                                                                                                                                          │
+    │                                                                                                                                                                          │
+    │ By default the web control panel administrator account has the username &apos;admin&apos; and password &apos;openmediavault&apos;. It is recommended that you change the password for this   │
+    │ account within the web control panel or using the &apos;omv-firstaid&apos; CLI command.                                                                                            │
+    │</code></pre><p>基本成功了。然后我在跑：</p>
+<pre><code>omv-initsystem</code></pre><p>的时候，报错了。</p>
+<p>我用 IP 地址尝试登陆一下，load 界面没问题，但是无法登陆。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html">https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345143096">https://zhuanlan.zhihu.com/p/345143096</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/armbian-day-to-day%20copy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +313,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -268,7 +399,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -494,7 +625,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -570,7 +701,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -701,7 +832,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -774,7 +905,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -863,7 +994,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
+                <time title="Modified: 2022-03-17 03:29:29" itemprop="dateModified" datetime="2022-03-17T03:29:29+00:00">2022-03-17</time>
               </span>
 
           
@@ -890,155 +1021,6 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
 <h2 id="Dylan-Field"><a href="#Dylan-Field" class="headerlink" title="Dylan Field"></a>Dylan Field</h2><p>CEO of Figma.</p>
 <p>Used to live in a house with <strong>Juan Benet</strong>, creator of IPFS and Filecoin.</p>
 <h1 id="The-Masked-Alien-Cryptopunk"><a href="#The-Masked-Alien-Cryptopunk" class="headerlink" title="The Masked Alien Cryptopunk"></a>The Masked Alien Cryptopunk</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/14/Tech/ubuntu-vpn-trojan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/14/Tech/ubuntu-vpn-trojan/" class="post-title-link" itemprop="url">【Tech】VPN / Trojan on Ubuntu / Linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-14 10:00:00" itemprop="dateCreated datePublished" datetime="2021-09-14T10:00:00+00:00">2021-09-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-12 22:36:07" itemprop="dateModified" datetime="2022-03-12T22:36:07+00:00">2022-03-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>2 softwares to run Trojan: </p>
-<ol>
-<li>Trojan client : <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan">https://github.com/trojan-gfw/trojan</a></li>
-<li>Qv2ray : <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">https://github.com/Qv2ray/Qv2ray</a></li>
-</ol>
-<h2 id="trojan-vpn-and-ssr-的区别"><a href="#trojan-vpn-and-ssr-的区别" class="headerlink" title="trojan, vpn and ssr 的区别"></a>trojan, vpn and ssr 的区别</h2><p>TODO</p>
-<h1 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h1><h2 id="Install-trojan-client-on-Ubuntu"><a href="#Install-trojan-client-on-Ubuntu" class="headerlink" title="Install trojan client on Ubuntu"></a>Install trojan client on Ubuntu</h2><p>For 18.10 &amp; 19.04</p>
-<pre><code>sudo add-apt-repository ppa:greaterfire/trojan
-sudo apt-get update
-sudo apt-get install trojan</code></pre><p>For &gt;= 19.04 </p>
-<pre><code>sudo apt-get install trojan</code></pre><p>On Manjaro:</p>
-<pre><code>sudo pacman -S trojan</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions">Binary &amp; Package Distributions · trojan-gfw/trojan Wiki</a></p>
-<h2 id="Trojan-client-config"><a href="#Trojan-client-config" class="headerlink" title="Trojan client config"></a>Trojan client config</h2><p>Put config.json under /etc/trojan/config.json (for Arch) 或者 /usr/local/trojan/config.json (for Ubuntu)</p>
-<pre><code>sudo mv /etc/trojan/config.json /etc/trojan/config.json.backup
-sudo vi /etc/trojan/config.json</code></pre><p>To test that trojan is working, run the one-time command:</p>
-<pre><code>/usr/local/trojan/trojan -c /usr/local/trojan/config.json</code></pre><h2 id="Run-on-system-daemon"><a href="#Run-on-system-daemon" class="headerlink" title="Run on system daemon"></a>Run on system daemon</h2><p>Simply, enable trojan：</p>
-<pre><code>systemctl enable trojan
-systemctl start trojan</code></pre><p>If trojan service isn’t available: </p>
-<pre><code>cd /etc/systemd/system/
-sudo vi trojan.service</code></pre><p>Input: </p>
-<pre><code>[Unit]
-Description=trojan
-Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
-After=network.target
-
-[Service]
-Type=simple
-StandardError=journal
-User=nobody
-AmbientCapabilities=CAP_NET_BIND_SERVICE
-ExecStart=/usr/local/trojan/trojan -c /usr/local/trojan/config.json
-ExecReload=/bin/kill -HUP $MAINPID
-Restart=on-failure
-RestartSec=3s
-
-[Install]
-WantedBy=multi-user.target</code></pre><p>Then add to auto-run and config system-wide alias: </p>
-<pre><code>systemctl enable trojan</code></pre><p>Optionally, add alias for quick run: </p>
-<pre><code>sudo vi ~/.bashrc
-# add the following line:
-alias trojan=&apos;/usr/local/trojan/trojan -c /usr/local/trojan/config.json&apos;</code></pre><p>Above, configed trojan successfully on system level. Welcome to beyound the wall. </p>
-<h2 id="Browser-config"><a href="#Browser-config" class="headerlink" title="Browser config"></a>Browser config</h2><p>Next step, download SwitchyOmega for Chrome and Firefox, config SOCKS5</p>
-<p>Download url: <a target="_blank" rel="noopener" href="https://github.com/FelisCatus/SwitchyOmega/releases">https://github.com/FelisCatus/SwitchyOmega/releases</a></p>
-<p>Local file: </p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi">https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi</a></li>
-<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx">https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx</a></li>
-</ol>
-<p>Go to switchyomega config and set (default) to “SOCKS5” protocol and “127.0.0.1” server, “1080” port. </p>
-<p>Done! </p>
-<h2 id="Known-Issue"><a href="#Known-Issue" class="headerlink" title="Known Issue"></a>Known Issue</h2><p>If you see “unknown protocol” error, then you have mis-configed <strong>http</strong> instead of <strong>socks5</strong>. </p>
-<h1 id="Qv2ray"><a href="#Qv2ray" class="headerlink" title="Qv2ray"></a>Qv2ray</h1><p>Qv2ray仅需下载以下三件套：</p>
-<ol>
-<li><p>Main app: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases">https://github.com/Qv2ray/Qv2ray/releases</a></p>
-</li>
-<li><p>Trojan plugin: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3">https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3</a></p>
-<ol>
-<li>注意：trojan plugin 和 qv2ray 版本必须对应</li>
-</ol>
-</li>
-<li><p>v2core: <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-core/releases">https://github.com/v2fly/v2ray-core/releases</a></p>
-<ol>
-<li>或者 <a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
-<li>注意选择：v2ray-linux-64.zip</li>
-</ol>
-</li>
-</ol>
-<h1 id="After-installation"><a href="#After-installation" class="headerlink" title="After installation"></a>After installation</h1><h2 id="Troubleshoot"><a href="#Troubleshoot" class="headerlink" title="Troubleshoot"></a>Troubleshoot</h2><h3 id="Check-IP-address"><a href="#Check-IP-address" class="headerlink" title="Check IP address"></a>Check IP address</h3><pre><code>curl ifconfig.me</code></pre><h3 id="Test-VPN"><a href="#Test-VPN" class="headerlink" title="Test VPN"></a>Test VPN</h3><p>Test whether proxy / trojan really works</p>
-<pre><code>curl google.com
-echo $https_proxy</code></pre><h2 id="Use-another-machine-as-proxy"><a href="#Use-another-machine-as-proxy" class="headerlink" title="Use another machine as proxy"></a>Use another machine as proxy</h2><p>假如 somehow 你的机器无法 config proxy，你可以使用另一台机器：</p>
-<ol>
-<li>在公用机器上 Config Qv2ray: 监听地址 = 0.0.0.0</li>
-</ol>
-<p><img src="/images/qv2ray-listen-address.png" alt=""></p>
-<ol start="2">
-<li><p>在私人机器上 Set manual proxy: </p>
-<p> Proxy: （公用机器的地址，比如 192.168.31.105）<br> Port: 8889</p>
-</li>
-</ol>
-<h2 id="Terminal-proxy"><a href="#Terminal-proxy" class="headerlink" title="Terminal proxy"></a>Terminal proxy</h2><p>对于 Qv2ray: </p>
-<pre><code>export http_proxy=http://127.0.0.1:8889
-export https_proxy=http://127.0.0.1:8889</code></pre><p>或者：</p>
-<pre><code>export http_proxy=http://127.0.0.1:8889
-export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：</p>
-<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
-<pre><code>alias fanqiang=&apos;export http_proxy=http://127.0.0.1:8889 &amp;&amp; export https_proxy=socks5://127.0.0.1:1089&apos;</code></pre>
       
     </div>
 
@@ -1122,7 +1104,7 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-count">82</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
