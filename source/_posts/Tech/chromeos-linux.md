@@ -1,6 +1,6 @@
 ---
 title: 【Tech】 ChromeOS tutorial: Linux
-date: 202-03-26 00:00:00
+date: 2022-03-26 00:00:00
 tags: ubuntu
 ---
 

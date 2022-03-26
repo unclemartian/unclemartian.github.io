@@ -1,6 +1,6 @@
 ---
 title: 【Tech】 Tmux and Mosh
-date: 202-03-11 00:00:00
+date: 2022-03-11 00:00:00
 tags: ubuntu
 ---
 
