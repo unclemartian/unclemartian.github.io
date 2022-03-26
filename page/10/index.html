@@ -151,6 +151,219 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/30/Tech/nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/04/30/Tech/nginx/" class="post-title-link" itemprop="url">【Tech】Nginx tutorial</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-04-30 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-30T00:00:00+00:00">2015-04-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>nginx [engine x] is <strong>an HTTP and reverse proxy server</strong>, a mail proxy server, and a generic TCP proxy server. </p>
+<p>For a long time, it has been running on many heavily loaded Russian sites, and recently, Netflix, Wordpress.com. </p>
+<p>Ref: <a target="_blank" rel="noopener" href="http://nginx.org/en/">nginx</a></p>
+<p><strong>nginx has one master process and several worker processes</strong>. The main purpose of the master process is to read and evaluate configuration, and maintain worker processes. Worker processes do actual processing of requests. </p>
+<h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="start-nginx"><a href="#start-nginx" class="headerlink" title="start nginx"></a>start nginx</h2><pre><code>nginx</code></pre><h2 id="stop-nginx"><a href="#stop-nginx" class="headerlink" title="stop nginx"></a>stop nginx</h2><pre><code>nginx -s signal</code></pre><p>signal: </p>
+<ol>
+<li><p>stop — fast shutdown</p>
+</li>
+<li><p>quit — graceful shutdown</p>
+</li>
+<li><p>reload — reloading the configuration file</p>
+</li>
+<li><p>reopen — reopening the log files</p>
+</li>
+</ol>
+<h2 id="List-of-running-nginx-process"><a href="#List-of-running-nginx-process" class="headerlink" title="List of running nginx process"></a>List of running nginx process</h2><pre><code>ps -ax | grep nginx</code></pre><h1 id="config-file：-nginx-conf"><a href="#config-file：-nginx-conf" class="headerlink" title="config file： nginx.conf"></a>config file： nginx.conf</h1><p><strong>nginx.conf</strong></p>
+<p>By default, the configuration file is placed in <strong>/etc/nginx</strong>. (If not, check /usr/local/nginx/conf, or /usr/local/etc/nginx.)</p>
+<h2 id="first-part"><a href="#first-part" class="headerlink" title="first part"></a>first part</h2><pre><code>user www-data;
+worker_processes 4;
+pid /run/nginx.pid;
+
+events &#123;
+    worker_connections 768;
+    # multi_accept on;
+&#125;</code></pre><ol>
+<li><p>user</p>
+<p> Defines which Linux system user will own and run the Nginx server. Most Debian-based distributions use www-data</p>
+<p> In case you run two simultaneous web servers, or need another program’s user to have control over Nginx, you can play with it.</p>
+</li>
+<li><p>worker_process</p>
+<p> Defines how many threads, or simultaneous instances, of Nginx to run. </p>
+</li>
+<li><p>pid</p>
+<p> Defines where Nginx will write its master process ID, or PID. </p>
+<blockquote>
+<p>On my machine, the file /run/nginx.pid store a single number 724. </p>
+</blockquote>
+</li>
+</ol>
+<h2 id="http-part"><a href="#http-part" class="headerlink" title="http part"></a>http part</h2><pre><code>http &#123;
+
+    ##
+    # Basic Settings
+    ##
+
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+    # server_tokens off;
+
+    # server_names_hash_bucket_size 64;
+    # server_name_in_redirect off;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    ##
+    # Logging Settings
+    ##
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    ##
+    # Gzip Settings
+    ##
+
+    gzip on;
+    gzip_disable &quot;msie6&quot;;
+
+    # gzip_vary on;
+    # gzip_proxied any;
+    # gzip_comp_level 6;
+    # gzip_buffers 16 8k;
+    # gzip_http_version 1.1;
+    # gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+    ##
+    # nginx-naxsi config
+    ##
+    # Uncomment it if you installed nginx-naxsi
+    ##
+
+    #include /etc/nginx/naxsi_core.rules;
+
+    ##
+    # nginx-passenger config
+    ##
+    # Uncomment it if you installed nginx-passenger
+    ##
+
+    #passenger_root /usr;
+    #passenger_ruby /usr/bin/ruby;
+
+    ##
+    # Virtual Host Configs
+    ##
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+&#125;</code></pre><p>Note: The HTTP block of the nginx.conf file contains the statement include <strong>/etc/nginx/sites-enabled/*;</strong>. This allows for server block configurations to be loaded in from separate files found in <strong>the sites-enabled sub-directory</strong>. </p>
+<p>Usually these are <strong>symlinks to files stored in /etc/nginx/sites-available/</strong>. By using symlinks you can quickly enable or disable a virtual server while preserving its configuration file. </p>
+<h1 id="config-file-for-sites"><a href="#config-file-for-sites" class="headerlink" title="config file for sites"></a>config file for sites</h1><h2 id="sites-available"><a href="#sites-available" class="headerlink" title="sites-available"></a>sites-available</h2><p><strong>/etc/nginx/sites-available/default</strong> is a template provided for you. </p>
+<pre><code>server &#123;
+        listen 80 default_server;
+        listen [::]:80 default_server ipv6only=on;
+
+        root /usr/share/nginx/html;
+        index index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name localhost;
+
+        location / &#123;
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ /index.html;
+                # Uncomment to enable naxsi on this location
+                # include /etc/nginx/naxsi.rules
+        &#125;
+&#125;</code></pre><p><strong>Do not modify this file</strong>. Generally, you’ll want to make a separate file with its own server block for each virtual domain on your server.  So do: </p>
+<pre><code>cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com</code></pre><h2 id="listen-directive"><a href="#listen-directive" class="headerlink" title="listen directive"></a>listen directive</h2><pre><code>listen 80 default_server;
+listen [::]:80 default_server ipv6only=on;</code></pre><p>The argument <strong>default_server</strong> means this virtual host will answer requests on port 80 that don’t match any other virtual host’s listen statement. </p>
+<p>The second statement listens over IPv6 and behaves in the same way.</p>
+<pre><code>listen     127.0.0.1:80;
+listen     localhost:80;</code></pre><p>Note: localhost is conventionally set as the hostname for 127.0.0.1 in /etc/hosts.</p>
+<pre><code>listen     80;
+listen     *:80;</code></pre><p>This will listen on all domains and IP addresses on port 80. <strong>listen 80;</strong> is equivalent to <strong>listen *:80;</strong></p>
+<pre><code>listen     12.34.56.77:80;
+listen     12.34.56.78:80;
+listen     12.34.56.79:80;       
+listen     12.34.56.79:8080;       </code></pre><p>This will listen on multiple IP/port. </p>
+<h2 id="server-name-directive"><a href="#server-name-directive" class="headerlink" title="server_name directive"></a>server_name directive</h2><p>Common:</p>
+<pre><code>server_name   example.com;</code></pre><p>Or</p>
+<pre><code>server_name   example.com www.example.com;</code></pre><p>Now this:</p>
+<pre><code>server_name   *.example.com;
+server_name   .example.com;</code></pre><p>will listen to all subdomains of example.com, including <a target="_blank" rel="noopener" href="http://www.example.com">www.example.com</a>, foo.example.com, etc. <strong>Both equivalent</strong>.</p>
+<pre><code>server_name   &quot;&quot;;</code></pre><p>If you set server_name to the empty quote set (”“), Nginx will process <strong>all requests that either</strong> do not have a hostname, <strong>or</strong> that have an unspecified hostname, such as requests for the IP address itself.</p>
+<h2 id="location-directive"><a href="#location-directive" class="headerlink" title="location directive"></a>location directive</h2><p><strong>location</strong> setting lets you configure how Nginx will respond to requests for resources within the server.</p>
+<p>eg. </p>
+<pre><code>location / &#123; &#125; 
+location /images/ &#123; &#125; 
+location /blog/ &#123; &#125; 
+location /planet/ &#123; &#125; 
+location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual path in the file system (that is under /etc/nginx/ folder). Or we can also set <strong>proxy_pass</strong> directive. </p>
+<p>Ref 1: <a target="_blank" rel="noopener" href="http://nginx.org/en/docs/beginners_guide.html">nginx Beginner’s Guide</a></p>
+<p>Ref 2: <a target="_blank" rel="noopener" href="https://www.linode.com/docs/websites/nginx/basic-nginx-configuration#location-root-and-index">Basic Nginx Configuration by Linode</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/28/Tech/linux-directory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +395,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -305,7 +518,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -376,7 +589,7 @@ nano config.js</code></pre><p>Now change the url of production to the public IP 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -705,7 +918,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -807,7 +1020,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -886,7 +1099,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -972,7 +1185,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
               </span>
 
           
@@ -1000,107 +1213,6 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
 <p>此案一共杀掉了三万余人</p>
 <h1 id="装疯"><a href="#装疯" class="headerlink" title="装疯"></a>装疯</h1><p>史料记载，官员们每天上朝，都要在家门口举行仪式，什么仪式呢？穿戴整齐，抱抱老婆孩子，交代清楚谁还欠我多少债、我的私房钱藏在床底之类的后事。老婆孩子就在背后哭，除了人还是活的，和开追悼会没什么区别。散朝的时候，老婆孩子在家门口等着，如果看到活人回家，就会大事庆祝一番，庆祝的内容是今天我又活了一天。</p>
 <p>很多官员承受不住，纷纷表示自己就当白读了几十年书，情愿回家种地。明朝的官员们在这个矛盾上充分体现出了这一特点。他们想出了一个很绝的方法——装疯。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2012/02/15/Read/books/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2012/02/15/Read/books/%E5%A2%A8%E8%8F%B2%E5%AE%9A%E7%90%86/" class="post-title-link" itemprop="url">【Read】墨菲定理</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2012-02-15 11:32:06" itemprop="dateCreated datePublished" datetime="2012-02-15T11:32:06+00:00">2012-02-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:38:48" itemprop="dateModified" datetime="2022-03-26T15:38:48+00:00">2022-03-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>鸡尾酒效应 听到你的名字，sex，你不断监听，知道之前的字</p>
-<p>第六感和鸡尾酒会一个道理，监听</p>
-<p>蓝色大众轿车效应 • 你觉得没有人开蓝色大众轿车，但一旦开着蓝色大众轿车上路，才发现满世界都是蓝色大众轿车。</p>
-<p>阿基米德认为，视觉是一个积极而不是被动的过程。不是光线打入我们眼睛，而是我们的眼睛像发出的光束一样搜寻区域。我们找一本书时，其实寻找的是大脑中的匹配，而不是书本身。</p>
-<p>人脑中心的杏仁核，是情感中心，特别是储存恐惧。这是和日常记忆不同的区域，只有特殊情况下才会动用。不过在药物的作用下，人可以回忆起40年前的歌曲，笑话。</p>
-<p>缺失的记忆让情感变得更为丰富。。。我们需要新的颜色来填补，以恢复模糊的图像。但是这往往是很主观的。</p>
-<p>广告的原理是“超常刺激” - 人们喜欢外表华丽的设备而忘记运营成本，海鸥的窝里多出一个假蛋，即使大的出奇，它仍会精心照料。</p>
-<p>广告定律 – 避免具体承诺，培养出讨人喜欢的含糊。</p>
-<p>Marconi, known as the father of long distance radio transmission, 后来被证明他首次实验时并没听到传输的信号，只是他认为听到了而已。不过他的无线电信号理论碰巧是正确的。</p>
-<p>火星并不是红色的，是人们希望看到红色，灰色会无味。所以我们看到的其实是处理过的火星照片。</p>
-<p>因为热 使用风扇，但用电使得更多二氧化碳排放，从而更热。</p>
-<p>压力下的上班族用的手势源于黑猩猩，夸张地笑<del>撕咬 抬手</del>挥舞棍棒 摔笔~把树连根拔起</p>
-<p>每个员工都晋升到他们不胜任的职位上。。。。一旦干得好，就会升职。干得不好了才会停止升职。</p>
-<p>Mike Rowe先生注册的软件公司侵犯了Microsoft 的版权。。。好莱坞拍摄电影的老鼠仔细检查，因为不可以跟米老鼠相像。。。</p>
-<p>Apple Corp(owned by Beatles) vs. Apple Computers, make the sound into Sosumi (so sue me).</p>
-<p>我热爱人类，但我无法容忍身边这个人。</p>
-<p>吸烟的人会买彩票，他们想，中奖的机会是1400万分之一，可能是我。但是他们同时也在想，吸烟患肺癌的机会是1000分之一，不会是我。</p>
-<p>为什么自古红颜多薄命，不是因为漂亮女孩命短，而是因为她的所有幸福建立在短暂的美丽上，但是这个过程太多短暂。</p>
-<p>1001夜的故事 —— 不管多美貌的妃子，自信自己能驾驭皇帝，最终都在睡了一晚之后，无一例外地被杀死了。只有一个宰相的女儿，她决定去试一下。所以她每天去将一个故事，但是不讲完，直到1001夜的时候，皇帝选择跟她在一起。<br>2个道理：第一，如果想驾驭权势和金钱，你要准备好牺牲自己。第二，走到最后的女孩子，不是最漂亮的，而是最有故事的女孩子。</p>
-<p>我在他眼神中看到一种我特别不愿看到的东西，就是落寞。我觉得他是一个特别孤单的人，他为什么去看书，因为人都是一本书。身边这本书并不是他想读的那本。。。。。他只是很孤独，他正在寻找一个群体。。。你应该继续读下去，直到有一天，你遇到一些人，他们橡书一样带给你你想要得到的东西。</p>
-<p>如果世间只剩两张清朝大龙邮票，各值十万，善贾者必然撕毁一张，另一张不是两枚之和的二十万，而可能是三十万、四十万，因为它的惟一性。</p>
-<p>Life is not measured by the number of breaths we take, but by the moments that take our breath away.</p>
-<p>If you were in a room full of smart people, would you ask the same person to explain something to you over and over again, or would you ask lots of people?<br>The result is - learning becomes less tedious.</p>
-<p>你参加一个现场节目，主持人给了你一个中奖的机会。在三扇门背后，只有一扇门后有大奖。你选了1号门。然后，狡诈的主持人打开了3号门，显示门背后没有奖品。然后他对你说，“我再给你一个机会，你可以更改你的选择。”</p>
-<p>Ans: change your selection, because one of the wrong answer have been eliminated from the 2, Change selection and have a possibility of 66% of winning.</p>
-<p>Let say 1, 2, 3. Only 1 got prize.<br>select 1 initially, then change =&gt; loose<br>select 2 initially, then change =&gt; win<br>select 3 initially, then change =&gt; win</p>
-<p>===============割一下=======================</p>
-<p>青蛙现象：把一只青蛙直接放进热水锅里，由于它对不良环境的反应十分敏感，就会迅速跳出锅外。如果把一个青蛙放进冷水 锅里，慢慢地加温，青蛙并不会立即跳出锅外，水温逐渐提高的最终结局是青蛙被煮死了，因为等水温高到青蛙无法忍受时，它已经来不及、或者说是没有能力跳出 锅外了。　青蛙现象告诉我们，一些突变事件，往往容易引起人们的警觉，而易致人于死地的却是在自我感觉良好的情况下，对实际情况的逐渐恶化，没有清醒的察觉。</p>
-<p>羊群效应：头羊往哪里走，后面的羊就跟着往哪里走。  羊群效应最早是股票投资中的一个术语，主要是指投资者在交易过程中存在学习与模仿现象，“有样学样”，盲目效仿别人，从而导致他们在某段时期内买卖相同的股票。</p>
-<p>手表定律：手表定律是指一个人有一只表时，可以知道现在是几点钟，而当他同时拥有两只时却无法确定。两只表并不能告诉一个人更准确的时间，反而会使看表的人失去对准确时间的信心。     手表定律在企业管理方面给我们一种非常直观的启发，就是对同一个人或同一个组织不能同时采用两种不同的方法，不能同时设置两个不同的目标，甚至每一个人不能由两个人来同时指挥，否则将使这个企业或者个人无所适从。</p>
-<p>二八定律(巴莱多定律)：19世纪末20世纪初意大利的经济学家巴莱多认为，在任何一组东西中，最重要的只占其中一小部分，约20%，其余80%尽管是多数，却是次要的。社会约80%的财富集中在20%的人手里，而80%的人只拥有20%的社会财富。这种统计的不平衡性在社会、经济及生活中无处不在，这就是二八法则。    二八法则告诉我们，不要平均地分析、处理和看待问题，企业经营和管理中要抓住关键的少数;要找出那些能给企业带来80%利润、总量却仅占20%的关键客户，加强服务，达到事半功倍的效果;企业领导人要对工作认真分类分析，要把主要精力花在解决主要问题、抓主要项目上。</p>
-<p>(考试尤其是这样！！！)</p>
-<p>责任分散效应</p>
-<p>　　1964年3月13日夜3时20分，在美国纽约郊外某公寓前，一位叫朱诺比白的年轻女子在结束酒巴间工作回家的路上遇刺。当她绝望地喊叫：“有人要杀人啦!救命!救命!” 听到喊叫声，附近住户亮起了灯，打开了窗户，凶手吓跑了。当一切恢复平静后，凶手又返回作案。当她又叫喊时，附近的住户又打开了电灯，凶手又逃跑了。当她 认为已经无事，回到自己家上楼时，凶手又一次出现在她面前，将她杀死在楼梯上。在这个过程中，尽管她大声呼救，她的邻居中至少有38位到窗前观看，但无一人来救她，甚至无一人打电话报警。这件事引起纽约社会的轰动，也引起了社会心理学工作者的重视和思考。人们把这种众多的旁观者见死不救的现象称为责任分散效应。</p>
-<p>　 　对于责任分散效应形成的原因，心理学家进行了大量的实验和调查，结果发现：这种现象不能仅仅说是众人的冷酷无情，或道德日益沦丧的表现。因为在不同的场 合，人们的援助行为确实是不同的。当一个人遇到紧急情境时，如果只有他一个人能提供帮助，他会清醒地意识到自己的责任，对受难者给予帮助。如果他见死不救 会产生罪恶感、内疚感，这需要付出很高的心理代价。而如果有许多人在场的话，帮助求助者的责任就由大家来分担，造成责任分散，每个人分担的责任很少，旁观 者甚至可能连他自己的那一份责任也意识不到，从而产生一种“我不去救，由别人去救”的心理，造成“集体冷漠”的局面。如何打破这种局面，这是心理学家正在 研究的一个重要课题。</p>
-<p>（小悦悦事件）</p>
-<p>Have the courage to change the things which can and ought to be changed, the serenity accept things which cannot be changed and the wisdom to know the difference</p>
 
       
     </div>
@@ -1185,7 +1297,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
