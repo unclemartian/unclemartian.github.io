@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -321,7 +321,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -335,10 +335,12 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><h2 id="Use-‘nvm’-to-manage-node-versions"><a href="#Use-‘nvm’-to-manage-node-versions" class="headerlink" title="Use ‘nvm’ to manage node versions"></a>Use ‘nvm’ to manage node versions</h2><ol>
-<li><p>Install nvm (参考 <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">https://github.com/nvm-sh/nvm#install--update-script</a>)</p>
-<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</code></pre><p> or:</p>
-<pre><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</code></pre></li>
+          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><p>Use ‘nvm’ to manage node versions</p>
+<h2 id="Bash-Install"><a href="#Bash-Install" class="headerlink" title="Bash Install"></a>Bash Install</h2><ol>
+<li><p>Install nvm thru <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">nvm bash</a></p>
+<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p> Or:</p>
+<pre><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p> Or (from this blog):</p>
+<pre><code>wget -qO- https://unclemartian.github.io/files/nvm-0391-install.sh | bash</code></pre></li>
 </ol>
 <blockquote>
 <p>You may be stuck here, right after you saw this:</p>
@@ -351,14 +353,24 @@ remote: Compressing objects: 100% (302/302), done.
 remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
 Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
 Resolving deltas: 100% (40/40), done.</code></pre><blockquote>
-<p>Wait patiently for a bit. If still no lock, paste this to ~/.bashrc</p>
+<p>Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc</p>
 </blockquote>
 <pre><code>export NVM_DIR=&quot;$HOME/.nvm&quot;
 [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
 [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><blockquote>
 <p>and run the following. You are all set!</p>
 </blockquote>
-<pre><code>source ~/.bashrc</code></pre><ol start="2">
+<pre><code>source ~/.bashrc</code></pre><h2 id="Git-Install"><a href="#Git-Install" class="headerlink" title="Git Install"></a>Git Install</h2><p>Bash install might fail for network reasons. Thus do this: </p>
+<pre><code>cd ~/ from anywhere then git clone https://github.com/nvm-sh/nvm.git .nvm
+cd ~/.nvm and check out the latest version with git checkout v0.39.1
+activate nvm by sourcing it from your shell: . ./nvm.sh
+
+Now add these lines to your ~/.bashrc, ~/.profile, or ~/.zshrc file to have it automatically sourced upon login: (you may have to add to more than one of the above files)
+
+export NVM_DIR=&quot;$HOME/.nvm&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#git-install">https://github.com/nvm-sh/nvm#git-install</a></p>
+<h2 id="Basic-Usage"><a href="#Basic-Usage" class="headerlink" title="Basic Usage"></a>Basic Usage</h2><ol>
 <li><p>Check current node versions</p>
 <pre><code>nvm ls
 nvm ls-remote</code></pre></li>
@@ -379,7 +391,6 @@ npm --registry https://registry.npm.taobao.org info underscore
 npm config get registry</code></pre><h1 id="Useful-npm-packages"><a href="#Useful-npm-packages" class="headerlink" title="Useful npm packages"></a>Useful npm packages</h1><p>You might need to install these just in case you need them:</p>
 <pre><code>npm install -g eslint yarn @vue/cli
 npm install -g npx
-npm install -g --force npx
 npm install -g now truffle
 npm install -g hexo-cli</code></pre><p>To check your globally-installed packges:</p>
 <pre><code>npm list -g --depth 0</code></pre>
@@ -432,7 +443,7 @@ npm install -g hexo-cli</code></pre><p>To check your globally-installed packges:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -579,7 +590,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -678,7 +689,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -780,7 +791,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -848,7 +859,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
@@ -941,7 +952,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:45:11" itemprop="dateModified" datetime="2022-03-28T22:45:11+00:00">2022-03-28</time>
               </span>
 
           
