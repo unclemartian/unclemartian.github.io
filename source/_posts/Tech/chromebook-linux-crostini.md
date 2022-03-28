@@ -1,14 +1,25 @@
 ---
-title: 【Tech】 ChromeOS tutorial - Linux
+title: 【Tech】 Chromebook Tutorial - Linux (Crostini)
 date: 2022-03-26 00:00:00
 tags: ubuntu
 ---
 
+# Overview 
+
+__Crostini__ = Linux on Chrome OS. ChromeOS 99 have __Debian 11 (bullseye)__ installed by default (as of March 2022).
+
+https://chromeos.dev/en/linux
+
+这个 Linux 系统是基于 Debian 11 的。所以，很多 commands 跟 Ubuntu 很像。
+
 # Change apt source 
 
-First, check the OS vesion
+First, check the OS vesion：
 
     ngu@penguin:~$ cat /etc/os-release 
+
+Got：
+
     PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
     NAME="Debian GNU/Linux"
     VERSION_ID="11"
@@ -18,8 +29,6 @@ First, check the OS vesion
     HOME_URL="https://www.debian.org/"
     SUPPORT_URL="https://www.debian.org/support"
     BUG_REPORT_URL="https://bugs.debian.org/"
-
-We now know that ChromeOS 99 have __Debian 11 (bullseye)__ installed by default (as of March 2022).
 
 TODO
 
@@ -37,3 +46,6 @@ Please refer to: https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/
 # Install Resilio Sync
 
 Please refer to: TODO
+
+https://127.0.0.1:8888/gui/
+
