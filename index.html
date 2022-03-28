@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/chromebook-galliumos/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/chromebook-3-install-galliumos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/28/Tech/chromebook-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial - GalliumOS</a>
+            <a href="/2022/03/28/Tech/chromebook-3-install-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 3 - Install GalliumOS</a>
         </h2>
 
         <div class="post-meta">
@@ -176,7 +176,104 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-03-28 00:00:00 / Modified: 21:31:52" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
+              <time title="Created: 2022-03-28 00:00:00 / Modified: 22:05:22" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>There are 2 ways to do a fresh installation of GalliumOS on Chromebook:</p>
+<ol>
+<li>Traditional Mode - replace ChromeOS entirely. Need a USD drive. </li>
+<li>chrx Mode - install from ChromeOS command line. </li>
+</ol>
+<h1 id="Traditional-installtion"><a href="#Traditional-installtion" class="headerlink" title="Traditional installtion"></a>Traditional installtion</h1><ol>
+<li><p>Go to <strong>chrome://system</strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
+</li>
+<li><p>Enabling Developer Mode (Esc+F3(refresh)+Power), and reboot.</p>
+</li>
+<li><p>Enable Legacy Mode booting.</p>
+<ol>
+<li><p>With your ChromeOS booted, press [Ctrl+Alt+T] and get a terminal (“crosh”) window</p>
+</li>
+<li><p>Run this: <strong>‘shell’</strong></p>
+</li>
+<li><p>Then:</p>
+<p> sudo crossystem dev_boot_legacy=1</p>
+</li>
+<li><p>If you have seen an error, simply skip and continue. (Reference: <a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/">https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/</a>)</p>
+</li>
+</ol>
+</li>
+<li><p>Disable WP (write protection). Check your device on <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#devices">this MrChromebox</a> page to decide how you going to do it. In my case I use <a target="_blank" rel="noopener" href="https://wiki.mrchromebox.tech/Firmware_Write_Protect#Hardware_Write_Protection">the CR50 method</a></p>
+<ol>
+<li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
+</ol>
+</li>
+<li><p>Check WP status, At crosh&gt;</p>
+<p> sudo sh<br> flashrom –wp-status</p>
+</li>
+</ol>
+<ol>
+<li><h1 id="chrx-installation"><a href="#chrx-installation" class="headerlink" title="chrx installation"></a>chrx installation</h1></li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/chromebook-4-galliumos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/28/Tech/chromebook-4-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 4 - GalliumOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2022-03-28 00:00:00 / Modified: 22:05:22" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
             </span>
 
           
@@ -244,7 +341,7 @@ sudo systemctl start resilio-sync</code></pre><p>Check: <a target="_blank" rel="
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/install-galliumos-chromebook/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/chromebook-2-linux-crostini/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -258,104 +355,7 @@ sudo systemctl start resilio-sync</code></pre><p>Check: <a target="_blank" rel="
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/28/Tech/install-galliumos-chromebook/" class="post-title-link" itemprop="url">【Tech】 GalliumOS - fresh installation on Chromebook</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2022-03-28 00:00:00 / Modified: 21:31:52" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>There are 2 ways to install GalliumOS:</p>
-<ol>
-<li>Traditional Mode - replace ChromeOS entirely. Need a USD drive. </li>
-<li>chrx Mode - install from ChromeOS command line. </li>
-</ol>
-<h1 id="Traditional-installtion"><a href="#Traditional-installtion" class="headerlink" title="Traditional installtion"></a>Traditional installtion</h1><ol>
-<li><p>Go to <strong>chrome://system</strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
-</li>
-<li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
-</li>
-<li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
-</li>
-<li><p>Enabling Developer Mode (Esc+F3(refresh)+Power), and reboot.</p>
-</li>
-<li><p>Enable Legacy Mode booting.</p>
-<ol>
-<li><p>With your ChromeOS booted, press [Ctrl+Alt+T] and get a terminal (“crosh”) window</p>
-</li>
-<li><p>Run this: <strong>‘shell’</strong></p>
-</li>
-<li><p>Then:</p>
-<p> sudo crossystem dev_boot_legacy=1</p>
-</li>
-<li><p>If you have seen an error, simply skip and continue. (Reference: <a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/">https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/</a>)</p>
-</li>
-</ol>
-</li>
-<li><p>Disable WP (write protection). Check your device on <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#devices">this MrChromebox</a> page to decide how you going to do it. In my case I use <a target="_blank" rel="noopener" href="https://wiki.mrchromebox.tech/Firmware_Write_Protect#Hardware_Write_Protection">the CR50 method</a></p>
-<ol>
-<li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
-</ol>
-</li>
-<li><p>Check WP status, At crosh&gt;</p>
-<p> sudo sh<br> flashrom –wp-status</p>
-</li>
-</ol>
-<ol>
-<li><h1 id="chrx-installation"><a href="#chrx-installation" class="headerlink" title="chrx installation"></a>chrx installation</h1></li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/chromebook-crostini-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/26/Tech/chromebook-crostini-linux/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial - Linux (Crostini)</a>
+            <a href="/2022/03/26/Tech/chromebook-2-linux-crostini/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 2 - Linux (Crostini)</a>
         </h2>
 
         <div class="post-meta">
@@ -372,7 +372,7 @@ sudo systemctl start resilio-sync</code></pre><p>Check: <a target="_blank" rel="
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 21:31:52" itemprop="dateModified" datetime="2022-03-28T21:31:52+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
               </span>
 
           
@@ -469,7 +469,7 @@ sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 21:31:52" itemprop="dateModified" datetime="2022-03-28T21:31:52+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
               </span>
 
           
@@ -566,7 +566,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Done.
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 21:31:52" itemprop="dateModified" datetime="2022-03-28T21:31:52+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
               </span>
 
           
@@ -643,7 +643,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Done.
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 21:31:52" itemprop="dateModified" datetime="2022-03-28T21:31:52+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
               </span>
 
           
@@ -755,7 +755,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 21:31:52" itemprop="dateModified" datetime="2022-03-28T21:31:52+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
               </span>
 
           
@@ -839,7 +839,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 21:31:52" itemprop="dateModified" datetime="2022-03-28T21:31:52+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 22:05:22" itemprop="dateModified" datetime="2022-03-28T22:05:22+00:00">2022-03-28</time>
               </span>
 
           
