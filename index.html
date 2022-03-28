@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/chromeos-linux/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/chromebook-galliumos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/26/Tech/chromeos-linux/" class="post-title-link" itemprop="url">【Tech】 ChromeOS tutorial - Linux</a>
+            <a href="/2022/03/28/Tech/chromebook-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial - GalliumOS</a>
         </h2>
 
         <div class="post-meta">
@@ -176,7 +176,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2022-03-26 00:00:00 / Modified: 15:49:29" itemprop="dateCreated datePublished" datetime="2022-03-26T00:00:00+00:00">2022-03-26</time>
+              <time title="Created: 2022-03-28 00:00:00 / Modified: 16:28:38" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
             </span>
 
           
@@ -190,9 +190,108 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Change-apt-source"><a href="#Change-apt-source" class="headerlink" title="Change apt source"></a>Change apt source</h1><p>First, check the OS vesion</p>
-<pre><code>ngu@penguin:~$ cat /etc/os-release 
-PRETTY_NAME=&quot;Debian GNU/Linux 11 (bullseye)&quot;
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong>GalliumOS</strong> is built solely for Chromebooks.</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki">https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki</a></p>
+<p>这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。</p>
+<h1 id="Before-Everything"><a href="#Before-Everything" class="headerlink" title="Before Everything"></a>Before Everything</h1><h2 id="Give-yourself-‘su’-previlege"><a href="#Give-yourself-‘su’-previlege" class="headerlink" title="Give yourself ‘su’ previlege"></a>Give yourself ‘su’ previlege</h2><p>在 Users Settings 中，把 Account Type 改为 Administrator。</p>
+<h2 id="换源-Change-apt-source"><a href="#换源-Change-apt-source" class="headerlink" title="换源 Change apt source"></a>换源 Change apt source</h2><p>不换源的话，language 和 fcitx 安装会出问题。</p>
+<pre><code>cd /etc/apt/
+vi sources.list</code></pre><p>The aliyun source:</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><h2 id="Install-fcitx"><a href="#Install-fcitx" class="headerlink" title="Install fcitx"></a>Install fcitx</h2><p>Go to “Language Support” 或者“语言支持”，添加“中文”，并且把输入法设置成：fcitx。</p>
+<p><img src="/images/galliumsos-fcitx-sogoupinyin.png" alt=""></p>
+<p>然后：</p>
+<h1 id="Install-Softwares"><a href="#Install-Softwares" class="headerlink" title="Install Softwares"></a>Install Softwares</h1><h2 id="Install-Chrome-VSCode"><a href="#Install-Chrome-VSCode" class="headerlink" title="Install Chrome, VSCode"></a>Install Chrome, VSCode</h2><p>Just download and install:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+</ol>
+<h1 id="Install-Node-js"><a href="#Install-Node-js" class="headerlink" title="Install Node.js"></a>Install Node.js</h1><p>Please refer to: <a target="_blank" rel="noopener" href="https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/">https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/</a></p>
+<h1 id="Install-Resilio-Sync"><a href="#Install-Resilio-Sync" class="headerlink" title="Install Resilio Sync"></a>Install Resilio Sync</h1><pre><code>sudo systemctl status resilio-sync
+sudo systemctl enable resilio-sync
+sudo systemctl start resilio-sync</code></pre><p>Check: <a target="_blank" rel="noopener" href="https://127.0.0.1:8888/gui/">https://127.0.0.1:8888/gui/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/chromebook-linux-crostini/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/26/Tech/chromebook-linux-crostini/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial - Linux (Crostini)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-26T00:00:00+00:00">2022-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong>Crostini</strong> = Linux on Chrome OS. ChromeOS 99 have <strong>Debian 11 (bullseye)</strong> installed by default (as of March 2022).</p>
+<p><a target="_blank" rel="noopener" href="https://chromeos.dev/en/linux">https://chromeos.dev/en/linux</a></p>
+<p>这个 Linux 系统是基于 Debian 11 的。所以，很多 commands 跟 Ubuntu 很像。</p>
+<h1 id="Change-apt-source"><a href="#Change-apt-source" class="headerlink" title="Change apt source"></a>Change apt source</h1><p>First, check the OS vesion：</p>
+<pre><code>ngu@penguin:~$ cat /etc/os-release </code></pre><p>Got：</p>
+<pre><code>PRETTY_NAME=&quot;Debian GNU/Linux 11 (bullseye)&quot;
 NAME=&quot;Debian GNU/Linux&quot;
 VERSION_ID=&quot;11&quot;
 VERSION=&quot;11 (bullseye)&quot;
@@ -200,12 +299,12 @@ VERSION_CODENAME=bullseye
 ID=debian
 HOME_URL=&quot;https://www.debian.org/&quot;
 SUPPORT_URL=&quot;https://www.debian.org/support&quot;
-BUG_REPORT_URL=&quot;https://bugs.debian.org/&quot;</code></pre><p>We now know that ChromeOS 99 have <strong>Debian 11 (bullseye)</strong> installed by default (as of March 2022).</p>
-<p>TODO</p>
+BUG_REPORT_URL=&quot;https://bugs.debian.org/&quot;</code></pre><p>TODO</p>
 <h1 id="Install-VSCode"><a href="#Install-VSCode" class="headerlink" title="Install VSCode"></a>Install VSCode</h1><pre><code>sudo apt-get update
 sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">download the deb</a> and double click to install.</p>
 <h1 id="Install-Node-js"><a href="#Install-Node-js" class="headerlink" title="Install Node.js"></a>Install Node.js</h1><p>Please refer to: <a target="_blank" rel="noopener" href="https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/">https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/</a></p>
 <h1 id="Install-Resilio-Sync"><a href="#Install-Resilio-Sync" class="headerlink" title="Install Resilio Sync"></a>Install Resilio Sync</h1><p>Please refer to: TODO</p>
+<p><a target="_blank" rel="noopener" href="https://127.0.0.1:8888/gui/">https://127.0.0.1:8888/gui/</a></p>
 
       
     </div>
@@ -256,7 +355,7 @@ sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
               </span>
 
           
@@ -333,7 +432,7 @@ sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
               </span>
 
           
@@ -445,7 +544,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
               </span>
 
           
@@ -529,7 +628,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
               </span>
 
           
@@ -621,7 +720,7 @@ curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieF
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
               </span>
 
           
@@ -696,7 +795,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
+                <time title="Modified: 2022-03-28 16:28:38" itemprop="dateModified" datetime="2022-03-28T16:28:38+00:00">2022-03-28</time>
               </span>
 
           
@@ -716,77 +815,6 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
 <li>nft</li>
 <li>defi</li>
 <li>crypto-people</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-read-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/-read-1111111/" class="post-title-link" itemprop="url">【Read】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-26 15:49:29" itemprop="dateModified" datetime="2022-03-26T15:49:29+00:00">2022-03-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="This-is-template"><a href="#This-is-template" class="headerlink" title="This is template"></a>This is template</h1><p>All note with 【Read】 prefx should be tagged as one of:</p>
-<ol>
-<li>arts</li>
-<li>books</li>
-<li>knowledge</li>
-<li>people</li>
 </ol>
 
       
@@ -872,7 +900,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">83</span>
+          <span class="site-state-item-count">84</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
