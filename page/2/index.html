@@ -151,6 +151,152 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/10/Tech/virtualbox-mount-shared-folder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/10/Tech/virtualbox-mount-shared-folder/" class="post-title-link" itemprop="url">【Tech】 How to mount shared folder for VirtualBox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-10T00:00:00+00:00">2022-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Mount shared folders in VirtualBox.</p>
+<h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
+<pre><code>cd /media/osboxes/VBox_GAs_6.1.28
+sudo ./VBoxLinuxAdditions.run
+sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>一定要记得，这里输入“shared”。</p>
+<p><img src="/images/virtualbox-mount-shared-folder.png" alt=""></p>
+<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>如果没有自动加载，可以这样手动加载：</p>
+<pre><code>cd ~/Desktop/
+mkdir shared-folder
+sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行了。</p>
+<p>如果权限出了问题，可以：</p>
+<pre><code>sudo adduser $USER vboxsf</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-crypto-1111111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/30/-crypto-1111111/" class="post-title-link" itemprop="url">【Crypto】 Title</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="This-is-template"><a href="#This-is-template" class="headerlink" title="This is template"></a>This is template</h1><p>All note with 【Crypto】 prefx should be tagged as one of: </p>
+<ol>
+<li>crypto</li>
+<li>nft</li>
+<li>defi</li>
+<li>crypto-people</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-read-1111111/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +328,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
               </span>
 
           
@@ -253,7 +399,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
               </span>
 
           
@@ -322,7 +468,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
               </span>
 
           
@@ -429,7 +575,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
               </span>
 
           
@@ -551,7 +697,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
               </span>
 
           
@@ -642,7 +788,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 18:45:18" itemprop="dateModified" datetime="2022-03-28T18:45:18+00:00">2022-03-28</time>
               </span>
 
           
@@ -728,223 +874,6 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/install-openmediavault/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/19/Tech/install-openmediavault/" class="post-title-link" itemprop="url">【Tech】 Install OpenMediaVault on Debian</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-19 13:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T13:00:00+00:00">2021-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="OpenMediaVault"><a href="#OpenMediaVault" class="headerlink" title="OpenMediaVault"></a>OpenMediaVault</h1><p>我安装失败了。</p>
-<p>进了 登陆页面，然后无法登陆，我也不知道为什么。把 commands 记录在这里，没时间继续弄了。</p>
-<p>Add the package repositories:</p>
-<pre><code>cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list
-deb https://packages.openmediavault.org/public arrakis main
-# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis main
-## Uncomment the following line to add software from the proposed repository.
-# deb https://packages.openmediavault.org/public arrakis-proposed main
-# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis-proposed main
-## This software is not part of OpenMediaVault, but is offered by third-party
-## developers as a service to OpenMediaVault users.
-# deb https://packages.openmediavault.org/public arrakis partner
-# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis partner
-EOF</code></pre><p>Install the openmediavault 4 (Arrakis) package:</p>
-<pre><code>export LANG=C
-export DEBIAN_FRONTEND=noninteractive
-export APT_LISTCHANGES_FRONTEND=none
-
-wget -O &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot; https://packages.openmediavault.org/public/archive.key
-apt-key add &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot;
-
-apt-get update
-apt-get --allow-unauthenticated install openmediavault-keyring
-
-apt-get update
-apt-get --yes --auto-remove --show-upgraded \
-    --allow-downgrades --allow-change-held-packages \
-    --no-install-recommends \
-    --option Dpkg::Options::=&quot;--force-confdef&quot; \
-    --option DPkg::Options::=&quot;--force-confold&quot; \
-    install postfix openmediavault</code></pre><p>如果到这，安装不成功，往下看。</p>
-<p>更新omv源</p>
-<pre><code>echo &quot;deb Index of /public arrakis main&quot; &gt; /etc/apt/sources.list.d/openmediavault.list</code></pre><p>下载添加key</p>
-<pre><code>apt-key adv --recv-keys --keyserver OpenPGP Keyserver 7E7A6C592EF35D13 24863F0C716B980B</code></pre><p>语言包及环境变量等设置</p>
-<pre><code>export LANG=C
-
-export DEBIAN_FRONTEND=noninteractive
-
-export APT_LISTCHANGES_FRONTEND=none</code></pre><p>安装omv</p>
-<pre><code>apt update
-
-apt install openmediavault-keyring postfix
-
-apt install openmediavault
-
-If not working: 
-
-apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options::=&quot;--force-confold&quot; install openmediavault</code></pre><p>You will get the following screen: </p>
-<pre><code>Complete the installation                                                                                                                                                │
-    │                                                                                                                                                                          │
-    │ To complete the installation you need to run the following command:                                                                                                      │
-    │                                                                                                                                                                          │
-    │  omv-initsystem                                                                                                                                                          │
-    │                                                                                                                                                                          │
-    │                                                                                                                                                                          │
-    │ To manage the system visit the openmediavault web control panel via a web browser:                                                                                       │
-    │                                                                                                                                                                          │
-    │  http://&lt;IP or hostname&gt;                                                                                                                                                 │
-    │                                                                                                                                                                          │
-    │                                                                                                                                                                          │
-    │ By default the web control panel administrator account has the username &apos;admin&apos; and password &apos;openmediavault&apos;. It is recommended that you change the password for this   │
-    │ account within the web control panel or using the &apos;omv-firstaid&apos; CLI command.                                                                                            │
-    │</code></pre><p>基本成功了。然后我在跑：</p>
-<pre><code>omv-initsystem</code></pre><p>的时候，报错了。</p>
-<p>我用 IP 地址尝试登陆一下，load 界面没问题，但是无法登陆。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html">https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345143096">https://zhuanlan.zhihu.com/p/345143096</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/armbian-day-to-day%20copy/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/19/Tech/armbian-day-to-day%20copy/" class="post-title-link" itemprop="url">【Tech】 Armbian day to day 使用教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-19 09:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T09:00:00+00:00">2021-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 18:18:27" itemprop="dateModified" datetime="2022-03-28T18:18:27+00:00">2022-03-28</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
-<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
-a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
-<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
-tmux attach -t 0 (or simply tmux attach)
-tmux detach -a</code></pre><p>窗口操作：</p>
-<pre><code>Ctrl+b % Split current pane horizontally
-Ctrl+b &quot; Split current pane vertically
-Ctrl+b 0 Switch to window 0 (by number)
-Ctrl+b o Go to the next pane
-Ctrl+b ; Toggle between the current and previous pane
-Ctrl+b x Close the current pane
-Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
-<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
-<p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
-<pre><code>wky
-a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
-<pre><code>wky
-a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
-<pre><code>wky
-a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
-<p>RDP：192.168.123.242:3389</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1014,7 +943,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">84</span>
+          <span class="site-state-item-count">86</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
