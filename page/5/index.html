@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -321,7 +321,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -341,10 +341,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
 <pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p> Or:</p>
 <pre><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p> Or (from this blog):</p>
 <pre><code>wget -qO- https://unclemartian.github.io/files/nvm-0391-install.sh | bash</code></pre></li>
-</ol>
-<blockquote>
-<p>You may be stuck here, right after you saw this:</p>
-</blockquote>
+<li><p>You may be stuck here, right after you saw this:</p>
 <pre><code>=&gt; Downloading nvm from git to &apos;/home/ubuntu/.nvm&apos;
 =&gt; Cloning into &apos;/home/ubuntu/.nvm&apos;...
 remote: Enumerating objects: 354, done.
@@ -352,15 +349,16 @@ remote: Counting objects: 100% (354/354), done.
 remote: Compressing objects: 100% (302/302), done.
 remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
 Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
-Resolving deltas: 100% (40/40), done.</code></pre><blockquote>
-<p>Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc</p>
-</blockquote>
+Resolving deltas: 100% (40/40), done.</code></pre></li>
+<li><p>Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc</p>
 <pre><code>export NVM_DIR=&quot;$HOME/.nvm&quot;
 [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
-[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><blockquote>
-<p>and run the following. You are all set!</p>
-</blockquote>
-<pre><code>source ~/.bashrc</code></pre><h2 id="Alternative-Git-Install"><a href="#Alternative-Git-Install" class="headerlink" title="Alternative: Git Install"></a>Alternative: Git Install</h2><p>Bash install might fail for network reasons. Thus do this: </p>
+[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre></li>
+<li><p>Run the following. You are all set!</p>
+<pre><code>source ~/.bashrc</code></pre></li>
+</ol>
+<h2 id="Alternative-Git-Install"><a href="#Alternative-Git-Install" class="headerlink" title="Alternative: Git Install"></a>Alternative: Git Install</h2><p>Bash install might fail for network reasons. </p>
+<p>Thus do this: </p>
 <pre><code>cd ~/ from anywhere then git clone https://github.com/nvm-sh/nvm.git .nvm
 cd ~/.nvm and check out the latest version with git checkout v0.39.1
 activate nvm by sourcing it from your shell: . ./nvm.sh
@@ -443,7 +441,7 @@ npm install -g hexo-cli</code></pre><p>To check your globally-installed packges:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -514,15 +512,7 @@ udev             3.8G     0  3.8G   0% /dev
 <pre><code>snap search figma-linux
 snap install figma-linux 
 snap list
-snap info figma-linux</code></pre><h2 id="Permission-issues-for-Resilio-Sync"><a href="#Permission-issues-for-Resilio-Sync" class="headerlink" title="Permission issues for Resilio Sync"></a>Permission issues for Resilio Sync</h2><blockquote>
-<p>user_group is a group name of current user, by default it’s the same as user name (can be checked by running id command)</p>
-</blockquote>
-<p>Refer to:<br><a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux">https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux</a></p>
-<p>In my case I ran:</p>
-<pre><code>sudo usermod -aG harry rslsync
-sudo usermod -aG rslsync harry
-sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
-<h2 id="Install-XMind-8-on-Ubuntu-20"><a href="#Install-XMind-8-on-Ubuntu-20" class="headerlink" title="Install XMind 8 on Ubuntu 20"></a>Install XMind 8 on Ubuntu 20</h2><p>新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。</p>
+snap info figma-linux</code></pre><h2 id="Install-XMind-8-on-Ubuntu-20"><a href="#Install-XMind-8-on-Ubuntu-20" class="headerlink" title="Install XMind 8 on Ubuntu 20"></a>Install XMind 8 on Ubuntu 20</h2><p>新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。</p>
 <ol>
 <li><p>解压缩 “xmind-8-update9-linux.zip” 到桌面。</p>
 </li>
@@ -590,7 +580,7 @@ sudo chmod g+rw rslsync/dumbledore-docs/</code></pre><p>Problem solved. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -689,7 +679,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -791,7 +781,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -859,7 +849,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
@@ -952,7 +942,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-28 22:49:06" itemprop="dateModified" datetime="2022-03-28T22:49:06+00:00">2022-03-28</time>
+                <time title="Modified: 2022-03-28 23:50:36" itemprop="dateModified" datetime="2022-03-28T23:50:36+00:00">2022-03-28</time>
               </span>
 
           
