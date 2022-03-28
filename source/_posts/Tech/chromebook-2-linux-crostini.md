@@ -6,13 +6,13 @@ tags: ubuntu
 
 # Overview 
 
-__Crostini__ = Linux on Chrome OS. ChromeOS 99 have __Debian 11 (bullseye)__ installed by default (as of March 2022).
-
-https://chromeos.dev/en/linux
+__Crostini__ = [Linux on Chrome OS](https://chromeos.dev/en/linux). 
 
 这个 Linux 系统是基于 Debian 11 的。所以，很多 commands 跟 Ubuntu 很像。
 
-# Change apt source 
+> As of March 2022, ChromeOS 99 have __Debian 11 (bullseye)__ installed by default (as of March 2022).
+
+# 换源 Change source
 
 First, check the OS vesion：
 
@@ -51,16 +51,16 @@ Replace with:
     deb https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
     deb-src https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
 
+Then: 
+
+    sudo apt update
+
 # Install VSCode
 
     sudo apt-get update
     sudo apt-get install -y gnome-keyring
 
 Then [download the deb](https://code.visualstudio.com/download) and double click to install.
-
-# Install Node.js
-
-Please refer to: https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/
 
 # Install Resilio Sync
 

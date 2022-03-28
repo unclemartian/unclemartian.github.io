@@ -6,15 +6,21 @@ tags: ubuntu
 
 # Install Node.js using nvm
 
-## Use 'nvm' to manage node versions
+Use 'nvm' to manage node versions
 
-1. Install nvm (参考 https://github.com/nvm-sh/nvm#install--update-script)
+## Bash Install
+
+1. Install nvm thru [nvm bash](https://github.com/nvm-sh/nvm#install--update-script)
     
-		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
-
-	or:
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 	
-		wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+    Or:
+
+	    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+    Or (from this blog):
+
+	    wget -qO- https://unclemartian.github.io/files/nvm-0391-install.sh | bash
 
 > You may be stuck here, right after you saw this:
 
@@ -27,7 +33,7 @@ tags: ubuntu
     Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
     Resolving deltas: 100% (40/40), done.
 
-> Wait patiently for a bit. If still no lock, paste this to ~/.bashrc
+> Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc
 
     export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -37,16 +43,34 @@ tags: ubuntu
 
     source ~/.bashrc
 
-2. Check current node versions
+## Git Install
+
+Bash install might fail for network reasons. Thus do this: 
+
+    cd ~/ from anywhere then git clone https://github.com/nvm-sh/nvm.git .nvm
+    cd ~/.nvm and check out the latest version with git checkout v0.39.1
+    activate nvm by sourcing it from your shell: . ./nvm.sh
+
+    Now add these lines to your ~/.bashrc, ~/.profile, or ~/.zshrc file to have it automatically sourced upon login: (you may have to add to more than one of the above files)
+
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+Reference: https://github.com/nvm-sh/nvm#git-install
+
+## Basic Usage
+
+1. Check current node versions
 
         nvm ls
         nvm ls-remote
 
-3. Install node and npm
+1. Install node and npm
 
         nvm install v12
 
-4. Use the following command
+1. Use the following command
 
         nvm use 12
 
@@ -82,7 +106,6 @@ You might need to install these just in case you need them:
 
     npm install -g eslint yarn @vue/cli
     npm install -g npx
-    npm install -g --force npx
     npm install -g now truffle
     npm install -g hexo-cli
 

@@ -8,12 +8,12 @@ tags: ubuntu
 
 There are 2 ways to do a fresh installation of GalliumOS on Chromebook:
 
-1. Traditional Mode - replace ChromeOS entirely. Need a USD drive. 
-1. chrx Mode - install from ChromeOS command line. 
+1. __Traditional Mode__ - replace ChromeOS entirely. Need a USD drive. 
+1. __chrx Mode__ - install from ChromeOS command line. 
 
 # Traditional installtion 
 
-1. Go to __chrome://system__, and look for __hardware_class__. For my case it says "Akali" and "C5B-A4B-xxxxxxxx"
+1. Go to __[chrome://system](chrome://system)__, and look for __hardware_class__. For my case it says "Akali" and "C5B-A4B-xxxxxxxx"
 
 1. Go to https://wiki.galliumos.org/Hardware_Compatibility and check against your hardware class. I got __"Intel Kaby Lake"__.
 

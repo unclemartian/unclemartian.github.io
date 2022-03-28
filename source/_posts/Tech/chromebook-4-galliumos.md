@@ -12,13 +12,13 @@ https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki
 
 这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。
 
-# Before Everything
+# 换源 Change source
 
-## Give yourself ‘su’ previlege
+## Before Everything
 
-在 Users Settings 中，把 Account Type 改为 Administrator。
+Give yourself __‘su’__ previlege! 
 
-## 换源 Change apt source 
+在 Users Settings 中，把 Account Type 改为 Administrator. 
 
 不换源的话，language 和 fcitx 安装会出问题。
 
@@ -42,7 +42,7 @@ The aliyun source:
     deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
     deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
 
-## Install fcitx
+# Install fcitx
 
 首先，下载搜狗：
 
@@ -56,9 +56,7 @@ Go to "Language Support" 或者“语言支持”，添加“中文”，并且�
 
     sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
 
-# Install Softwares
-
-## Install Chrome, VSCode
+# Install Chrome, VSCode
 
 Just download and install:
 
@@ -71,10 +69,14 @@ Please refer to: https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/
 
 # Install Resilio Sync
 
+Download and install: https://www.resilio.com/platforms/desktop/
+
     sudo systemctl status resilio-sync
     sudo systemctl enable resilio-sync
     sudo systemctl start resilio-sync
 
 Check: https://127.0.0.1:8888/gui/
+
+Not enough
 
 To config permission: https://unclemartian.github.io/2021/08/13/Tech/ubuntu-system-commands/
