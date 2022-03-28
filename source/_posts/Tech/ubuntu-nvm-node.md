@@ -22,30 +22,32 @@ Use 'nvm' to manage node versions
 
 	    wget -qO- https://unclemartian.github.io/files/nvm-0391-install.sh | bash
 
-> You may be stuck here, right after you saw this:
+1. You may be stuck here, right after you saw this:
 
-    => Downloading nvm from git to '/home/ubuntu/.nvm'
-    => Cloning into '/home/ubuntu/.nvm'...
-    remote: Enumerating objects: 354, done.
-    remote: Counting objects: 100% (354/354), done.
-    remote: Compressing objects: 100% (302/302), done.
-    remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
-    Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
-    Resolving deltas: 100% (40/40), done.
+        => Downloading nvm from git to '/home/ubuntu/.nvm'
+        => Cloning into '/home/ubuntu/.nvm'...
+        remote: Enumerating objects: 354, done.
+        remote: Counting objects: 100% (354/354), done.
+        remote: Compressing objects: 100% (302/302), done.
+        remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
+        Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
+        Resolving deltas: 100% (40/40), done.
 
-> Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc
+1. Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc
 
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+        export NVM_DIR="$HOME/.nvm"
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-> and run the following. You are all set!
+1. Run the following. You are all set!
 
-    source ~/.bashrc
+        source ~/.bashrc
 
 ## Alternative: Git Install
 
-Bash install might fail for network reasons. Thus do this: 
+Bash install might fail for network reasons. 
+
+Thus do this: 
 
     cd ~/ from anywhere then git clone https://github.com/nvm-sh/nvm.git .nvm
     cd ~/.nvm and check out the latest version with git checkout v0.39.1

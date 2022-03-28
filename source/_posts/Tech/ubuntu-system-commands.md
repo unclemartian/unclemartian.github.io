@@ -137,21 +137,6 @@ Snap is the command-line version of "Ubuntu Software", but the latter is very sl
     snap list
     snap info figma-linux
 
-## Permission issues for Resilio Sync
-
-> user_group is a group name of current user, by default it's the same as user name (can be checked by running id command)
-
-Refer to:
-https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux
-
-In my case I ran:
-
-    sudo usermod -aG harry rslsync
-    sudo usermod -aG rslsync harry
-    sudo chmod g+rw rslsync/dumbledore-docs/
-
-Problem solved. 
-
 ## Install XMind 8 on Ubuntu 20
 
 新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。

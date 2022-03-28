@@ -62,17 +62,3 @@ Just download and install:
 
 1. https://www.google.cn/chrome/
 1. https://code.visualstudio.com/
-
-# Install Resilio Sync
-
-Download and install: https://www.resilio.com/platforms/desktop/
-
-    sudo systemctl status resilio-sync
-    sudo systemctl enable resilio-sync
-    sudo systemctl start resilio-sync
-
-Check: https://127.0.0.1:8888/gui/
-
-Not enough
-
-To config permission: https://unclemartian.github.io/2021/08/13/Tech/ubuntu-system-commands/
