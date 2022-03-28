@@ -140,7 +140,7 @@ Commit to Github, and Travis CI should start automatically.
     https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds
 1. 查看 master branch 部署状态：
     https://github.com/unclemartian/unclemartian.github.io/commits/master
-1. 查看 Github Pages 部署的状态：
+1. 查看 Github Pages 部署的状态 (this step can be very slow sometime)：
     https://github.com/unclemartian/unclemartian.github.io/deployments
 
 ## Hexo commands abbreviation

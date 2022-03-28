@@ -44,13 +44,17 @@ The aliyun source:
 
 ## Install fcitx
 
+首先，下载搜狗：
+
+https://pinyin.sogou.com/linux/help.php
+
 Go to "Language Support" 或者“语言支持”，添加“中文”，并且把输入法设置成：fcitx。
 
 ![](/images/galliumsos-fcitx-sogoupinyin.png)
 
 然后：
 
-
+    sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
 
 # Install Softwares
 
@@ -72,3 +76,5 @@ Please refer to: https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/
     sudo systemctl start resilio-sync
 
 Check: https://127.0.0.1:8888/gui/
+
+To config permission: https://unclemartian.github.io/2021/08/13/Tech/ubuntu-system-commands/
