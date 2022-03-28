@@ -1,12 +1,12 @@
 ---
-title: 【Tech】 GalliumOS - fresh installation on Chromebook
+title: 【Tech】 Chromebook Tutorial 3 - Install GalliumOS
 date: 2022-03-28 00:00:00
 tags: ubuntu
 ---
 
 # Overview
 
-There are 2 ways to install GalliumOS:
+There are 2 ways to do a fresh installation of GalliumOS on Chromebook:
 
 1. Traditional Mode - replace ChromeOS entirely. Need a USD drive. 
 1. chrx Mode - install from ChromeOS command line. 

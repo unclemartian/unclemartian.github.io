@@ -1,5 +1,5 @@
 ---
-title: 【Tech】 Chromebook Tutorial - Linux (Crostini)
+title: 【Tech】 Chromebook Tutorial 2 - Linux (Crostini)
 date: 2022-03-26 00:00:00
 tags: ubuntu
 ---
