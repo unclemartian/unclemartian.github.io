@@ -40,7 +40,6 @@ There are 2 ways to do a fresh installation of GalliumOS on Chromebook:
     sudo sh
     flashrom --wp-status
 
-
-1. 
+1. TODO
 
 # chrx installation

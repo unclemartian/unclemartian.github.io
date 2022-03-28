@@ -63,10 +63,6 @@ Just download and install:
 1. https://www.google.cn/chrome/
 1. https://code.visualstudio.com/
 
-# Install Node.js
-
-Please refer to: https://unclemartian.github.io/2021/09/01/Tech/ubuntu-nvm-node/
-
 # Install Resilio Sync
 
 Download and install: https://www.resilio.com/platforms/desktop/

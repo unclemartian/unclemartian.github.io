@@ -43,7 +43,7 @@ Use 'nvm' to manage node versions
 
     source ~/.bashrc
 
-## Git Install
+## Alternative: Git Install
 
 Bash install might fail for network reasons. Thus do this: 
 

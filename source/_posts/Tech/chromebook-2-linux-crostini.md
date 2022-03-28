@@ -67,4 +67,3 @@ Then [download the deb](https://code.visualstudio.com/download) and double click
 Please refer to: TODO
 
 https://127.0.0.1:8888/gui/
-
