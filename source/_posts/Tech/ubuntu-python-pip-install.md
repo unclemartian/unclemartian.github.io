@@ -17,6 +17,23 @@ Replace python2 with python3:
     which python3
     sudo apt install python-is-python3
 
+## Updated March 2022
+
+其实可以直接跑这个，安装最新版 python （as of this writing, latest stable is v3.9.2）:
+
+    sudo apt install python3 python3-pip
+
+Got:
+
+    chrx@penguin:~/$ python3 --version
+    Python 3.9.2
+    chrx@penguin:~/$ pip --version 
+    pip 20.3.4 from /usr/lib/python3/dist-packages/pip (python 3.9)
+
+Reference: https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/
+
+## pip
+
 To install pip on python3:
 
     python --version 

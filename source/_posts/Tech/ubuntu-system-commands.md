@@ -39,7 +39,7 @@ Next check current system's codename:
     deb http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
     deb-src http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
 
-Alternatively, 也可以用 163网易源（以 Ubuntu 20.04 focal 为例）：
+Alternatively, 也可以用 163网易源（下面以 Ubuntu 20.04 focal 为例）：
 
     deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
     deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
@@ -49,6 +49,19 @@ Alternatively, 也可以用 163网易源（以 Ubuntu 20.04 focal 为例）：
     # deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
     # deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
     # deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
+
+下面以 Debian GNU/Linux 11 (bullseye) 为例: 
+
+deb https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb https://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb-src https://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+
+参考：https://www.cnblogs.com/liuguanglin/p/debian11_repo.html
 
 Done, after this do: sudo apt-get update and upgrade.
 

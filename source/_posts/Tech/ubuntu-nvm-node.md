@@ -80,8 +80,11 @@ Content：
 
 You might need to install these just in case you need them:
 
-    npm install -g eslint yarn now truffle vue-cli hexo-cli
+    npm install -g eslint yarn @vue/cli
+    npm install -g npx
     npm install -g --force npx
+    npm install -g now truffle
+    npm install -g hexo-cli
 
 To check your globally-installed packges:
 
