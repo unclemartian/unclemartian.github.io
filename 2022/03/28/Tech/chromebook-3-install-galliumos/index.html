@@ -20,18 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="OverviewThere are 2 ways to do a fresh installation of GalliumOS on Chromebook:  Traditional Mode - replace ChromeOS entirely. Need a USD drive.  chrx Mode - install from ChromeOS command line.   Trad">
+  <meta name="description" content="OverviewThere are 2 ways to do a fresh installation of GalliumOS on Chromebook:  Traditional Mode - replace ChromeOS entirely. Need a USD drive.  chrx Mode - install from ChromeOS command line.   The">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Tech】 Chromebook Tutorial 3 - Install GalliumOS">
 <meta property="og:url" content="http://yoursite.com/2022/03/28/Tech/chromebook-3-install-galliumos/index.html">
 <meta property="og:site_name" content="Hexo Blog of Uncle Martian">
-<meta property="og:description" content="OverviewThere are 2 ways to do a fresh installation of GalliumOS on Chromebook:  Traditional Mode - replace ChromeOS entirely. Need a USD drive.  chrx Mode - install from ChromeOS command line.   Trad">
+<meta property="og:description" content="OverviewThere are 2 ways to do a fresh installation of GalliumOS on Chromebook:  Traditional Mode - replace ChromeOS entirely. Need a USD drive.  chrx Mode - install from ChromeOS command line.   The">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/galliumos-install-1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/galliumos-install-2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/galliumos-install-3.jpg">
 <meta property="article:published_time" content="2022-03-28T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-28T23:50:36.823Z">
+<meta property="article:modified_time" content="2022-03-29T18:19:24.161Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/galliumos-install-1.jpg">
 
 <link rel="canonical" href="http://yoursite.com/2022/03/28/Tech/chromebook-3-install-galliumos/">
 
@@ -179,10 +183,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-03-28 00:00:00 / Modified: 23:50:36" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
+              <time title="Created: 2022-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+              </span>
 
           
 
@@ -200,9 +210,12 @@
 <li><strong>Traditional Mode</strong> - replace ChromeOS entirely. Need a USD drive. </li>
 <li><strong>chrx Mode</strong> - install from ChromeOS command line. </li>
 </ol>
-<h1 id="Traditional-installtion"><a href="#Traditional-installtion" class="headerlink" title="Traditional installtion"></a>Traditional installtion</h1><ol>
-<li><p>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
-</li>
+<p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">The master guide is on wiki.galliumos.org</a></strong></p>
+<h1 id="一、Traditional-installtion"><a href="#一、Traditional-installtion" class="headerlink" title="一、Traditional installtion"></a>一、Traditional installtion</h1><ol>
+<li>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</li>
+</ol>
+<p><img src="/images/galliumos-install-1.jpg" alt=""></p>
+<ol>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
 </li>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
@@ -213,7 +226,7 @@
 <ol>
 <li><p>With your ChromeOS booted, press [Ctrl+Alt+T] and get a terminal (“crosh”) window</p>
 </li>
-<li><p>Run this: <strong>‘shell’</strong></p>
+<li><p>Run: <strong>‘shell’</strong></p>
 </li>
 <li><p>Then:</p>
 <p> sudo crossystem dev_boot_legacy=1</p>
@@ -223,17 +236,68 @@
 </ol>
 </li>
 <li><p>Disable WP (write protection). Check your device on <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#devices">this MrChromebox</a> page to decide how you going to do it. In my case I use <a target="_blank" rel="noopener" href="https://wiki.mrchromebox.tech/Firmware_Write_Protect#Hardware_Write_Protection">the CR50 method</a></p>
-<ol>
+<ul>
 <li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
-</ol>
+</ul>
 </li>
 <li><p>Check WP status, At crosh&gt;</p>
 <p> sudo sh<br> flashrom –wp-status</p>
+<p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
 </li>
-<li><p>TODO</p>
+<li><p>Update Firmware. Press <strong>[Ctrl+Alt+T]</strong> to get a terminal (“crosh”) window, then type in “<strong>shell</strong>“</p>
+<ul>
+<li><p>Decide if you wish to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware">update RW_LEGACY or install Full Firmware/UEFI</a></p>
+</li>
+<li><p>Run: </p>
+<p>  cd; curl -LO <a target="_blank" rel="noopener" href="https://mrchromebox.tech/firmware-util.sh">https://mrchromebox.tech/firmware-util.sh</a> &amp;&amp; sudo bash firmware-util.sh</p>
+</li>
+</ul>
+</li>
+<li><p>At promp, first you need to set GBB Flags (here is <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">an explanation of why</a>).</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">Important: If you choose an ISO install of GalliumOS</a> (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">you allow your battery to drain completely</a></strong>, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
+<p>Google Binary Block (GBB) flags are firmware level settings stored directly in the firmware flash chip itself in a read-only (RO) area</p>
+<p>I’ve made this mistake before. Had to do an entire factory restore of ChromeOS.</p>
+</blockquote>
+</li>
+<li><p>To set GBB, under ChromeOS at chronos@localhost / $ prompt, run this: </p>
+<pre><code>cd; curl -LO mrchromebox.tech/firmware-util.sh
+sudo install -Dt /usr/local/bin -m 755 firmware-util.sh
+sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p> <strong>Very important</strong>: you MUST execute this command <strong>as a normal/non-root user</strong>.</p>
+<p> <img src="/images/galliumos-install-3.jpg" alt=""></p>
+</li>
+<li><p>Then, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough.<br> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
+</li>
+<li><p>Now start <strong>the actual installation process</strong> of GalliumOS!</p>
+</li>
+<li><p>Burn the ISO using <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">BalenaEtcher</a>. I used my old Mac to do the job. </p>
+</li>
+<li><p>Keep your USB drive plugged-in before rebooting. On the “<strong>OS verification is OFF</strong>“ screen, press <strong>Ctrl + L</strong></p>
+</li>
+<li><p>Install GalliumOS (I recommend using the English mode + Wiki connected to install).</p>
+</li>
+<li><p>You may or may not need to press Ctrl + L every time you boot the system, depending on which fireware script you chose to install. </p>
 </li>
 </ol>
-<h1 id="chrx-installation"><a href="#chrx-installation" class="headerlink" title="chrx installation"></a>chrx installation</h1>
+<h2 id="Important-Power-Drain"><a href="#Important-Power-Drain" class="headerlink" title="[Important] Power Drain"></a>[Important] Power Drain</h2><p>如果电脑突然没电了，你的 Chromebook 无法启动，而是哔哔很大的两声，这说明你的 dev_boot_legacy flag 被 GBB 给 unset 成 0 了。</p>
+<p>Sorry to tell you, 你只能恢复原 ChromeOS，然后重来一次了。你的数据都没了。</p>
+<p>没别的办法，你猜我怎么知道的？ </p>
+<p>Reference：</p>
+<blockquote>
+<p>Important: If you choose an ISO install of GalliumOS (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and you allow your battery to drain completely, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">https://wiki.galliumos.org/Firmware#crossystem</a></p>
+</blockquote>
+<p>必须改 <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">GBB</a>。最佳方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
+<h1 id="二、chrx-installation"><a href="#二、chrx-installation" class="headerlink" title="二、chrx installation"></a>二、chrx installation</h1><p>这种模式很好，因为 ChromeOS 被原本保留了。恢复起来也很方便。</p>
+<p>主要问题就是硬盘太小。低端Chromebook 普遍采用 32G 的 flash drive。装 ChromeOS 使用一大半，GalliumOS 占用 7-8G，空间就没了。</p>
+<h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h2 id="开机画面（dev-mode）键盘选项"><a href="#开机画面（dev-mode）键盘选项" class="headerlink" title="开机画面（dev mode）键盘选项"></a>开机画面（dev mode）键盘选项</h2><ul>
+<li>[Ctrl+D] to boot ChromeOS in Developer Mode, or</li>
+<li>[Ctrl+L] to boot Legacy Mode (usually used for Linux, after installing)</li>
+<li>[Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you’ll never need to use this)</li>
+<li>[TAB] for some boot configuration information</li>
+</ul>
+
     </div>
 
     
@@ -251,10 +315,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/03/28/Tech/chromebook-4-galliumos/" rel="prev" title="【Tech】 Chromebook Tutorial 4 - GalliumOS">
-      <i class="fa fa-chevron-left"></i> 【Tech】 Chromebook Tutorial 4 - GalliumOS
+    <a href="/2022/03/26/Tech/chromebook-2-linux-crostini/" rel="prev" title="【Tech】 Chromebook Tutorial 2 - Linux (Crostini)">
+      <i class="fa fa-chevron-left"></i> 【Tech】 Chromebook Tutorial 2 - Linux (Crostini)
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/03/29/Tech/chromebook-4-use-galliumos/" rel="next" title="【Tech】 Chromebook Tutorial 4 - Using GalliumOS">
+      【Tech】 Chromebook Tutorial 4 - Using GalliumOS <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -313,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Traditional-installtion"><span class="nav-number">2.</span> <span class="nav-text">Traditional installtion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chrx-installation"><span class="nav-number">3.</span> <span class="nav-text">chrx installation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81Traditional-installtion"><span class="nav-number">2.</span> <span class="nav-text">一、Traditional installtion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Important-Power-Drain"><span class="nav-number">2.1.</span> <span class="nav-text">[Important] Power Drain</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81chrx-installation"><span class="nav-number">3.</span> <span class="nav-text">二、chrx installation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Troubleshooting"><span class="nav-number">4.</span> <span class="nav-text">Troubleshooting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E6%9C%BA%E7%94%BB%E9%9D%A2%EF%BC%88dev-mode%EF%BC%89%E9%94%AE%E7%9B%98%E9%80%89%E9%A1%B9"><span class="nav-number">4.1.</span> <span class="nav-text">开机画面（dev mode）键盘选项</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
