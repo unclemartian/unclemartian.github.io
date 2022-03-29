@@ -83,6 +83,16 @@ You might need to change owner for certain folders:
 
     sudo chown -R [whoami]:[whoami] ./folder-name/
 
+# Forgot username
+
+If ever, you forgot your username. On Linux, go to [Sync Storage Folder](https://help.resilio.com/hc/en-us/articles/206664690-Sync-Storage-folder) by running the following: 
+
+    cd /var/lib/resilio-sync
+
+Find a file with the name "settings.dat". The [cleartext username should be there](https://forum.resilio.com/topic/43918-forgot-usernamepasswd-for-web-ui/).
+
+Just search for the text "username2". If you have no luck trying the method above, you can refer to [this official doc to reset WebUI password](https://help.resilio.com/hc/en-us/articles/205450295-How-do-I-reset-my-WebUI-password-).
+
 # Reference 
 
 https://www.davidfong.org/post/resiliosyncchromebook/
