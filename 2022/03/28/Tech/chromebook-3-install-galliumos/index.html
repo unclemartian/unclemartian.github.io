@@ -31,7 +31,7 @@
 <meta property="og:image" content="http://yoursite.com/images/galliumos-install-2.jpg">
 <meta property="og:image" content="http://yoursite.com/images/galliumos-install-3.jpg">
 <meta property="article:published_time" content="2022-03-28T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-29T18:19:24.161Z">
+<meta property="article:modified_time" content="2022-03-30T18:56:34.877Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
@@ -191,7 +191,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -210,12 +210,11 @@
 <li><strong>Traditional Mode</strong> - replace ChromeOS entirely. Need a USD drive. </li>
 <li><strong>chrx Mode</strong> - install from ChromeOS command line. </li>
 </ol>
-<p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">The master guide is on wiki.galliumos.org</a></strong></p>
+<p>The master guide is on <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">wiki.galliumos.org</a></strong>, or there’s another <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing/New_To_Linux">simpler guide for beginners</a>.</p>
 <h1 id="一、Traditional-installtion"><a href="#一、Traditional-installtion" class="headerlink" title="一、Traditional installtion"></a>一、Traditional installtion</h1><ol>
-<li>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</li>
-</ol>
-<p><img src="/images/galliumos-install-1.jpg" alt=""></p>
-<ol>
+<li><p>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
+<p> <img src="/images/galliumos-install-1.jpg" alt=""></p>
+</li>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
 </li>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
@@ -240,17 +239,16 @@
 <li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
 </ul>
 </li>
-<li><p>Check WP status, At crosh&gt;</p>
-<p> sudo sh<br> flashrom –wp-status</p>
-<p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
+<li><p>Check WP status, At <strong>crosh&gt;</strong></p>
+<pre><code>sudo sh
+flashrom --wp-status</code></pre><p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
 </li>
 <li><p>Update Firmware. Press <strong>[Ctrl+Alt+T]</strong> to get a terminal (“crosh”) window, then type in “<strong>shell</strong>“</p>
 <ul>
 <li><p>Decide if you wish to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware">update RW_LEGACY or install Full Firmware/UEFI</a></p>
 </li>
 <li><p>Run: </p>
-<p>  cd; curl -LO <a target="_blank" rel="noopener" href="https://mrchromebox.tech/firmware-util.sh">https://mrchromebox.tech/firmware-util.sh</a> &amp;&amp; sudo bash firmware-util.sh</p>
-</li>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre></li>
 </ul>
 </li>
 <li><p>At promp, first you need to set GBB Flags (here is <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">an explanation of why</a>).</p>
@@ -267,7 +265,8 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
 <pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p> <strong>Very important</strong>: you MUST execute this command <strong>as a normal/non-root user</strong>.</p>
 <p> <img src="/images/galliumos-install-3.jpg" alt=""></p>
 </li>
-<li><p>Then, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough.<br> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
+<li><p>Next, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough. </p>
+<p> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
 </li>
 <li><p>Now start <strong>the actual installation process</strong> of GalliumOS!</p>
 </li>
@@ -288,12 +287,12 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
 <p>Important: If you choose an ISO install of GalliumOS (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and you allow your battery to drain completely, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">https://wiki.galliumos.org/Firmware#crossystem</a></p>
 </blockquote>
-<p>必须改 <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">GBB</a>。最佳方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
+<p>How to fix: <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">必须改 GBB</a>，但是不建议直接改 c++ 代码，因为是只读的。最便捷的方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
 <h1 id="二、chrx-installation"><a href="#二、chrx-installation" class="headerlink" title="二、chrx installation"></a>二、chrx installation</h1><p>这种模式很好，因为 ChromeOS 被原本保留了。恢复起来也很方便。</p>
 <p>主要问题就是硬盘太小。低端Chromebook 普遍采用 32G 的 flash drive。装 ChromeOS 使用一大半，GalliumOS 占用 7-8G，空间就没了。</p>
 <h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h2 id="开机画面（dev-mode）键盘选项"><a href="#开机画面（dev-mode）键盘选项" class="headerlink" title="开机画面（dev mode）键盘选项"></a>开机画面（dev mode）键盘选项</h2><ul>
-<li>[Ctrl+D] to boot ChromeOS in Developer Mode, or</li>
-<li>[Ctrl+L] to boot Legacy Mode (usually used for Linux, after installing)</li>
+<li><strong>[Ctrl+D]</strong> to boot ChromeOS in <strong>Developer Mode</strong>, or</li>
+<li><strong>[Ctrl+L]</strong> to boot <strong>Legacy Mode</strong> (usually used for Linux, after installing)</li>
 <li>[Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you’ll never need to use this)</li>
 <li>[TAB] for some boot configuration information</li>
 </ul>

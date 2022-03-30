@@ -174,10 +174,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2022-03-29 00:00:00 / Modified: 18:19:24" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+00:00">2022-03-29</time>
+              <time title="Created: 2022-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+00:00">2022-03-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
+              </span>
 
           
 
@@ -192,10 +198,32 @@
       
           <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki">GalliumOS</a></strong> is built solely for Chromebooks.</p>
 <p>这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。</p>
-<h1 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h1><h2 id="Before-Everything"><a href="#Before-Everything" class="headerlink" title="Before Everything"></a>Before Everything</h2><p>Give yourself <strong>‘su’</strong> previlege! </p>
+<h1 id="GalliumOS-Basics-系统配置"><a href="#GalliumOS-Basics-系统配置" class="headerlink" title="GalliumOS Basics 系统配置"></a>GalliumOS Basics 系统配置</h1><h2 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h2><p>Give yourself <strong>‘su’</strong> previlege!</p>
 <p>在 Users Settings 中，把 Account Type 改为 Administrator. </p>
 <p>不换源的话，language 和 fcitx 安装会出问题。</p>
 <p><img src="/images/TODO.png" alt=""></p>
+<h2 id="HiDPI"><a href="#HiDPI" class="headerlink" title="HiDPI"></a>HiDPI</h2><p>Most simply way: <strong>Go to Settings Manager &gt; Appearance &gt; Fonts &gt; Custom DPI setting and change from 96 to</strong>:</p>
+<pre><code>1. 144 in you are on external (1080p) display
+1. 192 if you are on 2K laptop screen</code></pre><p>There is <a target="_blank" rel="noopener" href="https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/">a script to automate this process</a>, I made it simple by hosting a copy <a href="/files/fix-hidpi-in-galliumos-3.1.sh">here</a></p>
+<pre><code>sh fix-hidpi-in-galliumos-3.1.sh</code></pre><p>Next, change the right bottom battery icon: </p>
+<pre><code>vi ~/.config/gtk-3.0/gtk.css</code></pre><p>Input:</p>
+<pre><code>#xfce4-power-manager-plugin * &#123;
+    -gtk-icon-transform: scale(0.38);
+&#125;</code></pre><p>Based on my experience, changing <strong>/etc/profile.d/gdkscale.sh</strong> doesn’t work very properly. </p>
+<h3 id="Update-March-30-2022"><a href="#Update-March-30-2022" class="headerlink" title="Update March 30, 2022"></a>Update March 30, 2022</h3><p>I found there is additional issues with scaling. Thus this is my conclusion: </p>
+<ol>
+<li>如果是双屏幕，dpi不同，最好的办法就是改分辨率，反正笔记本屏幕也不是主力屏。<br> （我将 CB713-1W 的屏幕改成 1400 x 900 ，配合 1080p 的外显使用）</li>
+<li>其实样式可以直接到 Appearance-&gt;Fonts 里面，DPI 改成 96 或者 144</li>
+<li>去 Window Manager 里，可改窗口样式。</li>
+<li>for more：<a target="_blank" rel="noopener" href="https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html">https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html</a></li>
+</ol>
+<h2 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h2><p>看了很多 Kaby Lake 如何 fix audio 的帖子：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/">https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/">https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/GalliumOS/galliumos-distro/issues/536">https://github.com/GalliumOS/galliumos-distro/issues/536</a></li>
+</ol>
+<p>最终决定：直接用外接显示器上的声卡吧！（可插耳机）</p>
 <h1 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h1><pre><code>cd /etc/apt/
 vi sources.list</code></pre><p>The aliyun source:</p>
 <pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
@@ -224,6 +252,11 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
 <li><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></li>
 <li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
 </ol>
+<h1 id="Install-MySQL-Workbench"><a href="#Install-MySQL-Workbench" class="headerlink" title="Install MySQL Workbench"></a>Install MySQL Workbench</h1><p>Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。</p>
+<p>故选择<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb">mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</a></p>
+<p>先安依赖：</p>
+<pre><code>sudo apt install libzip4
+sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</code></pre><p>就好了。</p>
 <h2 id="Othere-important-software"><a href="#Othere-important-software" class="headerlink" title="Othere important software"></a>Othere important software</h2><p>Required to build some packages: </p>
 <pre><code>sudo apt-get install pkg-config</code></pre>
       
@@ -275,7 +308,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -294,12 +327,11 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
 <li><strong>Traditional Mode</strong> - replace ChromeOS entirely. Need a USD drive. </li>
 <li><strong>chrx Mode</strong> - install from ChromeOS command line. </li>
 </ol>
-<p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">The master guide is on wiki.galliumos.org</a></strong></p>
+<p>The master guide is on <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">wiki.galliumos.org</a></strong>, or there’s another <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing/New_To_Linux">simpler guide for beginners</a>.</p>
 <h1 id="一、Traditional-installtion"><a href="#一、Traditional-installtion" class="headerlink" title="一、Traditional installtion"></a>一、Traditional installtion</h1><ol>
-<li>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</li>
-</ol>
-<p><img src="/images/galliumos-install-1.jpg" alt=""></p>
-<ol>
+<li><p>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
+<p> <img src="/images/galliumos-install-1.jpg" alt=""></p>
+</li>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
 </li>
 <li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
@@ -324,17 +356,16 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
 <li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
 </ul>
 </li>
-<li><p>Check WP status, At crosh&gt;</p>
-<p> sudo sh<br> flashrom –wp-status</p>
-<p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
+<li><p>Check WP status, At <strong>crosh&gt;</strong></p>
+<pre><code>sudo sh
+flashrom --wp-status</code></pre><p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
 </li>
 <li><p>Update Firmware. Press <strong>[Ctrl+Alt+T]</strong> to get a terminal (“crosh”) window, then type in “<strong>shell</strong>“</p>
 <ul>
 <li><p>Decide if you wish to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware">update RW_LEGACY or install Full Firmware/UEFI</a></p>
 </li>
 <li><p>Run: </p>
-<p>  cd; curl -LO <a target="_blank" rel="noopener" href="https://mrchromebox.tech/firmware-util.sh">https://mrchromebox.tech/firmware-util.sh</a> &amp;&amp; sudo bash firmware-util.sh</p>
-</li>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre></li>
 </ul>
 </li>
 <li><p>At promp, first you need to set GBB Flags (here is <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">an explanation of why</a>).</p>
@@ -351,7 +382,8 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
 <pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p> <strong>Very important</strong>: you MUST execute this command <strong>as a normal/non-root user</strong>.</p>
 <p> <img src="/images/galliumos-install-3.jpg" alt=""></p>
 </li>
-<li><p>Then, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough.<br> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
+<li><p>Next, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough. </p>
+<p> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
 </li>
 <li><p>Now start <strong>the actual installation process</strong> of GalliumOS!</p>
 </li>
@@ -372,12 +404,12 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
 <p>Important: If you choose an ISO install of GalliumOS (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and you allow your battery to drain completely, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
 <p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">https://wiki.galliumos.org/Firmware#crossystem</a></p>
 </blockquote>
-<p>必须改 <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">GBB</a>。最佳方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
+<p>How to fix: <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">必须改 GBB</a>，但是不建议直接改 c++ 代码，因为是只读的。最便捷的方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
 <h1 id="二、chrx-installation"><a href="#二、chrx-installation" class="headerlink" title="二、chrx installation"></a>二、chrx installation</h1><p>这种模式很好，因为 ChromeOS 被原本保留了。恢复起来也很方便。</p>
 <p>主要问题就是硬盘太小。低端Chromebook 普遍采用 32G 的 flash drive。装 ChromeOS 使用一大半，GalliumOS 占用 7-8G，空间就没了。</p>
 <h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h2 id="开机画面（dev-mode）键盘选项"><a href="#开机画面（dev-mode）键盘选项" class="headerlink" title="开机画面（dev mode）键盘选项"></a>开机画面（dev mode）键盘选项</h2><ul>
-<li>[Ctrl+D] to boot ChromeOS in Developer Mode, or</li>
-<li>[Ctrl+L] to boot Legacy Mode (usually used for Linux, after installing)</li>
+<li><strong>[Ctrl+D]</strong> to boot ChromeOS in <strong>Developer Mode</strong>, or</li>
+<li><strong>[Ctrl+L]</strong> to boot <strong>Legacy Mode</strong> (usually used for Linux, after installing)</li>
 <li>[Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you’ll never need to use this)</li>
 <li>[TAB] for some boot configuration information</li>
 </ul>
@@ -431,7 +463,7 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -528,7 +560,7 @@ sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -639,7 +671,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -716,7 +748,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -828,7 +860,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
@@ -912,7 +944,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-29 18:19:24" itemprop="dateModified" datetime="2022-03-29T18:19:24+00:00">2022-03-29</time>
+                <time title="Modified: 2022-03-30 18:56:34" itemprop="dateModified" datetime="2022-03-30T18:56:34+00:00">2022-03-30</time>
               </span>
 
           
