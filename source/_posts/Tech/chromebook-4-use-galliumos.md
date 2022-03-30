@@ -10,17 +10,60 @@ __[GalliumOS](https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki)__ is bui
 
 这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。
 
-# Basics
+# GalliumOS Basics 系统配置
 
-## Before Everything
+## 用户权限
 
-Give yourself __‘su’__ previlege! 
+Give yourself __‘su’__ previlege!
 
 在 Users Settings 中，把 Account Type 改为 Administrator. 
 
 不换源的话，language 和 fcitx 安装会出问题。
 
 ![](/images/TODO.png)
+
+## HiDPI
+
+Most simply way: __Go to Settings Manager > Appearance > Fonts > Custom DPI setting and change from 96 to__:
+
+    1. 144 in you are on external (1080p) display
+    1. 192 if you are on 2K laptop screen
+
+There is [a script to automate this process](https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/), I made it simple by hosting a copy [here](/files/fix-hidpi-in-galliumos-3.1.sh)
+
+    sh fix-hidpi-in-galliumos-3.1.sh
+
+Next, change the right bottom battery icon: 
+
+    vi ~/.config/gtk-3.0/gtk.css
+    
+Input:
+
+    #xfce4-power-manager-plugin * {
+        -gtk-icon-transform: scale(0.38);
+    }
+
+Based on my experience, changing __/etc/profile.d/gdkscale.sh__ doesn't work very properly. 
+
+### Update March 30, 2022
+
+I found there is additional issues with scaling. Thus this is my conclusion: 
+
+1. 如果是双屏幕，dpi不同，最好的办法就是改分辨率，反正笔记本屏幕也不是主力屏。
+    （我将 CB713-1W 的屏幕改成 1400 x 900 ，配合 1080p 的外显使用）
+1. 其实样式可以直接到 Appearance->Fonts 里面，DPI 改成 96 或者 144
+1. 去 Window Manager 里，可改窗口样式。
+1. for more：https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html
+
+## 声音
+
+看了很多 Kaby Lake 如何 fix audio 的帖子：
+
+1. https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/
+1. https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/
+1. https://github.com/GalliumOS/galliumos-distro/issues/536
+
+最终决定：直接用外接显示器上的声卡吧！（可插耳机）
 
 # 换源 Change source
 
@@ -74,6 +117,19 @@ Just download and install:
 
 1. https://www.google.cn/chrome/
 1. https://code.visualstudio.com/
+
+# Install MySQL Workbench
+
+Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。
+
+故选择[mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb](https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb)
+
+先安依赖：
+
+    sudo apt install libzip4
+    sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb
+
+就好了。
 
 ## Othere important software
 

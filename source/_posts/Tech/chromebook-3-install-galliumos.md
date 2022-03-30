@@ -11,13 +11,13 @@ There are 2 ways to do a fresh installation of GalliumOS on Chromebook:
 1. __Traditional Mode__ - replace ChromeOS entirely. Need a USD drive. 
 1. __chrx Mode__ - install from ChromeOS command line. 
 
-__[The master guide is on wiki.galliumos.org](https://wiki.galliumos.org/Installing)__
+The master guide is on __[wiki.galliumos.org](https://wiki.galliumos.org/Installing)__, or there's another [simpler guide for beginners](https://wiki.galliumos.org/Installing/New_To_Linux).
 
 # 一、Traditional installtion 
 
 1. Go to __[chrome://system](chrome://system)__, and look for __hardware_class__. For my case it says "Akali" and "C5B-A4B-xxxxxxxx"
 
-![](/images/galliumos-install-1.jpg)
+    ![](/images/galliumos-install-1.jpg)
 
 1. Go to https://wiki.galliumos.org/Hardware_Compatibility and check against your hardware class. I got __"Intel Kaby Lake"__.
 
@@ -39,18 +39,18 @@ __[The master guide is on wiki.galliumos.org](https://wiki.galliumos.org/Install
     
     * If you still not sure, check out this video: https://www.youtube.com/watch?v=EGZ6KfjEPP0
 
-1. Check WP status, At crosh>
+1. Check WP status, At __crosh>__
 
-    sudo sh
-    flashrom --wp-status
+        sudo sh
+        flashrom --wp-status
 
     ![](/images/galliumos-install-2.jpg)
 
 1. Update Firmware. Press __[Ctrl+Alt+T]__ to get a terminal ("crosh") window, then type in "__shell__"
     * Decide if you wish to [update RW_LEGACY or install Full Firmware/UEFI](https://wiki.galliumos.org/Firmware)
     * Run: 
-    
-        cd; curl -LO https://mrchromebox.tech/firmware-util.sh && sudo bash firmware-util.sh
+
+            cd; curl -LO https://mrchromebox.tech/firmware-util.sh && sudo bash firmware-util.sh
 
 1. At promp, first you need to set GBB Flags (here is [an explanation of why](https://mrchromebox.tech/#fwscript)).
 
@@ -74,7 +74,8 @@ __[The master guide is on wiki.galliumos.org](https://wiki.galliumos.org/Install
 
     ![](/images/galliumos-install-3.jpg)
 
-1. Then, continue to use the same __firmware-util.sh__ script to install firmware. Should be simple enough. 
+1. Next, continue to use the same __firmware-util.sh__ script to install firmware. Should be simple enough. 
+
     Then, plugin the GalliumOS installation disk into USD, and reboot. 
 
 1. Now start __the actual installation process__ of GalliumOS!
@@ -101,7 +102,7 @@ Reference：
 >
 > https://wiki.galliumos.org/Firmware#crossystem
 
-必须改 [GBB](https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h)。最佳方法是使用 __MrChromebox's [ChromeOS firmware utility script](https://mrchromebox.tech/#fwscript)__.
+How to fix: [必须改 GBB](https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h)，但是不建议直接改 c++ 代码，因为是只读的。最便捷的方法是使用 __MrChromebox's [ChromeOS firmware utility script](https://mrchromebox.tech/#fwscript)__.
 
 # 二、chrx installation
 
@@ -113,7 +114,7 @@ Reference：
 
 ## 开机画面（dev mode）键盘选项
 
-* [Ctrl+D] to boot ChromeOS in Developer Mode, or
-* [Ctrl+L] to boot Legacy Mode (usually used for Linux, after installing)
+* __[Ctrl+D]__ to boot ChromeOS in __Developer Mode__, or
+* __[Ctrl+L]__ to boot __Legacy Mode__ (usually used for Linux, after installing)
 * [Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you'll never need to use this)
 * [TAB] for some boot configuration information
