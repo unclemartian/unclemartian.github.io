@@ -52,6 +52,10 @@ The master guide is on __[wiki.galliumos.org](https://wiki.galliumos.org/Install
 
             cd; curl -LO https://mrchromebox.tech/firmware-util.sh && sudo bash firmware-util.sh
 
+        In case Github not accissible, try this link: 
+
+            cd; curl -LO https://unclemartian.github.io/files/mrchromebox-firmware-util.sh && sudo bash firmware-util.sh
+
 1. At promp, first you need to set GBB Flags (here is [an explanation of why](https://mrchromebox.tech/#fwscript)).
 
     > [Important: If you choose an ISO install of GalliumOS](https://wiki.galliumos.org/Installing) (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and __[you allow your battery to drain completely](https://wiki.galliumos.org/Firmware#crossystem)__, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.
