@@ -12,7 +12,7 @@
 #
 
 #where the stuff is
-script_url="https://unclemartian.github.io/files//mrchromebox/"
+script_url="https://unclemartian.github.io/files/mrchromebox/"
 
 #ensure output of system tools in en-us for parsing
 export LC_ALL=C
