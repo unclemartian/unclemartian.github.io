@@ -54,7 +54,7 @@ The master guide is on __[wiki.galliumos.org](https://wiki.galliumos.org/Install
 
         In case Github not accissible, try this link: 
 
-            cd; curl -LO https://unclemartian.github.io/files/mrchromebox-firmware-util.sh && sudo bash firmware-util.sh
+            cd; curl -LO https://unclemartian.github.io/files/mrchromebox-firmware-util.sh && sudo bash mrchromebox-firmware-util.sh
 
 1. At promp, first you need to set GBB Flags (here is [an explanation of why](https://mrchromebox.tech/#fwscript)).
 
