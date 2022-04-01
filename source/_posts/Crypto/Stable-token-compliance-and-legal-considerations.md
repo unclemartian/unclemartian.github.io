@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】Stable token compliance and legal considerations
+title: 【Crypto】 Stable token compliance and legal considerations
 date: 2020-05-11 12:30:08
 tags: crypto
 ---

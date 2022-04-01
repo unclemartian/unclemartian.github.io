@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】Auction Terms
+title: 【Crypto】 Auction Terms
 date: 2021-04-16 13:34:08
 tags: nft
 ---

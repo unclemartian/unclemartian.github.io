@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】Correspondent Banking in Swift Payments
+title: 【Crypto】 Correspondent Banking in Swift Payments
 date: 2020-04-15 21:48:36
 tags: crypto
 ---

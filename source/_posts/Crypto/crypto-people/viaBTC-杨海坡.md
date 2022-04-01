@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】ViaBTC(微比特) and CoinEx CEO 杨海坡
+title: 【Crypto】 ViaBTC(微比特) and CoinEx CEO 杨海坡
 date: 2020-05-18 19:05:11
 tags: crypto people
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】Stabletoken Overview Celo
+title: 【Crypto】 Stabletoken Overview Celo
 date: 2020-04-07 13:04:48
 tags: crypto
 ---

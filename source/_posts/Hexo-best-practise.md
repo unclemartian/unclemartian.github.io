@@ -19,16 +19,16 @@ tags: Hexo
 
 ## Rules
 
-1. 每篇 post 都需要有 prefix，如 【Crypto】，【Tech】 
-1. 每个 prefix 都对应一些特定的 tags，比如 nft 对应【Crypto】
+1. 每篇 post 都需要有 prefix，如 【Crypto】 ，【Tech】
+1. 每个 prefix 都对应一些特定的 tags，比如 nft 对应【Crypto】 
 
 __具体安排如下__
 
-* 【Crypto】
+* 【Crypto】 
     * tags: nft
     * tags: defi
     * tags: crypto people
-* 【Tech】 
+* 【Tech】
     * tags: ubuntu
     * tags: technology
 * 【Read】

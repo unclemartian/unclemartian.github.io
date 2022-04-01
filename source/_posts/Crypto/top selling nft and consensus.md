@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】Top selling NFTs and their consensus
+title: 【Crypto】 Top selling NFTs and their consensus
 date: 2021-09-26 00:00:00
 tags: crypto
 ---

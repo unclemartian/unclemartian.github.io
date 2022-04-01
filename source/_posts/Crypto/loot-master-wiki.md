@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】Loot master wiki
+title: 【Crypto】 Loot master wiki
 date: 2021-09-29 00:00:00
 tags: crypto
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】中本聪和Gavin Andresen
+title: 【Crypto】 中本聪和Gavin Andresen
 date: 2020-05-13 19:17:55
 tags: crypto people
 ---

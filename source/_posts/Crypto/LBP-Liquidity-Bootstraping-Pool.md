@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】LBP (Liquidity Bootstraping Pool)
+title: 【Crypto】 LBP (Liquidity Bootstraping Pool)
 date: 2021-02-25 06:58:58
 tags: defi
 ---

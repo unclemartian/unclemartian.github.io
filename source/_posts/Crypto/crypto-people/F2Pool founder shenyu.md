@@ -1,5 +1,5 @@
 ---
-title: 【Crypto】F2Pool 创始人神鱼
+title: 【Crypto】 F2Pool 创始人神鱼
 date: 2021-01-06 11:21:26
 tags: crypto people
 ---
