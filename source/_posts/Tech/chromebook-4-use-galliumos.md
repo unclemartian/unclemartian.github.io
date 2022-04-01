@@ -26,8 +26,8 @@ Give yourself __‘su’__ previlege!
 
 Most simply way: __Go to Settings Manager > Appearance > Fonts > Custom DPI setting and change from 96 to__:
 
-    1. 144 in you are on external (1080p) display
-    1. 192 if you are on 2K laptop screen
+* 144 in you are on external (1080p) display
+* 192 if you are on 2K laptop screen
 
 There is [a script to automate this process](https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/), I made it simple by hosting a copy [here](/files/fix-hidpi-in-galliumos-3.1.sh)
 
@@ -37,13 +37,13 @@ Next, change the right bottom battery icon:
 
     vi ~/.config/gtk-3.0/gtk.css
     
-Input:
+File content:
 
     #xfce4-power-manager-plugin * {
         -gtk-icon-transform: scale(0.38);
     }
 
-Based on my experience, changing __/etc/profile.d/gdkscale.sh__ doesn't work very properly. 
+However, based on my experience, changing __/etc/profile.d/gdkscale.sh__ doesn't work very properly. 
 
 ### Update March 30, 2022
 
@@ -63,9 +63,11 @@ I found there is additional issues with scaling. Thus this is my conclusion:
 1. https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/
 1. https://github.com/GalliumOS/galliumos-distro/issues/536
 
-最终决定：直接用外接显示器上的声卡吧！（可插耳机）
+最终决定：直接用外接显示器上的声卡吧！
 
-# 换源 Change source
+（可插耳机）
+
+## 换源 Change source
 
     cd /etc/apt/
     vi sources.list
@@ -87,7 +89,7 @@ The aliyun source:
     deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
     deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
 
-# Install fcitx
+## 输入法：fcitx
 
 首先，下载搜狗：
 
@@ -111,14 +113,16 @@ Go to "Language Support" 或者“语言支持”，添加“中文”，并且�
 
 后来，再安装sogou，或者先安sogou后安locale包，再重启机器，总之就好了。版本号：搜狗个人版 4.0.0.1605 （2022年3月）。
 
-# Install Chrome, VSCode
+# Install Software
+
+## Chrome, VSCode
 
 Just download and install:
 
 1. https://www.google.cn/chrome/
 1. https://code.visualstudio.com/
 
-# Install MySQL Workbench
+## Install MySQL Workbench
 
 Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。
 
@@ -131,8 +135,15 @@ Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。
 
 就好了。
 
-## Othere important software
+## Spotify
 
-Required to build some packages: 
+According to the [official tutorial](https://www.spotify.com/us/download/linux/):
 
-    sudo apt-get install pkg-config
+    curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+Then you can install the Spotify client:
+
+    sudo apt-get update && sudo apt-get install spotify-client
+    spotify
+
