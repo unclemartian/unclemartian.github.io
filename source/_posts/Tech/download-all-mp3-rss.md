@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Download all MP3 files in RSS feed
+title: 【Tech】 Download all MP3 files in RSS feed
 date: 2022-03-01 00:00:00
 tags: technology
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Install Node/npm using Nvm
+title: 【Tech】 Install Node/npm using Nvm
 date: 2021-09-01 00:00:00
 tags: ubuntu
 ---

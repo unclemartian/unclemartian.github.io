@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Git Learning Notes 
+title: 【Tech】 Git Learning Notes 
 date: 2015-04-26 00:00:00
 tags: technology
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Mount APFS
+title: 【Tech】 Mount APFS
 date: 2021-09-13 00:00:00
 tags: ubuntu
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Install MySQL 5.7 on Ubuntu 20.04
+title: 【Tech】 Install MySQL 5.7 on Ubuntu 20.04
 date: 2021-09-02 00:00:00
 tags: ubuntu
 ---

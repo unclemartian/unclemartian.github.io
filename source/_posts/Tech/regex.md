@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Regular Expression Learning Notes
+title: 【Tech】 Regular Expression Learning Notes
 date: 2015-05-24 00:00:00
 tags: technology
 ---

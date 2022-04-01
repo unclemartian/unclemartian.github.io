@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Ubuntu System Commands
+title: 【Tech】 Ubuntu System Commands
 date: 2021-08-13 00:00:00
 tags: ubuntu
 ---

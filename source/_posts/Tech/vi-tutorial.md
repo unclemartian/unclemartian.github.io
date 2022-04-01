@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Vi tutorial
+title: 【Tech】 Vi tutorial
 date: 2015-04-24 00:00:00
 tags: technology
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Tech】SSH keys setup for GitHub
+title: 【Tech】 SSH keys setup for GitHub
 date: 2015-05-14 00:00:00
 tags: technology
 ---

@@ -1,5 +1,5 @@
 ---
-title: 【Tech】HTTP learning notes (1/3) all about http
+title: 【Tech】 HTTP learning notes (1/3) all about http
 date: 2015-06-06 00:00:00
 tags: technology
 ---

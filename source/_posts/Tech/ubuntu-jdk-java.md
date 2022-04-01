@@ -1,5 +1,5 @@
 ---
-title: 【Tech】Install Jdk / Java on Linux
+title: 【Tech】 Install Jdk / Java on Linux
 date: 2021-09-05 00:00:00
 tags: ubuntu
 ---

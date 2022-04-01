@@ -1,5 +1,5 @@
 ---
-title: 【Tech】VPN / Trojan on Ubuntu / Linux
+title: 【Tech】 VPN / Trojan on Ubuntu / Linux
 date: 2021-09-14 10:00:00
 tags: ubuntu
 ---
