@@ -30,7 +30,7 @@
 <meta property="og:image" content="http://yoursite.com/images/TODO.png">
 <meta property="og:image" content="http://yoursite.com/images/galliumos-fcitx-sogoupinyin.png">
 <meta property="article:published_time" content="2022-03-29T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-30T19:54:09.044Z">
+<meta property="article:modified_time" content="2022-04-01T14:08:54.932Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
@@ -190,7 +190,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-30 19:54:09" itemprop="dateModified" datetime="2022-03-30T19:54:09+00:00">2022-03-30</time>
+                <time title="Modified: 2022-04-01 14:08:54" itemprop="dateModified" datetime="2022-04-01T14:08:54+00:00">2022-04-01</time>
               </span>
 
           
@@ -211,13 +211,16 @@
 <p>不换源的话，language 和 fcitx 安装会出问题。</p>
 <p><img src="/images/TODO.png" alt=""></p>
 <h2 id="HiDPI"><a href="#HiDPI" class="headerlink" title="HiDPI"></a>HiDPI</h2><p>Most simply way: <strong>Go to Settings Manager &gt; Appearance &gt; Fonts &gt; Custom DPI setting and change from 96 to</strong>:</p>
-<pre><code>1. 144 in you are on external (1080p) display
-1. 192 if you are on 2K laptop screen</code></pre><p>There is <a target="_blank" rel="noopener" href="https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/">a script to automate this process</a>, I made it simple by hosting a copy <a href="/files/fix-hidpi-in-galliumos-3.1.sh">here</a></p>
+<ul>
+<li>144 in you are on external (1080p) display</li>
+<li>192 if you are on 2K laptop screen</li>
+</ul>
+<p>There is <a target="_blank" rel="noopener" href="https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/">a script to automate this process</a>, I made it simple by hosting a copy <a href="/files/fix-hidpi-in-galliumos-3.1.sh">here</a></p>
 <pre><code>sh fix-hidpi-in-galliumos-3.1.sh</code></pre><p>Next, change the right bottom battery icon: </p>
-<pre><code>vi ~/.config/gtk-3.0/gtk.css</code></pre><p>Input:</p>
+<pre><code>vi ~/.config/gtk-3.0/gtk.css</code></pre><p>File content:</p>
 <pre><code>#xfce4-power-manager-plugin * &#123;
     -gtk-icon-transform: scale(0.38);
-&#125;</code></pre><p>Based on my experience, changing <strong>/etc/profile.d/gdkscale.sh</strong> doesn’t work very properly. </p>
+&#125;</code></pre><p>However, based on my experience, changing <strong>/etc/profile.d/gdkscale.sh</strong> doesn’t work very properly. </p>
 <h3 id="Update-March-30-2022"><a href="#Update-March-30-2022" class="headerlink" title="Update March 30, 2022"></a>Update March 30, 2022</h3><p>I found there is additional issues with scaling. Thus this is my conclusion: </p>
 <ol>
 <li>如果是双屏幕，dpi不同，最好的办法就是改分辨率，反正笔记本屏幕也不是主力屏。<br> （我将 CB713-1W 的屏幕改成 1400 x 900 ，配合 1080p 的外显使用）</li>
@@ -231,8 +234,9 @@
 <li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/">https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/GalliumOS/galliumos-distro/issues/536">https://github.com/GalliumOS/galliumos-distro/issues/536</a></li>
 </ol>
-<p>最终决定：直接用外接显示器上的声卡吧！（可插耳机）</p>
-<h1 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h1><pre><code>cd /etc/apt/
+<p>最终决定：直接用外接显示器上的声卡吧！</p>
+<p>（可插耳机）</p>
+<h2 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h2><pre><code>cd /etc/apt/
 vi sources.list</code></pre><p>The aliyun source:</p>
 <pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
@@ -247,7 +251,7 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe m
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
 
 deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><h1 id="Install-fcitx"><a href="#Install-fcitx" class="headerlink" title="Install fcitx"></a>Install fcitx</h1><p>首先，下载搜狗：</p>
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><h2 id="输入法：fcitx"><a href="#输入法：fcitx" class="headerlink" title="输入法：fcitx"></a>输入法：fcitx</h2><p>首先，下载搜狗：</p>
 <p><a target="_blank" rel="noopener" href="https://pinyin.sogou.com/linux/">https://pinyin.sogou.com/linux/</a></p>
 <p>Go to “Language Support” 或者“语言支持”，添加“中文”，并且把输入法设置成：fcitx。</p>
 <p><img src="/images/galliumos-fcitx-sogoupinyin.png" alt=""></p>
@@ -255,18 +259,21 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
 <pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb</code></pre><p>如果缺依赖，就：</p>
 <pre><code>sudo apt -f install</code></pre><p>这时候仍然可能会失败，报以下错：<strong>installing sogoupinyin would break fcitx-ui-qimpanel</strong>。这个原因是<a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/MyJxmX4p5n/">搜狗拼音安装包中含有fcitx-ui-qimpanel，与系统已有的fcitx-ui-qimpanel产生了冲突</a>，所以，删除 fcitx-ui-qimpanel。</p>
 <pre><code>sudo apt-get remove fcitx-ui-qimpanel</code></pre><p>后来，再安装sogou，或者先安sogou后安locale包，再重启机器，总之就好了。版本号：搜狗个人版 4.0.0.1605 （2022年3月）。</p>
-<h1 id="Install-Chrome-VSCode"><a href="#Install-Chrome-VSCode" class="headerlink" title="Install Chrome, VSCode"></a>Install Chrome, VSCode</h1><p>Just download and install:</p>
+<h1 id="Install-Software"><a href="#Install-Software" class="headerlink" title="Install Software"></a>Install Software</h1><h2 id="Chrome-VSCode"><a href="#Chrome-VSCode" class="headerlink" title="Chrome, VSCode"></a>Chrome, VSCode</h2><p>Just download and install:</p>
 <ol>
 <li><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></li>
 <li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
 </ol>
-<h1 id="Install-MySQL-Workbench"><a href="#Install-MySQL-Workbench" class="headerlink" title="Install MySQL Workbench"></a>Install MySQL Workbench</h1><p>Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。</p>
+<h2 id="Install-MySQL-Workbench"><a href="#Install-MySQL-Workbench" class="headerlink" title="Install MySQL Workbench"></a>Install MySQL Workbench</h2><p>Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。</p>
 <p>故选择<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb">mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</a></p>
 <p>先安依赖：</p>
 <pre><code>sudo apt install libzip4
 sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</code></pre><p>就好了。</p>
-<h2 id="Othere-important-software"><a href="#Othere-important-software" class="headerlink" title="Othere important software"></a>Othere important software</h2><p>Required to build some packages: </p>
-<pre><code>sudo apt-get install pkg-config</code></pre>
+<h2 id="Spotify"><a href="#Spotify" class="headerlink" title="Spotify"></a>Spotify</h2><p>According to the <a target="_blank" rel="noopener" href="https://www.spotify.com/us/download/linux/">official tutorial</a>:</p>
+<pre><code>curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+echo &quot;deb http://repository.spotify.com stable non-free&quot; | sudo tee /etc/apt/sources.list.d/spotify.list</code></pre><p>Then you can install the Spotify client:</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install spotify-client
+spotify</code></pre>
     </div>
 
     
@@ -346,7 +353,7 @@ sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</code></pre
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GalliumOS-Basics-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">GalliumOS Basics 系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="nav-number">2.1.</span> <span class="nav-text">用户权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HiDPI"><span class="nav-number">2.2.</span> <span class="nav-text">HiDPI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-March-30-2022"><span class="nav-number">2.2.1.</span> <span class="nav-text">Update March 30, 2022</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E9%9F%B3"><span class="nav-number">2.3.</span> <span class="nav-text">声音</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90-Change-source"><span class="nav-number">3.</span> <span class="nav-text">换源 Change source</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-fcitx"><span class="nav-number">4.</span> <span class="nav-text">Install fcitx</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Chrome-VSCode"><span class="nav-number">5.</span> <span class="nav-text">Install Chrome, VSCode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-MySQL-Workbench"><span class="nav-number">6.</span> <span class="nav-text">Install MySQL Workbench</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Othere-important-software"><span class="nav-number">6.1.</span> <span class="nav-text">Othere important software</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overview"><span class="nav-number">1.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GalliumOS-Basics-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">GalliumOS Basics 系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="nav-number">2.1.</span> <span class="nav-text">用户权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HiDPI"><span class="nav-number">2.2.</span> <span class="nav-text">HiDPI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Update-March-30-2022"><span class="nav-number">2.2.1.</span> <span class="nav-text">Update March 30, 2022</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%B0%E9%9F%B3"><span class="nav-number">2.3.</span> <span class="nav-text">声音</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90-Change-source"><span class="nav-number">2.4.</span> <span class="nav-text">换源 Change source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%B3%95%EF%BC%9Afcitx"><span class="nav-number">2.5.</span> <span class="nav-text">输入法：fcitx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Software"><span class="nav-number">3.</span> <span class="nav-text">Install Software</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome-VSCode"><span class="nav-number">3.1.</span> <span class="nav-text">Chrome, VSCode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-MySQL-Workbench"><span class="nav-number">3.2.</span> <span class="nav-text">Install MySQL Workbench</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spotify"><span class="nav-number">3.3.</span> <span class="nav-text">Spotify</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
