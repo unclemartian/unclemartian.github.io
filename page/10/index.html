@@ -151,6 +151,231 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/php-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/31/Tech/php-learning/" class="post-title-link" itemprop="url">【Tech】 PHP learning notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-31 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-31T00:00:00+00:00">2015-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="PHP-language"><a href="#PHP-language" class="headerlink" title="PHP language"></a>PHP language</h1><h2 id="web-server-must-have-a-php-server"><a href="#web-server-must-have-a-php-server" class="headerlink" title="web server must have a php server"></a>web server must have a php server</h2><p>web server: Apache, IIS, Tomcat, JBoss, WebLogic…</p>
+<p>app server: Jsp, PHP, Asp…</p>
+<p>we also need database, but does need to be at same machine as web/app server.</p>
+<h2 id="A-Comparison"><a href="#A-Comparison" class="headerlink" title="A Comparison"></a>A Comparison</h2><p>Linux   +  Apache  + MySql      +  PHP  =  LAMP      - open sourced, dev speed fastest</p>
+<p>Unix    +  Tomcat  + Oracle     +  JSP  =  J2EE      - most expensive</p>
+<p>Windows +  IIS     + SQL server +  ASP  =  ASP.net   - virus risks, very not safe</p>
+<h2 id="To-get-information-from-POST-form"><a href="#To-get-information-from-POST-form" class="headerlink" title="To get information from POST form"></a>To get information from POST form</h2><pre><code>Hi &lt;?php echo htmlspecialchars($_POST[&apos;name&apos;]); ?&gt;.
+You are &lt;?php echo (int)$_POST[&apos;age&apos;]; ?&gt; years old.</code></pre><h2 id="Superglobals"><a href="#Superglobals" class="headerlink" title="Superglobals"></a>Superglobals</h2><p>build-in variables that are always available in all scopes. like:</p>
+<ol>
+<li><p>$GLOBALS, variables available in global scope</p>
+<pre><code>&lt;?php
+function test() &#123;
+    $foo = &quot;local variable&quot;;
+    echo &apos;$foo in global scope: &apos; . $GLOBALS[&quot;foo&quot;] . &quot;\n&quot;;
+    echo &apos;$foo in current scope: &apos; . $foo . &quot;\n&quot;;
+&#125;
+
+$foo = &quot;Example content&quot;;
+test();
+?&gt;</code></pre></li>
+<li><p>$_SERVER, Server and execution environment information</p>
+<pre><code>&lt;?php
+echo $_SERVER[&apos;SERVER_NAME&apos;];
+?&gt;</code></pre></li>
+<li><p>$_GET, GET variables</p>
+<pre><code>&lt;?php
+echo &apos;Hello &apos; . htmlspecialchars($_GET[&quot;name&quot;]) . &apos;!&apos;;
+?&gt;</code></pre></li>
+<li><p>$_POST, POST variables</p>
+<pre><code>&lt;?php
+echo &apos;Hello &apos; . htmlspecialchars($_POST[&quot;name&quot;]) . &apos;!&apos;;
+?&gt;</code></pre></li>
+<li><p>$_FILES, File Upload variables</p>
+</li>
+<li><p>$_COOKIE</p>
+</li>
+<li><p>$_SESSION</p>
+</li>
+<li><p>$_REQUEST</p>
+<p> The PHP $_REQUEST variable contains the contents of both $_GET, $_POST, and $_COOKIE.</p>
+</li>
+<li><p>$_ENV, Environment variables</p>
+<p> These variables are imported into PHP’s global namespace from the environment under which the PHP parser is running. Many are provided by the shell under which PHP is running.</p>
+</li>
+</ol>
+<h2 id="php-code-to-print-a-variable"><a href="#php-code-to-print-a-variable" class="headerlink" title="php code to print a variable:"></a>php code to print a variable:</h2><pre><code>&lt;html&gt;
+        &lt;body&gt;
+        &lt;?php
+        $capital = 67;
+        print(&quot;Variable capital is $capital&lt;br&gt;&quot;);
+        print(&quot;Variable CaPiTaL is $CaPiTaL&lt;br&gt;&quot;);
+        ?&gt;
+        &lt;/body&gt;
+&lt;/html&gt;</code></pre><h2 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match"></a>preg_match</h2><p>in PHP does a regex match.</p>
+<h2 id="include-and-require"><a href="#include-and-require" class="headerlink" title="include() and require()"></a>include() and require()</h2><p><strong>The include() function</strong> takes all the text in a specified file and copies it into the file that uses the include function.</p>
+<p><strong>The require() function</strong> takes all the text in a specified file and copies it into the file that uses the include function. If there is any problem in loading a file then the require() function <strong>generates a fatal error and halt the execution of the script</strong>.</p>
+<h2 id="a-list-of-PHP-Predefined-Variables"><a href="#a-list-of-PHP-Predefined-Variables" class="headerlink" title="a list of PHP - Predefined Variables"></a>a list of PHP - Predefined Variables</h2><p>can be found here:</p>
+<p><a target="_blank" rel="noopener" href="http://www.tutorialspoint.com/php/php_predefined_variables.htm">http://www.tutorialspoint.com/php/php_predefined_variables.htm</a></p>
+<h2 id="define-a-error-handling-function"><a href="#define-a-error-handling-function" class="headerlink" title="define a error-handling function:"></a>define a error-handling function:</h2><pre><code>error_function(error_level, error_messag, error_file,error_line, error_context);</code></pre><h1 id="PHP-OOP"><a href="#PHP-OOP" class="headerlink" title="PHP OOP"></a>PHP OOP</h1><h2 id="PHP-Classes"><a href="#PHP-Classes" class="headerlink" title="PHP Classes"></a>PHP Classes</h2><pre><code>&lt;?php
+class  Books&#123;
+    /* Member variables */
+    var $price;
+    var $title;
+    /* Member functions */
+    function setPrice($par)&#123;
+       $this-&gt;price = $par;
+    &#125;
+    function getPrice()&#123;
+       echo $this-&gt;price .&quot;&lt;br/&gt;&quot;;
+    &#125;
+    function setTitle($par)&#123;
+       $this-&gt;title = $par;
+    &#125;
+    function getTitle()&#123;
+       echo $this-&gt;title .&quot; &lt;br/&gt;&quot;;
+    &#125;
+&#125;
+?&gt;</code></pre><h2 id="Creating-Objects"><a href="#Creating-Objects" class="headerlink" title="Creating Objects"></a>Creating Objects</h2><pre><code>$physics = new Books( &quot;Physics for High School&quot;, 10 );
+$maths = new Books;
+$chemistry = new Books;
+
+$physics-&gt;setTitle( &quot;Physics for High School&quot; );
+$maths-&gt;setTitle( &quot;Algebra&quot; );
+$chemistry-&gt;setTitle( &quot;Advanced Chemistry&quot; );</code></pre><h2 id="Public-and-Private-members"><a href="#Public-and-Private-members" class="headerlink" title="Public and Private members"></a>Public and Private members</h2><p>Unless you specify otherwise, properties and methods of a class are public.</p>
+<p>If you wish to limit the accessibility of the members of a class then you define class members as private or protected.</p>
+<pre><code>class MyClass &#123;
+   private $car = &quot;skoda&quot;;
+   $driver = &quot;SRK&quot;;
+
+   function __construct($par) &#123;
+      // Statements here run every time
+      // an instance of the class
+      // is created.
+   &#125;
+
+   function myPublicFunction() &#123;
+      return(&quot;I&apos;m visible!&quot;);
+   &#125;
+   private function myPrivateFunction() &#123;
+      return(&quot;I&apos;m  not visible outside!&quot;);
+   &#125;
+&#125;</code></pre><h2 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h2><pre><code>interface Mail &#123;
+   public function sendMail();
+&#125;
+
+class Report implements Mail &#123;
+   // sendMail() Definition goes here
+&#125;</code></pre><h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2><p>constant’s name does not have a leading $, as variable names do.</p>
+<pre><code>class MyClass &#123;
+   const requiredMargin = 1.7;
+   function __construct($incomingValue) &#123;
+      // Statements here run every time
+      // an instance of the class
+      // is created.
+   &#125;
+&#125;</code></pre><h2 id="Abstract-Classes"><a href="#Abstract-Classes" class="headerlink" title="Abstract Classes"></a>Abstract Classes</h2><p>When inheriting from an abstract class, all methods marked abstract in the parent’s class declaration must be defined by the child.</p>
+<p>It is not legal to have abstract function definitions inside a non-abstract class.</p>
+<pre><code>abstract class MyAbstractClass &#123;
+   abstract function myAbstractFunction() &#123;
+   &#125;
+&#125;</code></pre><h2 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h2><p>A member declared as static can not be accessed with an instantiated class object (though a static method can).</p>
+<pre><code>&lt;?php
+class Foo
+&#123;
+    public static $my_static = &apos;foo&apos;;
+
+    public function staticValue() &#123;
+        return self::$my_static;
+    &#125;
+&#125;
+print Foo::$my_static . &quot;\n&quot;;
+$foo = new Foo();
+print $foo-&gt;staticValue() . &quot;\n&quot;;</code></pre><h2 id="Final-Keyword"><a href="#Final-Keyword" class="headerlink" title="Final Keyword"></a>Final Keyword</h2><p>Prefixing the method definition with final prevents child classes from overriding.</p>
+<p>If the class itself is being defined final then it cannot be extended.</p>
+<h2 id="Calling-parent-constructors"><a href="#Calling-parent-constructors" class="headerlink" title="Calling parent constructors"></a>Calling parent constructors</h2><p>The constructor of NameSub1 functions by calling its parent constructor explicitly using the :: syntax.</p>
+<pre><code>class Name
+&#123;
+   var $_firstName;
+   var $_lastName;
+   function Name($first_name, $last_name)
+   &#123;
+     $this-&gt;_firstName = $first_name;
+     $this-&gt;_lastName = $last_name;
+   &#125;
+   function toString() &#123;
+     return($this-&gt;_lastName .&quot;, &quot; .$this-&gt;_firstName);
+   &#125;
+&#125;
+class NameSub1 extends Name
+&#123;
+   var $_middleInitial;
+   function NameSub1($first_name, $middle_initial, $last_name) &#123;
+       Name::Name($first_name, $last_name);
+       $this-&gt;_middleInitial = $middle_initial;
+   &#125;
+   function toString() &#123;
+       return(Name::toString() . &quot; &quot; . $this-&gt;_middleInitial);
+   &#125;
+&#125;</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="http://php.net/">http://php.net/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.tutorialspoint.com/php/index.htm">http://www.tutorialspoint.com/php/index.htm</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/php/">http://www.w3schools.com/php/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/python-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +407,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -471,7 +696,7 @@ dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -599,7 +824,7 @@ dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -740,7 +965,7 @@ git push origin master</code></pre><p>You should see it works fine. Notice how w
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -953,7 +1178,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -1076,7 +1301,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -1147,7 +1372,7 @@ nano config.js</code></pre><p>Now change the url of production to the public IP 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
+                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
               </span>
 
           
@@ -1441,108 +1666,6 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/24/Tech/vi-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/04/24/Tech/vi-tutorial/" class="post-title-link" itemprop="url">【Tech】 Vi tutorial</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2015-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-24T00:00:00+00:00">2015-04-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-01 14:35:18" itemprop="dateModified" datetime="2022-04-01T14:35:18+00:00">2022-04-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="About-Vi"><a href="#About-Vi" class="headerlink" title="About Vi"></a>About Vi</h1><p>Vi is a text editor built written in C, for Unit/Linux since 1976. It is default for Unix systems.</p>
-<blockquote>
-<p>Over the years since its creation, vi became the de facto standard Unix editor and a nearly undisputed hacker favorite[citation needed] outside of MIT until the rise of Emacs after about 1984.</p>
-<p>– <cite>Wikipedia<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Vi">1</a></cite></p>
-</blockquote>
-<h1 id="Why-Vi"><a href="#Why-Vi" class="headerlink" title="Why Vi"></a>Why Vi</h1><p>I have to use Vi when I setup my VPS for web hosting. Vi confuses me a while since I have no prior experience. Over time, I came to realize that using Vi is a must for a developer, so let’s don’t hesitate to jump at it!</p>
-<p>We’ll get started by learning some of the basics.</p>
-<h1 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h1><p>First of all, Vi have 2 modes: <strong>Command Mode</strong> and <strong>Insert Mode</strong>.</p>
-<p>Remember how to switch mode:</p>
-<ol>
-<li>press ‘i’ for Insert Mode</li>
-<li>press “Esc” for Command Mode</li>
-</ol>
-<h2 id="3-basic-file-commands"><a href="#3-basic-file-commands" class="headerlink" title="3 basic file commands"></a>3 basic file commands</h2><ol>
-<li>:w - save</li>
-<li>:q - quit</li>
-<li>:q! - quit without saving</li>
-</ol>
-<h2 id="Move-the-cursor"><a href="#Move-the-cursor" class="headerlink" title="Move the cursor"></a>Move the cursor</h2><p>When in command mode, the key h, j, k and l can move the cursor, just like your arrow key.</p>
-<ol>
-<li>h - Cursor left</li>
-<li>j - Cursor down</li>
-<li>k - Cursor up</li>
-<li>l - Cursor right</li>
-</ol>
-<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><p>In command mode:</p>
-<ol>
-<li>x - delete 1 char</li>
-<li>dd - delete 1 line</li>
-</ol>
-<p>Difference between ‘backspace’ and ‘x’:</p>
-<ol>
-<li>backspace - works in insert mode. Can only delete chars inserted in current session.</li>
-<li>x - works in command mode. Can delete anything.</li>
-</ol>
-<h2 id="Repeat-operation"><a href="#Repeat-operation" class="headerlink" title="Repeat operation"></a>Repeat operation</h2><p>In command mode, input a number then the command, the command with be repeat corresponding number of times. Eg “20dd” deletes 20 lines.</p>
-<h1 id="Last-word"><a href="#Last-word" class="headerlink" title="Last word"></a>Last word</h1><p>This definitely is not a thorough tutorial, but it’s enough for basic needs of a system admin. I learn these from the 2 tutorials from <a target="_blank" rel="noopener" href="http://www.unix-manuals.com/tutorials/vi/vi-in-10-1.html">unix-manuals</a></p>
-<p>Hope it helps you.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1612,7 +1735,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">86</span>
+          <span class="site-state-item-count">87</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
