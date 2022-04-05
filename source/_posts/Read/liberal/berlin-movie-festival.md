@@ -1,7 +1,7 @@
 ---
 title: 【Read】 柏林国际电影节 - 金熊奖/银熊奖
 date: 2022-03-17 00:00:00
-tags: arts
+tags: liberal
 ---
 
 # Overview

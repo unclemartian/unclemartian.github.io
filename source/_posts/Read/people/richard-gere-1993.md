@@ -1,5 +1,5 @@
 ---
-title: 【Read】Richard Gere 1993
+title: 【Read】 Richard Gere 1993
 date: 2021-09-11 00:00:00
 tags: people
 ---

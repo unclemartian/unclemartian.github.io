@@ -1,7 +1,7 @@
 ---
-title: 【Read】Modern Art Week 2, Art Periods
+title: 【Read】 Modern Art Week 2, Art Periods
 date: 2016-07-31 14:00:00
-tags: arts
+tags: liberal
 ---
 
 A course by [MoMA and Coursera](https://www.coursera.org/learn/modern-art-ideas)
