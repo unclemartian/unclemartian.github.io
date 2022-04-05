@@ -151,6 +151,202 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/11/Tech/tmux-and-mosh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/11/Tech/tmux-and-mosh/" class="post-title-link" itemprop="url">【Tech】 Tmux and Mosh</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-11T00:00:00+00:00">2022-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>The combination of Tmux and Mosh can increase your life happiness by 15%. </p>
+<h1 id="Mosh"><a href="#Mosh" class="headerlink" title="Mosh"></a>Mosh</h1><p>In a very nutshell;</p>
+<h2 id="Server-side"><a href="#Server-side" class="headerlink" title="Server side"></a>Server side</h2><pre><code>mosh-server new -c 256 -s -l LANG=en_US.UTF-8 -p 60000
+mosh -v
+nc -lu 60001
+iptables -I INPUT -p udp --dport 60001 -j ACCEPT
+iptables -I INPUT -p udp --dport 60002 -j ACCEPT</code></pre><h2 id="Client-side"><a href="#Client-side" class="headerlink" title="Client side"></a>Client side</h2><pre><code>mosh root@x.x.x.x
+Or
+export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@x.x.x.x</code></pre><p>To debug:</p>
+<pre><code>nc -zvu 124.223.5.33 60001</code></pre><p>很多时候，问题就是防火墙。参考上面 iptables 那个 command。</p>
+<h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><h2 id="Tmux-Usage"><a href="#Tmux-Usage" class="headerlink" title="Tmux Usage"></a>Tmux Usage</h2><pre><code>tmux ls
+tmux attach -t 0 (or simply tmux attach)
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>最常用的：</p>
+<ol>
+<li><p>% 左右平分出两个窗格</p>
+</li>
+<li><p>“ 上下平分出两个窗格</p>
+</li>
+<li><p>x 关闭当前窗格</p>
+</li>
+<li><p>{ 当前窗格前移</p>
+</li>
+<li><p>} 当前窗格后移</p>
+</li>
+<li><p>; 选择上次使用的窗格</p>
+</li>
+<li><p>o 选择下一个窗格，也可以使用上下左右方向键来选择</p>
+</li>
+<li><p>space 切换窗格布局，tmux 内置了五种窗格布局，也可以通过 ⌥1 至 ⌥5来切换</p>
+</li>
+<li><p>z 最大化当前窗格，再次执行可恢复原来大小</p>
+</li>
+<li><p>tmux at [-t 会话名]</p>
+</li>
+</ol>
+<p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="Common-Practise"><a href="#Common-Practise" class="headerlink" title="Common Practise"></a>Common Practise</h1><p>At facebook: </p>
+<pre><code>alias m=&apos;mosh -6&apos;
+alias x=&apos;mosh -6 dev -- tmux attach -d&apos;</code></pre><p>Common Usage: </p>
+<pre><code>mosh root@x.x.x.x
+tmux ls
+tmux at</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/05/Crypto/sybil-attack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/05/Crypto/sybil-attack/" class="post-title-link" itemprop="url">【Crypto】 Sybil Attack</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-05T00:00:00+00:00">2022-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Sybil-Attack"><a href="#Sybil-Attack" class="headerlink" title="Sybil Attack"></a>Sybil Attack</h1><p>2002年，由微软研究院的John R. Douceur在《the Sybil Attack》提出，它是p2p网络中的一种攻击形式，主要是针对服务器节点的攻击。</p>
+<blockquote>
+<p>Flora Rhea Schreiberie 在1973年的小说《女巫》（Sybil）改编的同名电影，是一个化名Sybil Dorsett的女人心理治疗的故事。</p>
+<p>她被诊断为分离性身份认同障碍，兼具16种人格。我的那个天。高度精分一枚。</p>
+</blockquote>
+<h2 id="Why-exist"><a href="#Why-exist" class="headerlink" title="Why exist?"></a>Why exist?</h2><p>女巫攻击之所以存在：</p>
+<ol>
+<li>网络中很难保证每一个未知的节点是一个确定的“身份”。</li>
+<li>而女巫攻击是攻击数据冗余机制的一种有效手段。</li>
+</ol>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ol>
+<li>矿工利用n个身份，承诺会存储n份数据。但是，实际上只存储小于n份的数据，但谎报自己存储了n份数据。</li>
+<li>羊毛党在一台计算机上通过软件切换ip手段大量薅羊毛；</li>
+<li>网络投票的时候，可以通过利用多个ip地址来作假等</li>
+<li>很多公司也利用女巫攻击来获得google等搜索引擎的排名，骗取大量用户去点击。</li>
+</ol>
+<h1 id="联盟链中的-sybil-attack"><a href="#联盟链中的-sybil-attack" class="headerlink" title="联盟链中的 sybil attack"></a>联盟链中的 sybil attack</h1><p>联盟链当中，女巫攻击问题更为棘手。</p>
+<p>因为公有链的共识机制是不依赖节点数量的，所以不存在女巫攻击的风险。而联盟链为了提高共识效率，将节点数减少在一定范围内。就相当于把共识机制变简单了，所以攻击也变得简单了。这样，女巫攻击就有了“用武之地”。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.tuoluo.cn/article/detail-9992848.html">https://www.tuoluo.cn/article/detail-9992848.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://0xzx.com/2022021204132081029.html">https://0xzx.com/2022021204132081029.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/01/Tech/download-all-mp3-rss/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +378,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -274,7 +470,7 @@ curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieF
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -349,7 +545,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -420,7 +616,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -436,7 +632,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
       
           <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Read】 prefx should be tagged as one of:</p>
 <ol>
-<li>arts</li>
+<li>liberal</li>
 <li>books</li>
 <li>knowledge</li>
 <li>people</li>
@@ -491,7 +687,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -560,7 +756,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -632,223 +828,10 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/18/Crypto/rarity-calculation-methods/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/18/Crypto/rarity-calculation-methods/" class="post-title-link" itemprop="url">【Crypto】 Rarity Calculation Methods</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-18T00:00:00+00:00">2021-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p><strong>rarity</strong> is one of the most important factors in determining the value of an individual NFT.</p>
-<p>On Opensea, each NFT have traits: </p>
-<p><img src="/images/nft-calculate-rarity-1.png" alt=""></p>
-<h2 id="Rarity-计算方法"><a href="#Rarity-计算方法" class="headerlink" title="Rarity 计算方法"></a>Rarity 计算方法</h2><ol>
-<li><p>Trait Rarity Ranking 单一属性法<br> 只选最 rare 的 traits，值越小越好。忽略其他一切 traits。</p>
-</li>
-<li><p>Average Trait Rarity 平均数法<br> 所有 traits 权重相等，计算出平均值。</p>
-</li>
-<li><p>Statistical Rarity 乘积法<br> 所有 rarity 值的乘积 （但是有的 nft 缺少某些 traits，比如 22.56% 的 ape 不戴帽子）</p>
-</li>
-<li><p>Rarity score 商值法<br> 用除法计算所有 traits 的分数，最终返回sum。</p>
-</li>
-</ol>
-<p>以下具体说明。</p>
-<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 - Trait Rarity Ranking"></a>1 - Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
-<ol>
-<li>Ape #73 s rarest trait is Sold Gold Fur which 0.46% have</li>
-<li>Ape #9941’s rarest trait is Bored Unshaven Dagger which 0.28% have</li>
-<li>Ape #9542’s rarest trait is Bored Unshaven Pizza which 0.26% have</li>
-</ol>
-<h2 id="weakness"><a href="#weakness" class="headerlink" title="weakness"></a>weakness</h2><p>It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.</p>
-<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 - Average Trait Rarity"></a>2 - Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
-<p><img src="/images/nft-calculate-rarity-2.png" alt=""></p>
-<p>以上的例子如果按照 trait rairty ranking，NFT 1 是最 rare 的，因为 rarity = 10%</p>
-<p>但按照 average trait，那么显然 NFT 2 更 rare。</p>
-<h2 id="weakness-1"><a href="#weakness-1" class="headerlink" title="weakness"></a>weakness</h2><p>It puts too much weight on the overall rarity of every trait, but NFTs with single super rare trait are not valued enough.</p>
-<p>Their rarity value gets too ‘diluted’ by the other traits.</p>
-<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 - Statistical Rarity"></a>3 - Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
-<p>It was first <a target="_blank" rel="noopener" href="https://achekroud.substack.com/p/d8f13e0a-ae26-40e4-bff2-beacb2916ff0">mentioned by Adam Chekroud</a>. </p>
-<p>Basically: calculate the overall rarity of an NFT by multiplying all of it’s trait rarities together.</p>
-<p><img src="/images/nft-calculate-rarity-3.png" alt=""></p>
-<ol>
-<li>Ape #73’s statistical rarity is 0.00000000070744%</li>
-<li>Ape #9941’s statistical rarity is 0.00000056965722%</li>
-<li>Ape #9542’s statistical rarity is 0.00000044983967%</li>
-</ol>
-<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 - Rarity Score"></a>4 - Rarity Score</h1><p>这是个比较特别的计算方法。</p>
-<blockquote>
-<p>[Rarity Score for a Trait Value] = 1 / ([Number of Items with that Trait Value] / [Total Number of Items in Collection])</p>
-</blockquote>
-<p>然后所有 traits 的 rarity score 相加，等于最终的 rarity score。</p>
-<blockquote>
-<p>The total Rarity Score for an NFT is the sum of the Rarity Score of all of it’s trait values.</p>
-</blockquote>
-<p>例如：Punk中只有9个 Alien，那么 Punk Type 这一项的 rarity score 就是 10,000 / 9 = 1111</p>
-<p>Punk中有24个 Ape，那么 Punk Type 这一项的 rarity score 就是 10,000 / 24 = 417</p>
-<p><img src="/images/nft-calculate-rarity-4.png" alt=""><br><em><a target="_blank" rel="noopener" href="https://rarity.tools/cryptopunks/view/7804">https://rarity.tools/cryptopunks/view/7804</a></em></p>
-<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p>Rarity Score 的好处是，不但考虑了所有的 traits，而且对于某些非常 rare 的 traits，有很好的突出的效果。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。</p>
-<p>Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。</p>
-<p>我觉得 Rarity Score 最好。用 <strong>rarity.tools</strong> 作者的原话讲：</p>
-<blockquote>
-<p>Rarity Score give results that give enough emphasis to <strong>single rare traits</strong> and also includes <strong>overall trait rarities</strong> in its calculation. </p>
-</blockquote>
-<blockquote>
-<p>And most importantly the results it gives match better with our human expectations.</p>
-</blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c">https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Tech/install-joplin-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/04/Tech/install-joplin-linux/" class="post-title-link" itemprop="url">【Tech】 Install Joplin on Linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-04T00:00:00+00:00">2021-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Joplin-Terminal"><a href="#Joplin-Terminal" class="headerlink" title="Joplin Terminal"></a>Joplin Terminal</h1><p>这里只讲 terminal 版的 joplin, 不涉及桌面app。</p>
-<p><a target="_blank" rel="noopener" href="https://joplinapp.org/terminal/">https://joplinapp.org/terminal/</a></p>
-<h2 id="Instruction"><a href="#Instruction" class="headerlink" title="Instruction"></a>Instruction</h2><p>按照官方的说法，是这样的：</p>
-<ol>
-<li><p>Install Node/npm</p>
-</li>
-<li><p>Run this：</p>
-<p> NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin<br> sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin</p>
-</li>
-</ol>
-<p>也就是，Joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。</p>
-<p>问题是，很多依赖都在github上面，需要翻墙才能取到。</p>
-<pre><code>:~# npm config get registry
-https://registry.npm.taobao.org/</code></pre><p>实际多次测试表明，换taobao源不能解决问题：</p>
-<pre><code>~/.joplin-bin# NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
-npm ERR! code 128
-npm ERR! An unknown git error occurred
-npm ERR! command git --no-replace-objects ls-remote ssh://git@github.com/laurent22/uslug.git
-npm ERR! command-line line 0: unsupported option &quot;accept-new&quot;.
-npm ERR! fatal: Could not read from remote repository.
-npm ERR! 
-npm ERR! Please make sure you have the correct access rights
-npm ERR! and the repository exists.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>这样也无济于事：</p>
-<pre><code>npm i -g uslug</code></pre><p>看来只能路由器翻墙解决了~</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -914,7 +897,7 @@ npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

@@ -151,6 +151,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/01/Tech/virtualbox-compress-vdi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/Tech/virtualbox-compress-vdi/" class="post-title-link" itemprop="url">【Tech】 How to compress VDI file for VirtualBox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-01T00:00:00+00:00">2020-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>The growing VirtualBox VDI file is very annoying. </p>
+<p>以下是压缩 vdi 文件的方法。</p>
+<h2 id="On-linux-VM"><a href="#On-linux-VM" class="headerlink" title="On linux VM"></a>On linux VM</h2><p>Run</p>
+<pre><code>dd if=/dev/zero of=/var/tmp/bigemptyfile bs=4096k ; rm /var/tmp/bigemptyfile</code></pre><h2 id="On-windows-host"><a href="#On-windows-host" class="headerlink" title="On windows host"></a>On windows host</h2><p>Run</p>
+<pre><code>cd &apos;C:\Program Files\Oracle\VirtualBox\&apos;
+
+.\VBoxManage.exe modifymedium --compact D:\VMs\abc.vdi</code></pre><p>Done.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size">https://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/Crypto/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/22/Crypto/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/" class="post-title-link" itemprop="url">【Crypto】 P网 Poloniex 和 B网 Bittrex</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-22 20:08:58" itemprop="dateCreated datePublished" datetime="2020-05-22T20:08:58+00:00">2020-05-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Poloniex"><a href="#Poloniex" class="headerlink" title="Poloniex"></a>Poloniex</h1><p>Poloniex成立于2014年，俗称P网，是世界领先的加密货币国际站之一。Poloniex平台提供多种山寨币服务。</p>
+<p>Poloniex自2016年它的竞争对手Cryptsy消失以来，特别是2017年年初山寨币泡沫之后，拥有了非常快速增长的投资量，访问量从2017年2月每月700万增加到5月份的月增长3000万。</p>
+<p>Poloniex有友好的手机和电脑端服务界面，这是因为它是一个纯粹的数字货币国际站，不能使用法币。</p>
+<h1 id="Bittrex"><a href="#Bittrex" class="headerlink" title="Bittrex"></a>Bittrex</h1><p>Bittrex建立于2015年，是美国的比特币交易所，支持200多个交易对，山寨币为主，B网的交易量很大，每天的成交量达几十亿人民币，有不少中国玩家在B网交易和搬砖。</p>
+<p>B网是国内非常知名的数字货币交易网站，B圈都亲切称呼其为B网，主做币币交易，以山寨币为主，中国玩家很多，注册过程需要科学的上网，以下为区块链之家搜罗整理的使用教程，希望对家有所帮助。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/Crypto/crypto-people/viaBTC-%E6%9D%A8%E6%B5%B7%E5%9D%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +323,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -252,7 +393,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -354,7 +495,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -436,7 +577,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -531,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -627,7 +768,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
+                <time title="Modified: 2022-04-05 19:41:33" itemprop="dateModified" datetime="2022-04-05T19:41:33+00:00">2022-04-05</time>
               </span>
 
           
@@ -677,211 +818,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/Crypto/%E5%9B%BD%E4%BA%A7%E5%85%AC%E9%93%BE%E5%B1%8A%E7%9A%84%E5%A4%A9%E7%8E%8B%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/19/Crypto/%E5%9B%BD%E4%BA%A7%E5%85%AC%E9%93%BE%E5%B1%8A%E7%9A%84%E5%A4%A9%E7%8E%8B%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">【Crypto】 国产公链届的天王明星项目</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-19 23:48:09" itemprop="dateCreated datePublished" datetime="2020-04-19T23:48:09+00:00">2020-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>谁是国产第一公链？</p>
-<ol>
-<li>NEO</li>
-<li>ONT</li>
-<li>TRON</li>
-</ol>
-<h1 id="Nervos"><a href="#Nervos" class="headerlink" title="Nervos"></a>Nervos</h1><p><img src="/images/nervos-2.png" alt=""><br><img src="/images/nervos-1.png" alt=""></p>
-<h1 id="Blockstack"><a href="#Blockstack" class="headerlink" title="Blockstack"></a>Blockstack</h1><p>第一个通过SEC合规，公墓价0.3美元。</p>
-<p><img src="/images/blockstack-2.png" alt=""><br><img src="/images/blockstack-1.png" alt=""></p>
-<h1 id="Algo"><a href="#Algo" class="headerlink" title="Algo"></a>Algo</h1><p>第一轮拍卖价2.4美元。</p>
-<p><img src="/images/algorand-2.png" alt=""><br><img src="/images/algorand-3.png" alt=""><br><img src="/images/algorand-1.png" alt=""></p>
-<h1 id="Zil"><a href="#Zil" class="headerlink" title="Zil"></a>Zil</h1><p><img src="/images/zil-2.png" alt=""><br><img src="/images/zil-1.png" alt=""></p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bihu.com/article/1428275457/page/7">https://bihu.com/article/1428275457/page/7</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/15/Crypto/correspondent-banking-in-payments/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/15/Crypto/correspondent-banking-in-payments/" class="post-title-link" itemprop="url">【Crypto】 Correspondent Banking in Swift Payments</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-15 21:48:36" itemprop="dateCreated datePublished" datetime="2020-04-15T21:48:36+00:00">2020-04-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-02 22:44:14" itemprop="dateModified" datetime="2022-04-02T22:44:14+00:00">2022-04-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Opening-Message"><a href="#Opening-Message" class="headerlink" title="Opening Message"></a>Opening Message</h1><p>The SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with each other (either directly or through intermediary banks). Check <a target="_blank" rel="noopener" href="https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/">this link</a> out.</p>
-<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><h3 id="Correspondent-Bank"><a href="#Correspondent-Bank" class="headerlink" title="Correspondent Bank"></a>Correspondent Bank</h3><p>“an arrangement under which one bank (correspondent) holds deposits owned by other banks (respondents) and provides payment and other services to those respondent banks” (BIS, 2016).</p>
-<h3 id="Settlement"><a href="#Settlement" class="headerlink" title="Settlement"></a>Settlement</h3><p>“the discharge of an obligation in accordance with the terms of the underlying contract” (BIS, Glossary),</p>
-<h2 id="The-Risks"><a href="#The-Risks" class="headerlink" title="The Risks"></a>The Risks</h2><ol>
-<li>Market, </li>
-<li>FX, </li>
-<li>credit</li>
-<li>counterparty </li>
-<li>regulatory risk (e.g. Anti-Money Laundering (AML) and Counter Terrorism Financing (CTF))</li>
-</ol>
-<p>What is <strong>settlement risk</strong>? The bank could default. (eg. Herstatt Bank)</p>
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>Continued decrease in correspondent banking relationships, regulatory compliance is certainly playing a role</p>
-<p>50% of banks have &lt;= 2 correspond banks</p>
-<h1 id="SWIFT-Org"><a href="#SWIFT-Org" class="headerlink" title="SWIFT Org"></a>SWIFT Org</h1><p>1973 The Society for Worldwide Interbank Financial Telecommunication (“S.W.I.F.T.”). Or SWIFT</p>
-<p>Not for profit organisation</p>
-<p>Provide hardware with global data centres, typically:</p>
-<ol>
-<li>banks connect via HSM</li>
-<li>corporates connect via a service bureau (who is host and manage a HSM).</li>
-</ol>
-<p>Typically the payload is message (FIN service) of file based (FileAct)</p>
-<blockquote>
-<p>FIN service: 基于SWIFT网络最主要的应用。即日常银行发送、接收、制作的业务报文都基于FIN服务。比如MT103、MT700等等报文。</p>
-</blockquote>
-<p>It can work in a number of modes (Realtime/Store and Forward) and in the case of Fin will perform basic validations on submittal.</p>
-<blockquote>
-<p>SWIFT FileAct: 提供交互和存储与转发两种文件自动传输方式，适合大批量数据的传输。</p>
-</blockquote>
-<h2 id="ISO20022"><a href="#ISO20022" class="headerlink" title="ISO20022"></a>ISO20022</h2><p>ISO20022 又称为UNIFI (UNIversal Financial Industry)</p>
-<p>是2004年由国际标准化组织制定并发布的国际标准，提供了一种面向业务建立通用报文的解决方案。</p>
-<p>ISO20022是一个以XML为基础之讯息标准，主要系由SWIFT组织XML讯息标准(SWIFT XML,MX)、贸易产业标准FIX组织标准(FIXml)及金融衍生性商品交易讯息标准(FpML)，为主要骨干所形成之架构。</p>
-<h2 id="MT103-MT202"><a href="#MT103-MT202" class="headerlink" title="MT103, MT202"></a>MT103, MT202</h2><p>MT103, MT202 are message types in SWIFT communication.</p>
-<ol>
-<li>swift MT103报文名称叫做 single customer credit transfer 也就是单笔客户的汇款</li>
-<li>swift MT202报文名称叫做 general fin inst transfer 也就是金融机构间资金调拨报文</li>
-</ol>
-<p>MT 103 type corresponds to single credit customer transfer, in which a payment is settled directly to the account. Whereas, MT 202 is a cover transfer in which a correspondent bank’s NOSTRO account is involved through which remittance is further transferred to beneficiary.</p>
-<p>Generally wire transfers use a Swift MT103 to transfer money on behalf of their client. There are exeptions to this. Such as SEPA transfers in europe, internal book transfer, and in some countries they do not use use Swift for their own currency (like russia). Also note that sometimes payments get netted so the amount on the MT103 may be different.</p>
-<p>Banks use MT202 (and MT200) to transfer money on their own behalf and cash management purposes.</p>
-<p>So there are many MT103 send throughout the day for clients, and only a few MT202/MT200 are send for funding/defunding banks own nostro accounts.</p>
-<h1 id="Correspondent-Banking"><a href="#Correspondent-Banking" class="headerlink" title="Correspondent Banking"></a>Correspondent Banking</h1><p>No bank have relationship with every possible bank that customers may want to transfer money to. So, they usually keep relationships with a correspondence bank; one (or multiple) banks for each transfer currency.</p>
-<p>Bank would transfer money from your account into a holding account; and send a notice to their correspondence bank (usually over SWIFT). </p>
-<p>Most domestic (ach) systems are file based, especially for low value clearing. Urgent or high value domestic payments will be message based.</p>
-<p>Globally, there is a progression to near real-time domestic payments. New systems are based on ISO20022 (file) , or Swift(message).</p>
-<h2 id="DNS-and-RTGS"><a href="#DNS-and-RTGS" class="headerlink" title="DNS and RTGS"></a>DNS and RTGS</h2><h3 id="deferred-net-settlement-DNS"><a href="#deferred-net-settlement-DNS" class="headerlink" title="deferred net settlement (DNS)"></a>deferred net settlement (DNS)</h3><p>also called Designated-time net settlement system (DNS).</p>
-<p>A net settlement mechanism which settles on a net basis at the end of a predefined settlement cycle.</p>
-<h3 id="Real-time-gross-settlement-RTGS"><a href="#Real-time-gross-settlement-RTGS" class="headerlink" title="Real-time gross settlement (RTGS)"></a>Real-time gross settlement (RTGS)</h3><p>Specialist funds transfer systems where the transfer of money takes place from one bank to any another on a “real-time” and on a “gross” basis.</p>
-<h2 id="Nostro-and-Vostro-accounts"><a href="#Nostro-and-Vostro-accounts" class="headerlink" title="Nostro and Vostro accounts"></a>Nostro and Vostro accounts</h2><p>Also called <strong>Correspondent bank account</strong>. Nostro and Vostro are variations on the Latin words “ours” and “yours,” respectively.</p>
-<p>These accounts are established to enable the domestic bank to make payments or money transfers on behalf of the foreign bank.</p>
-<p>Nostro accounts with debit balances are <strong>considered cash assets</strong>. Contrarily, Vostro accounts with a credit balance are <strong>considered liabilities</strong></p>
-<blockquote>
-<p>Both the Central Bank of China and Central Bank of France, credit the IOUs to the Bank. The Banks (namely Bank of China and BNP Paribas) now have an IOU Credit liability for further credit into the account of the beneficiary which would be Xing Framers and John Pierre Imports respectively.</p>
-</blockquote>
-<p><img src="/images/lemonade-money-transfer.jpg" alt=""></p>
-<h2 id="Pre-Fund-Model"><a href="#Pre-Fund-Model" class="headerlink" title="Pre-Fund Model"></a>Pre-Fund Model</h2><blockquote>
-<p>The pre-fund model is the most common and works on per corridor basis.<br>This model makes it possible for sending agents to settle the net amount with the beneficiary bank quickly.<br>Periodically, sending agent will replenish their prefunded account with the beneficiary banks using SWIFT. In some places, net off is not allowed.</p>
-</blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><h2 id="SWIFT-Protocol"><a href="#SWIFT-Protocol" class="headerlink" title="SWIFT Protocol"></a>SWIFT Protocol</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers">https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers</a><br><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-the-SWIFT-messaging-protocol">https://www.quora.com/What-is-the-SWIFT-messaging-protocol</a></p>
-<h2 id="Correspondent-Bank-1"><a href="#Correspondent-Bank-1" class="headerlink" title="Correspondent Bank"></a>Correspondent Bank</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled">https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled</a><br><a target="_blank" rel="noopener" href="https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work">https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work</a><br><a target="_blank" rel="noopener" href="https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp">https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp</a></p>
-<h2 id="Swift-Institution"><a href="#Swift-Institution" class="headerlink" title="Swift Institution"></a>Swift Institution</h2><p><a target="_blank" rel="noopener" href="https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf">https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -947,7 +887,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">89</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
