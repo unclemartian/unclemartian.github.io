@@ -70,5 +70,11 @@ Edit: /etc/ssh/sshd_config on your VM:
 
 Now, restart SSH server. Done.
 
+## Install make and gcc
+
+Otherwise, you won't be able to build a lot of packages, including npm. 
+
+    apt-get install gcc automake autoconf libtool make
+
 # Install bt
 
