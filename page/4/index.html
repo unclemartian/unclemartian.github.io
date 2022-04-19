@@ -151,6 +151,525 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/armbian-day-to-day%20copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/19/Tech/armbian-day-to-day%20copy/" class="post-title-link" itemprop="url">【Tech】 Armbian day to day 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-19 09:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T09:00:00+00:00">2021-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
+<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
+a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
+<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
+tmux attach -t 0 (or simply tmux attach)
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<pre><code>wky
+a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
+<p>RDP：192.168.123.242:3389</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/15/Tech/debian9-on-wankeyun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/15/Tech/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Debian 9 (Armbian) on N1/Wky 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-15T00:00:00+00:00">2021-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这里使用 N1 和 玩客云（简称wky）。</p>
+<h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 / Debian 9.9 版的 Armbian 系统。</p>
+<p>硬件信息如下：</p>
+<pre><code> ____   ___   ___  ____
+/ ___| ( _ ) / _ \| ___|
+\___ \ / _ \| | | |___ \
+ ___) | (_) | |_| |___) |
+|____/ \___/ \___/|____/
+
+Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
+System load:   0.70 0.52 0.26      Up time:       7 min
+Memory usage:  8 % of 996MB      IP:            192.168.31.33
+Usage of /:    25% of 6.4G</code></pre><p>Debian 9.9 （stretch）</p>
+<pre><code>root@aml:~# lsb_release -a
+No LSB modules are available.
+Distributor ID:    Debian
+Description:    Debian GNU/Linux 9.9 (stretch)
+Release:    9.9
+Codename:    stretch</code></pre><p>而N1，则是使用 ARMBIAN 5.77 / Debian 9.8 版的固件:</p>
+<pre><code> ____  ___   ___  ____  
+/ ___|/ _ \ / _ \| ___| 
+\___ \ (_) | | | |___ \ 
+ ___) \__, | |_| |___) |
+|____/  /_/ \___/|____/ 
+
+
+Welcome to ARMBIAN 5.77 user-built Debian GNU/Linux 9 (stretch) 5.0.2-aml-s905   
+System load:   2.21 2.80 2.86   Up time:       6:33 hours               
+Memory usage:  30 % of 1838MB   Zram usage:    26 % of 919Mb    IP:            169.254.10.11 192.168.123.242
+CPU temp:      50°C             
+Usage of /:    11% of 29G       storage/:      44% of 128M </code></pre><p>更新至最新版 stretch：</p>
+<pre><code>arm@armbian-n1-white-32g:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 9.13 (stretch)
+Release:        9.13
+Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><h3 id="on-WKY"><a href="#on-WKY" class="headerlink" title="on WKY"></a>on WKY</h3><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
+<p>然后插上wky，自动重装系统装如EMMC（不用刷inphic底包），很方便。</p>
+<p>WKY可能不支持卡载 armbian？</p>
+<h3 id="on-N1"><a href="#on-N1" class="headerlink" title="on N1"></a>on N1</h3><p>N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块钱的U盘，故无法确定卡载系统的稳定性。</p>
+<p>刷机很简单，将这两个固件任选其一：</p>
+<ol>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_20190401.img</li>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_desktop_20190401.img</li>
+</ol>
+<p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
+<p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
+<h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><p>默认密码 default：</p>
+<p>root/1234</p>
+<h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
+<h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
+<pre><code>hostname
+sudo hostname armbian-wky</code></pre><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><pre><code>cd /etc/apt/
+vi sources.list</code></pre><h3 id="For-Debian-9-stretch"><a href="#For-Debian-9-stretch" class="headerlink" title="For Debian 9 stretch"></a>For Debian 9 stretch</h3><p>Note that Tsinghua and 163.com sources DO NOT WORK.</p>
+<pre><code>deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free</code></pre><p>如果签名报错，运行这一行：</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥（例如648ACFD622F3D138）</code></pre><p>就好了。</p>
+<p>For docker</p>
+<pre><code>https://mirrors.ustc.edu.cn/docker-ce</code></pre><h3 id="For-Ubuntu-18-bionic"><a href="#For-Ubuntu-18-bionic" class="headerlink" title="For Ubuntu 18 bionic"></a>For Ubuntu 18 bionic</h3><p>这个比较难搞，arm 版本的源不好找。</p>
+<p>不是 “Failed to fetch” 就是 certificate 有问题。</p>
+<p>亲测以下可用:</p>
+<pre><code># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</code></pre><p>或者：</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://www.bianchengquan.com/article/453596.html">https://www.bianchengquan.com/article/453596.html</a><br>和 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd3a2d153505">https://www.jianshu.com/p/fd3a2d153505</a></p>
+<h2 id="Some-useful-apt-to-install"><a href="#Some-useful-apt-to-install" class="headerlink" title="Some useful apt to install"></a>Some useful apt to install</h2><pre><code>apt install python-setuptools
+apt install tmux
+apt install mosh</code></pre><h2 id="Install-Webmin"><a href="#Install-Webmin" class="headerlink" title="Install Webmin"></a>Install Webmin</h2><p>国外版的宝塔。</p>
+<pre><code>/etc/apt/sources.list.d/
+vi webmin.list</code></pre><p>内容：</p>
+<pre><code>deb http://download.webmin.com/download/repository sarge contrib</code></pre><p>然后：</p>
+<pre><code>wget http://www.webmin.com/jcameron-key.asc --no-check-certificate
+apt-key add jcameron-key.asc
+apt update
+apt install webmin</code></pre><p>然后就可以在 10000 端口查看 webmin 面板了。</p>
+<h1 id="自动同步-挂在U盘"><a href="#自动同步-挂在U盘" class="headerlink" title="自动同步 + 挂在U盘"></a>自动同步 + 挂在U盘</h1><h2 id="挂载-U盘"><a href="#挂载-U盘" class="headerlink" title="挂载 U盘"></a>挂载 U盘</h2><p>TODO</p>
+<p>一定不要修改 fstab。教训。</p>
+<h2 id="同步软件"><a href="#同步软件" class="headerlink" title="同步软件"></a>同步软件</h2><ol>
+<li>resilio sync</li>
+<li>syncthing</li>
+</ol>
+<h3 id="Resilio-sync"><a href="#Resilio-sync" class="headerlink" title="Resilio-sync"></a>Resilio-sync</h3><pre><code>apt install resilio-sync
+systemctl status resilio
+systemctl start resilio-sync
+systemctl status resilio-sync
+systemctl enable resilio-sync</code></pre><p>查看：</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<h3 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h3><pre><code>sudo apt install syncthing
+syncthing --version </code></pre><p>For Debian:</p>
+<pre><code>cd /lib/systemd/system/</code></pre><p>For Ubuntu:</p>
+<pre><code>cd /etc/systemd/system/</code></pre><p>Note the following config is ready:</p>
+<pre><code>cat syncthing@.service
+sudo systemctl enable syncthing@$USER</code></pre><p>After this, <strong>/etc/systemd/system/multi-user.target.wants/syncthing@root.service</strong> is created. </p>
+<p>Run syncthing:</p>
+<pre><code>sudo systemctl start syncthing@$USER
+sudo systemctl status syncthing@$USER
+vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384</address> 改成 0.0.0.0:8384</p>
+<p>tls=“false” 改成 true</p>
+<p>然后：</p>
+<pre><code>sudo systemctl restart syncthing@$USER
+sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h2><p>Debian可以有桌面系统。</p>
+<h3 id="配置远程登陆"><a href="#配置远程登陆" class="headerlink" title="配置远程登陆"></a>配置远程登陆</h3><pre><code>sudo apt install xrdp xorgxrdp
+sudo systemctl enable xrdp
+sudo reboot</code></pre><p>然后就可以用windows remote 软件来登陆了。Mac也可以。</p>
+<p>端口号3389。</p>
+<h3 id="桌面自动登陆"><a href="#桌面自动登陆" class="headerlink" title="桌面自动登陆"></a>桌面自动登陆</h3><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
+sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
+<pre><code>fc-cache -v
+sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8</p>
+<h2 id="自动化-Hexo"><a href="#自动化-Hexo" class="headerlink" title="自动化 Hexo"></a>自动化 Hexo</h2><pre><code>sudo vi /root/.bashrc
+source /root/.bashrc </code></pre><p>Add</p>
+<pre><code>alias wiki=&quot;cd /home/rslsync/Resilio\ Sync/yellowpage/unclemartian &amp;&amp; git status &amp;&amp; git add . &amp;&amp; git commit -m &apos;auto hexo post update&apos; &amp;&amp; git push origin hexo-source &amp;&amp; git status&quot;</code></pre><p>下次，只需要执行一行就行了：</p>
+<pre><code>wiki</code></pre><h2 id="Samba"><a href="#Samba" class="headerlink" title="Samba"></a>Samba</h2><pre><code>apt-get install samba
+systemctl status smbd
+(maybe optional)smbpasswd -a smb</code></pre><p>然后</p>
+<pre><code>sudo vi /etc/samba/smb.conf
+
+[wky]
+    comment = wky-arm
+    path = /home/rslsync/Resilio Sync/
+    comment = share all
+    browseable = yes
+    public = yes
+    writable = yes
+    valid users = wky
+    force user = wky
+    force group = wky</code></pre><p>重启：</p>
+<pre><code>systemctl restart smbd
+systemctl status smbd</code></pre><p>权限有问题。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a><br><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/alpwnxmp/">https://post.smzdm.com/p/alpwnxmp/</a><br><a target="_blank" rel="noopener" href="https://blog.ztluo.dev/post/0057-phicomm-n1/">https://blog.ztluo.dev/post/0057-phicomm-n1/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/11/Crypto/nft-2-types/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/11/Crypto/nft-2-types/" class="post-title-link" itemprop="url">【Crypto】 NFT 未来的2条发展路线</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-11T00:00:00+00:00">2021-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="2条路线"><a href="#2条路线" class="headerlink" title="2条路线"></a>2条路线</h1><ol>
+<li>精品化路线（IP    化）</li>
+</ol>
+<blockquote>
+<p>MekaVerse 的爆火，首先得益于项目结合了高达这一大 IP。</p>
+<p>尽管并未获得官方授权，但未来可能构成 Meka 宇宙，赋予了用户足够的想象空间，这可能也将是 NFT 市场接下来的一大发展趋势，类似的项目还有比如 The Project Zero、CryptoBots 等。</p>
+</blockquote>
+<ol>
+<li><p>可编程化路线</p>
+<p>参考 Loot</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/Crypto/loot-master-wiki/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/29/Crypto/loot-master-wiki/" class="post-title-link" itemprop="url">【Crypto】 Loot master wiki</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-29T00:00:00+00:00">2021-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Loot-Intro"><a href="#Loot-Intro" class="headerlink" title="Loot Intro"></a>Loot Intro</h1><p>Loot 是由 Dom Hofmann 发起、靠社区推动的一个 NFT 项目。</p>
+<p>上线于2021年8月27日。</p>
+<p><a target="_blank" rel="noopener" href="https://etherscan.io/address/0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7">https://etherscan.io/address/0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7</a></p>
+<blockquote>
+<p>Dom Hofmann, 视频共享应用程序 Vine 的联合创始人</p>
+</blockquote>
+<p>每一枚 Loot 代表一组具有随机稀缺特性的冒险装备</p>
+<ol>
+<li>upper body<ol>
+<li>武器（Weapons）</li>
+<li>头甲（Head Armor）</li>
+<li>胸甲（Chest Armor）</li>
+</ol>
+</li>
+<li>lower body<ol>
+<li>腰甲（Waist Armor）</li>
+<li>手甲（Hand Armor）</li>
+<li>脚甲（Foot Armor）</li>
+</ol>
+</li>
+<li>accessory<ol>
+<li>项链（Necklaces）</li>
+<li>戒指（Rings）</li>
+</ol>
+</li>
+</ol>
+<h1 id="特点总结"><a href="#特点总结" class="headerlink" title="特点总结"></a>特点总结</h1><p>表面：NFT 从 JPG 到 TXT 的一次<strong>呈现形式</strong>的创新。</p>
+<p>深层：往后看。</p>
+<h2 id="Before-Loot"><a href="#Before-Loot" class="headerlink" title="Before Loot"></a>Before Loot</h2><h3 id="NFT所有权-–-gt-通过-hash-value-锁定的一个-JPG-文件"><a href="#NFT所有权-–-gt-通过-hash-value-锁定的一个-JPG-文件" class="headerlink" title="NFT所有权 –&gt; 通过 hash value 锁定的一个 JPG 文件"></a>NFT所有权 –&gt; 通过 hash value 锁定的一个 JPG 文件</h3><p><img src="/images/loot-before-loot.jpeg" alt=""></p>
+<p>具体操作：</p>
+<ol>
+<li><p>发行方将 JPG 数据映射成一串 signature (哈希指纹) 用于完整性校验。例如 <a target="_blank" rel="noopener" href="https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b">https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b</a></p>
+</li>
+<li><p>将该 ipfs signature、文件路径与内容描述、发行信息、创作者签名等信息构成 Metadata (元数据)。例如 <a target="_blank" rel="noopener" href="https://metadata.theunstablehorsesyard.com/horse/32">https://metadata.theunstablehorsesyard.com/horse/32</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Metadata：</span><br><span class="line">&#123;&quot;image&quot;:&quot;https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b&quot;,&quot;description&quot;:&quot;The Unstable Horses Yard are unique collectibles, with provably randomized traits and physical attributes. Own, trade, and play in the 3D world with your unique horse.&quot;,&quot;attributes&quot;:[&#123;&quot;trait_type&quot;:&quot;hoof&quot;,&quot;value&quot;:&quot;Paper&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;clothes&quot;,&quot;value&quot;:&quot;Muskateer&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;ear&quot;,&quot;value&quot;:&quot;Earrings&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;eyes expression&quot;,&quot;value&quot;:&quot;Unstable&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;eyes&quot;,&quot;value&quot;:&quot;Monocle&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;neck&quot;,&quot;value&quot;:&quot;Love Necklace&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mane&quot;,&quot;value&quot;:&quot;Blonde&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mouth expression&quot;,&quot;value&quot;:&quot;Closed Mouth&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mouth&quot;,&quot;value&quot;:&quot;Cigarette&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;hat&quot;,&quot;value&quot;:&quot;Ribbon&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;breed&quot;,&quot;value&quot;:&quot;Zebra Cross&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;Generation&quot;,&quot;value&quot;:1,&quot;display_type&quot;:&quot;number&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;Stamina&quot;,&quot;value&quot;:98,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Strength&quot;,&quot;value&quot;:86,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Natural Speed&quot;,&quot;value&quot;:77,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Adaptibility&quot;,&quot;value&quot;:99,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Pedigree&quot;,&quot;value&quot;:90,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Instability&quot;,&quot;value&quot;:60,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Alertness&quot;,&quot;value&quot;:80,&quot;max_value&quot;:100&#125;]&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Metadata 很长，通常不存在链上，而是将储存 Metadata 的路径再次以哈希摘要的形式上传至区块链。</p>
+<ol>
+<li>参考上述例子，这个链接最终存在了链上： <a target="_blank" rel="noopener" href="https://metadata.theunstablehorsesyard.com/horse/32">https://metadata.theunstablehorsesyard.com/horse/32</a> （合约地址： <a target="_blank" rel="noopener" href="https://etherscan.io/address/0x0e4245ccb9954ead73f8bab13607cd2d86efc84c#readContract）">https://etherscan.io/address/0x0e4245ccb9954ead73f8bab13607cd2d86efc84c#readContract）</a></li>
+<li>更好的办法是，存在 IPFS上，这样数据安全性更靠谱一点。</li>
+</ol>
+</li>
+</ol>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>metadata 和 ownership 是分离的</p>
+<ol>
+<li>可能导致数据可用性和数据完整性问题</li>
+<li>如果把原始图像全都上链，又会占用本就稀缺的公共资源</li>
+<li>上面那个例子更为甚者，中心化网站可以直接修改 metadata 内容。</li>
+</ol>
+<h3 id="进一步问题"><a href="#进一步问题" class="headerlink" title="进一步问题"></a>进一步问题</h3><p>IP 的进化、游戏道具的升级，无法解决。</p>
+<blockquote>
+<p>目前在 Axie Infinity 等游戏中通过「孵化」<strong>生成一个新的 NFT</strong> 来达到这一目的。</p>
+</blockquote>
+<h2 id="After-Loot"><a href="#After-Loot" class="headerlink" title="After Loot"></a>After Loot</h2><p>将 NFT 的“art”层从“information”层剥离，只保留txt。有点类似 Ubuntu 和 Linux kernel 的关系。</p>
+<ol>
+<li>可组合性、互操作性，更多元体验；</li>
+<li>程序化生成技术 (GenArt) 中引入了<strong>社交随机性</strong>元素。</li>
+</ol>
+<p><img src="/images/loot-after-loot.jpeg" alt=""></p>
+<h1 id="Generative-art"><a href="#Generative-art" class="headerlink" title="Generative art"></a>Generative art</h1><p>又称：<strong>程序化生成（procedural generation）</strong></p>
+<p>Loot 是程序化生成（procedural generation）的一种实例。</p>
+<p>Crypto Punks 的项目方 Larva Labs 也率先开发了此类产品 Autoglyphs。</p>
+<p>曾经不知名的链上生成类艺术品 NFT 培育平台 Art Blocks 已然实现周交易量排名第 5</p>
+<blockquote>
+<p>Art Blocks 是一个邀请制艺术家培育平台，为艺术家提供了程序化生成算法的创作平台。培育出的作品集对应的生成算法脚本（例如 p5js）将作为一个 project 储存于以太坊智能合约。<br>收藏家可根据作品风格挑选 project，购买的 NFT 将根据内置随机种子产生一组随机变量，该变量控制生成算法生成一幅符合该风格的作品，不限于 静态图像、 3D 模型 或 可交互的体验（鼠标互动）。</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/908208201053.htm">https://www.chainnews.com/articles/908208201053.htm</a>?<br><a target="_blank" rel="noopener" href="https://medium.com/treum_io/on-chain-artwork-nfts-f0556653c9f3">https://medium.com/treum_io/on-chain-artwork-nfts-f0556653c9f3</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/Read/knowledge/Napoleon-census/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +701,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -255,7 +774,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -344,7 +863,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -420,7 +939,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -534,294 +1053,6 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/13/Tech/ubuntu-mount-apfs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/13/Tech/ubuntu-mount-apfs/" class="post-title-link" itemprop="url">【Tech】 Mount APFS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>encrypted APFS can only run in read-only mode on Ubuntu </p>
-<h2 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h2><p>Instruction: <a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">https://github.com/sgan81/apfs-fuse</a></p>
-<p>Find out the <device> using Disk tool, like this: <strong>/dev/sda5</strong>, or <strong>/dev/sdb1</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Crypto/some-ethereum-competitors-2021/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/12/Crypto/some-ethereum-competitors-2021/" class="post-title-link" itemprop="url">【Crypto】 Some of the best Ethereum competitors in 2021</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-12 15:55:13" itemprop="dateCreated datePublished" datetime="2021-09-12T15:55:13+00:00">2021-09-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>TODO</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Tech/install-wechat-ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/12/Tech/install-wechat-ubuntu/" class="post-title-link" itemprop="url">【Tech】 Install Wechat on Ubuntu</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-12T00:00:00+00:00">2021-09-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="ubuntu-deepin-wechat"><a href="#ubuntu-deepin-wechat" class="headerlink" title="ubuntu-deepin-wechat"></a>ubuntu-deepin-wechat</h1><p>Installer for Deepin WeChat with Wine</p>
-<h2 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> deepin-wine-dependency</span><br><span class="line">bash install.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="Install-WeChat"><a href="#Install-WeChat" class="headerlink" title="Install WeChat"></a>Install WeChat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin.com.wechat_2.6.2.31deepin0_i386.deb</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
-
-<h2 id="WeChat-Version-Too-Old-Issue"><a href="#WeChat-Version-Too-Old-Issue" class="headerlink" title="WeChat Version Too Old Issue"></a>WeChat Version Too Old Issue</h2><p>Please update your WeChat Windows installer if you encounter this problem.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /tmp/wechat</span><br><span class="line"><span class="built_in">cd</span> /tmp/wechat</span><br><span class="line">wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe</span><br><span class="line"><span class="built_in">env</span> WINEPREFIX=/home/<span class="variable">$&#123;USER&#125;</span>/.deepinwine/Deepin-WeChat deepin-wine WeChatSetup.exe</span><br></pre></td></tr></table></figure>
-
-<h2 id="WeChat-font-issue"><a href="#WeChat-font-issue" class="headerlink" title="WeChat font issue"></a>WeChat font issue</h2><p>Download:<br><a target="_blank" rel="noopener" href="https://github.com/qiuhuachuan/fonts/blob/main/MSYH.TTC">https://github.com/qiuhuachuan/fonts/blob/main/MSYH.TTC</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ~/Downloads/msyh.ttc ~/.deepinwine/Deepin-WeChat/drive_c/windows/Fonts</span><br><span class="line">vim ~/.deepinwine/Deepin-WeChat/font.reg</span><br></pre></td></tr></table></figure>
-
-<p>File content: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line"><span class="string">&quot;MS Shell Dlg&quot;</span>=<span class="string">&quot;msyh&quot;</span></span><br><span class="line"><span class="string">&quot;MS Shell Dlg 2&quot;</span>=<span class="string">&quot;msyh&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]</span><br><span class="line"><span class="string">&quot;Lucida Sans Unicode&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft Sans Serif&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;MS Sans Serif&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma Bold&quot;</span>=<span class="string">&quot;msyhbd.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;msyh&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial Black&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>Last: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WINEPREFIX=~/.deepinwine/Deepin-WeChat/ deepin-wine regedit ~/.deepinwine/Deepin-WeChat/font.reg</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/11/Read/people/richard-gere-1993/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/11/Read/people/richard-gere-1993/" class="post-title-link" itemprop="url">【Read】 Richard Gere 1993</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-11T00:00:00+00:00">2021-09-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>Could not think of a better title for this.</p>
-</blockquote>
-<p>Richard Gere，美国演员。代表作《美国舞男》、《军官与绅士》、《一级恐惧》、《风月俏佳人》、《芝加哥》等。</p>
-<p>他在20多岁开始对佛教感兴趣，首先在Kyozan Joshu Sasaki领导下学习禅宗佛教。他在尼泊尔和印度遇到了许多藏族僧侣和喇嘛。</p>
-<p>In 1993, Gere used his time at Oscar stage to criticize the Chinese government, which led to an Oscars ban that lasted for years.</p>
-<p>Watch: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kZy6Q8l2aOY">https://www.youtube.com/watch?v=kZy6Q8l2aOY</a></p>
-<blockquote>
-<p>该节目的制片人，已故的吉尔·凯茨（Gil Cates）怒不可遏，称当年颁奖典礼上的政治演讲 —— “令人反感和不诚实”，并发誓要禁止这3人来自未来的奥斯卡。</p>
-</blockquote>
-<p>Gere didn’t return to Oscar until 2013, when he presented an award with his Chicago castmates.</p>
-<p>他从未获得过奥斯卡提名。只是在2002年的芝加哥，让他得了金球奖</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -891,7 +1122,7 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

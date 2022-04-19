@@ -151,6 +151,475 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/chromebook-3-install-galliumos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/28/Tech/chromebook-3-install-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 3 - Install GalliumOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>There are 2 ways to do a fresh installation of GalliumOS on Chromebook:</p>
+<ol>
+<li><strong>Traditional Mode</strong> - replace ChromeOS entirely. Need a USD drive. </li>
+<li><strong>chrx Mode</strong> - install from ChromeOS command line. </li>
+</ol>
+<p>The master guide is on <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">wiki.galliumos.org</a></strong>, or there’s another <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing/New_To_Linux">simpler guide for beginners</a>.</p>
+<h1 id="一、Traditional-installtion"><a href="#一、Traditional-installtion" class="headerlink" title="一、Traditional installtion"></a>一、Traditional installtion</h1><ol>
+<li><p>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
+<p> <img src="/images/galliumos-install-1.jpg" alt=""></p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
+</li>
+<li><p>Enabling Developer Mode (Esc+F3(refresh)+Power), and reboot.</p>
+</li>
+<li><p>Enable Legacy Mode booting.</p>
+<ol>
+<li><p>With your ChromeOS booted, press [Ctrl+Alt+T] and get a terminal (“crosh”) window</p>
+</li>
+<li><p>Run: <strong>‘shell’</strong></p>
+</li>
+<li><p>Then:</p>
+<p> sudo crossystem dev_boot_legacy=1</p>
+</li>
+<li><p>If you have seen an error, simply skip and continue. (Reference: <a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/">https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/</a>)</p>
+</li>
+</ol>
+</li>
+<li><p>Disable WP (write protection). Check your device on <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#devices">this MrChromebox</a> page to decide how you going to do it. In my case I use <a target="_blank" rel="noopener" href="https://wiki.mrchromebox.tech/Firmware_Write_Protect#Hardware_Write_Protection">the CR50 method</a></p>
+<ul>
+<li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
+</ul>
+</li>
+<li><p>Check WP status, At <strong>crosh&gt;</strong></p>
+<pre><code>sudo sh
+flashrom --wp-status</code></pre><p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
+</li>
+<li><p>Update Firmware. Press <strong>[Ctrl+Alt+T]</strong> to get a terminal (“crosh”) window, then type in “<strong>shell</strong>“</p>
+<ul>
+<li><p>Decide if you wish to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware">update RW_LEGACY or install Full Firmware/UEFI</a></p>
+</li>
+<li><p>Run: </p>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p>  In case Github not accissible, try this link: </p>
+<pre><code>cd; curl -LO https://unclemartian.github.io/files/mrchromebox/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre></li>
+</ul>
+</li>
+<li><p>At promp, first you need to set GBB Flags (here is <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">an explanation of why</a>).</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">Important: If you choose an ISO install of GalliumOS</a> (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">you allow your battery to drain completely</a></strong>, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
+<p>Google Binary Block (GBB) flags are firmware level settings stored directly in the firmware flash chip itself in a read-only (RO) area</p>
+<p>I’ve made this mistake before. Had to do an entire factory restore of ChromeOS.</p>
+</blockquote>
+</li>
+<li><p>To set GBB, under ChromeOS at chronos@localhost / $ prompt, run this: </p>
+<pre><code>cd; curl -LO mrchromebox.tech/firmware-util.sh
+sudo install -Dt /usr/local/bin -m 755 firmware-util.sh
+sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p> <strong>Very important</strong>: you MUST execute this command <strong>as a normal/non-root user</strong>.</p>
+<p> <img src="/images/galliumos-install-3.jpg" alt=""></p>
+</li>
+<li><p>Next, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough. </p>
+<p> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
+</li>
+<li><p>Now start <strong>the actual installation process</strong> of GalliumOS!</p>
+</li>
+<li><p>Burn the ISO using <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">BalenaEtcher</a>. I used my old Mac to do the job. </p>
+</li>
+<li><p>Keep your USB drive plugged-in before rebooting. On the “<strong>OS verification is OFF</strong>“ screen, press <strong>Ctrl + L</strong></p>
+</li>
+<li><p>Install GalliumOS (I recommend using the English mode + Wiki connected to install).</p>
+</li>
+<li><p>You may or may not need to press Ctrl + L every time you boot the system, depending on which fireware script you chose to install. </p>
+</li>
+</ol>
+<h2 id="Important-Power-Drain"><a href="#Important-Power-Drain" class="headerlink" title="[Important] Power Drain"></a>[Important] Power Drain</h2><p>如果电脑突然没电了，你的 Chromebook 无法启动，而是哔哔很大的两声，这说明你的 dev_boot_legacy flag 被 GBB 给 unset 成 0 了。</p>
+<p>Sorry to tell you, 你只能恢复原 ChromeOS，然后重来一次了。你的数据都没了。</p>
+<p>没别的办法，你猜我怎么知道的？ </p>
+<p>Reference：</p>
+<blockquote>
+<p>Important: If you choose an ISO install of GalliumOS (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and you allow your battery to drain completely, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">https://wiki.galliumos.org/Firmware#crossystem</a></p>
+</blockquote>
+<p>How to fix: <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">必须改 GBB</a>，但是不建议直接改 c++ 代码，因为是只读的。最便捷的方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
+<h1 id="二、chrx-installation"><a href="#二、chrx-installation" class="headerlink" title="二、chrx installation"></a>二、chrx installation</h1><p>这种模式很好，因为 ChromeOS 被原本保留了。恢复起来也很方便。</p>
+<p>主要问题就是硬盘太小。低端Chromebook 普遍采用 32G 的 flash drive。装 ChromeOS 使用一大半，GalliumOS 占用 7-8G，空间就没了。</p>
+<h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h2 id="开机画面（dev-mode）键盘选项"><a href="#开机画面（dev-mode）键盘选项" class="headerlink" title="开机画面（dev mode）键盘选项"></a>开机画面（dev mode）键盘选项</h2><ul>
+<li><strong>[Ctrl+D]</strong> to boot ChromeOS in <strong>Developer Mode</strong>, or</li>
+<li><strong>[Ctrl+L]</strong> to boot <strong>Legacy Mode</strong> (usually used for Linux, after installing)</li>
+<li>[Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you’ll never need to use this)</li>
+<li>[TAB] for some boot configuration information</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/chromebook-2-linux-crostini/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/26/Tech/chromebook-2-linux-crostini/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 2 - Linux (Crostini)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-26T00:00:00+00:00">2022-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong>Crostini</strong> = <a target="_blank" rel="noopener" href="https://chromeos.dev/en/linux">Linux on Chrome OS</a>. </p>
+<p>这个 Linux 系统是基于 Debian 11 的。所以，很多 commands 跟 Ubuntu 很像。</p>
+<blockquote>
+<p>As of March 2022, ChromeOS 99 have <strong>Debian 11 (bullseye)</strong> installed by default (as of March 2022).</p>
+</blockquote>
+<h1 id="File-Share"><a href="#File-Share" class="headerlink" title="File Share"></a>File Share</h1><p>Add symlink: </p>
+<pre><code>ln -s &lt;real folder&gt; &lt;link folder&gt;</code></pre><p>If you save something to <strong>link folder</strong>, it will actually save it into <strong>real folder</strong>.</p>
+<h2 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h2><p>First, check the OS vesion：</p>
+<pre><code>ngu@penguin:~$ cat /etc/os-release </code></pre><p>Got：</p>
+<pre><code>PRETTY_NAME=&quot;Debian GNU/Linux 11 (bullseye)&quot;
+NAME=&quot;Debian GNU/Linux&quot;
+VERSION_ID=&quot;11&quot;
+VERSION=&quot;11 (bullseye)&quot;
+VERSION_CODENAME=bullseye
+ID=debian
+HOME_URL=&quot;https://www.debian.org/&quot;
+SUPPORT_URL=&quot;https://www.debian.org/support&quot;
+BUG_REPORT_URL=&quot;https://bugs.debian.org/&quot;</code></pre><p>Old source.list: </p>
+<pre><code># Generated by distrobuilder
+deb https://deb.debian.org/debian bullseye main
+deb https://deb.debian.org/debian bullseye-updates main
+deb https://deb.debian.org/debian-security/ bullseye-security main</code></pre><p>Replace it with: </p>
+<pre><code>deb https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
+
+deb https://mirrors.aliyun.com/debian-security/ bullseye-security main
+deb-src https://mirrors.aliyun.com/debian-security/ bullseye-security main
+
+deb https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
+
+deb https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
+deb-src https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib</code></pre><p>Then: </p>
+<pre><code>sudo apt update</code></pre><h1 id="Install-VSCode"><a href="#Install-VSCode" class="headerlink" title="Install VSCode"></a>Install VSCode</h1><pre><code>sudo apt-get update
+sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">download the deb</a> and double click to install.</p>
+<h1 id="Install-Work-Software"><a href="#Install-Work-Software" class="headerlink" title="Install Work Software"></a>Install Work Software</h1><p>Tencent meeting does not work, yet. (Wayland Protocol issue)</p>
+<p><img src="/images/chromebook-crostini-wemeeting.png" alt=""></p>
+<p>But Feishu works like a charm, so far.</p>
+<h1 id="Install-Firefox"><a href="#Install-Firefox" class="headerlink" title="Install Firefox"></a>Install Firefox</h1><p>Firefox somehow was not in APT repository, need to <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38428827/article/details/104066754">manually install</a>.</p>
+<p>First, find out <a target="_blank" rel="noopener" href="https://www.mozilla.org/zh-CN/firefox/all/#product-desktop-release">the download link</a></p>
+<p>Then:</p>
+<pre><code>curl -O https://download-installer.cdn.mozilla.net/pub/firefox/releases/98.0.2/linux-x86_64/en-US/firefox-98.0.2.tar.bz2
+tar -xjvf firefox-98.0.2.tar.bz2 firefox/
+sudo mv firefox /opt/
+sudo ln -s /opt/firefox/firefox /usr/bin/firefox</code></pre><p>Installation finished, but you might need additional package: </p>
+<pre><code>sudo apt-get install libdbus-glib-1-2
+firefox</code></pre><p><img src="/images/chromebook-crostini-firefox-chinese.png" alt=""></p>
+<p>However, Chinese display still got issues. Install font: </p>
+<pre><code>sudo apt install fonts-hanazono</code></pre><p>Last step, add firefox icon: </p>
+<pre><code>cd /usr/share/applications/
+sudo vi firefox.desktop</code></pre><p>Add content: </p>
+<pre><code>[Desktop Entry]
+Name=firefox
+Comment=firefox
+Exec=/opt/firefox/firefox
+Icon=/opt/firefox/browser/chrome/icons/default/default128.png
+Terminal=false
+Type=Application
+Categories=Application;
+Encoding=UTF-8
+StartupNotify=true</code></pre><p>Done. </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/25/Tech/install-resilio-sync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/25/Tech/install-resilio-sync/" class="post-title-link" itemprop="url">【Tech】 Install Resilio Sync on Linxu / ChromeOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-25 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-25T00:00:00+00:00">2022-03-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>In this post, I will cover installing Resilio on:</p>
+<ol>
+<li>Ubuntu</li>
+<li>GalliumOS (based off Ubuntu 18)</li>
+<li>Chromebook Crostini (Debian 11)</li>
+<li>Chromebook Android (version 9)</li>
+</ol>
+<h1 id="Get-started"><a href="#Get-started" class="headerlink" title="Get started"></a>Get started</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Download Deb and install from <a target="_blank" rel="noopener" href="https://www.resilio.com/platforms/desktop/">the official website</a> or <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206178924">this post</a></p>
+<pre><code>sudo dpkg -i &lt;resilio-sync.deb&gt;</code></pre><p>Alternatively, install using apt-get:</p>
+<pre><code>echo &quot;deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free&quot; | sudo tee /etc/apt/sources.list.d/resilio-sync.list
+curl -L https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add
+(maybe optional) wget -qO - https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
+
+sudo apt-get update    
+sudo apt-get install -y resilio-sync</code></pre><h2 id="Enable-it"><a href="#Enable-it" class="headerlink" title="Enable it"></a>Enable it</h2><p>Enable the service:</p>
+<pre><code>sudo systemctl status resilio-sync
+sudo systemctl enable resilio-sync
+sudo systemctl start resilio-sync</code></pre><p>Check it out:<strong>_<a target="_blank" rel="noopener" href="https://127.0.0.1:8888/gui/">https://127.0.0.1:8888/gui/</a></strong></p>
+<p>So far, you can access the UI but still not able to use it. </p>
+<p>For Ubuntu, go ahead and config permission.</p>
+<h2 id="Config-Permission"><a href="#Config-Permission" class="headerlink" title="Config Permission"></a>Config Permission</h2><p>According to <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux">this post</a>: </p>
+<blockquote>
+<p>user_group is a group name of current user, by default it’s the same as user name (can be checked by running id command)</p>
+</blockquote>
+<p>In my case I ran (My whoami = ‘cb’):</p>
+<pre><code>sudo usermod -aG cb rslsync
+sudo usermod -aG rslsync cb
+sudo chmod g+rw /home/rslsync/Resilio\ Sync/</code></pre><p>This should be enough for Ubuntu. However, for the Linux on ChromeOS, you need to do the following. </p>
+<h1 id="Additional-Steps-on-ChromeOS-Linux"><a href="#Additional-Steps-on-ChromeOS-Linux" class="headerlink" title="Additional Steps on ChromeOS Linux"></a>Additional Steps on ChromeOS Linux</h1><p>First, check your username in ‘Crostini’ Linux.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Let’s ensure that ‘normal’ user can read/write the synchronized files by ‘rslsync’ user. </p>
+</blockquote>
+<blockquote>
+<p>Run the following (mind the last command which <a target="_blank" rel="noopener" href="https://kenfavors.com/code/how-to-add-user-permissions-to-a-folder-in-ubuntu/">adding user permissions to the /home/rslsync folder</a>)</p>
+</blockquote>
+<pre><code>sudo usermod -aG [whoami] rslsync    
+sudo usermod -aG rslsync [whoami]
+sudo chmod g+rw /home/rslsync/
+sudo apt install acl
+sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now test link: <strong><a target="_blank" rel="noopener" href="https://127.0.0.1:8888/gui/">https://127.0.0.1:8888/gui/</a></strong></p>
+<p>You might need to change owner for certain folders: </p>
+<pre><code>sudo chown -R [whoami]:[whoami] ./folder-name/</code></pre><h1 id="Forgot-username"><a href="#Forgot-username" class="headerlink" title="Forgot username"></a>Forgot username</h1><p>If ever, you forgot your username. On Linux, go to <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206664690-Sync-Storage-folder">Sync Storage Folder</a> by running the following: </p>
+<pre><code>cd /var/lib/resilio-sync</code></pre><p>Find a file with the name “settings.dat”. The <a target="_blank" rel="noopener" href="https://forum.resilio.com/topic/43918-forgot-usernamepasswd-for-web-ui/">cleartext username should be there</a>.</p>
+<p>Just search for the text “username2”. If you have no luck trying the method above, you can refer to <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/205450295-How-do-I-reset-my-WebUI-password-">this official doc to reset WebUI password</a>.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.davidfong.org/post/resiliosyncchromebook/">https://www.davidfong.org/post/resiliosyncchromebook/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/17/Read/liberal/berlin-movie-festival/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/17/Read/liberal/berlin-movie-festival/" class="post-title-link" itemprop="url">【Read】 柏林国际电影节 - 金熊奖/银熊奖</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-17T00:00:00+00:00">2022-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><ol>
+<li>柏林国际电影节</li>
+<li>Berlin International Film Festival</li>
+<li>Internationale Filmfestspiele Berlin</li>
+</ol>
+<p>原名<strong>西柏林国际电影节</strong>，创立于1951年</p>
+<p>柏林国际电影节分为“主竞赛”、“遇见”、“短片竞赛”、“全景”、“论坛”、“特别展映”、“新生代”等单元。</p>
+<h2 id="欧洲三大国际电影节"><a href="#欧洲三大国际电影节" class="headerlink" title="欧洲三大国际电影节"></a>欧洲三大国际电影节</h2><ol>
+<li>柏林国际电影节</li>
+<li>戛纳国际电影节</li>
+<li>威尼斯国际电影节</li>
+</ol>
+<h1 id="银熊奖"><a href="#银熊奖" class="headerlink" title="银熊奖"></a>银熊奖</h1><p>银熊奖（Silver Bear Award）是德国柏林国际电影节的主要奖项，仅次于最高奖项金熊奖。银熊奖分为评审团大奖银熊奖、最佳导演银熊奖、最佳主角银熊奖、最佳配角银熊奖、最佳剧本银熊奖、杰出艺术贡献银熊奖等。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/11/Tech/tmux-and-mosh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +651,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -294,7 +763,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -378,7 +847,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -474,7 +943,7 @@ curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieF
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
+                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
               </span>
 
           
@@ -500,324 +969,6 @@ mkdir shared-folder
 sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行了。</p>
 <p>如果权限出了问题，可以：</p>
 <pre><code>sudo adduser $USER vboxsf</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-crypto-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/-crypto-1111111/" class="post-title-link" itemprop="url">【Crypto】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Crypto】 prefx should be tagged as one of: </p>
-<ol>
-<li>crypto</li>
-<li>nft</li>
-<li>defi</li>
-<li>crypto-people</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-read-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/-read-1111111/" class="post-title-link" itemprop="url">【Read】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Read】 prefx should be tagged as one of:</p>
-<ol>
-<li>liberal</li>
-<li>books</li>
-<li>knowledge</li>
-<li>people</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-tech-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/-tech-1111111/" class="post-title-link" itemprop="url">【Tech】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Tech】 prefx should be tagged as one of: </p>
-<ol>
-<li>technology</li>
-<li>ubuntu</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/28/Crypto/crypto-people/interview-ryan-zurrer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/28/Crypto/crypto-people/interview-ryan-zurrer/" class="post-title-link" itemprop="url">【Crypto】 Ryan Zurrer 与 theDAO</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-28T00:00:00+00:00">2021-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-11 09:30:25" itemprop="dateModified" datetime="2022-04-11T09:30:25+00:00">2022-04-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Ryan-Zurrer"><a href="#Ryan-Zurrer" class="headerlink" title="Ryan Zurrer"></a>Ryan Zurrer</h1><ul>
-<li>Polychain 前合伙人</li>
-<li>后来 Web 3 Foundation 总监</li>
-<li>后来重启 theDAO 项目</li>
-</ul>
-<h1 id="Key-Take-aways"><a href="#Key-Take-aways" class="headerlink" title="Key Take-aways"></a>Key Take-aways</h1><h2 id="Chit-chat"><a href="#Chit-chat" class="headerlink" title="Chit-chat"></a>Chit-chat</h2><p>以下是 Ryan 的观点。</p>
-<ol>
-<li>亚洲市场微妙。不能用美国的投资逻辑。</li>
-<li>唯一能在中国实现商业化取得成功的方法：找本地合作伙伴，给予激励，实现双赢。</li>
-<li>中国人更喜欢社会主义、喜欢强权政府、喜欢资源聚合，只为完成一件事情。</li>
-<li>798 艺术区的艺术在进化：从 90年代表达伤心、愤怒和政治宣言的「伤痕艺术「 到今天的比较自信、表现民族精神风貌的艺术表达。</li>
-</ol>
-<blockquote>
-<p>以前可以看到金发女性更多出现在艺术作品里，等我过几年再回来，就成了更自信的表达中国独有的女性美的作品。</p>
-</blockquote>
-<h2 id="Web-3-0"><a href="#Web-3-0" class="headerlink" title="Web 3.0"></a>Web 3.0</h2><ul>
-<li>Web 2.0 是一个中心化网络，一个<strong>资本和权利协同统治</strong>的网络。</li>
-<li>MakerDAO 是一套中国哲学的项目 —— 核心团队有比较强的决策权，也包括一票否决权。</li>
-<li>百度 CEO 说过，中国人喜欢放弃隐私或者说是愿意为了方便而做出妥协。这与 web 3.0 并不矛盾 —— 这是用户为中心。</li>
-</ul>
-<h2 id="如果想实现-Web-3-0"><a href="#如果想实现-Web-3-0" class="headerlink" title="如果想实现 Web 3.0"></a>如果想实现 Web 3.0</h2><ol>
-<li>实现<strong>隐私保护</strong>和去中心化。</li>
-<li>在新的经济体制下，有竞争力的<strong>金融激励机制</strong>，吸引用户<strong>参与和创造</strong>。</li>
-<li>不应该拿自己是 decentralized 作为理由，不注重用户 UI/UX 的体验。</li>
-</ol>
-<h2 id="关于协议-vs-应用"><a href="#关于协议-vs-应用" class="headerlink" title="关于协议 vs 应用"></a>关于协议 vs 应用</h2><blockquote>
-<p>Joel Monegro 提出的「胖协议」理论非常棒，但是前几天我们谈过一次，他也有了关于协议层和应用层的一些认知转变。他也承认现在很多价值还是会落到应用层面的，所谓的「瘦」，更多是相比我们经历的上一个时代的应用「瘦」，但是可能相比于协议层还是可能是更大的机会。比如 Web 3 的各种应用，都应该是千亿级别的机会。人们之前过于兴奋，一直都在谈协议层、协议层、协议层，但我们现在也看到很多人重新聚焦于应用上。</p>
-<p>比如 MetaCartel，就花了很多精力放在产品开发上，为人们提供了很好用的 UI 界面。当然还有很多问题需要解决，比如通用链上身份这种任何 app 都有需求的。庆幸的是，我看到了越来越多的人才加入这个开发圈子，这些人都给了我很好的启发。</p>
-</blockquote>
-<h2 id="关于-UX"><a href="#关于-UX" class="headerlink" title="关于 UX"></a>关于 UX</h2><blockquote>
-<p>人们不愿意相信自己的电脑，不相信自己的硬盘，自己的脑子，最不信任的却是自己。我们得把 UI 设计的恰当，才能让人们相信自己能够真正地掌控自己的资产，而不是每天晚上睡觉前都在担心会忘记助记词，或者担心有人爬进屋里偷走电脑和私钥，也不用每天早上醒来去学一遍 Shamir’s 密钥分片技术来把自己的私钥分片存储起来。这些限制都是普通人难以接受的。</p>
-</blockquote>
-<h1 id="theDao"><a href="#theDao" class="headerlink" title="theDao"></a>theDao</h1><p>Ryan 关于 The Dao 的看法，摘抄如下：</p>
-<blockquote>
-<p>所以我想创造这么一种社区，就是每个人通过在社区里带来的价值来定义。每个人都由两类属性来评价定义，一种是都客观可查的数据指标，比如说 github 的代码提交次数，Google pagerank 搜索排名数据，Discord 讨论数量，另一种是主观的数据，比如由基于个人名誉和贡献加权的同伴评价。比如创始人已经在项目里面做了很多贡献，那他对一个人的评价所占的比重就要比一个还没什么贡献的新人的评价占的比重高。</p>
-</blockquote>
-<blockquote>
-<p>这就类似 Ray Dalio 的「可信度」指标，我参与进来，贡献价值，就可以获得好的名声，投票的时候我的票就更有价值。这与个人财富无关，与呆的时间长短无关，只跟名誉值有关，也就是与你在历史上创造了多少价值有关。当我在做 A 事的时候做了贡献，拿了名誉，在社区进行到 B 事准备分配奖励的时候，我更有话语权去说谁可以拿到更多奖励。并且整个过程并非完全主观的，我们还是有一部分基于第一类客观指标的评估。因此我们就可以通过调整这些参数的占比，来激励不同类型社区的参与者，我认为这才是 DAO 的核心基石。</p>
-</blockquote>
-<blockquote>
-<p>这是历史上首次，信用来源（source credit）让我们能够将去中心化的团队组织起来，实现去中心化的价值创造。例如，你 Mable 作为一个专业的投资人，参与了投资人社区，在社区里开始推荐项目。当社区几个参与者投资了这个项目并且获得了收益，Mable 就会由于最初带这个项目进来，也获得一部分分红奖励，因为在这个社区里，Mable 是最初那个带来价值创造的人。</p>
-</blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80354805">https://zhuanlan.zhihu.com/p/80354805</a></p>
-
       
     </div>
 
@@ -901,7 +1052,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
