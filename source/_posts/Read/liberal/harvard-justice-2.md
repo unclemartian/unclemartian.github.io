@@ -23,7 +23,7 @@ The greatest good for the greatest number
 
 # Queen v. Dudley and Stephens
 
-Known as __the case of cannibalism at sea__ (a 19th century British law case). 
+Known as __the case of cannibalism at sea__ (a 19th century British law case).
 
 Dudley describes their rescue in his diary with staggering euphemism, quote:
 
@@ -63,13 +63,10 @@ Dudley describes their rescue in his diary with staggering euphemism, quote:
 
 # Utilitarianism
 
-the highest principle of morality
-whether personal or political morality
-is
-to maximize
-the general welfare
-or the collective happiness
-or the overall balance of pleasure over pain
-in a phrase
-maximize
-utility
+The highest principle of morality (whether personal or political morality)
+
+is to maximize the __general welfare__ or the __collective happiness__
+
+or the overall balance of __pleasure over pain__
+
+in a phrase maximize utility.

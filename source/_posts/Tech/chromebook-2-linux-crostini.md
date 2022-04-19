@@ -119,3 +119,5 @@ Add content:
     Categories=Application;
     Encoding=UTF-8
     StartupNotify=true
+
+Done. 
