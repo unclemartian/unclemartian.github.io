@@ -10,17 +10,17 @@ For some reason, certain podcast are not accessible in China. Thus for good audi
 
 However, most RSS clients are not tailored for my use case, so instead of using any tools, I did some research and finally was able to download all MP3 from this podcast: 
 
-1. https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss
-1. https://rss.shawnxli.com/fanpie-film-ma
-1. https://anchor.fm/fanpaifilm
+1. (out of date) https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss
+1. (up to date)https://anchor.fm/fanpaifilm
+1. (马后炮节目) https://rss.shawnxli.com/fanpie-film-ma
 
-# First try
+# 首次尝试
 
 I did some research on [__podcatcher softwares__](https://en.wikipedia.org/wiki/List_of_podcast_clients), and no luck finding a good one. 
 
 Failed. 
 
-# Second try
+# 第二次尝试
 
 Got some help from: 
 
@@ -274,7 +274,7 @@ http://image.kaolafm.net/mz/audios/201604/e30e0109-183a-4c82-bef5-39fd24197445.m
 
 Simply dump those links into IDM softwares and the rest are set. 
 
-## Problem
+## 问题
 
 I got a bunch of files with naming like these: 
 
@@ -285,7 +285,7 @@ I got a bunch of files with naming like these:
 
 No timestamp, no title, no good. 
 
-# Third try
+# 第三次尝试
 
 I found this blog super useful:
 
@@ -293,15 +293,13 @@ https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/
 
 Thus I wrote the following __rss_script.sh__:
 
-```
-for i in $(curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o '<enclosure url="[^"]*' | grep -o '[^"]*$'); do
-    url=$i
-    audiodir=$(echo $i | sed 's|http://image\.kaolafm\.net/mz/audios/||' | sed 's/\/.*\.mp3//')
-    outfile=$(echo $i | sed 's|http://image\.kaolafm\.net/mz/audios/||')
-    mkdir $audiodir
-    wget -q $url -O $outfile
-done
-```
+    for i in $(curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o '<enclosure url="[^"]*' | grep -o '[^"]*$'); do
+        url=$i
+        audiodir=$(echo $i | sed 's|http://image\.kaolafm\.net/mz/audios/||' | sed 's/\/.*\.mp3//')
+        outfile=$(echo $i | sed 's|http://image\.kaolafm\.net/mz/audios/||')
+        mkdir $audiodir
+        wget -q $url -O $outfile
+    done
 
 Simply:
 
@@ -309,7 +307,7 @@ Simply:
 
 and you shall have a nice time. Enjoy.
 
-## Result
+## 结果
 
 All MP3s are in sub-folders like '201604' or '202112', however, I wasn't able to get the right title this time. 
 
