@@ -151,6 +151,377 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/11/Tech/tmux-and-mosh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/11/Tech/tmux-and-mosh/" class="post-title-link" itemprop="url">【Tech】 Tmux and Mosh</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-11T00:00:00+00:00">2022-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>The combination of Tmux and Mosh can increase your life happiness by 15%. </p>
+<h1 id="Mosh"><a href="#Mosh" class="headerlink" title="Mosh"></a>Mosh</h1><p>In a very nutshell;</p>
+<h2 id="Server-side"><a href="#Server-side" class="headerlink" title="Server side"></a>Server side</h2><pre><code>mosh-server new -c 256 -s -l LANG=en_US.UTF-8 -p 60000
+mosh -v
+nc -lu 60001
+iptables -I INPUT -p udp --dport 60001 -j ACCEPT
+iptables -I INPUT -p udp --dport 60002 -j ACCEPT</code></pre><h2 id="Client-side"><a href="#Client-side" class="headerlink" title="Client side"></a>Client side</h2><pre><code>mosh root@x.x.x.x
+Or
+export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@x.x.x.x</code></pre><p>To debug:</p>
+<pre><code>nc -zvu 124.223.5.33 60001</code></pre><p>很多时候，问题就是防火墙。参考上面 iptables 那个 command。</p>
+<h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><h2 id="Tmux-Usage"><a href="#Tmux-Usage" class="headerlink" title="Tmux Usage"></a>Tmux Usage</h2><pre><code>tmux ls
+tmux attach -t 0 (or simply tmux attach)
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>最常用的：</p>
+<ol>
+<li><p>% 左右平分出两个窗格</p>
+</li>
+<li><p>“ 上下平分出两个窗格</p>
+</li>
+<li><p>x 关闭当前窗格</p>
+</li>
+<li><p>{ 当前窗格前移</p>
+</li>
+<li><p>} 当前窗格后移</p>
+</li>
+<li><p>; 选择上次使用的窗格</p>
+</li>
+<li><p>o 选择下一个窗格，也可以使用上下左右方向键来选择</p>
+</li>
+<li><p>space 切换窗格布局，tmux 内置了五种窗格布局，也可以通过 ⌥1 至 ⌥5来切换</p>
+</li>
+<li><p>z 最大化当前窗格，再次执行可恢复原来大小</p>
+</li>
+<li><p>tmux at [-t 会话名]</p>
+</li>
+</ol>
+<p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="Common-Practise"><a href="#Common-Practise" class="headerlink" title="Common Practise"></a>Common Practise</h1><p>At facebook: </p>
+<pre><code>alias m=&apos;mosh -6&apos;
+alias x=&apos;mosh -6 dev -- tmux attach -d&apos;</code></pre><p>Common Usage: </p>
+<pre><code>mosh root@x.x.x.x
+tmux ls
+tmux at</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/05/Crypto/sybil-attack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/05/Crypto/sybil-attack/" class="post-title-link" itemprop="url">【Crypto】 Sybil Attack</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-05T00:00:00+00:00">2022-03-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Sybil-Attack"><a href="#Sybil-Attack" class="headerlink" title="Sybil Attack"></a>Sybil Attack</h1><p>2002年，由微软研究院的John R. Douceur在《the Sybil Attack》提出，它是p2p网络中的一种攻击形式，主要是针对服务器节点的攻击。</p>
+<blockquote>
+<p>Flora Rhea Schreiberie 在1973年的小说《女巫》（Sybil）改编的同名电影，是一个化名Sybil Dorsett的女人心理治疗的故事。</p>
+<p>她被诊断为分离性身份认同障碍，兼具16种人格。我的那个天。高度精分一枚。</p>
+</blockquote>
+<h2 id="Why-exist"><a href="#Why-exist" class="headerlink" title="Why exist?"></a>Why exist?</h2><p>女巫攻击之所以存在：</p>
+<ol>
+<li>网络中很难保证每一个未知的节点是一个确定的“身份”。</li>
+<li>而女巫攻击是攻击数据冗余机制的一种有效手段。</li>
+</ol>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ol>
+<li>矿工利用n个身份，承诺会存储n份数据。但是，实际上只存储小于n份的数据，但谎报自己存储了n份数据。</li>
+<li>羊毛党在一台计算机上通过软件切换ip手段大量薅羊毛；</li>
+<li>网络投票的时候，可以通过利用多个ip地址来作假等</li>
+<li>很多公司也利用女巫攻击来获得google等搜索引擎的排名，骗取大量用户去点击。</li>
+</ol>
+<h1 id="联盟链中的-sybil-attack"><a href="#联盟链中的-sybil-attack" class="headerlink" title="联盟链中的 sybil attack"></a>联盟链中的 sybil attack</h1><p>联盟链当中，女巫攻击问题更为棘手。</p>
+<p>因为公有链的共识机制是不依赖节点数量的，所以不存在女巫攻击的风险。而联盟链为了提高共识效率，将节点数减少在一定范围内。就相当于把共识机制变简单了，所以攻击也变得简单了。这样，女巫攻击就有了“用武之地”。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.tuoluo.cn/article/detail-9992848.html">https://www.tuoluo.cn/article/detail-9992848.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://0xzx.com/2022021204132081029.html">https://0xzx.com/2022021204132081029.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/01/Tech/download-all-mp3-rss/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/01/Tech/download-all-mp3-rss/" class="post-title-link" itemprop="url">【Tech】 Download all MP3 files in RSS feed</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-01T00:00:00+00:00">2022-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>For some reason, certain podcast are not accessible in China. Thus for good audio RSS content that I am afraid of missing out, downloading them and keep it offline is a nice idea. </p>
+<p>However, most RSS clients are not tailored for my use case, so instead of using any tools, I did some research and finally was able to download all MP3 from this podcast: </p>
+<ol>
+<li>(out of date) <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss">https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss</a></li>
+<li>(up to date)<a target="_blank" rel="noopener" href="https://anchor.fm/fanpaifilm">https://anchor.fm/fanpaifilm</a></li>
+<li>(马后炮节目) <a target="_blank" rel="noopener" href="https://rss.shawnxli.com/fanpie-film-ma">https://rss.shawnxli.com/fanpie-film-ma</a></li>
+</ol>
+<h1 id="首次尝试"><a href="#首次尝试" class="headerlink" title="首次尝试"></a>首次尝试</h1><p>I did some research on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_podcast_clients"><strong>podcatcher softwares</strong></a>, and no luck finding a good one. </p>
+<p>Failed. </p>
+<h1 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h1><p>Got some help from: </p>
+<p><a target="_blank" rel="noopener" href="https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss-feed">https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss-feed</a></p>
+<p>And I used this command to exact all MP3 links:</p>
+<pre><code>export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837
+
+curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o &apos;&lt;enclosure url=&quot;[^&quot;]*&apos; | grep -o &apos;[^&quot;]*$&apos;</code></pre><p>Here are the results: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br></pre></td><td class="code"><pre><span class="line">http://image.kaolafm.net/mz/audios/202112/eff8049d-3343-4821-bbce-428acb1f8d3a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202111/3b2f9eda-93cb-4e81-b70c-810efaefa523.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202110/9b4bd4ae-141b-4b50-86c2-935b11e76e72.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202108/655915fc-e473-4b4c-94e5-0d7fdcc74f2e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202107/c8035281-77ec-48b4-bf92-b3586f8572c3.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202106/caadb011-bcec-4f95-835a-d97ab19e985d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202104/ba2ed655-47e8-42e6-a2ed-1e5fbfca1e44.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202104/a3821a17-5afe-4410-954b-6889b51ebf41.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202104/d834df6a-a77e-4be8-9058-b5d0bd2a3459.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202104/375c1396-3dd1-4fe3-83b5-14be75a93fd5.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202102/20622d34-e28f-4dfb-8932-3c43afab4ea1.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202102/a93ca77b-d124-47c9-be91-a74373db467a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202101/bf6082d3-ce2d-493c-ba66-f0822bc8b86b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202101/e2870e97-ab25-45ea-aee7-b763c124cd2f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202012/8b5e6d36-6924-445b-ba70-ade3175549db.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202012/e56f9b33-8cf6-45cb-bbed-e658e8f5e45d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202012/ed6b448e-cf41-46ce-b2d0-97b2fa368814.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202011/f999682a-35ee-4116-92f6-87596a9d0c4e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202010/4588996d-82d4-4dfb-800a-5c05d3e1966f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202010/303a1beb-a1be-4ba5-a40c-71fc10c300fa.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202009/abeb87bf-056e-4826-ac72-607624a15cb3.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202009/c8808eee-0ca0-4520-bc46-86476a427658.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202009/fa525980-016d-494b-9674-dd48843db3ed.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202008/b1b715a2-4613-42af-82b4-73f6eb76878b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202008/c1d98d59-af07-4e16-8b88-a37872d5b929.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202006/2a6a2592-0861-4a6f-a320-6857d37411f4.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202004/8503d10b-c693-48a3-9bd6-7b9b0e69e581.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202004/edd03e7e-48ab-41e3-8ac0-e64e0c025ccb.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202004/49154781-92f2-4e6e-8440-2b661be18892.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202003/c01d6e11-aed4-4b80-a360-2c8b6e2e3c8e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202003/4c40d6ad-3aab-43d2-9ac4-712a455be9f0.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202002/941b860c-440a-4e81-b2ae-7fdbfb914b79.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202002/3ef9353a-bbef-4e8f-b1eb-b9d93160d083.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202002/4e981bc1-3d2e-4816-9dfc-916ea992b1d4.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202001/61271245-08e1-4755-b940-5e3f34d98a67.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/202001/e498f238-4bed-4a15-b767-12ff44817ddc.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/71bbd341-0fdb-461c-8bf4-0b3bf8c8d743.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/cffb777f-6289-4196-96c0-312764deb5a5.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/54c2812b-36b0-4942-bb6f-da86846d446c.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/d9b93079-cfcb-4ce1-b89a-a7787e564731.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/9e9bfb69-e1e3-489c-929a-0353e9897dc8.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/24a4d89a-1e8f-4a21-bdac-37c3def79724.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/09eb99d9-548f-4bd0-9214-ee0cfc2b6e30.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201912/7bebed3a-d682-4011-94f5-fb759025d4dc.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201911/c6696436-7e64-4ec5-bd50-cc32ec8bbc2b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201911/d38958a2-b57d-4db6-9ad4-3ce1d59f4540.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201911/32442397-95ed-4504-a509-234f4c6a8f56.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201911/f8a20712-05b8-4088-bb8d-915299463aa7.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201910/891eafdd-bc18-478d-b493-3cd26bb9e249.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201910/a1d482a1-2284-4e57-a8b8-f976e3599381.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201910/38372d93-f08b-4db8-9fa6-28dde24a273f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201910/b79bfcfb-b12b-4aa9-880d-f4d588537341.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201910/6bb10f4b-0cb3-4613-be71-addca89ee2c9.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201910/ccf1b4dd-a8ce-4286-b370-c777cfc2d18f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201909/7d79039e-462f-496f-91d5-4a71efbd735d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201909/d5ea5d01-0b01-4a31-bbf7-dc8a0acda357.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201909/2e06c72c-eba5-401b-9ad0-40f1192ef52d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201908/44ce9768-859d-47ee-83f7-7c919d11b964.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201908/fd1ceafa-4c67-4bcd-8973-0a943707e0ef.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201908/85504186-ebea-46ba-935a-66c6125fb73d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201908/67a68f1a-0747-4e09-ba1a-bcc10e6db422.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201907/4f42768b-1a49-48e2-a704-52c714434a7f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201907/600d3f87-c869-401b-b387-c82a500e8ab1.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201907/78b69791-c6d0-4e02-916e-d96bdad4350b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201907/9d4d3cbe-fb2c-46ba-9c4b-f21edf6daa2d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201906/3342f2fb-9e5b-42de-be3e-49c437d44ffc.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201905/643d55c4-f165-4546-b8fa-774e1c11ccda.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201905/a0f1f179-9e43-463c-9f26-0a7600e5db3a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201905/bc49458c-03a4-4956-9ae1-d881802ae13b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201905/248bf7af-c9a9-499b-ac7d-e03a4f406127.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201904/908e9fe4-675d-4d70-953f-65db5895ab56.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201904/06e0ce17-7de6-4048-ad3e-28769b82bfbb.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201904/49e433c6-4212-4534-8f5a-b5ce5b5eb889.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201904/b6604e90-7a17-4741-b407-2e43d57bb419.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201904/17833de9-51ce-4468-be50-bcd7ef0923cc.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201903/003c2dae-ed95-4a3f-aaf7-1dd1a360511f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201903/932421f3-a51b-4bb4-84a8-6394cd4859e5.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201903/e103323a-3053-492d-9775-76701dcfa8d0.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201903/82dab2c6-e81e-4d85-bc81-3c198354231b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201903/16abd3a7-0658-4f7e-92f2-9b16d998a119.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201902/be8034db-a5df-4575-a5fd-68e3d7ccb2e4.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201902/4272352a-9d13-4fd0-9cc3-9e215c05a1dc.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201902/d935ed7e-6760-4cdc-9a22-d9675e3fddee.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201902/af47c25a-873d-4dc3-b737-f55d7aae1d93.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201902/0e79a2d5-7a76-4fa2-b8b5-ba83bd8f23e7.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201901/dbab4815-f1a9-450c-ad05-0fca8a49855f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201901/b8512b37-0e3c-4e7f-870e-412cb0c1b23e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201901/fcf8bab3-44f7-4bce-b8c3-52c05a119913.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201901/6cc247c6-fe4c-4016-b67f-200005b2d806.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201901/40754b18-f6d6-417f-9517-1daceb14d41e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201901/4601783a-c2cc-411a-9248-dfdf354b27d0.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201812/7e3beac8-9623-4048-b163-f7637f316abf.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201812/66491aaf-0d71-424e-97d4-66955d1d503b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201812/b80d0058-de8d-4242-b1f9-9304404e4cfa.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201812/dd643921-3a14-42a5-85ef-f22411c4fca6.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201812/cf231d08-1452-475c-81f4-cfc444517934.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201812/b822a240-a8ef-4b61-8ee9-29a1521c2ba2.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201811/0e3e761a-5618-4f3f-a267-6548bbcb889e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201811/674833e7-cb23-4b79-b6d0-5c8c97c09faa.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201811/53b7aa67-38f4-4151-a91d-120275d3e808.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201811/704fbbc5-6602-4a27-8992-e16556a4b3cf.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201811/02f52f37-cc4f-4cb9-974c-bd52f42ec2b8.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/6d8dbe9e-bfb6-4c1e-a1ca-679098e482e1.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/ddd462c1-3c35-4aff-a28a-6252c2d76127.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/c289f907-59dd-4bd2-8f05-dc478929bc36.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/ac744926-251e-44e0-8d11-09d1d2f41275.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/2573cf56-19f9-4660-b8f6-7b62b91f03a4.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/c3ee485a-4933-4143-b38a-ac2a12615c79.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/0927bc53-bbb3-48ba-977d-a1e28cda4160.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201810/9803c050-3bf5-4b4a-b294-fd8bcfbd5134.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201809/5132753b-8334-4973-8be9-67996e685b71.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201809/e7800a9e-f3c9-46dd-b6f8-1f411eff3a54.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201809/4f6c940b-f87b-4604-82c5-9f2e2857c153.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201809/946bdfcc-16af-4fcb-8be3-39df1538693e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201809/77869da7-f7fd-4197-a93f-481a8dc9f829.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201809/bccb762f-74a2-4665-ad0d-1626715dec6e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201808/1e3aa0fa-9cf2-42be-95e0-745e5c72367e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201808/47e1d7f9-e9d0-4dd5-934a-50e4a26634dd.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201808/c2bd5714-a1cf-4b08-aa42-5b0716d1ba6d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201808/2dda7900-eb96-4ffb-aec6-bbbf52dd32cd.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201807/680cf0d4-edb7-4a6f-b8b2-c412d1e19b91.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201807/eaac43c7-4229-40e1-862a-09eee64c56b7.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201807/8ed518ff-d895-4a8c-a66f-77342428249a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201807/991e51ba-a66e-47ba-86e2-ae7fabf59ca5.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201807/147b01d7-13f4-4243-a087-f30e133023bb.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201807/82013211-c782-4a84-ad20-9001d1bdcd2e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201806/fe6c3325-c2c4-4710-9bed-472c138e8015.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201806/0d43342d-9e0e-44eb-9f2a-cf058f5389d6.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201806/a91c444e-cc97-4d88-bf96-5beab506e95d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201805/104336da-bc76-4e71-93ff-fae29a574532.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201805/aa2e9018-ecc8-4026-b5f1-e1043060e041.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201805/8980e872-110d-495f-968d-4d59f7ff6d97.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201805/2c85000b-82f8-43db-8beb-162cee8f9d09.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201805/b80b7cb2-3fc3-4f5e-bd54-a26ed880f3bc.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201804/5b4613d8-fb06-4d01-b9ea-d55df2d325ac.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201804/7473676c-645b-4d61-81e4-233dac9a127c.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201804/6ea089de-00f1-4e4b-9499-0b63efabcf2e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201804/aff2e883-26f0-47f5-ab24-04e5225973c1.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201803/0284f6ee-0d73-4077-a14c-ee8021714de0.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201803/94ac6b81-76fd-4b36-8766-7489f867d113.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201803/ad153671-ad6e-4a7c-b04b-bcb4b83b051e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201803/802322d1-7b06-46f9-9a60-3be67a55dd1c.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201802/ee58697f-1608-4216-b47d-d0162824f324.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201802/2ef16c61-7364-4cbb-94cf-00f4e403d833.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201802/5ec28188-e823-4b8a-9440-68a2c5ab2e68.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201802/094940b0-7ce5-4a2e-ae97-ae41fdd7e5c9.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201801/c4b29cf3-5de5-4d77-8fbd-242b3cbbb55f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201801/5b31ea0b-b65e-41d9-8fd6-292243239d1e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201801/d0bfb852-c80c-42f3-ac6e-edc0d5b7d7e2.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201712/b310cacb-0964-4392-b327-b8dc564aaf37.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201712/e84065f5-fa4f-47c2-b77d-2e9c68c4d413.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201712/885011f8-0358-4d8c-bcc7-bd8744db6f32.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201712/90960718-0085-4de8-b321-dbc540a91702.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201712/b4bee244-9342-40cf-9717-acb1cfad028a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201711/2a1cb7cf-ffb3-4be3-84fd-ae56643400ed.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201711/a5f68a31-58ce-436f-8845-d71c24aaa7ba.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201711/b073cf50-ef8f-48e8-919d-1219e8969554.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201711/0e5d5987-3cc6-44f8-b593-279ba49d4b45.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201711/3eceec65-a299-4320-ab0f-b2f2444dd267.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201710/eff358de-a6ad-436f-8dc9-4e7c7e7c9a62.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201710/c74c250c-d491-4bfc-9172-920fce5f562d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201710/73f7586a-43c4-412a-92e5-a454194c6492.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201710/9589e4e4-876a-4629-b39e-5c08a5fb51c6.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201709/d6c53b4a-cdd6-4ec6-ae29-700a204db003.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201709/c225e7f5-659c-478c-8cd7-835ef3807cb2.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201709/1239af2b-f202-4615-b21c-21e8a0614f59.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201709/d68a706c-7823-45f6-bc3c-b2bc486097b3.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201708/d2631bed-ba02-4680-be14-915d15691c6e.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201708/409dbec4-40f7-4dc5-ac29-e932507e96c2.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201708/9d4ac8e8-e447-4a6e-a872-6281dc590642.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201708/de31d3e5-884e-4db7-a812-9fa5e5cfd7db.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201707/15286125-281d-46ec-8e25-765f87f99769.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201707/dad37d71-c1c9-40e2-bee8-8e3e5cb1360a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201707/4a2aa76d-5a5d-4ad3-8d1e-4404f4f81abd.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201707/1f4c8b63-e7cb-459a-8785-97a44c764c36.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201707/60e7ae9c-8bfb-4d29-abfd-705d73ffbd6f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201707/203a0cdf-2b15-4ba6-9ae1-bedf6fbc2463.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201706/654a433b-2390-4d46-90a6-35a811228f93.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201706/4f4f39fe-b821-4c51-8525-1541f836cc59.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201706/402557bf-1949-4d3a-86c5-7bc40da394d8.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201706/339e1c81-c68e-46a6-a2bc-bbdc05565b89.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201705/ab23b320-317c-4a55-9e9d-aa51eaedb912.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201705/32737bb3-067b-40be-a91c-94f38f220d72.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201705/7d8b72db-85d7-4635-9fe5-adf213237b28.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201705/831946f7-c2c0-4fbf-9989-8c04281fac3c.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201704/602b5211-40a8-4d05-9b76-c398ba9308da.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201704/33b55c24-b479-4221-b043-ed8a3010ee39.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201704/d90b6d1e-ae14-421d-9877-076a5deaf1af.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201704/70f68f37-6bbc-4d4b-8d9a-c293ce6e1e53.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201704/54177eb8-d823-46fc-98c9-c60d5d42e4f0.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201703/ad6cf0cd-cd8b-42fd-b799-8148e10076c4.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201703/0b785c65-436a-42d6-94e7-cd3749df1b53.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201703/a02d423d-54e0-4796-8138-346b1cba2b1a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201703/f0ebf602-9446-41e7-b103-9710342ff3e9.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201703/4f1de1f5-cc2d-4be7-a6d4-587476ed1c21.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201702/717c740c-3bf2-4480-8422-219b3dad3054.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201702/05ae4fb6-39cc-41d3-993d-43c8daf4afe8.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201702/af90f6ed-1736-4cad-bdc9-1a526e765d3d.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201702/e1c76495-d524-4b09-927d-833e100f682f.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201701/45e69016-6683-4514-990a-4f489d98d366.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201701/419ded1f-007b-4b47-bc38-69a4ab01d977.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201701/0de58dff-253f-482d-8911-c2f82cd4cddf.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201701/f8a9bb1c-c155-49d1-8e7f-15a89c5c45b7.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201612/a4d0077d-7933-4467-993c-c5eb1fafa6d6.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201612/98dc8d54-b533-46b0-9a72-d3fd74345a6b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201612/727a9ad7-bdf2-4e23-b30c-c7fdc56f5ecf.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201612/8db181dd-1648-4775-81ce-677be6ddd7de.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201611/b184d2a5-ad67-4718-b382-35d8451a3941.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201610/4c6a181e-f8ff-4b9e-9c20-4a05e8edac84.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201610/d649b4b2-cfe3-4ece-8733-24a155475076.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201610/4899a7df-11e7-4f36-b1bf-426b0402b868.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201610/5aed13f5-ba79-474d-a72b-02510556f2d8.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201610/110f8ef4-8478-495b-9790-809e4dc543b6.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201609/f2687bea-5af4-4b2e-ac96-fda55236fb38.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201609/d770259f-c0fb-4fac-a383-b19499fd0f35.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201609/49e2b1fa-7ddb-47a6-9e1c-020f52b45ba0.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201609/68642b2b-a7e0-448e-bd14-3ae2befe3a29.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201608/e7a91cbb-10fa-49af-864e-469685517e40.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201608/18301840-678f-48e8-8d58-f5bb1c2fcd28.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201608/d5a0ecda-4f3b-469b-8a04-95321c2875d2.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201608/7a1bec90-34c8-4992-88d4-44dd1c1aa2ff.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201607/b06c1e57-f66f-4e9a-8346-1beebe5ba69a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201607/de3ea014-93b4-4745-909f-232e56cbfef8.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201607/931fbddc-e9bf-40d2-b932-1b6e908a7194.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201607/9e9901f5-0941-43ee-aa34-56da19de3822.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201607/eaddaf3f-dff7-4013-bbca-50bd9429e359.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201606/1c8c1083-8ef3-4565-8135-1f20215390f6.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201606/1bfd9495-7e6d-4f34-937e-49150ab4556b.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201606/c6e58270-bc1f-4867-87c8-d7e20fcc8bfd.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201606/41e1b695-13d2-4793-a5dd-c55730912870.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201605/3d4fd6fa-ad1b-433b-a1bd-20682ea2b6d3.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201605/61ab1ea5-1871-44dd-b52c-a62ea861740a.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201605/d8410566-eb52-4464-89b9-993521e26697.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201604/72a83552-daaf-4ba0-a912-dec2b4fbbee4.mp3</span><br><span class="line">http://image.kaolafm.net/mz/audios/201604/e30e0109-183a-4c82-bef5-39fd24197445.mp3</span><br></pre></td></tr></table></figure>
+
+<p>Simply dump those links into IDM softwares and the rest are set. </p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>I got a bunch of files with naming like these: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">82013211-c782-4a84-ad20-9001d1bdcd2e.mp3</span><br><span class="line">4c6a181e-f8ff-4b9e-9c20-4a05e8edac84.mp3</span><br></pre></td></tr></table></figure>
+
+<p>No timestamp, no title, no good. </p>
+<h1 id="第三次尝试"><a href="#第三次尝试" class="headerlink" title="第三次尝试"></a>第三次尝试</h1><p>I found this blog super useful:</p>
+<p><a target="_blank" rel="noopener" href="https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/">https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/</a></p>
+<p>Thus I wrote the following <strong>rss_script.sh</strong>:</p>
+<pre><code>for i in $(curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o &apos;&lt;enclosure url=&quot;[^&quot;]*&apos; | grep -o &apos;[^&quot;]*$&apos;); do
+    url=$i
+    audiodir=$(echo $i | sed &apos;s|http://image\.kaolafm\.net/mz/audios/||&apos; | sed &apos;s/\/.*\.mp3//&apos;)
+    outfile=$(echo $i | sed &apos;s|http://image\.kaolafm\.net/mz/audios/||&apos;)
+    mkdir $audiodir
+    wget -q $url -O $outfile
+done</code></pre><p>Simply:</p>
+<pre><code>bash rss_script.sh</code></pre><p>and you shall have a nice time. Enjoy.</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>All MP3s are in sub-folders like ‘201604’ or ‘202112’, however, I wasn’t able to get the right title this time. </p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>sed tutorial: <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux">https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux</a></p>
+<p>Original content: <a href="/files/RSS反派影评Feed.txt">here</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/10/Tech/virtualbox-mount-shared-folder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/01/10/Tech/virtualbox-mount-shared-folder/" class="post-title-link" itemprop="url">【Tech】 How to mount shared folder for VirtualBox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-10T00:00:00+00:00">2022-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Mount shared folders in VirtualBox.</p>
+<h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
+<pre><code>cd /media/osboxes/VBox_GAs_6.1.28
+sudo ./VBoxLinuxAdditions.run
+sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>一定要记得，这里输入“shared”。</p>
+<p><img src="/images/virtualbox-mount-shared-folder.png" alt=""></p>
+<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>如果没有自动加载，可以这样手动加载：</p>
+<pre><code>cd ~/Desktop/
+mkdir shared-folder
+sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行了。</p>
+<p>如果权限出了问题，可以：</p>
+<pre><code>sudo adduser $USER vboxsf</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-crypto-1111111/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +553,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
               </span>
 
           
@@ -253,7 +624,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
               </span>
 
           
@@ -324,7 +695,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
               </span>
 
           
@@ -393,7 +764,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
+                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
               </span>
 
           
@@ -465,475 +836,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/18/Crypto/rarity-calculation-methods/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/18/Crypto/rarity-calculation-methods/" class="post-title-link" itemprop="url">【Crypto】 Rarity Calculation Methods</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-18T00:00:00+00:00">2021-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p><strong>rarity</strong> is one of the most important factors in determining the value of an individual NFT.</p>
-<p>On Opensea, each NFT have traits: </p>
-<p><img src="/images/nft-calculate-rarity-1.png" alt=""></p>
-<h2 id="Rarity-计算方法"><a href="#Rarity-计算方法" class="headerlink" title="Rarity 计算方法"></a>Rarity 计算方法</h2><ol>
-<li><p>Trait Rarity Ranking 单一属性法<br> 只选最 rare 的 traits，值越小越好。忽略其他一切 traits。</p>
-</li>
-<li><p>Average Trait Rarity 平均数法<br> 所有 traits 权重相等，计算出平均值。</p>
-</li>
-<li><p>Statistical Rarity 乘积法<br> 所有 rarity 值的乘积 （但是有的 nft 缺少某些 traits，比如 22.56% 的 ape 不戴帽子）</p>
-</li>
-<li><p>Rarity score 商值法<br> 用除法计算所有 traits 的分数，最终返回sum。</p>
-</li>
-</ol>
-<p>以下具体说明。</p>
-<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 - Trait Rarity Ranking"></a>1 - Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
-<ol>
-<li>Ape #73 s rarest trait is Sold Gold Fur which 0.46% have</li>
-<li>Ape #9941’s rarest trait is Bored Unshaven Dagger which 0.28% have</li>
-<li>Ape #9542’s rarest trait is Bored Unshaven Pizza which 0.26% have</li>
-</ol>
-<h2 id="weakness"><a href="#weakness" class="headerlink" title="weakness"></a>weakness</h2><p>It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.</p>
-<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 - Average Trait Rarity"></a>2 - Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
-<p><img src="/images/nft-calculate-rarity-2.png" alt=""></p>
-<p>以上的例子如果按照 trait rairty ranking，NFT 1 是最 rare 的，因为 rarity = 10%</p>
-<p>但按照 average trait，那么显然 NFT 2 更 rare。</p>
-<h2 id="weakness-1"><a href="#weakness-1" class="headerlink" title="weakness"></a>weakness</h2><p>It puts too much weight on the overall rarity of every trait, but NFTs with single super rare trait are not valued enough.</p>
-<p>Their rarity value gets too ‘diluted’ by the other traits.</p>
-<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 - Statistical Rarity"></a>3 - Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
-<p>It was first <a target="_blank" rel="noopener" href="https://achekroud.substack.com/p/d8f13e0a-ae26-40e4-bff2-beacb2916ff0">mentioned by Adam Chekroud</a>. </p>
-<p>Basically: calculate the overall rarity of an NFT by multiplying all of it’s trait rarities together.</p>
-<p><img src="/images/nft-calculate-rarity-3.png" alt=""></p>
-<ol>
-<li>Ape #73’s statistical rarity is 0.00000000070744%</li>
-<li>Ape #9941’s statistical rarity is 0.00000056965722%</li>
-<li>Ape #9542’s statistical rarity is 0.00000044983967%</li>
-</ol>
-<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 - Rarity Score"></a>4 - Rarity Score</h1><p>这是个比较特别的计算方法。</p>
-<blockquote>
-<p>[Rarity Score for a Trait Value] = 1 / ([Number of Items with that Trait Value] / [Total Number of Items in Collection])</p>
-</blockquote>
-<p>然后所有 traits 的 rarity score 相加，等于最终的 rarity score。</p>
-<blockquote>
-<p>The total Rarity Score for an NFT is the sum of the Rarity Score of all of it’s trait values.</p>
-</blockquote>
-<p>例如：Punk中只有9个 Alien，那么 Punk Type 这一项的 rarity score 就是 10,000 / 9 = 1111</p>
-<p>Punk中有24个 Ape，那么 Punk Type 这一项的 rarity score 就是 10,000 / 24 = 417</p>
-<p><img src="/images/nft-calculate-rarity-4.png" alt=""><br><em><a target="_blank" rel="noopener" href="https://rarity.tools/cryptopunks/view/7804">https://rarity.tools/cryptopunks/view/7804</a></em></p>
-<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p>Rarity Score 的好处是，不但考虑了所有的 traits，而且对于某些非常 rare 的 traits，有很好的突出的效果。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。</p>
-<p>Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。</p>
-<p>我觉得 Rarity Score 最好。用 <strong>rarity.tools</strong> 作者的原话讲：</p>
-<blockquote>
-<p>Rarity Score give results that give enough emphasis to <strong>single rare traits</strong> and also includes <strong>overall trait rarities</strong> in its calculation. </p>
-</blockquote>
-<blockquote>
-<p>And most importantly the results it gives match better with our human expectations.</p>
-</blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c">https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Tech/install-joplin-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/04/Tech/install-joplin-linux/" class="post-title-link" itemprop="url">【Tech】 Install Joplin on Linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-04T00:00:00+00:00">2021-11-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Joplin-Terminal"><a href="#Joplin-Terminal" class="headerlink" title="Joplin Terminal"></a>Joplin Terminal</h1><p>这里只讲 terminal 版的 joplin, 不涉及桌面app。</p>
-<p><a target="_blank" rel="noopener" href="https://joplinapp.org/terminal/">https://joplinapp.org/terminal/</a></p>
-<h2 id="Instruction"><a href="#Instruction" class="headerlink" title="Instruction"></a>Instruction</h2><p>按照官方的说法，是这样的：</p>
-<ol>
-<li><p>Install Node/npm</p>
-</li>
-<li><p>Run this：</p>
-<p> NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin<br> sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin</p>
-</li>
-</ol>
-<p>也就是，Joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。</p>
-<p>问题是，很多依赖都在github上面，需要翻墙才能取到。</p>
-<pre><code>:~# npm config get registry
-https://registry.npm.taobao.org/</code></pre><p>实际多次测试表明，换taobao源不能解决问题：</p>
-<pre><code>~/.joplin-bin# NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
-npm ERR! code 128
-npm ERR! An unknown git error occurred
-npm ERR! command git --no-replace-objects ls-remote ssh://git@github.com/laurent22/uslug.git
-npm ERR! command-line line 0: unsupported option &quot;accept-new&quot;.
-npm ERR! fatal: Could not read from remote repository.
-npm ERR! 
-npm ERR! Please make sure you have the correct access rights
-npm ERR! and the repository exists.
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>这样也无济于事：</p>
-<pre><code>npm i -g uslug</code></pre><p>看来只能路由器翻墙解决了~</p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/03/Tech/amlogic-chipset-flash-rom/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/03/Tech/amlogic-chipset-flash-rom/" class="post-title-link" itemprop="url">【Tech】 Amlogic 晶晨芯片刷机教程</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-03 09:00:00" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：</p>
-<ol>
-<li><strong>Phicomm N1</strong>（S905D / 2G）</li>
-<li><strong>玩客云</strong>（S805 / 1G）</li>
-<li>CM201-1 魔百盒（S905L / 1G）</li>
-<li>CM2000 红</li>
-</ol>
-<p>其中每个设备都可以刷3种系统：</p>
-<ol>
-<li>Android for TV</li>
-<li>Armbian for Linux</li>
-<li>Emuelec for gaming</li>
-</ol>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>CM201-1 魔百盒这个机器，启动 Armbian 一直没问题，但是无论换什么 dtb，Armbian 都无法 boot。所以，就当电视盒子吧，还挺好用的。</p>
-<blockquote>
-<p>这个帖子提到一个奇淫巧技，不知道能不能用，摘抄如下：</p>
-<p>使用adb shell reboot update发现启动失败，多次尝试也是如此。</p>
-<p>。。。受到启发，把启动盘根目录下的aml_autoscript.zip改名为update.zip,输入adb shell reboot update命令后直接引导进入armbian</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012481946/article/details/113774089">https://blog.csdn.net/u012481946/article/details/113774089</a></p>
-</blockquote>
-<p>CM2000 这个机器，不但无法刷 Armbian，连Android底包都坏了。重刷之后可以使用TV box 功能，但是无 Wifi，插线用。</p>
-<p>wky是最容易刷的。我在其中一个上面装了 Armbian 跑同步盘，十分稳定。</p>
-<p>N1有个问题，就是Android底包经常被弄坏（Armbian正常可启动）。只要重刷一下 Android 系统就好了。</p>
-<blockquote>
-<p>为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于 Armbian，8G的一个都没成功。不知道为什么。</p>
-</blockquote>
-<h1 id="N1刷机"><a href="#N1刷机" class="headerlink" title="N1刷机"></a>N1刷机</h1><h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>对于 n1 盒子来说，使用这个Android底包就行：<strong>斐讯盒子N1_YYFROM夏杰语音实用版</strong></p>
-<p><a target="_blank" rel="noopener" href="http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html">http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html</a></p>
-<p>刷机很简单。（需要去设备管理器种调整一下usb驱动，参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/awkdzqvk/）">https://post.smzdm.com/p/awkdzqvk/）</a></p>
-<p>要注意2点：</p>
-<ol>
-<li>Usb burning tool 软件中，先按“开始”，再连接 usb，否则 n1 连上直接就断开。</li>
-<li>一定要取消“擦除flash”和“擦除bootloader”。参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/ax025099/">https://post.smzdm.com/p/ax025099/</a></li>
-</ol>
-<p>这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。</p>
-<p><img src="/images/usb-burning-tool-n1.jpg" alt=""></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://post.smzdm.com/p/a25gpgx7/">https://post.smzdm.com/p/a25gpgx7/</a></p>
-<h2 id="EmuElec"><a href="#EmuElec" class="headerlink" title="EmuElec"></a>EmuElec</h2><p>EmuELEC是专门为晶晨S905，S912以为更强的S922x/S905x2设计的系统。N1的高性价比加上周围随手可得的附件，成本基本可以控制在￥200左右，但却可以通过EmuELEC打造成一台拥有十几种机型几千个游戏的游戏平台，比国内很多人在安卓上使用老旧内核，效能极低，操控延迟很高的小鸡模拟器强大的多。</p>
-<p>系统自带了多种游戏机，涵盖了Atari(雅达利) ，FC（NES任天堂），SNES（超级任天堂），N64(任天堂64)，GB，GBA，GBC（任天堂Gameboy家族），NDS（任天堂DS），PC Engine（NEC的家用游戏机），MD（世嘉Megadrive），DC（世嘉Dreamcast），PS(Sony Playstation)，PSP（Play Station Portable）以及各种复古街机版。游戏更是可以根据存储容量达到几千个。</p>
-<p>得利于底层驱动的优化，在这么一台不到￥100的主机上，双倍渲染解析度玩PSP的《怪物猎人3HD》效果棒极了，比PSP本体玩效果都棒。</p>
-<p>玩游戏玩腻了，通过系统中Advanced Options（增强选项）最下面的“返回安卓系统”则可以切换回N1盒子内部的安卓系统 。当然拔掉EmuELEC的系统U盘，重启盒子也可直接回到盒子内部的安卓系统。</p>
-<p>安卓系统下各种视频播放软件比如优酷，爱艺奇以及B站在2G Ram的4核ARM Cortex-A53 1.5GHz处理器下运行毫无压力，加载以及播放速度也在5G或者千兆有线的加持下非常迅速。装一个Kodi观看NAS或者移动硬盘中的4K蓝光原盘的效果棒极了。</p>
-<p>除了N1，你还可以选择魔巧盒Q5。除了配置和颜值比N1低了一些，装EmuELEC的话差别不大，只是因为是1G ram，当安卓电视盒子的话反而有些不太给力。</p>
-<blockquote>
-<p>Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。</p>
-<p>所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。</p>
-</blockquote>
-<p>刷机过程，参考这里：</p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/milton/p/11883811.html">https://www.cnblogs.com/milton/p/11883811.html</a></p>
-<h3 id="什么是-CoreELEC？"><a href="#什么是-CoreELEC？" class="headerlink" title="什么是 CoreELEC？"></a>什么是 CoreELEC？</h3><p>CoreELEC is a ‘Just enough OS’ Linux distribution based on Kodi1 technology for popular Amlogic hardware</p>
-<p>CoreELEC是一个小巧的Linux发行版系统，从LibreELEC分离出来，是专为Amlogic（晶晨）芯片开发的Linux与Kodi集成的媒体中心系统。它的界面就是Kodi的界面，可以独立运行于U盘或TF卡。可最大限度的利用硬件资源，流畅的播放视频，100G的4K视频在低配设备上也能顺利播放。另外CoreELEC可以完美输出杜比全景声和dtsx，低端的安卓则不行。各种音频完美直通，无论是ac3、dts还是次世代音轨truehd、dtshd，包括atmos、dts-x等各种音轨都可以完美直通到功放解码。</p>
-<p>Coreelec是专门面向Amlogic芯片设备适配的，推荐s905、s912、s922系列的盒子安装使用，例如：斐讯N1、章鱼星球。</p>
-<h2 id="Armbian"><a href="#Armbian" class="headerlink" title="Armbian"></a>Armbian</h2><p>Armbian 经常把 Android系统搞坏。哎。</p>
-<p>另外，试用了桌面版的 Debian 9，实在是没什么可用性，而且有时候无法自动连接 Wifi。不建议玩儿。</p>
-<p>最佳的固件就是 5.77版本的 Debian stretch。</p>
-<p>5.99 / 20.10 版本我没成功过。</p>
-<h1 id="WKY刷机"><a href="#WKY刷机" class="headerlink" title="WKY刷机"></a>WKY刷机</h1><p>参见另一篇《Debian 9 (Armbian) on N1/Wky 使用教程》</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/install-openmediavault/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/10/19/Tech/install-openmediavault/" class="post-title-link" itemprop="url">【Tech】 Install OpenMediaVault on Debian</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-10-19 13:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T13:00:00+00:00">2021-10-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-19 05:23:08" itemprop="dateModified" datetime="2022-04-19T05:23:08+00:00">2022-04-19</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="OpenMediaVault"><a href="#OpenMediaVault" class="headerlink" title="OpenMediaVault"></a>OpenMediaVault</h1><p>我安装失败了。</p>
-<p>进了 登陆页面，然后无法登陆，我也不知道为什么。把 commands 记录在这里，没时间继续弄了。</p>
-<p>Add the package repositories:</p>
-<pre><code>cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list
-deb https://packages.openmediavault.org/public arrakis main
-# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis main
-## Uncomment the following line to add software from the proposed repository.
-# deb https://packages.openmediavault.org/public arrakis-proposed main
-# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis-proposed main
-## This software is not part of OpenMediaVault, but is offered by third-party
-## developers as a service to OpenMediaVault users.
-# deb https://packages.openmediavault.org/public arrakis partner
-# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis partner
-EOF</code></pre><p>Install the openmediavault 4 (Arrakis) package:</p>
-<pre><code>export LANG=C
-export DEBIAN_FRONTEND=noninteractive
-export APT_LISTCHANGES_FRONTEND=none
-
-wget -O &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot; https://packages.openmediavault.org/public/archive.key
-apt-key add &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot;
-
-apt-get update
-apt-get --allow-unauthenticated install openmediavault-keyring
-
-apt-get update
-apt-get --yes --auto-remove --show-upgraded \
-    --allow-downgrades --allow-change-held-packages \
-    --no-install-recommends \
-    --option Dpkg::Options::=&quot;--force-confdef&quot; \
-    --option DPkg::Options::=&quot;--force-confold&quot; \
-    install postfix openmediavault</code></pre><p>如果到这，安装不成功，往下看。</p>
-<p>更新omv源</p>
-<pre><code>echo &quot;deb Index of /public arrakis main&quot; &gt; /etc/apt/sources.list.d/openmediavault.list</code></pre><p>下载添加key</p>
-<pre><code>apt-key adv --recv-keys --keyserver OpenPGP Keyserver 7E7A6C592EF35D13 24863F0C716B980B</code></pre><p>语言包及环境变量等设置</p>
-<pre><code>export LANG=C
-
-export DEBIAN_FRONTEND=noninteractive
-
-export APT_LISTCHANGES_FRONTEND=none</code></pre><p>安装omv</p>
-<pre><code>apt update
-
-apt install openmediavault-keyring postfix
-
-apt install openmediavault
-
-If not working: 
-
-apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options::=&quot;--force-confold&quot; install openmediavault</code></pre><p>You will get the following screen: </p>
-<pre><code>Complete the installation                                                                                                                                                │
-    │                                                                                                                                                                          │
-    │ To complete the installation you need to run the following command:                                                                                                      │
-    │                                                                                                                                                                          │
-    │  omv-initsystem                                                                                                                                                          │
-    │                                                                                                                                                                          │
-    │                                                                                                                                                                          │
-    │ To manage the system visit the openmediavault web control panel via a web browser:                                                                                       │
-    │                                                                                                                                                                          │
-    │  http://&lt;IP or hostname&gt;                                                                                                                                                 │
-    │                                                                                                                                                                          │
-    │                                                                                                                                                                          │
-    │ By default the web control panel administrator account has the username &apos;admin&apos; and password &apos;openmediavault&apos;. It is recommended that you change the password for this   │
-    │ account within the web control panel or using the &apos;omv-firstaid&apos; CLI command.                                                                                            │
-    │</code></pre><p>基本成功了。然后我在跑：</p>
-<pre><code>omv-initsystem</code></pre><p>的时候，报错了。</p>
-<p>我用 IP 地址尝试登陆一下，load 界面没问题，但是无法登陆。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html">https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345143096">https://zhuanlan.zhihu.com/p/345143096</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -999,7 +905,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">93</span>
+          <span class="site-state-item-count">97</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
