@@ -151,6 +151,265 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/16/Tech/chromebook-5-v2ray-on-galliumos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/16/Tech/chromebook-5-v2ray-on-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 5 - v2ray on GalliumOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-16 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-16T00:00:00+00:00">2022-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>In this post, we’ll try to install Qv2ray and v2rayLui on <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki">GalliumOS 3.1</a></strong>.</p>
+<p>None of those succeeded.</p>
+<h1 id="Qv2ray"><a href="#Qv2ray" class="headerlink" title="Qv2ray"></a>Qv2ray</h1><p>The installation of AppImage + v2core is straight-forward. Just make sure to download the right version: </p>
+<ol>
+<li>Qv2ray 2.7 : <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases">https://github.com/Qv2ray/Qv2ray/releases</a></li>
+<li>v2ray as vcore in the config folder. </li>
+<li>config group as a subscription.</li>
+</ol>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><p>出现 error：</p>
+<pre><code>(process:15945): dconf-WARNING **: 13:15:33.425: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(process:15949): dconf-WARNING **: 13:15:33.450: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+[SystemProxy] [0] Program: gsettings, Args: set;org.gnome.system.proxy;mode;manual [SystemProxy] [0] Program: gsettings, Args: set;org.gnome.system.proxy.http;host;127.0.0.1 [gRPCBackend] gRPC Version: 1.19.1 
+[gRPCBackend] API call returns: 14 (Connect Failed) 
+[gRPCBackend] API call returns: 14 (channel is in state TRANSIENT_FAILURE) 
+[gRPCBackend] API call returns: 14 (channel is in state TRANSIENT_FAILURE) 
+[gRPCBackend] API call returns: 14 (channel is in state TRANSIENT_FAILURE) 
+[gRPCBackend] API call returns: 14 (channel is in state TRANSIENT_FAILURE) 
+[gRPCBackend] API call returns: 14 (channel is in state TRANSIENT_FAILURE) 
+
+(process:15953): dconf-WARNING **: 13:15:33.495: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(process:15960): dconf-WARNING **: 13:15:33.512: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(process:15964): dconf-WARNING **: 13:15:33.532: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(process:15968): dconf-WARNING **: 13:15:33.553: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(process:15973): dconf-WARNING **: 13:15:33.575: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1
+
+(process:15977): dconf-WARNING **: 13:15:33.603: failed to commit changes to dconf: Error spawning command line “dbus-launch --autolaunch=896b12ea52f87d428e7dd579ae1b587e --binary-syntax --close-stderr”: Child process exited with code 1</code></pre><p>经过反复的测试，GalliumOS上的 Qv2ray 用不了。</p>
+<p>不知原因。</p>
+<h1 id="v2rayLui"><a href="#v2rayLui" class="headerlink" title="v2rayLui"></a>v2rayLui</h1><p>先安装 铜豌豆。</p>
+<p>然后：</p>
+<pre><code>sudo apt install v2raylui
+sudo apt install v2ray </code></pre><p>这时候会遇到的问题是：v2ray : PreDepends: init-system-helpers (&gt;= 1.54~) but 1.51 is to be install</p>
+<p>解决办法：</p>
+<pre><code>wget http://launchpadlibrarian.net/173841617/init-system-helpers_1.54_all.deb</code></pre><p>或者</p>
+<pre><code>wget http://ports.ubuntu.com/pool/main/i/init-system-helpers/init-system-helpers_1.57_all.deb</code></pre><p>方便起见，我直接放这里了：</p>
+<pre><code>wget https://unclemartian.github.io/files/init-system-helpers_1.18_all.deb
+
+wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code></pre><h2 id="查看-apt-包的历史版本"><a href="#查看-apt-包的历史版本" class="headerlink" title="查看 apt 包的历史版本"></a>查看 apt 包的历史版本</h2><p>这样做：</p>
+<pre><code>apt-cache policy v2ray</code></pre><h2 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h2><pre><code>v2raylui</code></pre><p>结果：</p>
+<pre><code>[15675] Error loading Python lib &apos;/tmp/_MEILnaXkU/libpython3.7m.so.1.0&apos;: dlopen: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28&apos; not found (required by /tmp/_MEILnaXkU/libpython3.7m.so.1.0)</code></pre><p>估计是默认的 python3 版本问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>GalliumOS 3.1 翻不了墙。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/16/Tech/linux-kernel-version/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/16/Tech/linux-kernel-version/" class="post-title-link" itemprop="url">【Tech】 Linux Kernel version</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-16 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-16T00:00:00+00:00">2022-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-Kernel"><a href="#Linux-Kernel" class="headerlink" title="Linux Kernel"></a>Linux Kernel</h1><p>Kernel is important, espeicially when it comes to Bios and Sound card support on Linux devices. </p>
+<p>The current distro vs kernel are as follows: </p>
+<h2 id="For-Ubuntu"><a href="#For-Ubuntu" class="headerlink" title="For Ubuntu"></a>For Ubuntu</h2><pre><code>21.10   Impish Indri      5.13
+21.04   Hirsute Hippo     5.11 
+20.10   Groovy Gorilla    5.8
+20.04   Focal Fossa       5.4
+19.10   Eoan Ermine       5.3
+19.04   Disco Dingo       5.0
+18.10   Cosmic Cuttlefish 4.18
+18.04   Bionic Beaver     4.15
+17.10   Artful Aardvark   4.13
+17.04   Zesty Zapus       4.10
+16.10   Yakkety Yak       4.8
+16.04   Xenial Xerus      4.4
+15.10   Wily Werewolf     4.2
+15.04   Vivid Vervet      3.19
+14.10   Utopic Unicorn    3.16
+14.04   Trusty Tahr       3.13</code></pre><h1 id="Check-kernel-version"><a href="#Check-kernel-version" class="headerlink" title="Check kernel version"></a>Check kernel version</h1><pre><code>uname -r</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/09/Tech/ubuntu/xfce-panel-config/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/09/Tech/ubuntu/xfce-panel-config/" class="post-title-link" itemprop="url">【Tech】 XFCE panel config</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-09 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-09T00:00:00+00:00">2022-04-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Multiple-Display"><a href="#Multiple-Display" class="headerlink" title="Multiple Display"></a>Multiple Display</h1><p>可以建 2 个 panel，每个 Display 分别显示一个 panel。</p>
+<p>如需要 Expandable area，只需要配置一下 seperator 就行。</p>
+<p>如下图所示。</p>
+<h2 id="Panel-1"><a href="#Panel-1" class="headerlink" title="Panel 1"></a>Panel 1</h2><p><img src="/images/mint-panel-config-1.png" alt=""></p>
+<h2 id="Panel-2"><a href="#Panel-2" class="headerlink" title="Panel 2"></a>Panel 2</h2><p><img src="/images/mint-panel-config-2.png" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/05/Read/liberal/harvard-justice-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +441,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -363,7 +622,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -469,7 +728,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -567,7 +826,7 @@ hostname -I</code></pre><p>Edit: /etc/ssh/sshd_config on your VM:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -700,7 +959,7 @@ spotify</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -821,319 +1080,6 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/chromebook-2-linux-crostini/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/26/Tech/chromebook-2-linux-crostini/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 2 - Linux (Crostini)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-26T00:00:00+00:00">2022-03-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong>Crostini</strong> = <a target="_blank" rel="noopener" href="https://chromeos.dev/en/linux">Linux on Chrome OS</a>. </p>
-<p>这个 Linux 系统是基于 Debian 11 的。所以，很多 commands 跟 Ubuntu 很像。</p>
-<blockquote>
-<p>As of March 2022, ChromeOS 99 have <strong>Debian 11 (bullseye)</strong> installed by default (as of March 2022).</p>
-</blockquote>
-<h1 id="File-Share"><a href="#File-Share" class="headerlink" title="File Share"></a>File Share</h1><p>Add symlink: </p>
-<pre><code>ln -s &lt;real folder&gt; &lt;link folder&gt;</code></pre><p>If you save something to <strong>link folder</strong>, it will actually save it into <strong>real folder</strong>.</p>
-<h2 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h2><p>First, check the OS vesion：</p>
-<pre><code>ngu@penguin:~$ cat /etc/os-release </code></pre><p>Got：</p>
-<pre><code>PRETTY_NAME=&quot;Debian GNU/Linux 11 (bullseye)&quot;
-NAME=&quot;Debian GNU/Linux&quot;
-VERSION_ID=&quot;11&quot;
-VERSION=&quot;11 (bullseye)&quot;
-VERSION_CODENAME=bullseye
-ID=debian
-HOME_URL=&quot;https://www.debian.org/&quot;
-SUPPORT_URL=&quot;https://www.debian.org/support&quot;
-BUG_REPORT_URL=&quot;https://bugs.debian.org/&quot;</code></pre><p>Old source.list: </p>
-<pre><code># Generated by distrobuilder
-deb https://deb.debian.org/debian bullseye main
-deb https://deb.debian.org/debian bullseye-updates main
-deb https://deb.debian.org/debian-security/ bullseye-security main</code></pre><p>Replace it with: </p>
-<pre><code>deb https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
-deb-src https://mirrors.aliyun.com/debian/ bullseye main non-free contrib
-
-deb https://mirrors.aliyun.com/debian-security/ bullseye-security main
-deb-src https://mirrors.aliyun.com/debian-security/ bullseye-security main
-
-deb https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
-deb-src https://mirrors.aliyun.com/debian/ bullseye-updates main non-free contrib
-
-deb https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib
-deb-src https://mirrors.aliyun.com/debian/ bullseye-backports main non-free contrib</code></pre><p>Then: </p>
-<pre><code>sudo apt update</code></pre><h1 id="Install-VSCode"><a href="#Install-VSCode" class="headerlink" title="Install VSCode"></a>Install VSCode</h1><pre><code>sudo apt-get update
-sudo apt-get install -y gnome-keyring</code></pre><p>Then <a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">download the deb</a> and double click to install.</p>
-<h1 id="Install-Work-Software"><a href="#Install-Work-Software" class="headerlink" title="Install Work Software"></a>Install Work Software</h1><p>Tencent meeting does not work, yet. (Wayland Protocol issue)</p>
-<p><img src="/images/chromebook-crostini-wemeeting.png" alt=""></p>
-<p>But Feishu works like a charm, so far.</p>
-<h1 id="Install-Firefox"><a href="#Install-Firefox" class="headerlink" title="Install Firefox"></a>Install Firefox</h1><p>Firefox somehow was not in APT repository, need to <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38428827/article/details/104066754">manually install</a>.</p>
-<p>First, find out <a target="_blank" rel="noopener" href="https://www.mozilla.org/zh-CN/firefox/all/#product-desktop-release">the download link</a></p>
-<p>Then:</p>
-<pre><code>curl -O https://download-installer.cdn.mozilla.net/pub/firefox/releases/98.0.2/linux-x86_64/en-US/firefox-98.0.2.tar.bz2
-tar -xjvf firefox-98.0.2.tar.bz2 firefox/
-sudo mv firefox /opt/
-sudo ln -s /opt/firefox/firefox /usr/bin/firefox</code></pre><p>Installation finished, but you might need additional package: </p>
-<pre><code>sudo apt-get install libdbus-glib-1-2
-firefox</code></pre><p><img src="/images/chromebook-crostini-firefox-chinese.png" alt=""></p>
-<p>However, Chinese display still got issues. Install font: </p>
-<pre><code>sudo apt install fonts-hanazono</code></pre><p>Last step, add firefox icon: </p>
-<pre><code>cd /usr/share/applications/
-sudo vi firefox.desktop</code></pre><p>Add content: </p>
-<pre><code>[Desktop Entry]
-Name=firefox
-Comment=firefox
-Exec=/opt/firefox/firefox
-Icon=/opt/firefox/browser/chrome/icons/default/default128.png
-Terminal=false
-Type=Application
-Categories=Application;
-Encoding=UTF-8
-StartupNotify=true</code></pre><p>Done. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/25/Tech/install-resilio-sync/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/25/Tech/install-resilio-sync/" class="post-title-link" itemprop="url">【Tech】 Install Resilio Sync on Linxu / ChromeOS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-25 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-25T00:00:00+00:00">2022-03-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>In this post, I will cover installing Resilio on:</p>
-<ol>
-<li>Ubuntu</li>
-<li>GalliumOS (based off Ubuntu 18)</li>
-<li>Chromebook Crostini (Debian 11)</li>
-<li>Chromebook Android (version 9)</li>
-</ol>
-<h1 id="Get-started"><a href="#Get-started" class="headerlink" title="Get started"></a>Get started</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Download Deb and install from <a target="_blank" rel="noopener" href="https://www.resilio.com/platforms/desktop/">the official website</a> or <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206178924">this post</a></p>
-<pre><code>sudo dpkg -i &lt;resilio-sync.deb&gt;</code></pre><p>Alternatively, install using apt-get:</p>
-<pre><code>echo &quot;deb http://linux-packages.resilio.com/resilio-sync/deb resilio-sync non-free&quot; | sudo tee /etc/apt/sources.list.d/resilio-sync.list
-curl -L https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add
-(maybe optional) wget -qO - https://linux-packages.resilio.com/resilio-sync/key.asc | sudo apt-key add -
-
-sudo apt-get update    
-sudo apt-get install -y resilio-sync</code></pre><h2 id="Enable-it"><a href="#Enable-it" class="headerlink" title="Enable it"></a>Enable it</h2><p>Enable the service:</p>
-<pre><code>sudo systemctl status resilio-sync
-sudo systemctl enable resilio-sync
-sudo systemctl start resilio-sync</code></pre><p>Check it out:<strong>_<a target="_blank" rel="noopener" href="https://127.0.0.1:8888/gui/">https://127.0.0.1:8888/gui/</a></strong></p>
-<p>So far, you can access the UI but still not able to use it. </p>
-<p>For Ubuntu, go ahead and config permission.</p>
-<h2 id="Config-Permission"><a href="#Config-Permission" class="headerlink" title="Config Permission"></a>Config Permission</h2><p>According to <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206178924-Installing-Sync-package-on-Linux">this post</a>: </p>
-<blockquote>
-<p>user_group is a group name of current user, by default it’s the same as user name (can be checked by running id command)</p>
-</blockquote>
-<p>In my case I ran (My whoami = ‘cb’):</p>
-<pre><code>sudo usermod -aG cb rslsync
-sudo usermod -aG rslsync cb
-sudo chmod g+rw /home/rslsync/Resilio\ Sync/</code></pre><p>This should be enough for Ubuntu. However, for the Linux on ChromeOS, you need to do the following. </p>
-<h1 id="Additional-Steps-on-ChromeOS-Linux"><a href="#Additional-Steps-on-ChromeOS-Linux" class="headerlink" title="Additional Steps on ChromeOS Linux"></a>Additional Steps on ChromeOS Linux</h1><p>First, check your username in ‘Crostini’ Linux.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Let’s ensure that ‘normal’ user can read/write the synchronized files by ‘rslsync’ user. </p>
-</blockquote>
-<blockquote>
-<p>Run the following (mind the last command which <a target="_blank" rel="noopener" href="https://kenfavors.com/code/how-to-add-user-permissions-to-a-folder-in-ubuntu/">adding user permissions to the /home/rslsync folder</a>)</p>
-</blockquote>
-<pre><code>sudo usermod -aG [whoami] rslsync    
-sudo usermod -aG rslsync [whoami]
-sudo chmod g+rw /home/rslsync/
-sudo apt install acl
-sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now test link: <strong><a target="_blank" rel="noopener" href="https://127.0.0.1:8888/gui/">https://127.0.0.1:8888/gui/</a></strong></p>
-<p>You might need to change owner for certain folders: </p>
-<pre><code>sudo chown -R [whoami]:[whoami] ./folder-name/</code></pre><h1 id="Forgot-username"><a href="#Forgot-username" class="headerlink" title="Forgot username"></a>Forgot username</h1><p>If ever, you forgot your username. On Linux, go to <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/206664690-Sync-Storage-folder">Sync Storage Folder</a> by running the following: </p>
-<pre><code>cd /var/lib/resilio-sync</code></pre><p>Find a file with the name “settings.dat”. The <a target="_blank" rel="noopener" href="https://forum.resilio.com/topic/43918-forgot-usernamepasswd-for-web-ui/">cleartext username should be there</a>.</p>
-<p>Just search for the text “username2”. If you have no luck trying the method above, you can refer to <a target="_blank" rel="noopener" href="https://help.resilio.com/hc/en-us/articles/205450295-How-do-I-reset-my-WebUI-password-">this official doc to reset WebUI password</a>.</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.davidfong.org/post/resiliosyncchromebook/">https://www.davidfong.org/post/resiliosyncchromebook/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/17/Read/liberal/berlin-movie-festival/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/17/Read/liberal/berlin-movie-festival/" class="post-title-link" itemprop="url">【Read】 柏林国际电影节 - 金熊奖/银熊奖</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-17T00:00:00+00:00">2022-03-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><ol>
-<li>柏林国际电影节</li>
-<li>Berlin International Film Festival</li>
-<li>Internationale Filmfestspiele Berlin</li>
-</ol>
-<p>原名<strong>西柏林国际电影节</strong>，创立于1951年</p>
-<p>柏林国际电影节分为“主竞赛”、“遇见”、“短片竞赛”、“全景”、“论坛”、“特别展映”、“新生代”等单元。</p>
-<h2 id="欧洲三大国际电影节"><a href="#欧洲三大国际电影节" class="headerlink" title="欧洲三大国际电影节"></a>欧洲三大国际电影节</h2><ol>
-<li>柏林国际电影节</li>
-<li>戛纳国际电影节</li>
-<li>威尼斯国际电影节</li>
-</ol>
-<h1 id="银熊奖"><a href="#银熊奖" class="headerlink" title="银熊奖"></a>银熊奖</h1><p>银熊奖（Silver Bear Award）是德国柏林国际电影节的主要奖项，仅次于最高奖项金熊奖。银熊奖分为评审团大奖银熊奖、最佳导演银熊奖、最佳主角银熊奖、最佳配角银熊奖、最佳剧本银熊奖、杰出艺术贡献银熊奖等。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1203,7 +1149,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

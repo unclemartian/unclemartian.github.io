@@ -151,6 +151,227 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Crypto/some-ethereum-competitors-2021/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/12/Crypto/some-ethereum-competitors-2021/" class="post-title-link" itemprop="url">【Crypto】 Some of the best Ethereum competitors in 2021</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-12 15:55:13" itemprop="dateCreated datePublished" datetime="2021-09-12T15:55:13+00:00">2021-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>TODO</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/12/Tech/install-wechat-ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/12/Tech/install-wechat-ubuntu/" class="post-title-link" itemprop="url">【Tech】 Install Wechat on Ubuntu</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-12 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-12T00:00:00+00:00">2021-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ubuntu-deepin-wechat"><a href="#ubuntu-deepin-wechat" class="headerlink" title="ubuntu-deepin-wechat"></a>ubuntu-deepin-wechat</h1><p>Installer for Deepin WeChat with Wine</p>
+<h2 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> deepin-wine-dependency</span><br><span class="line">bash install.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-WeChat"><a href="#Install-WeChat" class="headerlink" title="Install WeChat"></a>Install WeChat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin.com.wechat_2.6.2.31deepin0_i386.deb</span><br><span class="line">sudo apt-get install -f</span><br></pre></td></tr></table></figure>
+
+<h2 id="WeChat-Version-Too-Old-Issue"><a href="#WeChat-Version-Too-Old-Issue" class="headerlink" title="WeChat Version Too Old Issue"></a>WeChat Version Too Old Issue</h2><p>Please update your WeChat Windows installer if you encounter this problem.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /tmp/wechat</span><br><span class="line"><span class="built_in">cd</span> /tmp/wechat</span><br><span class="line">wget https://dldir1.qq.com/weixin/Windows/WeChatSetup.exe</span><br><span class="line"><span class="built_in">env</span> WINEPREFIX=/home/<span class="variable">$&#123;USER&#125;</span>/.deepinwine/Deepin-WeChat deepin-wine WeChatSetup.exe</span><br></pre></td></tr></table></figure>
+
+<h2 id="WeChat-font-issue"><a href="#WeChat-font-issue" class="headerlink" title="WeChat font issue"></a>WeChat font issue</h2><p>Download:<br><a target="_blank" rel="noopener" href="https://github.com/qiuhuachuan/fonts/blob/main/MSYH.TTC">https://github.com/qiuhuachuan/fonts/blob/main/MSYH.TTC</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> ~/Downloads/msyh.ttc ~/.deepinwine/Deepin-WeChat/drive_c/windows/Fonts</span><br><span class="line">vim ~/.deepinwine/Deepin-WeChat/font.reg</span><br></pre></td></tr></table></figure>
+
+<p>File content: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line"><span class="string">&quot;MS Shell Dlg&quot;</span>=<span class="string">&quot;msyh&quot;</span></span><br><span class="line"><span class="string">&quot;MS Shell Dlg 2&quot;</span>=<span class="string">&quot;msyh&quot;</span></span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink]</span><br><span class="line"><span class="string">&quot;Lucida Sans Unicode&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Microsoft Sans Serif&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;MS Sans Serif&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Tahoma Bold&quot;</span>=<span class="string">&quot;msyhbd.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;msyh&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br><span class="line"><span class="string">&quot;Arial Black&quot;</span>=<span class="string">&quot;msyh.ttc&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Last: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WINEPREFIX=~/.deepinwine/Deepin-WeChat/ deepin-wine regedit ~/.deepinwine/Deepin-WeChat/font.reg</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/11/Read/people/richard-gere-1993/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/11/Read/people/richard-gere-1993/" class="post-title-link" itemprop="url">【Read】 Richard Gere 1993</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-11T00:00:00+00:00">2021-09-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>Could not think of a better title for this.</p>
+</blockquote>
+<p>Richard Gere，美国演员。代表作《美国舞男》、《军官与绅士》、《一级恐惧》、《风月俏佳人》、《芝加哥》等。</p>
+<p>他在20多岁开始对佛教感兴趣，首先在Kyozan Joshu Sasaki领导下学习禅宗佛教。他在尼泊尔和印度遇到了许多藏族僧侣和喇嘛。</p>
+<p>In 1993, Gere used his time at Oscar stage to criticize the Chinese government, which led to an Oscars ban that lasted for years.</p>
+<p>Watch: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=kZy6Q8l2aOY">https://www.youtube.com/watch?v=kZy6Q8l2aOY</a></p>
+<blockquote>
+<p>该节目的制片人，已故的吉尔·凯茨（Gil Cates）怒不可遏，称当年颁奖典礼上的政治演讲 —— “令人反感和不诚实”，并发誓要禁止这3人来自未来的奥斯卡。</p>
+</blockquote>
+<p>Gere didn’t return to Oscar until 2013, when he presented an award with his Chicago castmates.</p>
+<p>他从未获得过奥斯卡提名。只是在2002年的芝加哥，让他得了金球奖</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/05/Tech/ubuntu-jdk-java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +403,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -255,7 +476,7 @@ java -version</code></pre><p>To switch java version that you want to use: </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -340,7 +561,7 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -410,7 +631,7 @@ go version</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -549,7 +770,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
+                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
               </span>
 
           
@@ -634,346 +855,6 @@ npm install -g hexo-cli</code></pre><p>To check your globally-installed packges:
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/13/Tech/ubuntu-system-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/13/Tech/ubuntu-system-commands/" class="post-title-link" itemprop="url">【Tech】 Ubuntu System Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-13T00:00:00+00:00">2021-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="System-commands"><a href="#System-commands" class="headerlink" title="System commands"></a>System commands</h1><h2 id="Check-version-of-Ubuntu"><a href="#Check-version-of-Ubuntu" class="headerlink" title="Check version of Ubuntu"></a>Check version of Ubuntu</h2><pre><code>lsb_release -a
-cat /etc/issue
-cat /etc/os-release
-hostnamectl</code></pre><h2 id="Ubuntu-switch-to-Aliyun-source"><a href="#Ubuntu-switch-to-Aliyun-source" class="headerlink" title="Ubuntu switch to Aliyun source"></a>Ubuntu switch to Aliyun source</h2><pre><code>ls /etc/apt/
-sudo cp -ra /etc/apt/sources.list /etc/apt/sources.list.backup</code></pre><p>Next check current system’s codename: </p>
-<pre><code>lsb_release -a</code></pre><p>把’TODO’的地方换成上面的Codename</p>
-<pre><code>deb http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse</code></pre><p>Alternatively, 也可以用 163网易源（下面以 Ubuntu 20.04 focal 为例）：</p>
-<pre><code>deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse</code></pre><p>下面以 Debian GNU/Linux 11 (bullseye) 为例: </p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye main non-free contrib</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian-security/">https://mirrors.aliyun.com/debian-security/</a> bullseye-security main<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian-security/">https://mirrors.aliyun.com/debian-security/</a> bullseye-security main</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-updates main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-updates main non-free contrib</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-backports main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-backports main non-free contrib</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuguanglin/p/debian11_repo.html">https://www.cnblogs.com/liuguanglin/p/debian11_repo.html</a></p>
-<p>Done, after this do: sudo apt-get update and upgrade.</p>
-<h2 id="Ubuntu-安装中文输入法"><a href="#Ubuntu-安装中文输入法" class="headerlink" title="Ubuntu 安装中文输入法"></a>Ubuntu 安装中文输入法</h2><p>Uninstall ibus first, then install fcitx: </p>
-<pre><code>sudo apt-get purge ibus
-sudo apt-get autoremove
-sudo apt-get install fcitx</code></pre><p>Then go to system language config, install Chinese and apply system-wide.</p>
-<p>Change input from ibus to fcitx. Reboot system.<br>Then run:</p>
-<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
-sudo apt -f install</code></pre><h3 id="默认输入法-切换简繁体字"><a href="#默认输入法-切换简繁体字" class="headerlink" title="默认输入法 切换简繁体字"></a>默认输入法 切换简繁体字</h3><p>Use “Ctrl + Shift + F”</p>
-<h2 id="设置-alias-短命令"><a href="#设置-alias-短命令" class="headerlink" title="设置 alias 短命令"></a>设置 alias 短命令</h2><pre><code>alias new_name=&apos;old command&apos;</code></pre><p>要创建永久别名，您必须.bashrc在主目录中编辑文件。</p>
-<h2 id="系统无法读写"><a href="#系统无法读写" class="headerlink" title="系统无法读写"></a>系统无法读写</h2><p>Encounter “Missing write access to /usr/local/lib/node_modules”</p>
-<p>Run the following: </p>
-<pre><code>sudo chown -R $USER /usr/local</code></pre><p>Reference：<a target="_blank" rel="noopener" href="https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules">https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules</a></p>
-<h2 id="Ubuntu16-04挂载exfat格式U盘"><a href="#Ubuntu16-04挂载exfat格式U盘" class="headerlink" title="Ubuntu16.04挂载exfat格式U盘"></a>Ubuntu16.04挂载exfat格式U盘</h2><pre><code>sudo apt-get install exfat-fuse</code></pre><h2 id="Check-disk-usage"><a href="#Check-disk-usage" class="headerlink" title="Check disk usage"></a>Check disk usage</h2><pre><code>df -h | grep -v &apos;/snap\|tmp&apos;</code></pre><p>The -v inverses the grep search</p>
-<p>The | 实现grep OR的操作</p>
-<p>Example output:</p>
-<pre><code>Filesystem       Size  Used Avail Use% Mounted on
-udev             3.8G     0  3.8G   0% /dev
-/dev/nvme0n1p8    26G  5.1G   20G  21% /
-/dev/nvme0n1p9    35G  6.3G   27G  20% /usr
-/dev/nvme0n1p7   343M  139M  178M  44% /boot
-/dev/nvme0n1p10   54G  4.0G   47G   8% /home</code></pre><h1 id="Software-commands"><a href="#Software-commands" class="headerlink" title="Software commands"></a>Software commands</h1><h2 id="Install-software-using-Snap"><a href="#Install-software-using-Snap" class="headerlink" title="Install software using Snap"></a>Install software using Snap</h2><p>Snap is the command-line version of “Ubuntu Software”, but the latter is very slow.</p>
-<pre><code>snap search figma-linux
-snap install figma-linux 
-snap list
-snap info figma-linux</code></pre><h2 id="Install-XMind-8-on-Ubuntu-20"><a href="#Install-XMind-8-on-Ubuntu-20" class="headerlink" title="Install XMind 8 on Ubuntu 20"></a>Install XMind 8 on Ubuntu 20</h2><p>新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。</p>
-<ol>
-<li><p>解压缩 “xmind-8-update9-linux.zip” 到桌面。</p>
-</li>
-<li><p>创建 XMind8.desktop 以下内容：</p>
-<p> [Desktop Entry]<br> Name=XMind8<br> Exec=/home/michael/Desktop/xmind-8-update9-linux/XMind_amd64/XMind<br> Path=/home/michael/Desktop/xmind-8-update9-linux/XMind_amd64<br> Terminal=false<br> Type=Application<br> Icon=xmind<br> Comment=Xmind8<br> Categories=Utility;</p>
-</li>
-<li><p>一定注意，Path= 这个地方很重要，否则xmind将会无法找到 config。</p>
-<p> Refer to <a target="_blank" rel="noopener" href="https://bbs.deepin.org/post/174888">https://bbs.deepin.org/post/174888</a></p>
-</li>
-<li><p>然后，右键点击这个 icon，选择 allow launching。<br>就可以啦～ </p>
-</li>
-<li><p>optionally，可以把这个 icon 复制到系统 applications 文件夹，如下：</p>
-<p> sudo cp xmind-8.desktop /usr/share/applications/</p>
-</li>
-</ol>
-<h2 id="Install-screen-recorder"><a href="#Install-screen-recorder" class="headerlink" title="Install screen recorder"></a>Install screen recorder</h2><pre><code>sudo apt install python3-cairo python3-xlib kazam</code></pre><h2 id="Install-video-player"><a href="#Install-video-player" class="headerlink" title="Install video player"></a>Install video player</h2><pre><code>sudo apt-get install vlc -y</code></pre><h2 id="Install-Brackets"><a href="#Install-Brackets" class="headerlink" title="Install Brackets"></a>Install Brackets</h2><pre><code>sudo snap install brackets --classic</code></pre><h2 id="Install-Chrome"><a href="#Install-Chrome" class="headerlink" title="Install Chrome"></a>Install Chrome</h2><p>Use the deb file. </p>
-<p>Remove Chromium since it’s not possible to sync with Google any more. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/01/Tech/centos-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/01/Tech/centos-commands/" class="post-title-link" itemprop="url">【Tech】 CentOS 7 Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-01T00:00:00+00:00">2021-07-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一边学一边写的，不太完整。</p>
-<h1 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h1><p>Installation: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/simple1025/p/11394312.html">centos7安装nginx并配置前端环境 - simplesally - 博客园</a></p>
-<p>Change to root: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feifei10244499/article/details/105714574/">jenkins 构建出现 permission-denied问题_feifei10244499的博客-CSDN博客</a></p>
-<p>Install maven: <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1556981">linux 安装 maven 、解决：bash: mvn: command not found</a></p>
-<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><p>Start and stop nginx locally:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/webserver/nginx/sbin</span><br><span class="line"></span><br><span class="line"># Run Nginx</span><br><span class="line">./nginx -v</span><br><span class="line">./nginx</span><br><span class="line"></span><br><span class="line"># Stop Nginx</span><br><span class="line">./nginx -s stop</span><br></pre></td></tr></table></figure>
-
-<p>Config nginx when system starts:</p>
-<p>(config nginx to systemctl first, then systemctl enable)</p>
-<p>Ref: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/iverson-3/p/12301009.html">centos7下安装、配置Nginx、设置Nginx开机自启动 - 阿木工作室 - 博客园</a></p>
-<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Kill process</p>
-<pre><code># check port
-netstat -apn | grep 9999
-
-# check process iD
-ps -ef | grep httpd
-
-# kill process
-kill -HUP PID
-kill -9 PID</code></pre><h2 id="Get-my-IP-address"><a href="#Get-my-IP-address" class="headerlink" title="Get my IP address"></a>Get my IP address</h2><pre><code>ip addr show</code></pre><h2 id="Extract-tar-gz"><a href="#Extract-tar-gz" class="headerlink" title="Extract tar.gz"></a>Extract tar.gz</h2><pre><code># 解开一个tar 
-tar -xvf etcbak.tar
-
-# 解压一个tar.gz
-tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
-<ol>
-<li>z    通过gzip支持的压缩或解压缩。还有其他的压缩或解压缩方式，比如j表示bzip2的方式</li>
-<li>x    解压缩</li>
-<li>v    在压缩或解压缩过程中显示正在处理的文件名</li>
-<li>f    f后面必须跟上要处理的文件名。</li>
-</ol>
-<h2 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h2><p><a target="_blank" rel="noopener" href="https://xbsj6147.xyz/pagesv2/download-linux.html">Trojan For Linux 教程 - 西部世界VPN</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src/trojan</span><br><span class="line">./trojan -l ./trojan.log -c ./config.json</span><br><span class="line">ss -tlnp | grep 1080</span><br><span class="line">curl --socks5 127.0.0.1:1080 https://www.google.com -k </span><br><span class="line"></span><br><span class="line"># test IP addrees </span><br><span class="line">curl http://icanhazip.com</span><br><span class="line"># should return singapore IP address 149.129.53.1</span><br></pre></td></tr></table></figure>
-
-<p>把 proxychains 放入 shell 中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Nginx</span><br><span class="line">proxychains4 -q /bin/bash </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/01/Crypto/MataMask-Dropped-Replaced/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/01/Crypto/MataMask-Dropped-Replaced/" class="post-title-link" itemprop="url">【Crypto】 MataMask状态：Dropped & Replaced</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-01 18:18:21" itemprop="dateCreated datePublished" datetime="2021-05-01T18:18:21+00:00">2021-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-20 04:52:39" itemprop="dateModified" datetime="2022-04-20T04:52:39+00:00">2022-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
-<p>有两种状态：</p>
-<ol>
-<li>Dropped Transaction</li>
-<li>Dropped &amp; Replaced Transaction</li>
-</ol>
-<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
-<p>是Ethereum nodes（也就是矿工）的操作。</p>
-<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
-<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
-<li><p>Ethereum nodes dropped it from transaction pool</p>
-<ul>
-<li>Ethereum nodes 指的是 Geth or Parity</li>
-<li>most likely due to lower gas price</li>
-</ul>
-</li>
-<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
-<ul>
-<li>depends on settings/limits of the individual clients</li>
-</ul>
-</li>
-</ul>
-<h1 id="Dropped-amp-Replaced-Transaction"><a href="#Dropped-amp-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
-<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
-<li>previous txhash invalidated</li>
-</ol>
-<h2 id="Dropped-amp-Replaced-原因"><a href="#Dropped-amp-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
-<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
-<ul>
-<li>a second tx with higher gas price was created to replace it</li>
-</ul>
-</li>
-<li><p>The Ethereum Node that the wallet/service connected to was not fully synced, and an incorrect nonce was used</p>
-</li>
-<li><p>User-initiated to replace or cancel a pending transaction</p>
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://info.etherscan.com/transaction-dropped-replaced/">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1043,7 +924,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">100</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
