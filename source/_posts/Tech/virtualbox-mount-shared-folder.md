@@ -18,20 +18,24 @@ Run
 
 ## config shared folder
 
-一定要记得，这里输入“shared”。
+这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。
 
 ![](/images/virtualbox-mount-shared-folder.png)
 
+对于 Linux 系统，无需写 “挂载点”。
+
 ## Auto mount
 
-如果没有自动加载，可以这样手动加载：
+Windows下，自动挂在。
+
+Linux下，不会自动加载。这样操作手动加载：
 
 	  cd ~/Desktop/
 	  mkdir shared-folder
-	  sudo mount -t vboxsf shared ~/Desktop/shared-folder/
+	  sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/
 
 之后就行了。
 
-如果权限出了问题，可以：
+如果权限出了问题，可以这样：
 
 	sudo adduser $USER vboxsf
