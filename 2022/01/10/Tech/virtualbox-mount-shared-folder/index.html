@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="ProblemMount shared folders in VirtualBox. Install guest add-onRun cd &#x2F;media&#x2F;osboxes&#x2F;VBox_GAs_6.1.28 sudo .&#x2F;VBoxLinuxAdditions.run sudo rebootconfig shared folder一定要记得，这里输入“shared”。  Auto mount如果没有自动加">
+  <meta name="description" content="ProblemMount shared folders in VirtualBox. Install guest add-onRun cd &#x2F;media&#x2F;osboxes&#x2F;VBox_GAs_6.1.28 sudo .&#x2F;VBoxLinuxAdditions.run sudo rebootconfig shared folder这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Tech】 How to mount shared folder for VirtualBox">
 <meta property="og:url" content="http://yoursite.com/2022/01/10/Tech/virtualbox-mount-shared-folder/index.html">
 <meta property="og:site_name" content="Hexo Blog of Uncle Martian">
-<meta property="og:description" content="ProblemMount shared folders in VirtualBox. Install guest add-onRun cd &#x2F;media&#x2F;osboxes&#x2F;VBox_GAs_6.1.28 sudo .&#x2F;VBoxLinuxAdditions.run sudo rebootconfig shared folder一定要记得，这里输入“shared”。  Auto mount如果没有自动加">
+<meta property="og:description" content="ProblemMount shared folders in VirtualBox. Install guest add-onRun cd &#x2F;media&#x2F;osboxes&#x2F;VBox_GAs_6.1.28 sudo .&#x2F;VBoxLinuxAdditions.run sudo rebootconfig shared folder这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/images/virtualbox-mount-shared-folder.png">
 <meta property="article:published_time" content="2022-01-10T00:00:00.000Z">
-<meta property="article:modified_time" content="2022-04-24T13:17:10.913Z">
+<meta property="article:modified_time" content="2022-05-03T20:52:42.760Z">
 <meta property="article:author" content="Uncle Martian">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
@@ -189,7 +189,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -207,13 +207,15 @@
 <h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
 <pre><code>cd /media/osboxes/VBox_GAs_6.1.28
 sudo ./VBoxLinuxAdditions.run
-sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>一定要记得，这里输入“shared”。</p>
+sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。</p>
 <p><img src="/images/virtualbox-mount-shared-folder.png" alt=""></p>
-<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>如果没有自动加载，可以这样手动加载：</p>
+<p>对于 Linux 系统，无需写 “挂载点”。</p>
+<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>Windows下，自动挂在。</p>
+<p>Linux下，不会自动加载。这样操作手动加载：</p>
 <pre><code>cd ~/Desktop/
 mkdir shared-folder
-sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行了。</p>
-<p>如果权限出了问题，可以：</p>
+sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后就行了。</p>
+<p>如果权限出了问题，可以这样：</p>
 <pre><code>sudo adduser $USER vboxsf</code></pre>
     </div>
 
@@ -311,7 +313,7 @@ sudo mount -t vboxsf shared ~/Desktop/shared-folder/</code></pre><p>之后就行
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

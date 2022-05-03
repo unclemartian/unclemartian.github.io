@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -151,6 +151,278 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/19/Tech/ubuntu/remove-libre-office/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/19/Tech/ubuntu/remove-libre-office/" class="post-title-link" itemprop="url">【Tech】 Remove Libre Office from Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-19T00:00:00+00:00">2022-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Libre-Office"><a href="#Libre-Office" class="headerlink" title="Libre Office"></a>Libre Office</h1><p>虽然，Draw 和 Math 好像还挺有用的。</p>
+<p>删掉大概能节省 500M 空间。</p>
+<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><p>注意：星号。</p>
+<pre><code>sudo apt remove libreoffice*
+sudo apt purge libreoffice*
+sudo apt autoremove
+sudo apt update &amp;&amp; sudo apt upgrade -y</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/18/Tech/linux-create-link-ln/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/18/Tech/linux-create-link-ln/" class="post-title-link" itemprop="url">【Tech】 Create Link using 'ln' in Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-18T00:00:00+00:00">2022-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><pre><code>ln -s /home/rslsync/Resilio\ Sync/res-work/ Documents/res-work
+ln -s /home/rslsync/Resilio\ Sync/res-shared/ Documents/res-shared</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/17/Tech/popos_install_sunloginclient/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/17/Tech/popos_install_sunloginclient/" class="post-title-link" itemprop="url">【Tech】 Pop!_OS install Sunloginclient</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-17T00:00:00+00:00">2022-04-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>向日葵默认只支持 Ubuntu，或者 Ubuntu 衍生的系统，例如 Mint(?)。所以 <strong>postinstall script 会报错</strong>，连删除都困难。</p>
+<p>另外，Pop!_OS 默认用 GDM 而不是 LightDM。</p>
+<h2 id="解决办法-x2"><a href="#解决办法-x2" class="headerlink" title="解决办法 x2"></a>解决办法 x2</h2><ol>
+<li>Temporarily change my OS informaiton to <strong>Ubuntu 20.04 LTS</strong> while installing sunloginclient.</li>
+<li>Extract the deb, <strong>modify the common.sh script</strong>, and repack the deb. </li>
+</ol>
+<p>当然也可以借鉴 <a target="_blank" rel="noopener" href="https://blog.csdn.net/ieeso/article/details/110916659">linux mint19.3（Debian）完美安装向日葵
+</a> 的思路，直接改脚本。I did not have too much luck trying that （主要是嫌麻烦）. </p>
+<h1 id="Soluiton-1"><a href="#Soluiton-1" class="headerlink" title="Soluiton 1"></a>Soluiton 1</h1><h2 id="直接安装-deb-报错"><a href="#直接安装-deb-报错" class="headerlink" title="直接安装 deb 报错"></a>直接安装 deb 报错</h2><pre><code>Error:unknown OS it not impl
+Installation failed
+dpkg: error processing package sunloginclient (–install):
+installed sunloginclient package post-installation script subprocess returned error exit status 1</code></pre><p>原因：向日葵只支持 Ubuntu，Deepin 和 麒麟系统。估计是给掏钱了。其他即使是 Ubuntu 或者 Debian-based OS 都故意无获得支持。<a target="_blank" rel="noopener" href="https://forums.debiancn.org/t/topic/2801/5">摘抄代码如下</a>：</p>
+<pre><code>if [ $os_name == &apos;ubuntu&apos; ] || [ $os_name == &apos;deepin&apos; ] || [ $os_name == &apos;kylin&apos; ]; then
+        echo $os_name &gt; /dev/null 2&gt;&amp;1
+else
+        echoAndExit &apos;unknown OS it not impl&apos;
+fi</code></pre><h2 id="postinst-postrm-scripts"><a href="#postinst-postrm-scripts" class="headerlink" title="postinst/postrm scripts"></a>postinst/postrm scripts</h2><p>现在做脚本分析。</p>
+<p>向日葵的 scripts 在以下几个地方：</p>
+<pre><code>sentry@pop-os:~$ ls /var/lib/dpkg/info/sunloginclient.
+sunloginclient.list      sunloginclient.postinst  sunloginclient.preinst
+sunloginclient.md5sums   sunloginclient.postrm    sunloginclient.prerm</code></pre><p>还有</p>
+<pre><code>sentry@pop-os:~$ ls /usr/local/sunlogin/scripts/
+checksun.sh                runsunloginclient.conf
+common.sh                  runsunloginclient.service
+depends.sh                 start.sh
+host                       stop.sh
+init_runsunloginclient     sunhost.sh
+lightdm.conf               uninstall.sh</code></pre><ol>
+<li>安装时的报错源于 /var/lib/dpkg/info/sunloginclient.postinst</li>
+<li>移除时的报错源于 /var/lib/dpkg/info/sunloginclient.postrm</li>
+</ol>
+<p>但其实，这些 scripts 里面的 <strong>$os_name</strong> 值其实来自于 <strong>/usr/local/sunlogin/scripts/common.sh</strong></p>
+<p>下面是解决过程。方法源自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/panxl6/article/details/108032700">如何在linux mint20系统上安装向日葵远程软件
+</a>，以及<a target="_blank" rel="noopener" href="https://www.codeleading.com/article/54725962164/">ubuntu 发行版安装向日葵远程控制软件</a>.</p>
+<h2 id="暂时更改系统信息"><a href="#暂时更改系统信息" class="headerlink" title="暂时更改系统信息"></a>暂时更改系统信息</h2><pre><code>sudo mv /etc/os-release /etc/os-release.backup
+sudo mv /etc/issue /etc/issue.backup
+sudo vi /etc/issue</code></pre><p>写入：</p>
+<pre><code>Ubuntu 20.04 LTS \n \l</code></pre><p>保存并退出。</p>
+<p>All should be good. 暂时不用管 <strong>os-release 文件缺失</strong>。</p>
+<p>现在，重新安装。</p>
+<pre><code>sudo apt remove sunloginclient
+sudo dpkg -i sunloginclient-11.0.0.36662-amd64.deb</code></pre><h2 id="dpkg-无法删除"><a href="#dpkg-无法删除" class="headerlink" title="dpkg 无法删除"></a>dpkg 无法删除</h2><p>报错：</p>
+<pre><code>The package needs to be reinstalled, but I can’t find an archive for it</code></pre><p>如果无法删除旧的 installation，那说明 dpkg </p>
+<pre><code>ls /etc/systemd/system/multi-user.target.wants/
+cd /var/lib/dpkg/
+sudo cp status status.backup
+sudo vi status</code></pre><p>就可以删除了。</p>
+<h2 id="GDM-报错"><a href="#GDM-报错" class="headerlink" title="GDM 报错"></a>GDM 报错</h2><pre><code>... no /etc/gdm/Init/Default file</code></pre><p>这个原因是，</p>
+<p><a target="_blank" rel="noopener" href="https://ask.csdn.net/questions/7503981">需要另一个桌面显示管理器</a>： </p>
+<pre><code>sudo apt install lightdm</code></pre><p>如果跳出 config lightdm 的话，不用管，继续使用 gdm3 就好。</p>
+<p><img src="/images/install-sunloginclient-lightdm.png" alt=""></p>
+<p>之后 GUI 就正常运行了。</p>
+<h2 id="OS-信息恢复"><a href="#OS-信息恢复" class="headerlink" title="OS 信息恢复"></a>OS 信息恢复</h2><pre><code>sudo mv /etc/issue /etc/issue.Ubuntu20.04
+sudo mv /etc/issue.backup /etc/issue
+sudo mv /etc/os-release.backup /etc/os-release</code></pre><p>结束，撒花。</p>
+<h1 id="Soluiton-2"><a href="#Soluiton-2" class="headerlink" title="Soluiton 2"></a>Soluiton 2</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://ask.csdn.net/questions/7503981">亲测有效</a> 修改deb方法参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/yygydjkthh/article/details/36695243">https://blog.csdn.net/yygydjkthh/article/details/36695243</a></p>
+<p>解压后 修改 /解压文件夹/usr/local/sunlogin/scripts 里 common.sh 第78行 </p>
+<p>将os_name=$(get_os_name) 改为 os_name=ubuntu</p>
+</blockquote>
+<p>根据<a target="_blank" rel="noopener" href="https://forums.debiancn.org/t/topic/2801/5">这个回复</a>，可以看到并不复杂：</p>
+<ol>
+<li><p>下载 .deb 软件包</p>
+</li>
+<li><p>执行命令 </p>
+<pre><code>dpkg-deb -R ./sunloginclient-11.0.0.36662-amd64.deb sunloginclient</code></pre></li>
+<li><p>进入 sunloginclient 文件夹，编辑软件包内容<br>回到软件包所在目录，执行命令</p>
+<pre><code>dpkg-deb -b sunloginclient sunloginclient-11.0.0.36662-fixed-amd64.deb</code></pre></li>
+<li><p>执行命令 </p>
+<pre><code>sudo apt ./sunloginclient-11.0.0.36662-fixed-amd64.deb</code></pre></li>
+</ol>
+<p>以上就OK了。</p>
+<p>我没试。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/16/Tech/chromebook-5-v2ray-on-galliumos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +454,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -291,7 +563,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -372,7 +644,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -441,7 +713,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -622,7 +894,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -678,393 +950,6 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
 <p>is to maximize the <strong>general welfare</strong> or the <strong>collective happiness</strong></p>
 <p>or the overall balance of <strong>pleasure over pain</strong></p>
 <p>in a phrase maximize utility.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/01/Tech/debian-9-10-minimal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/01/Tech/debian-9-10-minimal/" class="post-title-link" itemprop="url">【Tech】 Debian 9/10 minimal</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-01T00:00:00+00:00">2022-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>One advantage of using Debian is: lightweight. </p>
-<p>Some commands are different from ubuntu, thus archiving here. </p>
-<h2 id="Disk-Free"><a href="#Disk-Free" class="headerlink" title="Disk Free"></a>Disk Free</h2><p>Debian 9:</p>
-<pre><code>deb@debian9:~$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            1.5G     0  1.5G   0% /dev
-tmpfs           302M  4.3M  297M   2% /run
-/dev/sda1       6.0G  1.8G  3.9G  32% /
-tmpfs           1.5G     0  1.5G   0% /dev/shm
-tmpfs           5.0M     0  5.0M   0% /run/lock
-tmpfs           1.5G     0  1.5G   0% /sys/fs/cgroup
-tmpfs           302M     0  302M   0% /run/user/1000</code></pre><p>Debian 10: </p>
-<pre><code>deb@debian10:~$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            984M     0  984M   0% /dev
-tmpfs           200M  3.0M  197M   2% /run
-/dev/sda1       6.9G  1.8G  4.8G  27% /
-tmpfs           998M     0  998M   0% /dev/shm
-tmpfs           5.0M     0  5.0M   0% /run/lock
-tmpfs           998M     0  998M   0% /sys/fs/cgroup
-tmpfs           200M     0  200M   0% /run/user/1000</code></pre><h2 id="Hostname"><a href="#Hostname" class="headerlink" title="Hostname"></a>Hostname</h2><p>To check</p>
-<pre><code>hostname
-hostnamectl</code></pre><p>To change it: </p>
-<pre><code>hostnamectl set-hostname new-hostname
-vi /etc/hosts</code></pre><p>Run hostnamectl command again.</p>
-<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><pre><code>sudo apt install ssh
-sudo systemctl status ssh
-sudo systemctl start ssh</code></pre><p>If you are connecting using VirtualBox, change network settings to Bridge (instead of NAT).</p>
-<p>Then: </p>
-<pre><code>sudo apt install net-tools
-ip addr
-hostname -I</code></pre><p>Edit: /etc/ssh/sshd_config on your VM:</p>
-<pre><code>PasswordAuthentication yes</code></pre><p>Now, restart SSH server. Done.</p>
-<h2 id="Install-make-and-gcc"><a href="#Install-make-and-gcc" class="headerlink" title="Install make and gcc"></a>Install make and gcc</h2><p>Otherwise, you won’t be able to build a lot of packages, including npm. </p>
-<pre><code>apt-get install gcc automake autoconf libtool make</code></pre><h1 id="Install-bt"><a href="#Install-bt" class="headerlink" title="Install bt"></a>Install bt</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/29/Tech/chromebook-4-use-galliumos/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/29/Tech/chromebook-4-use-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 4 - Using GalliumOS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+00:00">2022-03-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki">GalliumOS</a></strong> is built solely for Chromebooks.</p>
-<p>这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。</p>
-<h1 id="GalliumOS-Basics-系统配置"><a href="#GalliumOS-Basics-系统配置" class="headerlink" title="GalliumOS Basics 系统配置"></a>GalliumOS Basics 系统配置</h1><h2 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h2><p>Give yourself <strong>‘su’</strong> previlege!</p>
-<p>在 Users Settings 中，把 Account Type 改为 Administrator. </p>
-<p>不换源的话，language 和 fcitx 安装会出问题。</p>
-<p><img src="/images/TODO.png" alt=""></p>
-<h2 id="HiDPI"><a href="#HiDPI" class="headerlink" title="HiDPI"></a>HiDPI</h2><p>Most simply way: <strong>Go to Settings Manager &gt; Appearance &gt; Fonts &gt; Custom DPI setting and change from 96 to</strong>:</p>
-<ul>
-<li>144 in you are on external (1080p) display</li>
-<li>192 if you are on 2K laptop screen</li>
-</ul>
-<p>There is <a target="_blank" rel="noopener" href="https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/">a script to automate this process</a>, I made it simple by hosting a copy <a href="/files/fix-hidpi-in-galliumos-3.1.sh">here</a></p>
-<pre><code>sh fix-hidpi-in-galliumos-3.1.sh</code></pre><p>Next, change the right bottom battery icon: </p>
-<pre><code>vi ~/.config/gtk-3.0/gtk.css</code></pre><p>File content:</p>
-<pre><code>#xfce4-power-manager-plugin * &#123;
-    -gtk-icon-transform: scale(0.38);
-&#125;</code></pre><p>However, based on my experience, changing <strong>/etc/profile.d/gdkscale.sh</strong> doesn’t work very properly. </p>
-<h3 id="Update-March-30-2022"><a href="#Update-March-30-2022" class="headerlink" title="Update March 30, 2022"></a>Update March 30, 2022</h3><p>I found there is additional issues with scaling. Thus this is my conclusion: </p>
-<ol>
-<li>如果是双屏幕，dpi不同，最好的办法就是改分辨率，反正笔记本屏幕也不是主力屏。<br> （我将 CB713-1W 的屏幕改成 1400 x 900 ，配合 1080p 的外显使用）</li>
-<li>其实样式可以直接到 Appearance-&gt;Fonts 里面，DPI 改成 96 或者 144</li>
-<li>去 Window Manager 里，可改窗口样式。</li>
-<li>for more：<a target="_blank" rel="noopener" href="https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html">https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html</a></li>
-</ol>
-<h2 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h2><p>看了很多 Kaby Lake 如何 fix audio 的帖子：</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/">https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/">https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/GalliumOS/galliumos-distro/issues/536">https://github.com/GalliumOS/galliumos-distro/issues/536</a></li>
-</ol>
-<p>最终决定：直接用外接显示器上的声卡吧！</p>
-<p>（可插耳机）</p>
-<h2 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h2><pre><code>cd /etc/apt/
-vi sources.list</code></pre><p>The aliyun source:</p>
-<pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><h2 id="输入法：fcitx"><a href="#输入法：fcitx" class="headerlink" title="输入法：fcitx"></a>输入法：fcitx</h2><p>首先，下载搜狗：</p>
-<p><a target="_blank" rel="noopener" href="https://pinyin.sogou.com/linux/">https://pinyin.sogou.com/linux/</a></p>
-<p>Go to “Language Support” 或者“语言支持”，添加“中文”，并且把输入法设置成：fcitx。</p>
-<p><img src="/images/galliumos-fcitx-sogoupinyin.png" alt=""></p>
-<p>然后：</p>
-<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb</code></pre><p>如果缺依赖，就：</p>
-<pre><code>sudo apt -f install</code></pre><p>这时候仍然可能会失败，报以下错：<strong>installing sogoupinyin would break fcitx-ui-qimpanel</strong>。这个原因是<a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/MyJxmX4p5n/">搜狗拼音安装包中含有fcitx-ui-qimpanel，与系统已有的fcitx-ui-qimpanel产生了冲突</a>，所以，删除 fcitx-ui-qimpanel。</p>
-<pre><code>sudo apt-get remove fcitx-ui-qimpanel</code></pre><p>后来，再安装sogou，或者先安sogou后安locale包，再重启机器，总之就好了。版本号：搜狗个人版 4.0.0.1605 （2022年3月）。</p>
-<h1 id="Install-Software"><a href="#Install-Software" class="headerlink" title="Install Software"></a>Install Software</h1><h2 id="Chrome-VSCode"><a href="#Chrome-VSCode" class="headerlink" title="Chrome, VSCode"></a>Chrome, VSCode</h2><p>Just download and install:</p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></li>
-<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
-</ol>
-<h2 id="Install-MySQL-Workbench"><a href="#Install-MySQL-Workbench" class="headerlink" title="Install MySQL Workbench"></a>Install MySQL Workbench</h2><p>Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。</p>
-<p>故选择<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb">mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</a></p>
-<p>先安依赖：</p>
-<pre><code>sudo apt install libzip4
-sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</code></pre><p>就好了。</p>
-<h2 id="Spotify"><a href="#Spotify" class="headerlink" title="Spotify"></a>Spotify</h2><p>According to the <a target="_blank" rel="noopener" href="https://www.spotify.com/us/download/linux/">official tutorial</a>:</p>
-<pre><code>curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
-echo &quot;deb http://repository.spotify.com stable non-free&quot; | sudo tee /etc/apt/sources.list.d/spotify.list</code></pre><p>Then you can install the Spotify client:</p>
-<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install spotify-client
-spotify</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/chromebook-3-install-galliumos/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/28/Tech/chromebook-3-install-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 3 - Install GalliumOS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>There are 2 ways to do a fresh installation of GalliumOS on Chromebook:</p>
-<ol>
-<li><strong>Traditional Mode</strong> - replace ChromeOS entirely. Need a USD drive. </li>
-<li><strong>chrx Mode</strong> - install from ChromeOS command line. </li>
-</ol>
-<p>The master guide is on <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">wiki.galliumos.org</a></strong>, or there’s another <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing/New_To_Linux">simpler guide for beginners</a>.</p>
-<h1 id="一、Traditional-installtion"><a href="#一、Traditional-installtion" class="headerlink" title="一、Traditional installtion"></a>一、Traditional installtion</h1><ol>
-<li><p>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
-<p> <img src="/images/galliumos-install-1.jpg" alt=""></p>
-</li>
-<li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
-</li>
-<li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
-</li>
-<li><p>Enabling Developer Mode (Esc+F3(refresh)+Power), and reboot.</p>
-</li>
-<li><p>Enable Legacy Mode booting.</p>
-<ol>
-<li><p>With your ChromeOS booted, press [Ctrl+Alt+T] and get a terminal (“crosh”) window</p>
-</li>
-<li><p>Run: <strong>‘shell’</strong></p>
-</li>
-<li><p>Then:</p>
-<p> sudo crossystem dev_boot_legacy=1</p>
-</li>
-<li><p>If you have seen an error, simply skip and continue. (Reference: <a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/">https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/</a>)</p>
-</li>
-</ol>
-</li>
-<li><p>Disable WP (write protection). Check your device on <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#devices">this MrChromebox</a> page to decide how you going to do it. In my case I use <a target="_blank" rel="noopener" href="https://wiki.mrchromebox.tech/Firmware_Write_Protect#Hardware_Write_Protection">the CR50 method</a></p>
-<ul>
-<li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
-</ul>
-</li>
-<li><p>Check WP status, At <strong>crosh&gt;</strong></p>
-<pre><code>sudo sh
-flashrom --wp-status</code></pre><p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
-</li>
-<li><p>Update Firmware. Press <strong>[Ctrl+Alt+T]</strong> to get a terminal (“crosh”) window, then type in “<strong>shell</strong>“</p>
-<ul>
-<li><p>Decide if you wish to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware">update RW_LEGACY or install Full Firmware/UEFI</a></p>
-</li>
-<li><p>Run: </p>
-<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p>  In case Github not accissible, try this link: </p>
-<pre><code>cd; curl -LO https://unclemartian.github.io/files/mrchromebox/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre></li>
-</ul>
-</li>
-<li><p>At promp, first you need to set GBB Flags (here is <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">an explanation of why</a>).</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">Important: If you choose an ISO install of GalliumOS</a> (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">you allow your battery to drain completely</a></strong>, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
-<p>Google Binary Block (GBB) flags are firmware level settings stored directly in the firmware flash chip itself in a read-only (RO) area</p>
-<p>I’ve made this mistake before. Had to do an entire factory restore of ChromeOS.</p>
-</blockquote>
-</li>
-<li><p>To set GBB, under ChromeOS at chronos@localhost / $ prompt, run this: </p>
-<pre><code>cd; curl -LO mrchromebox.tech/firmware-util.sh
-sudo install -Dt /usr/local/bin -m 755 firmware-util.sh
-sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
-<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p> <strong>Very important</strong>: you MUST execute this command <strong>as a normal/non-root user</strong>.</p>
-<p> <img src="/images/galliumos-install-3.jpg" alt=""></p>
-</li>
-<li><p>Next, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough. </p>
-<p> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
-</li>
-<li><p>Now start <strong>the actual installation process</strong> of GalliumOS!</p>
-</li>
-<li><p>Burn the ISO using <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">BalenaEtcher</a>. I used my old Mac to do the job. </p>
-</li>
-<li><p>Keep your USB drive plugged-in before rebooting. On the “<strong>OS verification is OFF</strong>“ screen, press <strong>Ctrl + L</strong></p>
-</li>
-<li><p>Install GalliumOS (I recommend using the English mode + Wiki connected to install).</p>
-</li>
-<li><p>You may or may not need to press Ctrl + L every time you boot the system, depending on which fireware script you chose to install. </p>
-</li>
-</ol>
-<h2 id="Important-Power-Drain"><a href="#Important-Power-Drain" class="headerlink" title="[Important] Power Drain"></a>[Important] Power Drain</h2><p>如果电脑突然没电了，你的 Chromebook 无法启动，而是哔哔很大的两声，这说明你的 dev_boot_legacy flag 被 GBB 给 unset 成 0 了。</p>
-<p>Sorry to tell you, 你只能恢复原 ChromeOS，然后重来一次了。你的数据都没了。</p>
-<p>没别的办法，你猜我怎么知道的？ </p>
-<p>Reference：</p>
-<blockquote>
-<p>Important: If you choose an ISO install of GalliumOS (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and you allow your battery to drain completely, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
-<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">https://wiki.galliumos.org/Firmware#crossystem</a></p>
-</blockquote>
-<p>How to fix: <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">必须改 GBB</a>，但是不建议直接改 c++ 代码，因为是只读的。最便捷的方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
-<h1 id="二、chrx-installation"><a href="#二、chrx-installation" class="headerlink" title="二、chrx installation"></a>二、chrx installation</h1><p>这种模式很好，因为 ChromeOS 被原本保留了。恢复起来也很方便。</p>
-<p>主要问题就是硬盘太小。低端Chromebook 普遍采用 32G 的 flash drive。装 ChromeOS 使用一大半，GalliumOS 占用 7-8G，空间就没了。</p>
-<h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h2 id="开机画面（dev-mode）键盘选项"><a href="#开机画面（dev-mode）键盘选项" class="headerlink" title="开机画面（dev mode）键盘选项"></a>开机画面（dev mode）键盘选项</h2><ul>
-<li><strong>[Ctrl+D]</strong> to boot ChromeOS in <strong>Developer Mode</strong>, or</li>
-<li><strong>[Ctrl+L]</strong> to boot <strong>Legacy Mode</strong> (usually used for Linux, after installing)</li>
-<li>[Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you’ll never need to use this)</li>
-<li>[TAB] for some boot configuration information</li>
-</ul>
 
       
     </div>
@@ -1149,7 +1034,7 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

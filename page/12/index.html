@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.1">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -151,6 +151,648 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/php-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/31/Tech/php-learning/" class="post-title-link" itemprop="url">【Tech】 PHP learning notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-31 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-31T00:00:00+00:00">2015-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="PHP-language"><a href="#PHP-language" class="headerlink" title="PHP language"></a>PHP language</h1><h2 id="web-server-must-have-a-php-server"><a href="#web-server-must-have-a-php-server" class="headerlink" title="web server must have a php server"></a>web server must have a php server</h2><p>web server: Apache, IIS, Tomcat, JBoss, WebLogic…</p>
+<p>app server: Jsp, PHP, Asp…</p>
+<p>we also need database, but does need to be at same machine as web/app server.</p>
+<h2 id="A-Comparison"><a href="#A-Comparison" class="headerlink" title="A Comparison"></a>A Comparison</h2><p>Linux   +  Apache  + MySql      +  PHP  =  LAMP      - open sourced, dev speed fastest</p>
+<p>Unix    +  Tomcat  + Oracle     +  JSP  =  J2EE      - most expensive</p>
+<p>Windows +  IIS     + SQL server +  ASP  =  ASP.net   - virus risks, very not safe</p>
+<h2 id="To-get-information-from-POST-form"><a href="#To-get-information-from-POST-form" class="headerlink" title="To get information from POST form"></a>To get information from POST form</h2><pre><code>Hi &lt;?php echo htmlspecialchars($_POST[&apos;name&apos;]); ?&gt;.
+You are &lt;?php echo (int)$_POST[&apos;age&apos;]; ?&gt; years old.</code></pre><h2 id="Superglobals"><a href="#Superglobals" class="headerlink" title="Superglobals"></a>Superglobals</h2><p>build-in variables that are always available in all scopes. like:</p>
+<ol>
+<li><p>$GLOBALS, variables available in global scope</p>
+<pre><code>&lt;?php
+function test() &#123;
+    $foo = &quot;local variable&quot;;
+    echo &apos;$foo in global scope: &apos; . $GLOBALS[&quot;foo&quot;] . &quot;\n&quot;;
+    echo &apos;$foo in current scope: &apos; . $foo . &quot;\n&quot;;
+&#125;
+
+$foo = &quot;Example content&quot;;
+test();
+?&gt;</code></pre></li>
+<li><p>$_SERVER, Server and execution environment information</p>
+<pre><code>&lt;?php
+echo $_SERVER[&apos;SERVER_NAME&apos;];
+?&gt;</code></pre></li>
+<li><p>$_GET, GET variables</p>
+<pre><code>&lt;?php
+echo &apos;Hello &apos; . htmlspecialchars($_GET[&quot;name&quot;]) . &apos;!&apos;;
+?&gt;</code></pre></li>
+<li><p>$_POST, POST variables</p>
+<pre><code>&lt;?php
+echo &apos;Hello &apos; . htmlspecialchars($_POST[&quot;name&quot;]) . &apos;!&apos;;
+?&gt;</code></pre></li>
+<li><p>$_FILES, File Upload variables</p>
+</li>
+<li><p>$_COOKIE</p>
+</li>
+<li><p>$_SESSION</p>
+</li>
+<li><p>$_REQUEST</p>
+<p> The PHP $_REQUEST variable contains the contents of both $_GET, $_POST, and $_COOKIE.</p>
+</li>
+<li><p>$_ENV, Environment variables</p>
+<p> These variables are imported into PHP’s global namespace from the environment under which the PHP parser is running. Many are provided by the shell under which PHP is running.</p>
+</li>
+</ol>
+<h2 id="php-code-to-print-a-variable"><a href="#php-code-to-print-a-variable" class="headerlink" title="php code to print a variable:"></a>php code to print a variable:</h2><pre><code>&lt;html&gt;
+        &lt;body&gt;
+        &lt;?php
+        $capital = 67;
+        print(&quot;Variable capital is $capital&lt;br&gt;&quot;);
+        print(&quot;Variable CaPiTaL is $CaPiTaL&lt;br&gt;&quot;);
+        ?&gt;
+        &lt;/body&gt;
+&lt;/html&gt;</code></pre><h2 id="preg-match"><a href="#preg-match" class="headerlink" title="preg_match"></a>preg_match</h2><p>in PHP does a regex match.</p>
+<h2 id="include-and-require"><a href="#include-and-require" class="headerlink" title="include() and require()"></a>include() and require()</h2><p><strong>The include() function</strong> takes all the text in a specified file and copies it into the file that uses the include function.</p>
+<p><strong>The require() function</strong> takes all the text in a specified file and copies it into the file that uses the include function. If there is any problem in loading a file then the require() function <strong>generates a fatal error and halt the execution of the script</strong>.</p>
+<h2 id="a-list-of-PHP-Predefined-Variables"><a href="#a-list-of-PHP-Predefined-Variables" class="headerlink" title="a list of PHP - Predefined Variables"></a>a list of PHP - Predefined Variables</h2><p>can be found here:</p>
+<p><a target="_blank" rel="noopener" href="http://www.tutorialspoint.com/php/php_predefined_variables.htm">http://www.tutorialspoint.com/php/php_predefined_variables.htm</a></p>
+<h2 id="define-a-error-handling-function"><a href="#define-a-error-handling-function" class="headerlink" title="define a error-handling function:"></a>define a error-handling function:</h2><pre><code>error_function(error_level, error_messag, error_file,error_line, error_context);</code></pre><h1 id="PHP-OOP"><a href="#PHP-OOP" class="headerlink" title="PHP OOP"></a>PHP OOP</h1><h2 id="PHP-Classes"><a href="#PHP-Classes" class="headerlink" title="PHP Classes"></a>PHP Classes</h2><pre><code>&lt;?php
+class  Books&#123;
+    /* Member variables */
+    var $price;
+    var $title;
+    /* Member functions */
+    function setPrice($par)&#123;
+       $this-&gt;price = $par;
+    &#125;
+    function getPrice()&#123;
+       echo $this-&gt;price .&quot;&lt;br/&gt;&quot;;
+    &#125;
+    function setTitle($par)&#123;
+       $this-&gt;title = $par;
+    &#125;
+    function getTitle()&#123;
+       echo $this-&gt;title .&quot; &lt;br/&gt;&quot;;
+    &#125;
+&#125;
+?&gt;</code></pre><h2 id="Creating-Objects"><a href="#Creating-Objects" class="headerlink" title="Creating Objects"></a>Creating Objects</h2><pre><code>$physics = new Books( &quot;Physics for High School&quot;, 10 );
+$maths = new Books;
+$chemistry = new Books;
+
+$physics-&gt;setTitle( &quot;Physics for High School&quot; );
+$maths-&gt;setTitle( &quot;Algebra&quot; );
+$chemistry-&gt;setTitle( &quot;Advanced Chemistry&quot; );</code></pre><h2 id="Public-and-Private-members"><a href="#Public-and-Private-members" class="headerlink" title="Public and Private members"></a>Public and Private members</h2><p>Unless you specify otherwise, properties and methods of a class are public.</p>
+<p>If you wish to limit the accessibility of the members of a class then you define class members as private or protected.</p>
+<pre><code>class MyClass &#123;
+   private $car = &quot;skoda&quot;;
+   $driver = &quot;SRK&quot;;
+
+   function __construct($par) &#123;
+      // Statements here run every time
+      // an instance of the class
+      // is created.
+   &#125;
+
+   function myPublicFunction() &#123;
+      return(&quot;I&apos;m visible!&quot;);
+   &#125;
+   private function myPrivateFunction() &#123;
+      return(&quot;I&apos;m  not visible outside!&quot;);
+   &#125;
+&#125;</code></pre><h2 id="Interfaces"><a href="#Interfaces" class="headerlink" title="Interfaces"></a>Interfaces</h2><pre><code>interface Mail &#123;
+   public function sendMail();
+&#125;
+
+class Report implements Mail &#123;
+   // sendMail() Definition goes here
+&#125;</code></pre><h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2><p>constant’s name does not have a leading $, as variable names do.</p>
+<pre><code>class MyClass &#123;
+   const requiredMargin = 1.7;
+   function __construct($incomingValue) &#123;
+      // Statements here run every time
+      // an instance of the class
+      // is created.
+   &#125;
+&#125;</code></pre><h2 id="Abstract-Classes"><a href="#Abstract-Classes" class="headerlink" title="Abstract Classes"></a>Abstract Classes</h2><p>When inheriting from an abstract class, all methods marked abstract in the parent’s class declaration must be defined by the child.</p>
+<p>It is not legal to have abstract function definitions inside a non-abstract class.</p>
+<pre><code>abstract class MyAbstractClass &#123;
+   abstract function myAbstractFunction() &#123;
+   &#125;
+&#125;</code></pre><h2 id="Static"><a href="#Static" class="headerlink" title="Static"></a>Static</h2><p>A member declared as static can not be accessed with an instantiated class object (though a static method can).</p>
+<pre><code>&lt;?php
+class Foo
+&#123;
+    public static $my_static = &apos;foo&apos;;
+
+    public function staticValue() &#123;
+        return self::$my_static;
+    &#125;
+&#125;
+print Foo::$my_static . &quot;\n&quot;;
+$foo = new Foo();
+print $foo-&gt;staticValue() . &quot;\n&quot;;</code></pre><h2 id="Final-Keyword"><a href="#Final-Keyword" class="headerlink" title="Final Keyword"></a>Final Keyword</h2><p>Prefixing the method definition with final prevents child classes from overriding.</p>
+<p>If the class itself is being defined final then it cannot be extended.</p>
+<h2 id="Calling-parent-constructors"><a href="#Calling-parent-constructors" class="headerlink" title="Calling parent constructors"></a>Calling parent constructors</h2><p>The constructor of NameSub1 functions by calling its parent constructor explicitly using the :: syntax.</p>
+<pre><code>class Name
+&#123;
+   var $_firstName;
+   var $_lastName;
+   function Name($first_name, $last_name)
+   &#123;
+     $this-&gt;_firstName = $first_name;
+     $this-&gt;_lastName = $last_name;
+   &#125;
+   function toString() &#123;
+     return($this-&gt;_lastName .&quot;, &quot; .$this-&gt;_firstName);
+   &#125;
+&#125;
+class NameSub1 extends Name
+&#123;
+   var $_middleInitial;
+   function NameSub1($first_name, $middle_initial, $last_name) &#123;
+       Name::Name($first_name, $last_name);
+       $this-&gt;_middleInitial = $middle_initial;
+   &#125;
+   function toString() &#123;
+       return(Name::toString() . &quot; &quot; . $this-&gt;_middleInitial);
+   &#125;
+&#125;</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="http://php.net/">http://php.net/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.tutorialspoint.com/php/index.htm">http://www.tutorialspoint.com/php/index.htm</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.w3schools.com/php/">http://www.w3schools.com/php/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/python-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/31/Tech/python-learning/" class="post-title-link" itemprop="url">【Tech】 Python learning notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-31 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-31T00:00:00+00:00">2015-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Python-Basics"><a href="#Python-Basics" class="headerlink" title="Python Basics"></a>Python Basics</h1><p>Python does not use brackets to structure code, instead it uses whitespaces.</p>
+<h2 id="To-define-a-variable"><a href="#To-define-a-variable" class="headerlink" title="To define a variable"></a>To define a variable</h2><p>you do not have to specify the datatype.</p>
+<h2 id="find-the-datatype"><a href="#find-the-datatype" class="headerlink" title="find the datatype:"></a>find the datatype:</h2><pre><code>print type(x)</code></pre><h2 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h2><pre><code># This is a single line comment
+&apos;&apos;&apos; This is a multi-line Python
+comment. &apos;&apos;&apos;</code></pre><h2 id="ask-the-user-for-input"><a href="#ask-the-user-for-input" class="headerlink" title="ask the user for input"></a>ask the user for input</h2><p>using the raw_input function:</p>
+<pre><code>#!/usr/bin/env python
+
+x = int(raw_input(&quot;Enter x:&quot;))
+y = int(raw_input(&quot;Enter y:&quot;))
+
+sum = x + y
+print sum</code></pre><p>In the latest Python version you can use the input() function instead:</p>
+<pre><code>x = int(input(&quot;Enter x:&quot;))</code></pre><h2 id="do-operations-on-strings"><a href="#do-operations-on-strings" class="headerlink" title="do operations on strings:"></a>do operations on strings:</h2><pre><code>s = &quot;Hello Python&quot;
+print s       # prints whole string
+print s[0]    # prints &quot;H&quot;
+print s[0:2]  # prints &quot;He&quot;
+print s[2:4]  # prints &quot;ll&quot;
+print s[6:]   # prints &quot;Python&quot;
+print s + &apos; &apos; + s # print concatenated string.
+print s.replace(&apos;Hello&apos;,&apos;Thanks&apos;) # print a string with a replaced word</code></pre><h3 id="Python-String-compare"><a href="#Python-String-compare" class="headerlink" title="Python String compare"></a>Python String compare</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q == sentence:
+    print &apos;equal&apos;
+else:
+    print &apos;not equal&apos;</code></pre><h3 id="Python-String-contains"><a href="#Python-String-contains" class="headerlink" title="Python String contains"></a>Python String contains</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q in sentence:
+    print q + &quot; found in &quot; + sentence</code></pre><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code>l = [ &quot;Drake&quot;, &quot;Derp&quot;, &quot;Derek&quot;, &quot;Dominique&quot; ]
+
+print l     # prints all elements
+print l[0]  # print first element
+print l[1]  # prints second element
+
+l.append(&quot;Victoria&quot;)   # add element.
+print l                # print all elements
+l.remove(&quot;Derp&quot;)       # remove element.
+l.remove(&quot;Drake&quot;)      # remove element.
+print l                # print all elements.
+
+l.sort()    # sorts the list in alphabetical order
+l.reverse() # reverse order.</code></pre><p>iteration: </p>
+<pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="A-tuple-is-a-sequence-of-data"><a href="#A-tuple-is-a-sequence-of-data" class="headerlink" title="A tuple is a sequence of data."></a>A tuple is a sequence of data.</h2><p>It is defined as a sequence of elements separated by a comma.</p>
+<pre><code>point = (3,4)
+point2 = (2,6,12)
+
+print point
+print point[0]
+print point[1]
+
+print point2
+print point2[0]
+print point2[1]</code></pre><h2 id="A-dictionary"><a href="#A-dictionary" class="headerlink" title="A dictionary"></a>A dictionary</h2><p>is an unordered set of key:</p>
+<pre><code>words = &#123;&#125;
+words[&quot;Hello&quot;] = &quot;Bonjour&quot;
+words[&quot;Yes&quot;] = &quot;Oui&quot;
+words[&quot;No&quot;] = &quot;Non&quot;
+words[&quot;Bye&quot;] = &quot;Au Revoir&quot;
+
+print words            # print key-pairs.
+del words[&quot;Yes&quot;]       # delete a key-pair.
+print words            # print key-pairs.
+words[&quot;Yes&quot;] = &quot;Oui!&quot;  # add new key-pair.
+print words            # print key-pairs.</code></pre><p>Output:</p>
+<pre><code>&#123;&apos;Yes&apos;: &apos;Oui&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;
+&#123;&apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;
+&#123;&apos;Yes&apos;: &apos;Oui!&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;</code></pre><h2 id="Datatype-casting"><a href="#Datatype-casting" class="headerlink" title="Datatype casting"></a>Datatype casting</h2><table style="width:100%; " class="easy-table easy-table-cuscosky "><thead><tr><th>Function</th><th> Description</th></tr></thead><tbody><tr><td>int(x)</td><td> &nbsp;Converts x to an integer</td></tr><tr><td>long(x)</td><td> Converts x to a long integer</td></tr><tr><td>float(x)</td><td> Converts x to a floating point number</td></tr><tr><td>str(x)</td><td> Converts x to an string. &nbsp;x can be of the type float. integer or long.</td></tr><tr><td>hex(x)</td><td> Converts x integer to a hexadecimal string</td></tr><tr><td>chr(x)</td><td> Converts x integer to a character</td></tr><tr><td>ord(x)</td><td> Converts character x to an integer</td></tr></tbody></table>
+
+<pre><code>x = 3
+y = 2.15315315313532
+
+print &quot;We have defined two numbers,&quot;
+print &quot;x = &quot; + str(x)
+print &quot;y = &quot; + str(y)
+
+a = &quot;135.31421&quot;
+b = &quot;133.1112223&quot;
+
+c = float(a) + float(b)
+print c</code></pre><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><pre><code>print &quot;Guess my age&quot;
+guess = int(raw_input(&quot;Guess: &quot;))
+
+if guess &gt; 10 and guess &lt; 20:
+    print &quot;In range&quot;
+else:
+    print &quot;Out of range&quot;</code></pre><h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><pre><code>def doA():
+    a = 5
+
+def doB(a):
+    print a   # this will work
+
+doB(3)</code></pre><h2 id="For-loop-1"><a href="#For-loop-1" class="headerlink" title="For loop 1"></a>For loop 1</h2><pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="For-loop-2"><a href="#For-loop-2" class="headerlink" title="For loop 2"></a>For loop 2</h2><pre><code>for x in range(1,10):
+    for y in range(1,10):
+        print &quot;(&quot; + str(x) + &quot;,&quot; + str(y) + &quot;)&quot;</code></pre><h2 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h2><pre><code>while button_not_pressed:
+     drive()</code></pre><h1 id="Python-OOP"><a href="#Python-OOP" class="headerlink" title="Python OOP"></a>Python OOP</h1><h2 id="class-in-Python"><a href="#class-in-Python" class="headerlink" title="class in Python"></a>class in Python</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def sayHello(self):
+        print &quot;Hello, my name is &quot; + self.name
+
+# create virtual objects
+james = User(&quot;James&quot;)
+david = User(&quot;David&quot;)
+eric = User(&quot;Eric&quot;)
+
+# call methods owned by virtual objects
+james.sayHello()
+david.sayHello()</code></pre><h2 id="inheritance"><a href="#inheritance" class="headerlink" title="inheritance"></a>inheritance</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def printName(self):
+        print &quot;Name  = &quot; + self.name
+
+class Programmer(User):
+    def __init__(self, name):
+        self.name = name
+
+    def doPython(self):
+        print &quot;Programming Python&quot;
+
+brian = User(&quot;brian&quot;)
+brian.printName()
+
+diana = Programmer(&quot;Diana&quot;)
+diana.printName()
+diana.doPython()</code></pre><h2 id="polymorphism"><a href="#polymorphism" class="headerlink" title="polymorphism"></a>polymorphism</h2><pre><code>class Bear(object):
+def sound(self):
+    print &quot;Groarrr&quot;
+
+class Dog(object):
+def sound(self):
+    print &quot;Woof woof!&quot;
+
+def makeSound(animalType):
+animalType.sound()
+
+bearObj = Bear()
+dogObj = Dog()
+
+makeSound(bearObj)
+makeSound(dogObj)</code></pre><h2 id="polymorphism-with-abstract-class"><a href="#polymorphism-with-abstract-class" class="headerlink" title="polymorphism with abstract class"></a>polymorphism with abstract class</h2><pre><code>class Document:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Pdf(Document):
+    def show(self):
+        return &apos;Show pdf contents!&apos;
+
+class Word(Document):
+    def show(self):
+        return &apos;Show word contents!&apos;
+
+documents = [Pdf(&apos;Document1&apos;),
+             Pdf(&apos;Document2&apos;),
+             Word(&apos;Document3&apos;)]
+
+for document in documents:
+    print document.name + &apos;: &apos; + document.show()</code></pre><p>Output:</p>
+<pre><code>Document1: Show pdf contents!
+Document2: Show pdf contents!
+Document3: Show word contents!</code></pre><h2 id="another-example"><a href="#another-example" class="headerlink" title="another example"></a>another example</h2><p>of abstract class:</p>
+<pre><code>class Car:
+    def __init__(self, name):
+        self.name = name
+
+    def drive(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+    def stop(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Sportscar(Car):
+    def drive(self):
+        return &apos;Sportscar driving!&apos;
+
+    def stop(self):
+        return &apos;Sportscar breaking!&apos;
+
+class Truck(Car):
+    def drive(self):
+        return &apos;Truck driving slowly because heavily loaded.&apos;
+
+    def stop(self):
+        return &apos;Truck breaking!&apos;
+
+
+cars = [Truck(&apos;Bananatruck&apos;),
+        Truck(&apos;Orangetruck&apos;),
+        Sportscar(&apos;Z3&apos;)]
+
+for car in cars:
+    print car.name + &apos;: &apos; + car.drive()</code></pre><p>Output:</p>
+<pre><code>Bananatruck: Truck driving slowly because heavily loaded.
+Orangetruck: Truck driving slowly because heavily loaded.
+Z3: Sportscar driving!</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://pythonspot.com/beginner/">Python Beginner by pythonspot.com</a></p>
+<h1 id="Python-tricks"><a href="#Python-tricks" class="headerlink" title="Python tricks"></a>Python tricks</h1><h2 id="start-a-simple-HTTP-server"><a href="#start-a-simple-HTTP-server" class="headerlink" title="start a simple HTTP server:"></a>start a simple HTTP server:</h2><pre><code>python -m SimpleHTTPServer</code></pre><h2 id="Using-Zip"><a href="#Using-Zip" class="headerlink" title="Using Zip"></a>Using Zip</h2><p>to combine arrays</p>
+<pre><code>&gt;&gt;&gt; b = [[1, 2, 3, 4], [6, 5, 4, 3]]
+&gt;&gt;&gt; zip(*b)
+[(1, 6), (2, 5), (3, 4), (4, 3)]</code></pre><h2 id="We-know-that-“array-reverse-”-will-reverse-an-array"><a href="#We-know-that-“array-reverse-”-will-reverse-an-array" class="headerlink" title="We know that “array.reverse()” will reverse an array."></a>We know that “array.reverse()” will reverse an array.</h2><p>How do we reverse a string?</p>
+<pre><code>&gt;&gt;&gt; s = &quot;Hello world&quot;
+&gt;&gt;&gt; s = s[::-1]
+&gt;&gt;&gt; print s
+dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables" class="headerlink" title="Swapping variables"></a>Swapping variables</h2><pre><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 3
+&gt;&gt;&gt; b,a = a,b
+&gt;&gt;&gt; print a
+3
+&gt;&gt;&gt; print b
+1</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://pythonspot.com/fun-tricks-with-python/">Fun tricks with Python, pythonspot.com</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/24/Tech/regex-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/24/Tech/regex-tutorial/" class="post-title-link" itemprop="url">【Tech】 Regular Expression Learning Notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-24 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-24T00:00:00+00:00">2015-05-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><p>\d    any Digit</p>
+</li>
+<li><p>.    any Character</p>
+</li>
+<li><p>.    Period</p>
+</li>
+<li><p>[abc]    Only a, b, or c</p>
+</li>
+<li><p>[^abc]    Not a, b, nor c</p>
+</li>
+<li><p>[a-z]    Characters a to z</p>
+</li>
+<li><p>[0-9]    Numbers 0 to 9</p>
+</li>
+<li><p>{m}    m Repetitions</p>
+</li>
+<li><p>{m,n}    m to n Repetitions</p>
+<p> eg. a{1,} means <strong>&gt;=1 occurance of a</strong></p>
+</li>
+<li><p>*    Zero or more repetitions</p>
+</li>
+<li><p>+    One or more repetitions</p>
+<p> eg. [abc]+ means <strong>&gt;=1 occurance of a or b or c</strong></p>
+</li>
+<li><p>?    Optional</p>
+<p> eg. ab?c matches <strong>abc or ac</strong></p>
+</li>
+<li><p>\s    any Whitespace</p>
+</li>
+<li><p>\t    any tab</p>
+</li>
+<li><p>\n    any new line</p>
+</li>
+<li><p>^…$    Starts and ends</p>
+</li>
+<li><p>()    capture Group</p>
+</li>
+<li><p>(a(bc))    capture Sub group</p>
+<p> eg. ^(IMG\d+).png$ matches <strong>an image file name</strong></p>
+</li>
+<li><p>(.*)    capture Variable content</p>
+</li>
+<li><p>(a|b)    Matchs a or b</p>
+</li>
+<li><p>metacharacters</p>
+<ol>
+<li><p>\w    any Alphanumeric character</p>
+</li>
+<li><p>\W    any Non-alphanumeric character</p>
+</li>
+<li><p>\d    any Digit</p>
+</li>
+<li><p>\D    any Non-digit character</p>
+</li>
+<li><p>\s    any Whitespace</p>
+</li>
+<li><p>\S    any Non-whitespace character</p>
+</li>
+</ol>
+</li>
+<li><p>Last but not least: <strong>.* matches anything</strong></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/14/Tech/ssh-keys-github/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +824,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -323,7 +965,7 @@ git push origin master</code></pre><p>You should see it works fine. Notice how w
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -536,7 +1178,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -659,7 +1301,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -730,7 +1372,7 @@ nano config.js</code></pre><p>Now change the url of production to the public IP 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
+                <time title="Modified: 2022-05-03 20:52:42" itemprop="dateModified" datetime="2022-05-03T20:52:42+00:00">2022-05-03</time>
               </span>
 
           
@@ -1024,273 +1666,6 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/24/Tech/vi-tutorial/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/04/24/Tech/vi-tutorial/" class="post-title-link" itemprop="url">【Tech】 Vi tutorial</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2015-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-24T00:00:00+00:00">2015-04-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="About-Vi"><a href="#About-Vi" class="headerlink" title="About Vi"></a>About Vi</h1><p>Vi is a text editor built written in C, for Unit/Linux since 1976. It is default for Unix systems.</p>
-<blockquote>
-<p>Over the years since its creation, vi became the de facto standard Unix editor and a nearly undisputed hacker favorite[citation needed] outside of MIT until the rise of Emacs after about 1984.</p>
-<p>– <cite>Wikipedia<a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Vi">1</a></cite></p>
-</blockquote>
-<h1 id="Why-Vi"><a href="#Why-Vi" class="headerlink" title="Why Vi"></a>Why Vi</h1><p>I have to use Vi when I setup my VPS for web hosting. Vi confuses me a while since I have no prior experience. Over time, I came to realize that using Vi is a must for a developer, so let’s don’t hesitate to jump at it!</p>
-<p>We’ll get started by learning some of the basics.</p>
-<h1 id="Getting-started"><a href="#Getting-started" class="headerlink" title="Getting started"></a>Getting started</h1><p>First of all, Vi have 2 modes: <strong>Command Mode</strong> and <strong>Insert Mode</strong>.</p>
-<p>Remember how to switch mode:</p>
-<ol>
-<li>press ‘i’ for Insert Mode</li>
-<li>press “Esc” for Command Mode</li>
-</ol>
-<h2 id="3-basic-file-commands"><a href="#3-basic-file-commands" class="headerlink" title="3 basic file commands"></a>3 basic file commands</h2><ol>
-<li>:w - save</li>
-<li>:q - quit</li>
-<li>:q! - quit without saving</li>
-</ol>
-<h2 id="Move-the-cursor"><a href="#Move-the-cursor" class="headerlink" title="Move the cursor"></a>Move the cursor</h2><p>When in command mode, the key h, j, k and l can move the cursor, just like your arrow key.</p>
-<ol>
-<li>h - Cursor left</li>
-<li>j - Cursor down</li>
-<li>k - Cursor up</li>
-<li>l - Cursor right</li>
-</ol>
-<h2 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h2><p>In command mode:</p>
-<ol>
-<li>x - delete 1 char</li>
-<li>dd - delete 1 line</li>
-</ol>
-<p>Difference between ‘backspace’ and ‘x’:</p>
-<ol>
-<li>backspace - works in insert mode. Can only delete chars inserted in current session.</li>
-<li>x - works in command mode. Can delete anything.</li>
-</ol>
-<h2 id="Repeat-operation"><a href="#Repeat-operation" class="headerlink" title="Repeat operation"></a>Repeat operation</h2><p>In command mode, input a number then the command, the command with be repeat corresponding number of times. Eg “20dd” deletes 20 lines.</p>
-<h1 id="Last-word"><a href="#Last-word" class="headerlink" title="Last word"></a>Last word</h1><p>This definitely is not a thorough tutorial, but it’s enough for basic needs of a system admin. I learn these from the 2 tutorials from <a target="_blank" rel="noopener" href="http://www.unix-manuals.com/tutorials/vi/vi-in-10-1.html">unix-manuals</a></p>
-<p>Hope it helps you.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/09/18/Read/books/%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%A7%B0%E4%B8%8E%E5%85%AC%E5%8A%A1%E5%91%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/09/18/Read/books/%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%A7%B0%E4%B8%8E%E5%85%AC%E5%8A%A1%E5%91%98/" class="post-title-link" itemprop="url">【Read】 摘抄：信息不对称与公务员</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2014-09-18T00:00:00+00:00">2014-09-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="lt-lt-1984-gt-gt"><a href="#lt-lt-1984-gt-gt" class="headerlink" title="&lt;&lt;1984&gt;&gt;"></a>&lt;&lt;1984&gt;&gt;</h1><p>他想，他已经死了。他觉得只有到现在，当他开始能够把他的思想理出头绪的时候，他才采取了决定性的步骤。一切行动的后果都包括在行动本身里面。他写道：思想罪不会带来死亡：思想罪本身就是死亡。</p>
-<h1 id="HK-China"><a href="#HK-China" class="headerlink" title="HK China"></a>HK China</h1><p>那时有关 中国对香港的国家主权体现 官方定义所发生的唯一一次大风波 是邓小平对从1997年6月30日午夜开始 中国军队是否在香港驻扎的问题公开发怒 整整30年之前 就在中英交接条约的最后文本敲定之际 邓小平当着所有被接见的记者们的面 怒斥两个领导人——黄华和耿飚 这两位已经表示解放军在港不驻军 以免影响国际社会对香港的信心 而邓小平在镜头前怒斥耿飊及黄华 指在香港不驻军是 胡说八道 这令在场的人大惊失色 更是令香港惊慌失措 英国也傻了眼</p>
-<p><a target="_blank" rel="noopener" href="http://www.ftchinese.com/story/00105795">http://www.ftchinese.com/story/00105795</a></p>
-<h1 id="公务员-信息不对称"><a href="#公务员-信息不对称" class="headerlink" title="公务员 信息不对称"></a>公务员 信息不对称</h1><p>为什么那个村里中学还没毕业就出去闯荡的狗蛋，十几年后衣锦还乡，开着李华看一辈子报纸喝一辈子茶水，拿一辈子hui色收入都买不起的某订制级豪车，乡亲们一瞬间忘记了那个从小到大奖状贴了一墙的尖子生李华，之前对李华考上公务员的种种夸耀，恨不能全部收回来，贴在狗蛋身上，而李华只能望着绝尘而去，怀疑这一生？</p>
-<p>村民甚至分不清楚公务员的概念，想当然地以为，当官=公务员=有钱。而在这种理解程度上，不管李华当的是村支书，还是一个比较新潮的公务员，比如可以是市妇联主任的助手，或者是海关安检看X光扫描的小兵，在村民对于这种没有对公务员的判定范围有一个清楚的了解下，那他们听了后，会摆出”O“的嘴型与我懂得的表情，然后笑嘻嘻地说：”当官好啊。“</p>
-<p>在狗蛋没回来之前，李华拥有对公务员信息解释的垄断权。<br>显而易见，李华信息量要大于村民。<br><strong>这就是一种信息不对称</strong>。</p>
-<p>李华认为自己是成功，还是失败，这都不重要，<strong>重要的是，他在极力维持这种信息不对称，无论是出于什么目的</strong>。但是，不幸的是，狗蛋的出现，打破了这种信息不对称</p>
-<p>狗蛋从最直观的角度，满足了村民心底原始级欲望（此处为金钱），以一个胜利者（信息不对称破坏者）的姿态，打破了李华对于成功定义的垄断。在狗蛋没回来之前，大家都认为，从这小山沟沟里走出去，并能混出个样样，取得成功唯一的途径便是像李华那样用功读书，将来成为一个官（公务员）。 </p>
-<p>而走出这个山沟，对成功的理解则不一样。<strong>这，正是一种信息不对称</strong>。</p>
-<p>既然发觉到信息不对称，并有可以逆转这种不对称，甚至有可以打破不对称规则的机会，为什么人们就是不做？</p>
-<p>答案很简单：自我否定与，对短期收益的认可，大过了长期收益的认可。</p>
-<p>因为功利心在作祟，使我们丧失了对于一件事物基本的思辨能力，以至于，哪怕这件事只要坚持下来，并长期去做，就会获得巨大收益，但仅仅因为其需求一定量的时间付出，便放弃了这件事。</p>
-<p><a target="_blank" rel="noopener" href="http://www.zhihu.com/question/24709876/answer/28701787">http://www.zhihu.com/question/24709876/answer/28701787</a></p>
-<h1 id="中国护照bug"><a href="#中国护照bug" class="headerlink" title="中国护照bug"></a>中国护照bug</h1><p>国内很多敏感人物可以避过bug通行全球，同时保留多国籍。这些敏感人物人手两/多个护照，一个中国的一个圣基茨及尼维斯的再加上一个深圳户口，因为深圳户口有香港“一签多行”的功能，他们先利用港澳通行证到香港，再用第二本护照合法离境，返回时仍然用港澳通行证从香港入境。巧妙地避过了出入境记录的bug，既不用办签证也避免了被国内政府发现第二国籍。</p>
-<p>国内的出入境处只知道他们出入了香港，并不知道他们在香港还去了别的国家，从而避免被注销国籍。 </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/08/14/Read/books/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/08/14/Read/books/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B2/" class="post-title-link" itemprop="url">【Read】 读书笔记 - 明朝那些事2</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-08-14 00:00:00" itemprop="dateCreated datePublished" datetime="2014-08-14T00:00:00+00:00">2014-08-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-04-24 13:17:10" itemprop="dateModified" datetime="2022-04-24T13:17:10+00:00">2022-04-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="汤和"><a href="#汤和" class="headerlink" title="汤和"></a>汤和</h1><p>汤和就这样成了朱重八的第一个战友。他在今后的日子里将陪同朱重八一起走完这条艰苦的道路。然而汤和也绝对不会想到，自己居然是唯一一个陪他走完这条路的人。</p>
-<p>他幼年时候的朋友汤和写了一封信给他，信的内容是自己做了起义军的千户，希望朱重八也来参加起义军，共图富贵。朱重八看过后，不动声色，将信烧掉了。然而晚上，他的师兄告诉他，有人已经知道了他看义军信件的事情，准备去告发他。朱重八终于被逼上了绝路。</p>
-<h1 id="徐达"><a href="#徐达" class="headerlink" title="徐达"></a>徐达</h1><p>徐达是明朝的优秀将领，他平民出身，却是不世出的军事天才，他从小兵干起，跟随朱元璋出生入死，在残酷的战争中成长为元末明初最优秀的将领。</p>
-<p>他善于指挥大军团作战，深通谋略，为人宽厚，历数十役，战必胜、攻必取，与北元第一名将王保保的作战更是他军事生涯的最高峰。他告诉我们，一个平凡的人经过自己的努力，也能成为叱咤风云的名将。</p>
-<h1 id="李善长"><a href="#李善长" class="headerlink" title="李善长"></a>李善长</h1><p>念及李善长跟随自己多年，在临刑前朱元璋见了李善长最后一面。朱元璋坐在自己的宝座上，看着跪在下面的李善长。这个人曾经是我最信任的部下，现在我要杀他。</p>
-<p>李善长跪在地上，抬头望着朱元璋。这个人曾经是我最真诚的朋友，现在他要杀我。</p>
-<p>还能说什么呢，什么都不用说了。李善长看着朱元璋，几十年前，他投奔了这个人，他们彻夜长谈，相见恨晚，共同谋划着将来的远大前景。那一年，李善长四十岁，朱元璋二十六岁。他向现在的皇帝朱元璋叩头谢恩，走出了大殿。</p>
-<p>洪武二十三年（1390），朱元璋杀李善长，夷其三族。</p>
-<h1 id="大诰"><a href="#大诰" class="headerlink" title="大诰"></a>大诰</h1><p>比如张三犯了罪，应该处以刑罚，县官已经定罪，下一步本来应该是该坐牢的去坐牢、该流放的流放，但差役却不忙，他们还要办一件事，那就是把张三押到他自己的家中，去找一样东西。找什么呢？就是这本《大诰》，如果找到了，那就恭喜张三了：如果本来判的流放，就不用去了，回牢房坐牢；如果是杀头的罪，那就能捡一条命。</p>
-<p>(明朝末年时，如果有人家还保存有大诰，那么在犯流罪以下罪行时可以减轻一等处罚。)</p>
-<h1 id="严格的秩序"><a href="#严格的秩序" class="headerlink" title="严格的秩序"></a>严格的秩序</h1><p>朱元璋要建立的是一个等级分明、秩序严谨、近乎僵化的社会结构，在这个结构中，农民只能种地，商人只能经商，官员按照规定干好自己的工作，无论谁都不能越界。军户、民户、匠户的划分。。。</p>
-<p>The consequences: </p>
-<p>朱元璋废除了丞相制度，限制大臣的权力，然而明朝的内阁比以往的任何丞相都更专权。朱元璋规定老百姓不得四处流动，然而明朝中后期流民成风，四处游荡，丝毫不受束缚。</p>
-<p>朱元璋颁布了抑制商业发展的条令，并规定商人不得穿着绸纱等贵重衣物，然而大规模的工商业发展正是从明朝开始，而那些本应该是社会最底层的商人却穿金戴银，甚至登堂入室，为官经商。</p>
-<p>朱元璋严令太监不得干政，可是明朝的阉宦却个个都是重量级的（这与他废除相权有关）。朱元璋给他的所有子孙都准备了爵位和俸禄，然而一百多年后，他的很多后代都家道中落，穷困潦倒。</p>
-<h1 id="屠城"><a href="#屠城" class="headerlink" title="屠城"></a>屠城</h1><p>屠城是为了让对手屈服。但他们的缺德之处在于，不投降他们必然会屠城，但是投降的他们也并不放过。</p>
-<p>蒙古的狂潮席卷全球，不过欧洲人似乎更有自律精神，他们认为无端出来这么些恐怖的家伙，是因为自己犯的错太多，上帝用鞭子来教训自己，所以他们称呼蒙古人为“上帝之鞭”。</p>
-<p>这一荣誉称号的授予在欧洲历史上是第二次，第一次是给了匈奴王阿提拉。历史学家们给了蒙古军队的这种屠杀行为一个非常确切的定义——国家恐怖主义。</p>
-<h1 id="行为艺术，和屠杀数据"><a href="#行为艺术，和屠杀数据" class="headerlink" title="行为艺术，和屠杀数据"></a>行为艺术，和屠杀数据</h1><p>西亚战役中，将被杀死的人脑袋砍下来，堆成一座三角形山。</p>
-<p>此外他们也是颇有些黑色幽默感的，比如在攻克巴格达后，他们将最高领袖哈里发关在一座装满金银珠宝的房子里，让他活活饿死。</p>
-<p>蒙古攻灭金国时 金全盛时（1207）有户768万，元灭金时（1235）剩下87万户，下降89%   </p>
-<p>蒙古灭南宋时 南宋嘉定十六年（1223）有户1267万，元灭宋时剩下937万，下降26% （这么看来，蒙古对南宋还是相当宽大的）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1360,7 +1735,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">100</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
