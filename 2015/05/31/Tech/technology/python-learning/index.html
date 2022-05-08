@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Python BasicsPython does not use brackets to structure code, instead it uses whitespaces. To define a variableyou do not have to specify the datatype. find the datatype:print type(x)comment# This is a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Tech】 Python learning notes">
+<meta property="og:url" content="http://yoursite.com/2015/05/31/Tech/technology/python-learning/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="Python BasicsPython does not use brackets to structure code, instead it uses whitespaces. To define a variableyou do not have to specify the datatype. find the datatype:print type(x)comment# This is a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-05-31T00:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-08T18:56:17.016Z">
+<meta property="article:author" content="Uncle Martian">
+<meta property="article:tag" content="technology">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2015/05/31/Tech/technology/python-learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Tech】 Python learning notes | Hexo Blog of Uncle Martian</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo Blog of Uncle Martian</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">a crypto journey</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/31/Tech/technology/python-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Tech】 Python learning notes
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-31 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-31T00:00:00+00:00">2015-05-31</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Python-Basics"><a href="#Python-Basics" class="headerlink" title="Python Basics"></a>Python Basics</h1><p>Python does not use brackets to structure code, instead it uses whitespaces.</p>
+<h2 id="To-define-a-variable"><a href="#To-define-a-variable" class="headerlink" title="To define a variable"></a>To define a variable</h2><p>you do not have to specify the datatype.</p>
+<h2 id="find-the-datatype"><a href="#find-the-datatype" class="headerlink" title="find the datatype:"></a>find the datatype:</h2><pre><code>print type(x)</code></pre><h2 id="comment"><a href="#comment" class="headerlink" title="comment"></a>comment</h2><pre><code># This is a single line comment
+&apos;&apos;&apos; This is a multi-line Python
+comment. &apos;&apos;&apos;</code></pre><h2 id="ask-the-user-for-input"><a href="#ask-the-user-for-input" class="headerlink" title="ask the user for input"></a>ask the user for input</h2><p>using the raw_input function:</p>
+<pre><code>#!/usr/bin/env python
+
+x = int(raw_input(&quot;Enter x:&quot;))
+y = int(raw_input(&quot;Enter y:&quot;))
+
+sum = x + y
+print sum</code></pre><p>In the latest Python version you can use the input() function instead:</p>
+<pre><code>x = int(input(&quot;Enter x:&quot;))</code></pre><h2 id="do-operations-on-strings"><a href="#do-operations-on-strings" class="headerlink" title="do operations on strings:"></a>do operations on strings:</h2><pre><code>s = &quot;Hello Python&quot;
+print s       # prints whole string
+print s[0]    # prints &quot;H&quot;
+print s[0:2]  # prints &quot;He&quot;
+print s[2:4]  # prints &quot;ll&quot;
+print s[6:]   # prints &quot;Python&quot;
+print s + &apos; &apos; + s # print concatenated string.
+print s.replace(&apos;Hello&apos;,&apos;Thanks&apos;) # print a string with a replaced word</code></pre><h3 id="Python-String-compare"><a href="#Python-String-compare" class="headerlink" title="Python String compare"></a>Python String compare</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q == sentence:
+    print &apos;equal&apos;
+else:
+    print &apos;not equal&apos;</code></pre><h3 id="Python-String-contains"><a href="#Python-String-contains" class="headerlink" title="Python String contains"></a>Python String contains</h3><pre><code>sentence = &quot;The cat is brown&quot;
+q = &quot;cat&quot;
+
+if q in sentence:
+    print q + &quot; found in &quot; + sentence</code></pre><h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><pre><code>l = [ &quot;Drake&quot;, &quot;Derp&quot;, &quot;Derek&quot;, &quot;Dominique&quot; ]
+
+print l     # prints all elements
+print l[0]  # print first element
+print l[1]  # prints second element
+
+l.append(&quot;Victoria&quot;)   # add element.
+print l                # print all elements
+l.remove(&quot;Derp&quot;)       # remove element.
+l.remove(&quot;Drake&quot;)      # remove element.
+print l                # print all elements.
+
+l.sort()    # sorts the list in alphabetical order
+l.reverse() # reverse order.</code></pre><p>iteration: </p>
+<pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="A-tuple-is-a-sequence-of-data"><a href="#A-tuple-is-a-sequence-of-data" class="headerlink" title="A tuple is a sequence of data."></a>A tuple is a sequence of data.</h2><p>It is defined as a sequence of elements separated by a comma.</p>
+<pre><code>point = (3,4)
+point2 = (2,6,12)
+
+print point
+print point[0]
+print point[1]
+
+print point2
+print point2[0]
+print point2[1]</code></pre><h2 id="A-dictionary"><a href="#A-dictionary" class="headerlink" title="A dictionary"></a>A dictionary</h2><p>is an unordered set of key:</p>
+<pre><code>words = &#123;&#125;
+words[&quot;Hello&quot;] = &quot;Bonjour&quot;
+words[&quot;Yes&quot;] = &quot;Oui&quot;
+words[&quot;No&quot;] = &quot;Non&quot;
+words[&quot;Bye&quot;] = &quot;Au Revoir&quot;
+
+print words            # print key-pairs.
+del words[&quot;Yes&quot;]       # delete a key-pair.
+print words            # print key-pairs.
+words[&quot;Yes&quot;] = &quot;Oui!&quot;  # add new key-pair.
+print words            # print key-pairs.</code></pre><p>Output:</p>
+<pre><code>&#123;&apos;Yes&apos;: &apos;Oui&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;
+&#123;&apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;
+&#123;&apos;Yes&apos;: &apos;Oui!&apos;, &apos;Bye&apos;: &apos;Au Revoir&apos;, &apos;Hello&apos;: &apos;Bonjour&apos;, &apos;No&apos;: &apos;Non&apos;&#125;</code></pre><h2 id="Datatype-casting"><a href="#Datatype-casting" class="headerlink" title="Datatype casting"></a>Datatype casting</h2><table style="width:100%; " class="easy-table easy-table-cuscosky "><thead><tr><th>Function</th><th> Description</th></tr></thead><tbody><tr><td>int(x)</td><td> &nbsp;Converts x to an integer</td></tr><tr><td>long(x)</td><td> Converts x to a long integer</td></tr><tr><td>float(x)</td><td> Converts x to a floating point number</td></tr><tr><td>str(x)</td><td> Converts x to an string. &nbsp;x can be of the type float. integer or long.</td></tr><tr><td>hex(x)</td><td> Converts x integer to a hexadecimal string</td></tr><tr><td>chr(x)</td><td> Converts x integer to a character</td></tr><tr><td>ord(x)</td><td> Converts character x to an integer</td></tr></tbody></table>
+
+<pre><code>x = 3
+y = 2.15315315313532
+
+print &quot;We have defined two numbers,&quot;
+print &quot;x = &quot; + str(x)
+print &quot;y = &quot; + str(y)
+
+a = &quot;135.31421&quot;
+b = &quot;133.1112223&quot;
+
+c = float(a) + float(b)
+print c</code></pre><h2 id="if"><a href="#if" class="headerlink" title="if"></a>if</h2><pre><code>print &quot;Guess my age&quot;
+guess = int(raw_input(&quot;Guess: &quot;))
+
+if guess &gt; 10 and guess &lt; 20:
+    print &quot;In range&quot;
+else:
+    print &quot;Out of range&quot;</code></pre><h2 id="function"><a href="#function" class="headerlink" title="function"></a>function</h2><pre><code>def doA():
+    a = 5
+
+def doB(a):
+    print a   # this will work
+
+doB(3)</code></pre><h2 id="For-loop-1"><a href="#For-loop-1" class="headerlink" title="For loop 1"></a>For loop 1</h2><pre><code>items = [ &quot;Abby&quot;,&quot;Brenda&quot;,&quot;Cindy&quot;,&quot;Diddy&quot; ]
+
+for item in items:
+    print item</code></pre><h2 id="For-loop-2"><a href="#For-loop-2" class="headerlink" title="For loop 2"></a>For loop 2</h2><pre><code>for x in range(1,10):
+    for y in range(1,10):
+        print &quot;(&quot; + str(x) + &quot;,&quot; + str(y) + &quot;)&quot;</code></pre><h2 id="while-loop"><a href="#while-loop" class="headerlink" title="while loop"></a>while loop</h2><pre><code>while button_not_pressed:
+     drive()</code></pre><h1 id="Python-OOP"><a href="#Python-OOP" class="headerlink" title="Python OOP"></a>Python OOP</h1><h2 id="class-in-Python"><a href="#class-in-Python" class="headerlink" title="class in Python"></a>class in Python</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def sayHello(self):
+        print &quot;Hello, my name is &quot; + self.name
+
+# create virtual objects
+james = User(&quot;James&quot;)
+david = User(&quot;David&quot;)
+eric = User(&quot;Eric&quot;)
+
+# call methods owned by virtual objects
+james.sayHello()
+david.sayHello()</code></pre><h2 id="inheritance"><a href="#inheritance" class="headerlink" title="inheritance"></a>inheritance</h2><pre><code>class User:
+    name = &quot;&quot;
+
+    def __init__(self, name):
+        self.name = name
+
+    def printName(self):
+        print &quot;Name  = &quot; + self.name
+
+class Programmer(User):
+    def __init__(self, name):
+        self.name = name
+
+    def doPython(self):
+        print &quot;Programming Python&quot;
+
+brian = User(&quot;brian&quot;)
+brian.printName()
+
+diana = Programmer(&quot;Diana&quot;)
+diana.printName()
+diana.doPython()</code></pre><h2 id="polymorphism"><a href="#polymorphism" class="headerlink" title="polymorphism"></a>polymorphism</h2><pre><code>class Bear(object):
+def sound(self):
+    print &quot;Groarrr&quot;
+
+class Dog(object):
+def sound(self):
+    print &quot;Woof woof!&quot;
+
+def makeSound(animalType):
+animalType.sound()
+
+bearObj = Bear()
+dogObj = Dog()
+
+makeSound(bearObj)
+makeSound(dogObj)</code></pre><h2 id="polymorphism-with-abstract-class"><a href="#polymorphism-with-abstract-class" class="headerlink" title="polymorphism with abstract class"></a>polymorphism with abstract class</h2><pre><code>class Document:
+    def __init__(self, name):
+        self.name = name
+
+    def show(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Pdf(Document):
+    def show(self):
+        return &apos;Show pdf contents!&apos;
+
+class Word(Document):
+    def show(self):
+        return &apos;Show word contents!&apos;
+
+documents = [Pdf(&apos;Document1&apos;),
+             Pdf(&apos;Document2&apos;),
+             Word(&apos;Document3&apos;)]
+
+for document in documents:
+    print document.name + &apos;: &apos; + document.show()</code></pre><p>Output:</p>
+<pre><code>Document1: Show pdf contents!
+Document2: Show pdf contents!
+Document3: Show word contents!</code></pre><h2 id="another-example"><a href="#another-example" class="headerlink" title="another example"></a>another example</h2><p>of abstract class:</p>
+<pre><code>class Car:
+    def __init__(self, name):
+        self.name = name
+
+    def drive(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+    def stop(self):
+        raise NotImplementedError(&quot;Subclass must implement abstract method&quot;)
+
+class Sportscar(Car):
+    def drive(self):
+        return &apos;Sportscar driving!&apos;
+
+    def stop(self):
+        return &apos;Sportscar breaking!&apos;
+
+class Truck(Car):
+    def drive(self):
+        return &apos;Truck driving slowly because heavily loaded.&apos;
+
+    def stop(self):
+        return &apos;Truck breaking!&apos;
+
+
+cars = [Truck(&apos;Bananatruck&apos;),
+        Truck(&apos;Orangetruck&apos;),
+        Sportscar(&apos;Z3&apos;)]
+
+for car in cars:
+    print car.name + &apos;: &apos; + car.drive()</code></pre><p>Output:</p>
+<pre><code>Bananatruck: Truck driving slowly because heavily loaded.
+Orangetruck: Truck driving slowly because heavily loaded.
+Z3: Sportscar driving!</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://pythonspot.com/beginner/">Python Beginner by pythonspot.com</a></p>
+<h1 id="Python-tricks"><a href="#Python-tricks" class="headerlink" title="Python tricks"></a>Python tricks</h1><h2 id="start-a-simple-HTTP-server"><a href="#start-a-simple-HTTP-server" class="headerlink" title="start a simple HTTP server:"></a>start a simple HTTP server:</h2><pre><code>python -m SimpleHTTPServer</code></pre><h2 id="Using-Zip"><a href="#Using-Zip" class="headerlink" title="Using Zip"></a>Using Zip</h2><p>to combine arrays</p>
+<pre><code>&gt;&gt;&gt; b = [[1, 2, 3, 4], [6, 5, 4, 3]]
+&gt;&gt;&gt; zip(*b)
+[(1, 6), (2, 5), (3, 4), (4, 3)]</code></pre><h2 id="We-know-that-“array-reverse-”-will-reverse-an-array"><a href="#We-know-that-“array-reverse-”-will-reverse-an-array" class="headerlink" title="We know that “array.reverse()” will reverse an array."></a>We know that “array.reverse()” will reverse an array.</h2><p>How do we reverse a string?</p>
+<pre><code>&gt;&gt;&gt; s = &quot;Hello world&quot;
+&gt;&gt;&gt; s = s[::-1]
+&gt;&gt;&gt; print s
+dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables" class="headerlink" title="Swapping variables"></a>Swapping variables</h2><pre><code>&gt;&gt;&gt; a = 1
+&gt;&gt;&gt; b = 3
+&gt;&gt;&gt; b,a = a,b
+&gt;&gt;&gt; print a
+3
+&gt;&gt;&gt; print b
+1</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://pythonspot.com/fun-tricks-with-python/">Fun tricks with Python, pythonspot.com</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/technology/" rel="tag"># technology</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2015/05/24/Tech/technology/regex-tutorial/" rel="prev" title="【Tech】 Regular Expression Learning Notes">
+      <i class="fa fa-chevron-left"></i> 【Tech】 Regular Expression Learning Notes
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2015/05/31/Tech/technology/php-learning/" rel="next" title="【Tech】 PHP learning notes">
+      【Tech】 PHP learning notes <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Basics"><span class="nav-number">1.</span> <span class="nav-text">Python Basics</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#To-define-a-variable"><span class="nav-number">1.1.</span> <span class="nav-text">To define a variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find-the-datatype"><span class="nav-number">1.2.</span> <span class="nav-text">find the datatype:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#comment"><span class="nav-number">1.3.</span> <span class="nav-text">comment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ask-the-user-for-input"><span class="nav-number">1.4.</span> <span class="nav-text">ask the user for input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-operations-on-strings"><span class="nav-number">1.5.</span> <span class="nav-text">do operations on strings:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-String-compare"><span class="nav-number">1.5.1.</span> <span class="nav-text">Python String compare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-String-contains"><span class="nav-number">1.5.2.</span> <span class="nav-text">Python String contains</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list"><span class="nav-number">1.6.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-tuple-is-a-sequence-of-data"><span class="nav-number">1.7.</span> <span class="nav-text">A tuple is a sequence of data.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-dictionary"><span class="nav-number">1.8.</span> <span class="nav-text">A dictionary</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Datatype-casting"><span class="nav-number">1.9.</span> <span class="nav-text">Datatype casting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if"><span class="nav-number">1.10.</span> <span class="nav-text">if</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function"><span class="nav-number">1.11.</span> <span class="nav-text">function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#For-loop-1"><span class="nav-number">1.12.</span> <span class="nav-text">For loop 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#For-loop-2"><span class="nav-number">1.13.</span> <span class="nav-text">For loop 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#while-loop"><span class="nav-number">1.14.</span> <span class="nav-text">while loop</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-OOP"><span class="nav-number">2.</span> <span class="nav-text">Python OOP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#class-in-Python"><span class="nav-number">2.1.</span> <span class="nav-text">class in Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inheritance"><span class="nav-number">2.2.</span> <span class="nav-text">inheritance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polymorphism"><span class="nav-number">2.3.</span> <span class="nav-text">polymorphism</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#polymorphism-with-abstract-class"><span class="nav-number">2.4.</span> <span class="nav-text">polymorphism with abstract class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#another-example"><span class="nav-number">2.5.</span> <span class="nav-text">another example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-tricks"><span class="nav-number">3.</span> <span class="nav-text">Python tricks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#start-a-simple-HTTP-server"><span class="nav-number">3.1.</span> <span class="nav-text">start a simple HTTP server:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-Zip"><span class="nav-number">3.2.</span> <span class="nav-text">Using Zip</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#We-know-that-%E2%80%9Carray-reverse-%E2%80%9D-will-reverse-an-array"><span class="nav-number">3.3.</span> <span class="nav-text">We know that “array.reverse()” will reverse an array.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Swapping-variables"><span class="nav-number">3.4.</span> <span class="nav-text">Swapping variables</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Uncle Martian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uncle Martian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
