@@ -10,3 +10,5 @@ public/
 .deploy*/
 debug.log
 package-lock.json
+
+unclemartian-ssh/
