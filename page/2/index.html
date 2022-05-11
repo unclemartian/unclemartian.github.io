@@ -151,6 +151,152 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/24/Tech/ubuntu/gnome-extension-radio/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/24/Tech/ubuntu/gnome-extension-radio/" class="post-title-link" itemprop="url">【Tech】 Gnome extension - Internet Radio</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-24T00:00:00+00:00">2022-04-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Internet-Radio"><a href="#Internet-Radio" class="headerlink" title="Internet Radio"></a>Internet Radio</h1><p>其实 Gnome 上不止一个 radio extension，但是没有一个是 work out-of-the-box on Pop!_OS. </p>
+<p>这是官网推荐的： <a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/836/internet-radio/">Listen to an Internet Radio Stream</a></p>
+<p>直接安装，出错。</p>
+<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><pre><code>Requiring GstPbutils, version none: Typelib file for namespace &apos;GstPbutils&apos; (any version) not found</code></pre><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>根据<a target="_blank" rel="noopener" href="https://github.com/hslbck/gnome-shell-extension-radio/issues/117">网友建议</a>: Installing <strong>gir1.2-gst-plugins-base-1.0</strong> fixes the error. The internet radio now works.</p>
+<p>所以安装依赖：</p>
+<pre><code>sudo apt install gir1.2-gst-plugins-base-1.0</code></pre><p>然后重新安装 internet-radio，最后重启 gnome。</p>
+<p>Alt + F2，输入‘r’ (<a target="_blank" rel="noopener" href="https://ubunlog.com/en/restart-frozen-gnome-session/">This command mainly restarts the session without closing it.</a>)</p>
+<p>大功告成！</p>
+<h2 id="Radio-Catalog"><a href="#Radio-Catalog" class="headerlink" title="Radio Catalog"></a>Radio Catalog</h2><p><a target="_blank" rel="noopener" href="https://www.radio-browser.info/search?page=1&amp;order=clickcount&amp;reverse=true&amp;hidebroken=true&amp;has_extended_info=true">https://www.radio-browser.info/search?page=1&amp;order=clickcount&amp;reverse=true&amp;hidebroken=true&amp;has_extended_info=true</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/20/Tech/technology/vscode-copy-all-search-results/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/20/Tech/technology/vscode-copy-all-search-results/" class="post-title-link" itemprop="url">【Tech】 VSCode： copy all search results</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+00:00">2022-04-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="复制所有搜过结果"><a href="#复制所有搜过结果" class="headerlink" title="复制所有搜过结果"></a>复制所有搜过结果</h1><ol>
+<li>CTRL + F, Type your search string</li>
+<li>CTRL + SHIFT + L to select all occurrences found (max. 999)</li>
+<li>ESC (or close search dialog with top-right X)</li>
+<li>[Optionally] CTRL + I to select whole lines</li>
+<li>CTRL + C</li>
+<li>Open new file</li>
+<li>CTRL + V</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/19/Tech/ubuntu/check-desktop-environment-linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +328,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
               </span>
 
           
@@ -250,7 +396,7 @@ XDG_CURRENT_DESKTOP=XFCE</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
               </span>
 
           
@@ -318,7 +464,7 @@ XDG_CURRENT_DESKTOP=XFCE</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
               </span>
 
           
@@ -388,7 +534,7 @@ sudo apt update &amp;&amp; sudo apt upgrade -y</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
               </span>
 
           
@@ -453,7 +599,7 @@ ln -s /home/rslsync/Resilio\ Sync/res-shared/ Documents/res-shared</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
               </span>
 
           
@@ -590,7 +736,7 @@ sudo mv /etc/os-release.backup /etc/os-release</code></pre><p>结束，撒花。
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
+                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
               </span>
 
           
@@ -649,156 +795,6 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
 <pre><code>apt-cache policy v2ray</code></pre><h2 id="运行-1"><a href="#运行-1" class="headerlink" title="运行"></a>运行</h2><pre><code>v2raylui</code></pre><p>结果：</p>
 <pre><code>[15675] Error loading Python lib &apos;/tmp/_MEILnaXkU/libpython3.7m.so.1.0&apos;: dlopen: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28&apos; not found (required by /tmp/_MEILnaXkU/libpython3.7m.so.1.0)</code></pre><p>估计是默认的 python3 版本问题。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>GalliumOS 3.1 翻不了墙。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/16/Tech/ubuntu/linux-kernel-version/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/16/Tech/ubuntu/linux-kernel-version/" class="post-title-link" itemprop="url">【Tech】 Linux Kernel version</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-16 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-16T00:00:00+00:00">2022-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Linux-Kernel"><a href="#Linux-Kernel" class="headerlink" title="Linux Kernel"></a>Linux Kernel</h1><p>Kernel is important, espeicially when it comes to Bios and Sound card support on Linux devices. </p>
-<p>The current distro vs kernel are as follows: </p>
-<h2 id="For-Ubuntu"><a href="#For-Ubuntu" class="headerlink" title="For Ubuntu"></a>For Ubuntu</h2><pre><code>21.10   Impish Indri      5.13
-21.04   Hirsute Hippo     5.11 
-20.10   Groovy Gorilla    5.8
-20.04   Focal Fossa       5.4
-19.10   Eoan Ermine       5.3
-19.04   Disco Dingo       5.0
-18.10   Cosmic Cuttlefish 4.18
-18.04   Bionic Beaver     4.15
-17.10   Artful Aardvark   4.13
-17.04   Zesty Zapus       4.10
-16.10   Yakkety Yak       4.8
-16.04   Xenial Xerus      4.4
-15.10   Wily Werewolf     4.2
-15.04   Vivid Vervet      3.19
-14.10   Utopic Unicorn    3.16
-14.04   Trusty Tahr       3.13</code></pre><h1 id="Check-kernel-version"><a href="#Check-kernel-version" class="headerlink" title="Check kernel version"></a>Check kernel version</h1><pre><code>uname -r</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/09/Tech/ubuntu/xfce-panel-config/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/09/Tech/ubuntu/xfce-panel-config/" class="post-title-link" itemprop="url">【Tech】 XFCE panel config</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-09 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-09T00:00:00+00:00">2022-04-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-08 18:56:17" itemprop="dateModified" datetime="2022-05-08T18:56:17+00:00">2022-05-08</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Multiple-Display"><a href="#Multiple-Display" class="headerlink" title="Multiple Display"></a>Multiple Display</h1><p>可以建 2 个 panel，每个 Display 分别显示一个 panel。</p>
-<p>如需要 Expandable area，只需要配置一下 seperator 就行。</p>
-<p>如下图所示。</p>
-<h2 id="Panel-1"><a href="#Panel-1" class="headerlink" title="Panel 1"></a>Panel 1</h2><p><img src="/images/mint-panel-config-1.png" alt=""></p>
-<h2 id="Panel-2"><a href="#Panel-2" class="headerlink" title="Panel 2"></a>Panel 2</h2><p><img src="/images/mint-panel-config-2.png" alt=""></p>
 
       
     </div>
@@ -883,7 +879,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-count">107</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
