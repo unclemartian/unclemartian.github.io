@@ -151,6 +151,147 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/05/14/Tech/technology/ssh-keys-github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/05/14/Tech/technology/ssh-keys-github/" class="post-title-link" itemprop="url">【Tech】 SSH keys setup for GitHub</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-05-14 00:00:00" itemprop="dateCreated datePublished" datetime="2015-05-14T00:00:00+00:00">2015-05-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Setup-for-the-first-Github"><a href="#Setup-for-the-first-Github" class="headerlink" title="Setup for the first Github"></a>Setup for the first Github</h1><p>This is the standard procedure for generating SSH and connect to GitHub:</p>
+<p>check current SSH:</p>
+<pre><code>ls -al ~/.ssh</code></pre><p>generate new:</p>
+<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;theimmortalfish@gmail.com&quot;</code></pre><p>(-t for type, -b for number of bits, -C for comment)</p>
+<p><strong>then press Enter</strong>, then set passphrase.</p>
+<p>set SSH-agent:</p>
+<pre><code>eval &quot;$(ssh-agent -s)&quot;
+ssh-add ~/.ssh/id_rsa</code></pre><p>add SSH to GitHub:</p>
+<pre><code>pbcopy &lt; ~/.ssh/id_rsa.pub</code></pre><p>put it into GitHub settings</p>
+<p>test SSH:</p>
+<pre><code>ssh -T git@github.com</code></pre><h1 id="Setup-for-the-second-Github"><a href="#Setup-for-the-second-Github" class="headerlink" title="Setup for the second Github"></a>Setup for the second Github</h1><h2 id="generate-a-second-SSH-key"><a href="#generate-a-second-SSH-key" class="headerlink" title="generate a second SSH key"></a>generate a second SSH key</h2><p>Same steps untli the “<strong>then press Enter</strong>“, we’ll instead give it another name like “id_rsa_fish”:</p>
+<pre><code>Fishs-MacBook-Pro:.ssh Fish$ ssh-keygen -t rsa -b 4096 -C &quot;theimmortalfish@gmail.com&quot;
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/Fish/.ssh/id_rsa): id_rsa_fish
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in id_rsa_fish.
+Your public key has been saved in id_rsa_fish.pub.
+The key fingerprint is:
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx theimmortalfish@gmail.com
+The key&apos;s randomart image is:
++--[ RSA 4096]----+
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
+|       xxxxx     |
++-----------------+
+Fishs-MacBook-Pro:.ssh Fish$ ls -al ~/.ssh/
+total 40
+drwx------   7 Fish  staff   238 May 14 12:43 .
+drwxr-xr-x+ 45 Fish  staff  1530 May 13 23:01 ..
+-rw-------   1 Fish  staff  1766 Jul 28  2014 id_rsa
+-rw-r--r--   1 Fish  staff   402 Jul 28  2014 id_rsa.pub
+-rw-------   1 Fish  staff  3326 May 14 12:43 id_rsa_fish
+-rw-r--r--   1 Fish  staff   751 May 14 12:43 id_rsa_fish.pub
+-rw-r--r--   1 Fish  staff  2828 May 13 22:47 known_hosts</code></pre><p>Again, we’ll do</p>
+<pre><code>eval &quot;$(ssh-agent -s)&quot;
+ssh-add ~/.ssh/id_rsa_fish</code></pre><p>And also, add public key to the second GitHub account. </p>
+<h2 id="SSH-configuration"><a href="#SSH-configuration" class="headerlink" title="SSH configuration"></a>SSH configuration</h2><p>Now this is the key step: go to .ssh folder and <strong>create a config file</strong>: </p>
+<pre><code>touch config</code></pre><p>And put in the following configuration:</p>
+<pre><code>Host github-old
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa
+
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_rsa_fish</code></pre><p>Depending on your preference, change one of the host from “github.com” to some other names. In my case, I give the name “github-old” to my first SSH, and the second one would just stay the same (cuz I use the second GitHub more frequently). </p>
+<p>The next step is the most important!</p>
+<h2 id="configure-ssh-agent"><a href="#configure-ssh-agent" class="headerlink" title="configure ssh-agent"></a>configure ssh-agent</h2><p>Now restart your ssh-agent:</p>
+<pre><code>killall ssh-agent; eval `ssh-agent -s`</code></pre><p>Now if you give it a try, you notice something fishy:</p>
+<pre><code>ssh -T git@github.com
+
+ssh -T git@github-old</code></pre><p>You notice that only the default SSH key (id_rsa) is being used. You are essentially querying the same GitHub account. </p>
+<p><strong>This is wrong</strong>. Because we have not added both SSH keys to ssh-agent yet. Immediately, do this: </p>
+<pre><code>ssh-add ~/.ssh/id_rsa_fish
+
+ssh-add ~/.ssh/id_rsa</code></pre><p>Now if you test connection again, you shall see no problem. </p>
+<h2 id="Last-step-change-remote-url"><a href="#Last-step-change-remote-url" class="headerlink" title="Last step, change remote url"></a>Last step, change remote url</h2><p>The last step is to make changes to the git repository so that your computer works with both GitHub account. </p>
+<p>Whenever we clone or “remote add origin”, we shall replace “github-old” with “github.com” in the remote url. </p>
+<p>Example: go to your first GitHub account and create a new repo called “hello”. Then,</p>
+<pre><code>mkdir hello
+cd hello
+git init
+git remote add origin git@github-old:old-name/hello.git
+touch testing-file.txt
+git add .
+git commit -m &apos;first commit&apos;
+git push origin master</code></pre><p>You should see it works fine. Notice how we changed the remote url from “github.com” to “github-old”, which matches our host configuration in the .ssh folder. </p>
+<p>Your second GitHub shall work just like a normal GitHub account. 3 hours of hard work, all done! </p>
+<p>Thanks to <a target="_blank" rel="noopener" href="http://code.tutsplus.com/tutorials/how-to-work-with-github-and-multiple-accounts--net-22574">Jeffrey Way from tutsplus.com</a> for the nice tutorial. </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/30/Tech/technology/nginx-tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +323,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -395,7 +536,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -518,7 +659,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -589,7 +730,7 @@ nano config.js</code></pre><p>Now change the url of production to the public IP 
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -918,7 +1059,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -1020,7 +1161,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -1099,7 +1240,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
+                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
               </span>
 
           
@@ -1135,84 +1276,6 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
 <p>此外他们也是颇有些黑色幽默感的，比如在攻克巴格达后，他们将最高领袖哈里发关在一座装满金银珠宝的房子里，让他活活饿死。</p>
 <p>蒙古攻灭金国时 金全盛时（1207）有户768万，元灭金时（1235）剩下87万户，下降89%   </p>
 <p>蒙古灭南宋时 南宋嘉定十六年（1223）有户1267万，元灭宋时剩下937万，下降26% （这么看来，蒙古对南宋还是相当宽大的）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/07/27/Read/books/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2014/07/27/Read/books/%E6%98%8E%E6%9C%9D%E9%82%A3%E4%BA%9B%E4%BA%8B1/" class="post-title-link" itemprop="url">【Read】 读书笔记 - 明朝那些事1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2014-07-27 00:00:00" itemprop="dateCreated datePublished" datetime="2014-07-27T00:00:00+00:00">2014-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-11 10:10:14" itemprop="dateModified" datetime="2022-05-11T10:10:14+00:00">2022-05-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="书生和文天祥"><a href="#书生和文天祥" class="headerlink" title="书生和文天祥"></a>书生和文天祥</h1><p>张子明连声答应，走到城下，大声喊道：“请大家坚守下去，我们的大军马上就到了！”陈友谅傻眼了，他没有想到这个柔弱的读书人有这样的胆量，气急败坏，拿刀杀了张子明。他这才明白，这个书生并不怕死，只是他的使命没有完成，他还不能死。他还一直记得张子明临死前那嘲弄的眼神。更让他不安的是，从他的将领们的眼神中，看到的是对这个读书人的敬佩。这些杀人不眨眼的家伙居然会佩服这个人？</p>
-<p>其实答案就藏在文天祥的衣带中，这也是他的遗书。孔曰成仁，孟曰取义。惟其义尽</p>
-<h1 id="连中三元"><a href="#连中三元" class="headerlink" title="连中三元"></a>连中三元</h1><p>具体说来就是身兼解元、会元、状元三个称号于一身。这是真正的高难度动作，必须保证全省考第一，然后在会试中全国考第一，最后殿试里在皇帝心目中也是第一。这就要求考生光是学问好还不够，必须反应快，长得比较帅</p>
-<h1 id="生如夏花"><a href="#生如夏花" class="headerlink" title="生如夏花"></a>生如夏花</h1><p>生如夏花，逝如冬雪；人生如此，何悔何怨。</p>
-<h1 id="剥皮和贪污"><a href="#剥皮和贪污" class="headerlink" title="剥皮和贪污"></a>剥皮和贪污</h1><p>县衙有大门、戒石、鼓楼、二门这些结构，但在明朝却在大门和二门之间多设置了一个土地祠。此土地祠切不可晚上去看，着实吓人….这个地方是剥皮用的，剥的就是人皮。朱元璋命令官员贪污处死后，皮剥下来…用来威慑贪官的。</p>
-<p>（朱亮祖，明朝初年开国功臣。镇守广东时，与当地豪强勾结，朱元璋察觉后，将朱亮祖及其长子朱暹鞭挞至死，以侯礼葬。）参与此事的恶霸全部杀死,皮都被剥了下来，悬挂在闹市，供众人参观，以为后世警诫。</p>
-<p>自明朝开国以后，贪污不断，朱元璋杀不尽杀，据统计，因贪污受贿被杀死的官员有几万人，到洪武十九年（1386），全国十三个省从府到县的官员很少能够做到满任，大部分都被杀掉了。</p>
-<p>于是在当时的史料中出现了这样一个滑稽的记录：该年同批发榜派官364人，皆为进士监生，一年后，杀6人。戴死罪、徒流罪办事者358人。</p>
-<h1 id="空印案"><a href="#空印案" class="headerlink" title="空印案"></a>空印案</h1><p>洪武四大案中的空印案和郭桓案。</p>
-<p>几乎全国所有的府县都存在空印现象，总不能把所有的府县官员都杀掉吧。这又是一个难题，但在朱元璋那里，似乎没有他解不开的题目。他总能做出别人想不到的事情，旁人认为他绝不可能把涉案的所有官员都杀掉，但他真的就这样做了。处罚如下：主印官员全部杀掉，副手打一百杖充军。除此之外，连各省按察使司的言官也多有获罪者，理由是监管不力。</p>
-<h1 id="郭桓案"><a href="#郭桓案" class="headerlink" title="郭桓案"></a>郭桓案</h1><p>郭桓确实是胆大妄为，他勾结其他官吏贪污腐败。朱元璋也并没有放过他的同党。那么郭桓的同党是谁呢？经过朱元璋的追查，六部的大多数官员都成为了郭桓的同党！当时的六部，每个部除了尚书（部长）一人、侍郎（副部长）两人（上文已列出者除外），所有的办事官员都被杀掉了。当时的部长真的成了光杆司令。官员们陷入了恐惧之中，见面的第一句话应该就是：“你们今天死了几个？</p>
-<p>此案一共杀掉了三万余人</p>
-<h1 id="装疯"><a href="#装疯" class="headerlink" title="装疯"></a>装疯</h1><p>史料记载，官员们每天上朝，都要在家门口举行仪式，什么仪式呢？穿戴整齐，抱抱老婆孩子，交代清楚谁还欠我多少债、我的私房钱藏在床底之类的后事。老婆孩子就在背后哭，除了人还是活的，和开追悼会没什么区别。散朝的时候，老婆孩子在家门口等着，如果看到活人回家，就会大事庆祝一番，庆祝的内容是今天我又活了一天。</p>
-<p>很多官员承受不住，纷纷表示自己就当白读了几十年书，情愿回家种地。明朝的官员们在这个矛盾上充分体现出了这一特点。他们想出了一个很绝的方法——装疯。</p>
 
       
     </div>
@@ -1297,7 +1360,7 @@ git branch -d issue-#001</code></pre><h1 id="Final-note-on-workflows"><a href="#
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">107</span>
+          <span class="site-state-item-count">108</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
