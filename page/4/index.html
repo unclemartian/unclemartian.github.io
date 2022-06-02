@@ -151,6 +151,393 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/01/Tech/ubuntu/debian-9-10-minimal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/01/Tech/ubuntu/debian-9-10-minimal/" class="post-title-link" itemprop="url">【Tech】 Debian 9/10 minimal</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-01T00:00:00+00:00">2022-04-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>One advantage of using Debian is: lightweight. </p>
+<p>Some commands are different from ubuntu, thus archiving here. </p>
+<h2 id="Disk-Free"><a href="#Disk-Free" class="headerlink" title="Disk Free"></a>Disk Free</h2><p>Debian 9:</p>
+<pre><code>deb@debian9:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            1.5G     0  1.5G   0% /dev
+tmpfs           302M  4.3M  297M   2% /run
+/dev/sda1       6.0G  1.8G  3.9G  32% /
+tmpfs           1.5G     0  1.5G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           1.5G     0  1.5G   0% /sys/fs/cgroup
+tmpfs           302M     0  302M   0% /run/user/1000</code></pre><p>Debian 10: </p>
+<pre><code>deb@debian10:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+udev            984M     0  984M   0% /dev
+tmpfs           200M  3.0M  197M   2% /run
+/dev/sda1       6.9G  1.8G  4.8G  27% /
+tmpfs           998M     0  998M   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           998M     0  998M   0% /sys/fs/cgroup
+tmpfs           200M     0  200M   0% /run/user/1000</code></pre><h2 id="Hostname"><a href="#Hostname" class="headerlink" title="Hostname"></a>Hostname</h2><p>To check</p>
+<pre><code>hostname
+hostnamectl</code></pre><p>To change it: </p>
+<pre><code>hostnamectl set-hostname new-hostname
+vi /etc/hosts</code></pre><p>Run hostnamectl command again.</p>
+<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><pre><code>sudo apt install ssh
+sudo systemctl status ssh
+sudo systemctl start ssh</code></pre><p>If you are connecting using VirtualBox, change network settings to Bridge (instead of NAT).</p>
+<p>Then: </p>
+<pre><code>sudo apt install net-tools
+ip addr
+hostname -I</code></pre><p>Edit: /etc/ssh/sshd_config on your VM:</p>
+<pre><code>PasswordAuthentication yes</code></pre><p>Now, restart SSH server. Done.</p>
+<h2 id="Install-make-and-gcc"><a href="#Install-make-and-gcc" class="headerlink" title="Install make and gcc"></a>Install make and gcc</h2><p>Otherwise, you won’t be able to build a lot of packages, including npm. </p>
+<pre><code>apt-get install gcc automake autoconf libtool make</code></pre><h1 id="Install-bt"><a href="#Install-bt" class="headerlink" title="Install bt"></a>Install bt</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/29/Tech/ubuntu/chromebook-4-use-galliumos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/29/Tech/ubuntu/chromebook-4-use-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 4 - Using GalliumOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+00:00">2022-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki">GalliumOS</a></strong> is built solely for Chromebooks.</p>
+<p>这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。</p>
+<h1 id="GalliumOS-Basics-系统配置"><a href="#GalliumOS-Basics-系统配置" class="headerlink" title="GalliumOS Basics 系统配置"></a>GalliumOS Basics 系统配置</h1><h2 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h2><p>Give yourself <strong>‘su’</strong> previlege!</p>
+<p>在 Users Settings 中，把 Account Type 改为 Administrator. </p>
+<p>不换源的话，language 和 fcitx 安装会出问题。</p>
+<p><img src="/images/TODO.png" alt=""></p>
+<h2 id="HiDPI"><a href="#HiDPI" class="headerlink" title="HiDPI"></a>HiDPI</h2><p>Most simply way: <strong>Go to Settings Manager &gt; Appearance &gt; Fonts &gt; Custom DPI setting and change from 96 to</strong>:</p>
+<ul>
+<li>144 in you are on external (1080p) display</li>
+<li>192 if you are on 2K laptop screen</li>
+</ul>
+<p>There is <a target="_blank" rel="noopener" href="https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/">a script to automate this process</a>, I made it simple by hosting a copy <a href="/files/fix-hidpi-in-galliumos-3.1.sh">here</a></p>
+<pre><code>sh fix-hidpi-in-galliumos-3.1.sh</code></pre><p>Next, change the right bottom battery icon: </p>
+<pre><code>vi ~/.config/gtk-3.0/gtk.css</code></pre><p>File content:</p>
+<pre><code>#xfce4-power-manager-plugin * &#123;
+    -gtk-icon-transform: scale(0.38);
+&#125;</code></pre><p>However, based on my experience, changing <strong>/etc/profile.d/gdkscale.sh</strong> doesn’t work very properly. </p>
+<h3 id="Update-March-30-2022"><a href="#Update-March-30-2022" class="headerlink" title="Update March 30, 2022"></a>Update March 30, 2022</h3><p>I found there is additional issues with scaling. Thus this is my conclusion: </p>
+<ol>
+<li>如果是双屏幕，dpi不同，最好的办法就是改分辨率，反正笔记本屏幕也不是主力屏。<br> （我将 CB713-1W 的屏幕改成 1400 x 900 ，配合 1080p 的外显使用）</li>
+<li>其实样式可以直接到 Appearance-&gt;Fonts 里面，DPI 改成 96 或者 144</li>
+<li>去 Window Manager 里，可改窗口样式。</li>
+<li>for more：<a target="_blank" rel="noopener" href="https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html">https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html</a></li>
+</ol>
+<h2 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h2><p>看了很多 Kaby Lake 如何 fix audio 的帖子：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/">https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/">https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/GalliumOS/galliumos-distro/issues/536">https://github.com/GalliumOS/galliumos-distro/issues/536</a></li>
+</ol>
+<p>最终决定：直接用外接显示器上的声卡吧！</p>
+<p>（可插耳机）</p>
+<h2 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h2><pre><code>cd /etc/apt/
+vi sources.list</code></pre><p>The aliyun source:</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><h2 id="输入法：fcitx"><a href="#输入法：fcitx" class="headerlink" title="输入法：fcitx"></a>输入法：fcitx</h2><p>首先，下载搜狗：</p>
+<p><a target="_blank" rel="noopener" href="https://pinyin.sogou.com/linux/">https://pinyin.sogou.com/linux/</a></p>
+<p>Go to “Language Support” 或者“语言支持”，添加“中文”，并且把输入法设置成：fcitx。</p>
+<p><img src="/images/galliumos-fcitx-sogoupinyin.png" alt=""></p>
+<p>然后：</p>
+<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb</code></pre><p>如果缺依赖，就：</p>
+<pre><code>sudo apt -f install</code></pre><p>这时候仍然可能会失败，报以下错：<strong>installing sogoupinyin would break fcitx-ui-qimpanel</strong>。这个原因是<a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/MyJxmX4p5n/">搜狗拼音安装包中含有fcitx-ui-qimpanel，与系统已有的fcitx-ui-qimpanel产生了冲突</a>，所以，删除 fcitx-ui-qimpanel。</p>
+<pre><code>sudo apt-get remove fcitx-ui-qimpanel</code></pre><p>后来，再安装sogou，或者先安sogou后安locale包，再重启机器，总之就好了。版本号：搜狗个人版 4.0.0.1605 （2022年3月）。</p>
+<h1 id="Install-Software"><a href="#Install-Software" class="headerlink" title="Install Software"></a>Install Software</h1><h2 id="Chrome-VSCode"><a href="#Chrome-VSCode" class="headerlink" title="Chrome, VSCode"></a>Chrome, VSCode</h2><p>Just download and install:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+</ol>
+<h2 id="Install-MySQL-Workbench"><a href="#Install-MySQL-Workbench" class="headerlink" title="Install MySQL Workbench"></a>Install MySQL Workbench</h2><p>Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。</p>
+<p>故选择<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb">mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</a></p>
+<p>先安依赖：</p>
+<pre><code>sudo apt install libzip4
+sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</code></pre><p>就好了。</p>
+<h2 id="Spotify"><a href="#Spotify" class="headerlink" title="Spotify"></a>Spotify</h2><p>According to the <a target="_blank" rel="noopener" href="https://www.spotify.com/us/download/linux/">official tutorial</a>:</p>
+<pre><code>curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+echo &quot;deb http://repository.spotify.com stable non-free&quot; | sudo tee /etc/apt/sources.list.d/spotify.list</code></pre><p>Then you can install the Spotify client:</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install spotify-client
+spotify</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/ubuntu/chromebook-3-install-galliumos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/28/Tech/ubuntu/chromebook-3-install-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 3 - Install GalliumOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-28T00:00:00+00:00">2022-03-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>There are 2 ways to do a fresh installation of GalliumOS on Chromebook:</p>
+<ol>
+<li><strong>Traditional Mode</strong> - replace ChromeOS entirely. Need a USD drive. </li>
+<li><strong>chrx Mode</strong> - install from ChromeOS command line. </li>
+</ol>
+<p>The master guide is on <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">wiki.galliumos.org</a></strong>, or there’s another <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing/New_To_Linux">simpler guide for beginners</a>.</p>
+<h1 id="一、Traditional-installtion"><a href="#一、Traditional-installtion" class="headerlink" title="一、Traditional installtion"></a>一、Traditional installtion</h1><ol>
+<li><p>Go to <strong><a href="chrome://system">chrome://system</a></strong>, and look for <strong>hardware_class</strong>. For my case it says “Akali” and “C5B-A4B-xxxxxxxx”</p>
+<p> <img src="/images/galliumos-install-1.jpg" alt=""></p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Hardware_Compatibility">https://wiki.galliumos.org/Hardware_Compatibility</a> and check against your hardware class. I got <strong>“Intel Kaby Lake”</strong>.</p>
+</li>
+<li><p>Go to <a target="_blank" rel="noopener" href="https://galliumos.org/download">https://galliumos.org/download</a> and download ISO of your version. </p>
+</li>
+<li><p>Enabling Developer Mode (Esc+F3(refresh)+Power), and reboot.</p>
+</li>
+<li><p>Enable Legacy Mode booting.</p>
+<ol>
+<li><p>With your ChromeOS booted, press [Ctrl+Alt+T] and get a terminal (“crosh”) window</p>
+</li>
+<li><p>Run: <strong>‘shell’</strong></p>
+</li>
+<li><p>Then:</p>
+<p> sudo crossystem dev_boot_legacy=1</p>
+</li>
+<li><p>If you have seen an error, simply skip and continue. (Reference: <a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/">https://www.reddit.com/r/chrultrabook/comments/o9538s/trying_to_boot_from_usb_what_is_dev_boot_altfw_as/</a>)</p>
+</li>
+</ol>
+</li>
+<li><p>Disable WP (write protection). Check your device on <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#devices">this MrChromebox</a> page to decide how you going to do it. In my case I use <a target="_blank" rel="noopener" href="https://wiki.mrchromebox.tech/Firmware_Write_Protect#Hardware_Write_Protection">the CR50 method</a></p>
+<ul>
+<li>If you still not sure, check out this video: <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=EGZ6KfjEPP0">https://www.youtube.com/watch?v=EGZ6KfjEPP0</a></li>
+</ul>
+</li>
+<li><p>Check WP status, At <strong>crosh&gt;</strong></p>
+<pre><code>sudo sh
+flashrom --wp-status</code></pre><p> <img src="/images/galliumos-install-2.jpg" alt=""></p>
+</li>
+<li><p>Update Firmware. Press <strong>[Ctrl+Alt+T]</strong> to get a terminal (“crosh”) window, then type in “<strong>shell</strong>“</p>
+<ul>
+<li><p>Decide if you wish to <a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware">update RW_LEGACY or install Full Firmware/UEFI</a></p>
+</li>
+<li><p>Run: </p>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p>  In case Github not accissible, try this link: </p>
+<pre><code>cd; curl -LO https://unclemartian.github.io/files/mrchromebox/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre></li>
+</ul>
+</li>
+<li><p>At promp, first you need to set GBB Flags (here is <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">an explanation of why</a>).</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Installing">Important: If you choose an ISO install of GalliumOS</a> (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and <strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">you allow your battery to drain completely</a></strong>, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
+<p>Google Binary Block (GBB) flags are firmware level settings stored directly in the firmware flash chip itself in a read-only (RO) area</p>
+<p>I’ve made this mistake before. Had to do an entire factory restore of ChromeOS.</p>
+</blockquote>
+</li>
+<li><p>To set GBB, under ChromeOS at chronos@localhost / $ prompt, run this: </p>
+<pre><code>cd; curl -LO mrchromebox.tech/firmware-util.sh
+sudo install -Dt /usr/local/bin -m 755 firmware-util.sh
+sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
+<pre><code>cd; curl -LO https://mrchromebox.tech/firmware-util.sh &amp;&amp; sudo bash firmware-util.sh</code></pre><p> <strong>Very important</strong>: you MUST execute this command <strong>as a normal/non-root user</strong>.</p>
+<p> <img src="/images/galliumos-install-3.jpg" alt=""></p>
+</li>
+<li><p>Next, continue to use the same <strong>firmware-util.sh</strong> script to install firmware. Should be simple enough. </p>
+<p> Then, plugin the GalliumOS installation disk into USD, and reboot. </p>
+</li>
+<li><p>Now start <strong>the actual installation process</strong> of GalliumOS!</p>
+</li>
+<li><p>Burn the ISO using <a target="_blank" rel="noopener" href="https://www.balena.io/etcher/">BalenaEtcher</a>. I used my old Mac to do the job. </p>
+</li>
+<li><p>Keep your USB drive plugged-in before rebooting. On the “<strong>OS verification is OFF</strong>“ screen, press <strong>Ctrl + L</strong></p>
+</li>
+<li><p>Install GalliumOS (I recommend using the English mode + Wiki connected to install).</p>
+</li>
+<li><p>You may or may not need to press Ctrl + L every time you boot the system, depending on which fireware script you chose to install. </p>
+</li>
+</ol>
+<h2 id="Important-Power-Drain"><a href="#Important-Power-Drain" class="headerlink" title="[Important] Power Drain"></a>[Important] Power Drain</h2><p>如果电脑突然没电了，你的 Chromebook 无法启动，而是哔哔很大的两声，这说明你的 dev_boot_legacy flag 被 GBB 给 unset 成 0 了。</p>
+<p>Sorry to tell you, 你只能恢复原 ChromeOS，然后重来一次了。你的数据都没了。</p>
+<p>没别的办法，你猜我怎么知道的？ </p>
+<p>Reference：</p>
+<blockquote>
+<p>Important: If you choose an ISO install of GalliumOS (thus removing ChromeOS), and choose to use the Legacy Boot Mode of the stock firmware (ie, with the stock or updated RW_LEGACY firmware), and you allow your battery to drain completely, you might have a problem booting GalliumOS. This is due to the Developer Mode boot flag enabling Legacy Boot mode being reset when power is lost - see crossystem flags.</p>
+<p><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Firmware#crossystem">https://wiki.galliumos.org/Firmware#crossystem</a></p>
+</blockquote>
+<p>How to fix: <a target="_blank" rel="noopener" href="https://chromium.googlesource.com/chromiumos/platform/vboot/+/master/_vboot_reference/firmware/include/gbb_header.h">必须改 GBB</a>，但是不建议直接改 c++ 代码，因为是只读的。最便捷的方法是使用 <strong>MrChromebox’s <a target="_blank" rel="noopener" href="https://mrchromebox.tech/#fwscript">ChromeOS firmware utility script</a></strong>.</p>
+<h1 id="二、chrx-installation"><a href="#二、chrx-installation" class="headerlink" title="二、chrx installation"></a>二、chrx installation</h1><p>这种模式很好，因为 ChromeOS 被原本保留了。恢复起来也很方便。</p>
+<p>主要问题就是硬盘太小。低端Chromebook 普遍采用 32G 的 flash drive。装 ChromeOS 使用一大半，GalliumOS 占用 7-8G，空间就没了。</p>
+<h1 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h1><h2 id="开机画面（dev-mode）键盘选项"><a href="#开机画面（dev-mode）键盘选项" class="headerlink" title="开机画面（dev mode）键盘选项"></a>开机画面（dev mode）键盘选项</h2><ul>
+<li><strong>[Ctrl+D]</strong> to boot ChromeOS in <strong>Developer Mode</strong>, or</li>
+<li><strong>[Ctrl+L]</strong> to boot <strong>Legacy Mode</strong> (usually used for Linux, after installing)</li>
+<li>[Ctrl+U] to boot a ChromeOS (or ChromiumOS) image from USB (you’ll never need to use this)</li>
+<li>[TAB] for some boot configuration information</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/26/Tech/ubuntu/chromebook-2-linux-crostini/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +569,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -307,7 +694,7 @@ StartupNotify=true</code></pre><p>Done. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -418,7 +805,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -501,7 +888,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -613,7 +1000,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -647,269 +1034,6 @@ tmux at</code></pre>
 <p>因为公有链的共识机制是不依赖节点数量的，所以不存在女巫攻击的风险。而联盟链为了提高共识效率，将节点数减少在一定范围内。就相当于把共识机制变简单了，所以攻击也变得简单了。这样，女巫攻击就有了“用武之地”。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.tuoluo.cn/article/detail-9992848.html">https://www.tuoluo.cn/article/detail-9992848.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://0xzx.com/2022021204132081029.html">https://0xzx.com/2022021204132081029.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/01/Tech/technology/download-all-mp3-rss/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/01/Tech/technology/download-all-mp3-rss/" class="post-title-link" itemprop="url">【Tech】 Download all MP3 files in RSS feed</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-01T00:00:00+00:00">2022-03-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>For some reason, certain podcast are not accessible in China. Thus for good audio RSS content that I am afraid of missing out, downloading them and keep it offline is a nice idea. </p>
-<p>However, most RSS clients are not tailored for my use case, so instead of using any tools, I did some research and finally was able to download all MP3 from this podcast: </p>
-<ol>
-<li>(out of date) <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss">https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss</a></li>
-<li>(up to date)<a target="_blank" rel="noopener" href="https://anchor.fm/fanpaifilm">https://anchor.fm/fanpaifilm</a></li>
-<li>(马后炮节目) <a target="_blank" rel="noopener" href="https://rss.shawnxli.com/fanpie-film-ma">https://rss.shawnxli.com/fanpie-film-ma</a></li>
-<li>Latest: </li>
-</ol>
-<h1 id="首次尝试"><a href="#首次尝试" class="headerlink" title="首次尝试"></a>首次尝试</h1><p>I did some research on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_podcast_clients"><strong>podcatcher softwares</strong></a>, and no luck finding a good one. </p>
-<p>Failed. </p>
-<h1 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h1><p>Got some help from: </p>
-<p><a target="_blank" rel="noopener" href="https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss-feed">https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss-feed</a></p>
-<p>And I used this command to exact all MP3 links:</p>
-<pre><code>export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837
-
-curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o &apos;&lt;enclosure url=&quot;[^&quot;]*&apos; | grep -o &apos;[^&quot;]*$&apos;</code></pre><p>Here are the results: <a href="/files/rss-kaola-links.txt">Kaolafm content</a></p>
-<p>Simply dump those links into IDM softwares and the rest are set. </p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>I got a bunch of files with naming like these: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">82013211-c782-4a84-ad20-9001d1bdcd2e.mp3</span><br><span class="line">4c6a181e-f8ff-4b9e-9c20-4a05e8edac84.mp3</span><br></pre></td></tr></table></figure>
-
-<p>No timestamp, no title, no good. </p>
-<h1 id="第三次尝试"><a href="#第三次尝试" class="headerlink" title="第三次尝试"></a>第三次尝试</h1><p>I found this blog super useful:</p>
-<p><a target="_blank" rel="noopener" href="https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/">https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/</a></p>
-<p>Thus I wrote the following <strong>rss_script.sh</strong>:</p>
-<pre><code>for i in $(curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o &apos;&lt;enclosure url=&quot;[^&quot;]*&apos; | grep -o &apos;[^&quot;]*$&apos;); do
-    url=$i
-    audiodir=$(echo $i | sed &apos;s|http://image\.kaolafm\.net/mz/audios/||&apos; | sed &apos;s/\/.*\.mp3//&apos;)
-    outfile=$(echo $i | sed &apos;s|http://image\.kaolafm\.net/mz/audios/||&apos;)
-    mkdir $audiodir
-    wget -q $url -O $outfile
-done</code></pre><p>Simply:</p>
-<pre><code>bash rss_script.sh</code></pre><p>and you shall have a nice time. Enjoy.</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>All MP3s are in sub-folders like ‘201604’ or ‘202112’, however, I wasn’t able to get the right title this time. </p>
-<h1 id="第四次尝试"><a href="#第四次尝试" class="headerlink" title="第四次尝试"></a>第四次尝试</h1><p>最终我发现，还是通过多项选择，表格，curl 的方法来弄比较好。</p>
-<p>这里拿 <a target="_blank" rel="noopener" href="https://anchor.fm/s/4a4df770/podcast/rss">https://anchor.fm/s/4a4df770/podcast/rss</a> 这个link 的下载过程，简单记录一下：</p>
-<ol>
-<li>Extract title and mp3 links: <a href="/files/rss-extracted-title.txt">title</a>, <a href="/files/rss-extracted-mp3.txt">mp3</a></li>
-<li>url 中有一些特殊字符需要处理：<ol>
-<li>%2F 改为 /</li>
-<li>%3A 改为 :</li>
-<li>https:.*https 改为 https</li>
-</ol>
-</li>
-<li>Put them together in a csv file (maybe use Excel): <a href="/files/rss-title-mp3.csv">the csv file</a></li>
-<li>Make a <a href="/files/rss-curl-download.sh">curl bash</a></li>
-<li>Execute the curl</li>
-<li>Done</li>
-</ol>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>sed tutorial: <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux">https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux</a></p>
-<p>Old content: <a href="/files/RSS反派影评Feed.txt">here</a></p>
-<p>New content: <a href="/files/RSS反派影评Feed-new.txt">here</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/10/Tech/technology/virtualbox-mount-shared-folder/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/10/Tech/technology/virtualbox-mount-shared-folder/" class="post-title-link" itemprop="url">【Tech】 How to mount shared folder for VirtualBox</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-10T00:00:00+00:00">2022-01-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Mount shared folders in VirtualBox.</p>
-<h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
-<pre><code>cd /media/osboxes/VBox_GAs_6.1.28
-sudo ./VBoxLinuxAdditions.run
-sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。</p>
-<p><img src="/images/virtualbox-mount-shared-folder.png" alt=""></p>
-<p>对于 Linux 系统，无需写 “挂载点”。</p>
-<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>Windows下，自动挂在。</p>
-<p>Linux下，不会自动加载。这样操作手动加载：</p>
-<pre><code>cd ~/Desktop/
-mkdir shared-folder
-sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后就行了。</p>
-<p>如果权限出了问题，可以这样：</p>
-<pre><code>sudo adduser $USER vboxsf</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/30/-crypto-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/-crypto-1111111/" class="post-title-link" itemprop="url">【Crypto】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Crypto】 prefx should be tagged as one of: </p>
-<ol>
-<li>crypto</li>
-<li>nft</li>
-<li>defi</li>
-<li>crypto-people</li>
-</ol>
 
       
     </div>
@@ -994,7 +1118,7 @@ sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

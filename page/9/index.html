@@ -151,6 +151,268 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/01/Crypto/Auction-models-%E4%B8%80%E4%BA%9B%E6%8B%8D%E5%8D%96%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/01/Crypto/Auction-models-%E4%B8%80%E4%BA%9B%E6%8B%8D%E5%8D%96%E6%A8%A1%E5%BC%8F%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">【Crypto】 Auction models 一些拍卖模式介绍</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-03-01 23:22:28" itemprop="dateCreated datePublished" datetime="2021-03-01T23:22:28+00:00">2021-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="English-Auction"><a href="#English-Auction" class="headerlink" title="English Auction"></a>English Auction</h1><p>英式拍卖是<strong>最普通的一种拍卖方式</strong>，其形式是：在拍卖过程中，拍卖标的物的竞价按照竞价阶梯由低至高、依次递增，当到达拍卖截止时间时，出价最高者成为竞买的赢家。</p>
+<p>拍卖前，卖家可设定保留价，当最高竞价低于保留价时，卖家有权不出售此拍卖品。当然，卖家亦可设定无保留价，此时，到达拍卖截止时间时，最高竞价者成为买受人。</p>
+<p>An English Auction, also referred to as <strong>an open cry ascending auction</strong>, starts by an auctioneer announcing the suggested opening bid or reserve price for the item on sale. </p>
+<blockquote>
+<p>The buyers with interest in the item start placing bids on the item on sale, with the auctioneer accepting higher bids as they come.</p>
+<p>The buyer with the highest bid at any time is considered the one with a <strong>standing bid</strong>, which can only be displaced by a higher bid from the floor. </p>
+<p>If there are no higher bids than the standing bid, the auctioneer announces the winner, and the item is sold to the person with the standing bid at a price equal to their bid. </p>
+<p>If the reserve price is not met or no buyer places an economically fair bid, the seller can take the item off the market.</p>
+</blockquote>
+<h1 id="Dutch-auction"><a href="#Dutch-auction" class="headerlink" title="Dutch auction"></a>Dutch auction</h1><p>荷兰式拍卖亦称<strong>“减价式拍卖”</strong>。一种特殊的拍卖形式。</p>
+<p>拍卖标的竞价由高到低依次递减直到第一个竞买人应价时击槌成交的拍卖。</p>
+<p>减价式拍卖通常从非常高的价格开始，高得有时没有人竞价，这时，价格就以事先确定的降价阶梯，由高到低递减，直到有竞买人愿意接受为止。</p>
+<p>如有两个或两个以上竞价人同时应价时，<strong>转入增价拍卖形式</strong>。</p>
+<p>A Dutch auction is a price discovery process in which the auctioneer starts with the highest asking price and lowers it until it reaches a price level where the bids received will cover the entire offer quantity. </p>
+<blockquote>
+<p>Alternatively, a Dutch auction is known as a <strong>descending price auction or a uniform price auction</strong>. </p>
+<p>Dutch auctions are appropriate for instances where a large quantity of an item is being offered for sale, as opposed to just a single item.</p>
+</blockquote>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>减价拍卖最大的优点在于：成交过程特别迅速，尤其是使用<strong>表盘式无声拍卖方式，使拍卖过程机械化、电子化，交易速度大大加快</strong>。</p>
+<p>但是，叫价递减过程往往导致竞买人坐等观望，企盼价格不断减低，因而现场竞争气氛不够热烈。</p>
+<h1 id="其他一些种类"><a href="#其他一些种类" class="headerlink" title="其他一些种类"></a>其他一些种类</h1><h2 id="第一价格-Vs-第二价格"><a href="#第一价格-Vs-第二价格" class="headerlink" title="第一价格 Vs. 第二价格"></a>第一价格 Vs. 第二价格</h2><h3 id="First-Price-Auction"><a href="#First-Price-Auction" class="headerlink" title="First-Price Auction"></a>First-Price Auction</h3><p>if your bid wins, you pay exactly what you bid. This maximizes revenue potential for the seller.</p>
+<h3 id="Second-Price-Auction"><a href="#Second-Price-Auction" class="headerlink" title="Second-Price Auction"></a>Second-Price Auction</h3><p>if your bid wins, you pay $0.01 above the second highest bid in the auction. In this type of auction, it is in your best interest to bid the highest amount you are willing to pay, knowing that often you will end up paying less than that amount.</p>
+<p>Game theory suggests that <strong>a buyer might allocate a higher max bid price to a purchase item</strong> if there is a chance to settle a transaction with a final price that is significantly lower than his bid. </p>
+<p>As a result, the transactions may – on average – <strong>settle with higher prices</strong> which makes second-price auction as a transaction model for ad trading attractive for suppliers.</p>
+<h2 id="Sealed-bid-Auction"><a href="#Sealed-bid-Auction" class="headerlink" title="Sealed-bid Auction"></a>Sealed-bid Auction</h2><p>与English auction相对的，是Sealed-bid Auction。</p>
+<p>在封闭式拍卖的情况下，竞价者只能知道自己的出价，而不知其他竞价者的出价。相反，开放式拍卖中竞价者彼此知道自己的出价。</p>
+<blockquote>
+<p>封闭式拍卖通常用于企业竞拍，开放式拍卖通常用于个人竞拍。</p>
+</blockquote>
+<h3 id="1st-price"><a href="#1st-price" class="headerlink" title="1st-price"></a>1st-price</h3><p>Sealed first-price auction or blind auction, also known as a <strong>first-price sealed-bid auction (FPSB)</strong>. This type of auction is distinct from the English auction, in that bidders can only submit one bid each. Furthermore, as bidders cannot see the bids of other participants</p>
+<p>From the theoretical perspective, this kind of bid process has been argued to be <strong>strategically equivalent to the Dutch auction</strong>.</p>
+<h3 id="2nd-price"><a href="#2nd-price" class="headerlink" title="2nd-price"></a>2nd-price</h3><p><strong>Vickrey auction, also known as a sealed-bid second-price auction</strong>. This is identical to the sealed first-price auction <strong>except that</strong> the winning bidder pays the second-highest bid rather than his or her own.</p>
+<h2 id="Variation"><a href="#Variation" class="headerlink" title="Variation"></a>Variation</h2><h3 id="Auction-by-the-candle"><a href="#Auction-by-the-candle" class="headerlink" title="Auction by the candle"></a>Auction by the candle</h3><p>A type of auction, used in England for selling ships, in which the highest bid laid on the table by the time a burning candle goes out wins.</p>
+<h3 id="Scottish-auction"><a href="#Scottish-auction" class="headerlink" title="Scottish auction"></a>Scottish auction</h3><p>All bidding should be completed within a certain time interval, which provides bidders an appropriate amount of time for considerations and avoids precipitate actions.</p>
+<h3 id="Japanese-auction"><a href="#Japanese-auction" class="headerlink" title="Japanese auction"></a>Japanese auction</h3><p>the current price changes continuously according <strong>to the auctioneer’s clock</strong>, rather than by bidders’ outcries. </p>
+<p>Bidders can only decide if and when to exit the arena. </p>
+<blockquote>
+<p>At first glance, this seems equivalent to English auction: apparently, in an English auction, it is a dominant strategy for each buyer whose price is above the displayed price, to always bid the minimal allowed increment (e.g. one cent) above the displayed price, so the price should increase continuously. </p>
+<p>However, in real-life English auctions, jump bidding is often observed: buyers increase the displayed price much more than the minimal allowed increment. </p>
+<p>Obviously, jump-bidding is not possible in a Japanese auction.</p>
+</blockquote>
+<ol>
+<li>The winning buyer is the buyer with the highest valuation;</li>
+<li>The final price is the second-highest valuation.</li>
+</ol>
+<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Auction">https://en.wikipedia.org/wiki/Auction</a><br><a target="_blank" rel="noopener" href="https://goodwaygroup.com/blog/first-price-vs-second-price-auction">https://goodwaygroup.com/blog/first-price-vs-second-price-auction</a></p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/First-price_sealed-bid_auction">https://en.wikipedia.org/wiki/First-price_sealed-bid_auction</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/02/25/Crypto/LBP-Liquidity-Bootstraping-Pool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/25/Crypto/LBP-Liquidity-Bootstraping-Pool/" class="post-title-link" itemprop="url">【Crypto】 LBP (Liquidity Bootstraping Pool)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-02-25 06:58:58" itemprop="dateCreated datePublished" datetime="2021-02-25T06:58:58+00:00">2021-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Balancer-LBP"><a href="#Balancer-LBP" class="headerlink" title="Balancer LBP"></a>Balancer LBP</h1><p>A <strong>Balancer Liquidity Bootstrapping Pool</strong> is a tool designed to allow a project to generate liquidity from a smaller amount of seed capital than would normally be required. </p>
+<p>This is achieved through variable weighting of assets.</p>
+<h2 id="Price-adjustment"><a href="#Price-adjustment" class="headerlink" title="Price adjustment"></a>Price adjustment</h2><p>The liquidity guide pool also provides the project party with the ability to quickly adjust the weight, which can reduce the value of the tokens in the pool by adjusting the proportion of reserve assets, and prevent the eventual price surge due to early speculation. </p>
+<p>Under such a design mechanism, the opening price is usually deliberately set higher, and the lower price may appear in the later stage of the event.</p>
+<p>So the users who want to participate in LBP need to pay attention to this risk, and when the project is popular enough, this risk will be reduced.</p>
+<h2 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h2><ol>
+<li>The price is relatively stable, not easy to lose control</li>
+<li>Reduce the “front-running” of advanced trading bots and experts.</li>
+<li>Some projects can support multiple tokens to participate in exchange</li>
+</ol>
+<h1 id="Example-Mask-token"><a href="#Example-Mask-token" class="headerlink" title="Example: Mask token"></a>Example: Mask token</h1><p>在此次 LBP 活动启动时，我们将会投入共计 400 万个 $MASK 以及 80 万美元的 $USDC。起始售价为 $3.9。具体:</p>
+<p><img src="/images/lbp-balancer-mask.png" alt=""></p>
+<p>注意：开盘价高，所有USDC都权重是95%，Mask的权重是5%。这样即节约了USDC，又发送出去了很多token份额。一石二鸟。</p>
+<blockquote>
+<p>An LBP allows projects to create meaningful liquidity and distribution at launch</p>
+</blockquote>
+<p>LBP (Liquidity Bootstraping Pool) 为荷兰式拍卖，或称 “降价式拍卖”。其拍卖价格将由高到低依次递减，请大家在参与 LBP 前先详细了解它的运作方式，请在自己预期的价格范围内进行购买，切勿盲目 FOMO。Balancer LBP 能够通过改变预定的资金权重，在没有任何参与者购买的情况下，拍卖品会随着时间变长而降低价格。</p>
+<p><img src="/images/lbp-Exponential-Example-Pool-Weights.jpg" alt=""></p>
+<h2 id="If-you’re-swapping-multiple-tokens"><a href="#If-you’re-swapping-multiple-tokens" class="headerlink" title="If you’re swapping multiple tokens"></a>If you’re swapping multiple tokens</h2><p>the smart pool template allows for vectors of tokens and weights. So one option would be to start 80% XYZ, 10% DAI, 10% ETH and end at 33% XYZ, 33% DAI, 33% ETH. Allowing for users to purchase the project token in ETH or DAI.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bitcointalk.org/index.php?topic=5319752.0">https://bitcointalk.org/index.php?topic=5319752.0</a><br><a target="_blank" rel="noopener" href="https://www.tuoluocaijing.cn/article/detail-10043661.html">https://www.tuoluocaijing.cn/article/detail-10043661.html</a><br><a target="_blank" rel="noopener" href="https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4">https://medium.com/balancer-protocol/building-liquidity-into-token-distribution-a49d4286e0d4</a></p>
+<h2 id="Balancer-pool"><a href="#Balancer-pool" class="headerlink" title="Balancer pool"></a>Balancer pool</h2><p><a target="_blank" rel="noopener" href="https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about">https://pools.balancer.exchange/#/pool/0x1e6c8c4d3a9a6f633f28c70c7c80a412df42956a/about</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/06/Crypto/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/06/Crypto/Consensus-PoW-VRF-DAG-PoS-DPoS-Sharding-Hotstuff-Tendermint/" class="post-title-link" itemprop="url">【Crypto】 Consensus：PoW, VRF, DAG, Tendermint etc</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-01-06 15:29:54" itemprop="dateCreated datePublished" datetime="2021-01-06T15:29:54+00:00">2021-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Popular-ones"><a href="#Popular-ones" class="headerlink" title="Popular ones"></a>Popular ones</h1><p>PoW<br>PoS<br>DPoS</p>
+<h2 id="VRF"><a href="#VRF" class="headerlink" title="VRF"></a>VRF</h2><h2 id="DAG"><a href="#DAG" class="headerlink" title="DAG"></a>DAG</h2><h2 id="Sharding"><a href="#Sharding" class="headerlink" title="Sharding"></a>Sharding</h2><h2 id="Hotstuff"><a href="#Hotstuff" class="headerlink" title="Hotstuff"></a>Hotstuff</h2><h2 id="Tendermint"><a href="#Tendermint" class="headerlink" title="Tendermint"></a>Tendermint</h2><p>TODO</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/06/Crypto/crypto-people/F2Pool%20founder%20shenyu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +444,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -270,7 +532,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -347,7 +609,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -414,7 +676,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -486,7 +748,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -505,260 +767,6 @@
 <p>Poloniex有友好的手机和电脑端服务界面，这是因为它是一个纯粹的数字货币国际站，不能使用法币。</p>
 <h1 id="Bittrex"><a href="#Bittrex" class="headerlink" title="Bittrex"></a>Bittrex</h1><p>Bittrex建立于2015年，是美国的比特币交易所，支持200多个交易对，山寨币为主，B网的交易量很大，每天的成交量达几十亿人民币，有不少中国玩家在B网交易和搬砖。</p>
 <p>B网是国内非常知名的数字货币交易网站，B圈都亲切称呼其为B网，主做币币交易，以山寨币为主，中国玩家很多，注册过程需要科学的上网，以下为区块链之家搜罗整理的使用教程，希望对家有所帮助。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/Crypto/crypto-people/viaBTC-%E6%9D%A8%E6%B5%B7%E5%9D%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/18/Crypto/crypto-people/viaBTC-%E6%9D%A8%E6%B5%B7%E5%9D%A1/" class="post-title-link" itemprop="url">【Crypto】 ViaBTC(微比特) and CoinEx CEO 杨海坡</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-18 19:05:11" itemprop="dateCreated datePublished" datetime="2020-05-18T19:05:11+00:00">2020-05-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="杨海坡"><a href="#杨海坡" class="headerlink" title="杨海坡"></a>杨海坡</h1><p>CEO of ViaBTC 微比特</p>
-<p>同时也是CoinEx的创始人（以BCH为基准的交易所）。</p>
-<p>毕业于西北工业大学数学与应用数学专业，曾就职于腾讯 TEG/微博、富途证券。</p>
-<p>2011 年开始接触比特币。2013 年开始参与比特币社区，2014-2015年加入宙斯科技 （全球前三 SCRYPT 矿机品牌）担任技术负责人，开始比特币领域创业。</p>
-<p>2016 年 3 月投入比特币矿池的部署开发，一人独立完成 ViaBTC 矿池全部代码并在 2个月后成功上线。</p>
-<p>从2016年6月上线以来，ViaBTC原来主要经营矿池业务，随后开始探索扩大业务布局，于11月推出云挖矿产品，向投资者出售算力收益权；未来计划推出国内和海外比特币交易平台。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/18/Crypto/crypto-people/Brief-history-of-Craig-Steven-Wright/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/18/Crypto/crypto-people/Brief-history-of-Craig-Steven-Wright/" class="post-title-link" itemprop="url">【Crypto】 Brief history of Craig Steven Wright</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-18 11:07:37" itemprop="dateCreated datePublished" datetime="2020-05-18T11:07:37+00:00">2020-05-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="先说说中本聪"><a href="#先说说中本聪" class="headerlink" title="先说说中本聪"></a>先说说中本聪</h1><ol>
-<li><p>2008 年 8 月，有人匿名注册了域名 <a target="_blank" rel="noopener" href="http://bitcoin.org/">http://bitcoin.org/</a></p>
-</li>
-<li><p>2008 年 10 月，一位名叫中本聪的作者在 <a target="_blank" rel="noopener" href="http://metzdowd.com/（一个加密爱好者网站）的邮件列表上发表了一篇《比特币：一个点对点的电子现金系统》的白皮书。">http://metzdowd.com/（一个加密爱好者网站）的邮件列表上发表了一篇《比特币：一个点对点的电子现金系统》的白皮书。</a></p>
-</li>
-<li><p>2009 年 1 月，中本聪发布了比特币第一版的实现</p>
-<ol>
-<li>同时挖出了第一组比特币</li>
-<li>比特币的第一次转账发生在中本聪和 Hal Finney 之间，Hal 是最早响应并支持中本聪的比特币早期先驱之一。</li>
-</ol>
-</li>
-<li><p>在接下来的 10 天里，中本聪是唯一的矿工，他挖出了超过 100 万比特币，这些比特币至今未被移动过。</p>
-</li>
-<li><p>中本聪在邮件和论坛中 (这里说的论坛不是 BitcoinTalk 哦) 与其它人交流关于比特币的设计与发展，他很早就说过：“比特币的本质是，第 0.1 版一经发布，其核心设计即已固定，并在整个生命周期中保持不变。”</p>
-<ol>
-<li>这些记录可以在 <a target="_blank" rel="noopener" href="https://nakamotoinstitute.org/">https://nakamotoinstitute.org/</a> 上查阅。</li>
-</ol>
-</li>
-<li><p>2011 年 4 月 23 日，中本聪发送了最后一条电子邮件：“我已经转向了其他事情。在 Gavin 和其他人的带领下比特币会越来越好”。随后，中本聪的所有活动很快就停止了。</p>
-</li>
-</ol>
-<h1 id="Craig-Steven-Wright"><a href="#Craig-Steven-Wright" class="headerlink" title="Craig Steven Wright"></a>Craig Steven Wright</h1><ol>
-<li><p>2015 年 12 月 8 日，Wired 和 Gizmodo 媒体分别声称 CSW 可能是中本聪</p>
-<p> 11 月收到了一系列匿名电子邮件，里面提供了 Craig Wright 的许多邮件、通话信息、财务记录等等，种种迹象</p>
-<p> CSW 使用电子邮件地址 <a href="mailto:satoshi@vistomail.com">satoshi@vistomail.com</a> 在 2014 年 1 月通过电子邮件发送给他的同事</p>
-</li>
-<li><p>2016 年 5 月 2 日，CSW 主动站出来，在博客上宣称自己就是 Satoshi Nakamoto，比特币之父。</p>
-<p> 得到了 Gavin Andresen，Ian Grigg 和 Jon Matonis 等人的认可</p>
-<blockquote>
-<p>我相信我可以把隐姓埋名的日子抛在脑后。但是，随着本周事件的发展，以及我准备发表获得最早私钥的证明，我崩溃了。我没有勇气。我不能。。。。。但我知道，世界现在永远不会相信这一点。我只能说对不起。再见。</p>
-</blockquote>
-</li>
-<li><p>2017 年，比特币扩容纷争的一个分水岭。矿工群体分裂为直接修改上限的链上扩容 和 发展隔离见证 + 闪电网络的链下扩容两个阵营。</p>
-</li>
-<li><p>CSW 是坚决反对引入隔离见证的方式的，他认为这将更改比特币系统的激励机制，并引入一些法律上的风险。大声疾呼 Bitcoin isn’t broken，并痛批 Core 开发团队限制扩容的做法</p>
-</li>
-</ol>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/6jo1pWQjlS0Z95pivGTFNw">https://mp.weixin.qq.com/s/6jo1pWQjlS0Z95pivGTFNw</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/13/Crypto/Satoshi%20and%20Gavin-Andresen/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/13/Crypto/Satoshi%20and%20Gavin-Andresen/" class="post-title-link" itemprop="url">【Crypto】 中本聪和Gavin Andresen</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-05-13 19:17:55" itemprop="dateCreated datePublished" datetime="2020-05-13T19:17:55+00:00">2020-05-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Gavin Andresen，是比特币奠基人之一</p>
-<p>他已成为了比特币现金(BCH)最重要的支持者之一</p>
-<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>真名 Gavin Bell</p>
-<ol>
-<li>1988年从普林斯顿大学计算机系毕业，一直从事软件工程师</li>
-<li>硅谷计算公司Silicon Graphics任职7年</li>
-<li>随后为盲人专用的网络游戏研发3D画图软件产品。</li>
-<li>2010年，中本聪本人邀请Andresen加入比特币行业</li>
-<li>2010年创立了 Bitcoin Faucet网站，每名访问者免费获得5枚比特币</li>
-<li>2011年，接受中情局的邀请（4天前，Satoshi最后一封邮件）</li>
-<li>2013年，Andresen创立了非盈利比特币基金组织，作为比特币管理的最高层。</li>
-<li>2013年比特币基金组织支付了他209648美元报酬。</li>
-<li>2015年，Gavin建议社区扩容至20MB，被中国矿工集体抗议</li>
-<li>2016年，Gavin组织Bitcoin Classic。并且他对Craig Wright表示支持</li>
-</ol>
-<p>后来，Gavin转而支持 BCH。</p>
-<h2 id="观点"><a href="#观点" class="headerlink" title="观点"></a>观点</h2><p>Gavin一直是大区块的支持者</p>
-<p><a target="_blank" rel="noopener" href="https://www.leiphone.com/news/201406/the-man-who-really-built-bitcoin.html">https://www.leiphone.com/news/201406/the-man-who-really-built-bitcoin.html</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vdAaIkag_ihdq2Th3VX0lg">https://mp.weixin.qq.com/s/vdAaIkag_ihdq2Th3VX0lg</a></p>
 
       
     </div>
@@ -843,7 +851,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

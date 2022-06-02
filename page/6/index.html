@@ -151,6 +151,344 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/03/Tech/ubuntu/amlogic-chipset-flash-rom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/03/Tech/ubuntu/amlogic-chipset-flash-rom/" class="post-title-link" itemprop="url">【Tech】 Amlogic 晶晨芯片刷机教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-03 09:00:00" itemprop="dateCreated datePublished" datetime="2021-11-03T09:00:00+00:00">2021-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>晶晨(Amlogic)芯片有很多种设备。我玩过4种(只有前两者刷Armbian成功)：</p>
+<ol>
+<li><strong>Phicomm N1</strong>（S905D / 2G）</li>
+<li><strong>玩客云</strong>（S805 / 1G）</li>
+<li>CM201-1 魔百盒（S905L / 1G）</li>
+<li>CM2000 红</li>
+</ol>
+<p>其中每个设备都可以刷3种系统：</p>
+<ol>
+<li>Android for TV</li>
+<li>Armbian for Linux</li>
+<li>Emuelec for gaming</li>
+</ol>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>CM201-1 魔百盒这个机器，启动 Armbian 一直没问题，但是无论换什么 dtb，Armbian 都无法 boot。所以，就当电视盒子吧，还挺好用的。</p>
+<blockquote>
+<p>这个帖子提到一个奇淫巧技，不知道能不能用，摘抄如下：</p>
+<p>使用adb shell reboot update发现启动失败，多次尝试也是如此。</p>
+<p>。。。受到启发，把启动盘根目录下的aml_autoscript.zip改名为update.zip,输入adb shell reboot update命令后直接引导进入armbian</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012481946/article/details/113774089">https://blog.csdn.net/u012481946/article/details/113774089</a></p>
+</blockquote>
+<p>CM2000 这个机器，不但无法刷 Armbian，连Android底包都坏了。重刷之后可以使用TV box 功能，但是无 Wifi，插线用。</p>
+<p>wky是最容易刷的。我在其中一个上面装了 Armbian 跑同步盘，十分稳定。</p>
+<p>N1有个问题，就是Android底包经常被弄坏（Armbian正常可启动）。只要重刷一下 Android 系统就好了。</p>
+<blockquote>
+<p>为了刷n1，我弄坏了好几个u盘。而且好像最近买的这一批，只有32G可用于 Armbian，8G的一个都没成功。不知道为什么。</p>
+</blockquote>
+<h1 id="N1刷机"><a href="#N1刷机" class="headerlink" title="N1刷机"></a>N1刷机</h1><h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><p>对于 n1 盒子来说，使用这个Android底包就行：<strong>斐讯盒子N1_YYFROM夏杰语音实用版</strong></p>
+<p><a target="_blank" rel="noopener" href="http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html">http://www.yyfrom.com/cms/yyfrom/product/2021-7-3/166.html</a></p>
+<p>刷机很简单。（需要去设备管理器种调整一下usb驱动，参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/awkdzqvk/）">https://post.smzdm.com/p/awkdzqvk/）</a></p>
+<p>要注意2点：</p>
+<ol>
+<li>Usb burning tool 软件中，先按“开始”，再连接 usb，否则 n1 连上直接就断开。</li>
+<li>一定要取消“擦除flash”和“擦除bootloader”。参考 <a target="_blank" rel="noopener" href="https://post.smzdm.com/p/ax025099/">https://post.smzdm.com/p/ax025099/</a></li>
+</ol>
+<p>这个底包无法卸载 带广告的HDP。我用adb等进去，发现这个app装在 /system/app/ 里面了，不知道怎么卸载。算了。</p>
+<p><img src="/images/usb-burning-tool-n1.jpg" alt=""></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://post.smzdm.com/p/a25gpgx7/">https://post.smzdm.com/p/a25gpgx7/</a></p>
+<h2 id="EmuElec"><a href="#EmuElec" class="headerlink" title="EmuElec"></a>EmuElec</h2><p>EmuELEC是专门为晶晨S905，S912以为更强的S922x/S905x2设计的系统。N1的高性价比加上周围随手可得的附件，成本基本可以控制在￥200左右，但却可以通过EmuELEC打造成一台拥有十几种机型几千个游戏的游戏平台，比国内很多人在安卓上使用老旧内核，效能极低，操控延迟很高的小鸡模拟器强大的多。</p>
+<p>系统自带了多种游戏机，涵盖了Atari(雅达利) ，FC（NES任天堂），SNES（超级任天堂），N64(任天堂64)，GB，GBA，GBC（任天堂Gameboy家族），NDS（任天堂DS），PC Engine（NEC的家用游戏机），MD（世嘉Megadrive），DC（世嘉Dreamcast），PS(Sony Playstation)，PSP（Play Station Portable）以及各种复古街机版。游戏更是可以根据存储容量达到几千个。</p>
+<p>得利于底层驱动的优化，在这么一台不到￥100的主机上，双倍渲染解析度玩PSP的《怪物猎人3HD》效果棒极了，比PSP本体玩效果都棒。</p>
+<p>玩游戏玩腻了，通过系统中Advanced Options（增强选项）最下面的“返回安卓系统”则可以切换回N1盒子内部的安卓系统 。当然拔掉EmuELEC的系统U盘，重启盒子也可直接回到盒子内部的安卓系统。</p>
+<p>安卓系统下各种视频播放软件比如优酷，爱艺奇以及B站在2G Ram的4核ARM Cortex-A53 1.5GHz处理器下运行毫无压力，加载以及播放速度也在5G或者千兆有线的加持下非常迅速。装一个Kodi观看NAS或者移动硬盘中的4K蓝光原盘的效果棒极了。</p>
+<p>除了N1，你还可以选择魔巧盒Q5。除了配置和颜值比N1低了一些，装EmuELEC的话差别不大，只是因为是1G ram，当安卓电视盒子的话反而有些不太给力。</p>
+<blockquote>
+<p>Emuelec(xxxELEC之类的系统)与Armbian不兼容，启动过ELEC就启动不了Armbian了，反之可以。</p>
+<p>所以ELEC对boot环境具有破坏性，只能想办法恢复原来的boot环境，重新刷机可以解决。</p>
+</blockquote>
+<p>刷机过程，参考这里：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/milton/p/11883811.html">https://www.cnblogs.com/milton/p/11883811.html</a></p>
+<h3 id="什么是-CoreELEC？"><a href="#什么是-CoreELEC？" class="headerlink" title="什么是 CoreELEC？"></a>什么是 CoreELEC？</h3><p>CoreELEC is a ‘Just enough OS’ Linux distribution based on Kodi1 technology for popular Amlogic hardware</p>
+<p>CoreELEC是一个小巧的Linux发行版系统，从LibreELEC分离出来，是专为Amlogic（晶晨）芯片开发的Linux与Kodi集成的媒体中心系统。它的界面就是Kodi的界面，可以独立运行于U盘或TF卡。可最大限度的利用硬件资源，流畅的播放视频，100G的4K视频在低配设备上也能顺利播放。另外CoreELEC可以完美输出杜比全景声和dtsx，低端的安卓则不行。各种音频完美直通，无论是ac3、dts还是次世代音轨truehd、dtshd，包括atmos、dts-x等各种音轨都可以完美直通到功放解码。</p>
+<p>Coreelec是专门面向Amlogic芯片设备适配的，推荐s905、s912、s922系列的盒子安装使用，例如：斐讯N1、章鱼星球。</p>
+<h2 id="Armbian"><a href="#Armbian" class="headerlink" title="Armbian"></a>Armbian</h2><p>Armbian 经常把 Android系统搞坏。哎。</p>
+<p>另外，试用了桌面版的 Debian 9，实在是没什么可用性，而且有时候无法自动连接 Wifi。不建议玩儿。</p>
+<p>最佳的固件就是 5.77版本的 Debian stretch。</p>
+<p>5.99 / 20.10 版本我没成功过。</p>
+<h1 id="WKY刷机"><a href="#WKY刷机" class="headerlink" title="WKY刷机"></a>WKY刷机</h1><p>参见另一篇《Debian 9 (Armbian) on N1/Wky 使用教程》</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/ubuntu/install-openmediavault/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/19/Tech/ubuntu/install-openmediavault/" class="post-title-link" itemprop="url">【Tech】 Install OpenMediaVault on Debian</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-19 13:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T13:00:00+00:00">2021-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="OpenMediaVault"><a href="#OpenMediaVault" class="headerlink" title="OpenMediaVault"></a>OpenMediaVault</h1><p>我安装失败了。</p>
+<p>进了 登陆页面，然后无法登陆，我也不知道为什么。把 commands 记录在这里，没时间继续弄了。</p>
+<p>Add the package repositories:</p>
+<pre><code>cat &lt;&lt;EOF &gt;&gt; /etc/apt/sources.list.d/openmediavault.list
+deb https://packages.openmediavault.org/public arrakis main
+# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis main
+## Uncomment the following line to add software from the proposed repository.
+# deb https://packages.openmediavault.org/public arrakis-proposed main
+# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis-proposed main
+## This software is not part of OpenMediaVault, but is offered by third-party
+## developers as a service to OpenMediaVault users.
+# deb https://packages.openmediavault.org/public arrakis partner
+# deb https://downloads.sourceforge.net/project/openmediavault/packages arrakis partner
+EOF</code></pre><p>Install the openmediavault 4 (Arrakis) package:</p>
+<pre><code>export LANG=C
+export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
+
+wget -O &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot; https://packages.openmediavault.org/public/archive.key
+apt-key add &quot;/etc/apt/trusted.gpg.d/openmediavault-archive-keyring.asc&quot;
+
+apt-get update
+apt-get --allow-unauthenticated install openmediavault-keyring
+
+apt-get update
+apt-get --yes --auto-remove --show-upgraded \
+    --allow-downgrades --allow-change-held-packages \
+    --no-install-recommends \
+    --option Dpkg::Options::=&quot;--force-confdef&quot; \
+    --option DPkg::Options::=&quot;--force-confold&quot; \
+    install postfix openmediavault</code></pre><p>如果到这，安装不成功，往下看。</p>
+<p>更新omv源</p>
+<pre><code>echo &quot;deb Index of /public arrakis main&quot; &gt; /etc/apt/sources.list.d/openmediavault.list</code></pre><p>下载添加key</p>
+<pre><code>apt-key adv --recv-keys --keyserver OpenPGP Keyserver 7E7A6C592EF35D13 24863F0C716B980B</code></pre><p>语言包及环境变量等设置</p>
+<pre><code>export LANG=C
+
+export DEBIAN_FRONTEND=noninteractive
+
+export APT_LISTCHANGES_FRONTEND=none</code></pre><p>安装omv</p>
+<pre><code>apt update
+
+apt install openmediavault-keyring postfix
+
+apt install openmediavault
+
+If not working: 
+
+apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options::=&quot;--force-confold&quot; install openmediavault</code></pre><p>You will get the following screen: </p>
+<pre><code>Complete the installation                                                                                                                                                │
+    │                                                                                                                                                                          │
+    │ To complete the installation you need to run the following command:                                                                                                      │
+    │                                                                                                                                                                          │
+    │  omv-initsystem                                                                                                                                                          │
+    │                                                                                                                                                                          │
+    │                                                                                                                                                                          │
+    │ To manage the system visit the openmediavault web control panel via a web browser:                                                                                       │
+    │                                                                                                                                                                          │
+    │  http://&lt;IP or hostname&gt;                                                                                                                                                 │
+    │                                                                                                                                                                          │
+    │                                                                                                                                                                          │
+    │ By default the web control panel administrator account has the username &apos;admin&apos; and password &apos;openmediavault&apos;. It is recommended that you change the password for this   │
+    │ account within the web control panel or using the &apos;omv-firstaid&apos; CLI command.                                                                                            │
+    │</code></pre><p>基本成功了。然后我在跑：</p>
+<pre><code>omv-initsystem</code></pre><p>的时候，报错了。</p>
+<p>我用 IP 地址尝试登陆一下，load 界面没问题，但是无法登陆。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html">https://openmediavault.readthedocs.io/en/4.x/installation/on_debian.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345143096">https://zhuanlan.zhihu.com/p/345143096</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/ubuntu/armbian-day-to-day%20copy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/10/19/Tech/ubuntu/armbian-day-to-day%20copy/" class="post-title-link" itemprop="url">【Tech】 Armbian day to day 使用教程</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-19 09:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T09:00:00+00:00">2021-10-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
+<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
+a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
+<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
+tmux attach -t 0 (or simply tmux attach)
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<pre><code>wky
+a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
+<p>RDP：192.168.123.242:3389</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/15/Tech/ubuntu/debian9-on-wankeyun/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +520,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -408,7 +746,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -484,7 +822,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -615,7 +953,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -688,7 +1026,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
+                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
               </span>
 
           
@@ -727,298 +1065,6 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
 <li>我家云 64位Arm。价格100多。</li>
 <li>猫盘 100块钱以内。</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/26/Crypto/top%20selling%20nft%20and%20consensus/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/26/Crypto/top%20selling%20nft%20and%20consensus/" class="post-title-link" itemprop="url">【Crypto】 Top selling NFTs and their consensus</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-26T00:00:00+00:00">2021-09-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Community-Consensus"><a href="#Community-Consensus" class="headerlink" title="Community Consensus"></a>Community Consensus</h1><p>这里以 2 个超高价成交的 NFT 为例子，探索一下 nft 社区共识形成的方式。</p>
-<ol>
-<li>CryptoPunk #7804 sold by Dylan Field</li>
-<li>CryptoPunk sold by Sillytuna</li>
-</ol>
-<blockquote>
-<p>CryptoPunk was a low-res, algorithmically generated picture NFT.</p>
-</blockquote>
-<h1 id="The-digital-Mona-Lisa"><a href="#The-digital-Mona-Lisa" class="headerlink" title="The digital Mona Lisa"></a>The digital Mona Lisa</h1><p>CryptoPunk #7804, the ‘digital Mona Lisa.’ according to Dylan Field. </p>
-<p><a href=""></a></p>
-<h2 id="Dylan-Field"><a href="#Dylan-Field" class="headerlink" title="Dylan Field"></a>Dylan Field</h2><p>CEO of Figma.</p>
-<p>Used to live in a house with <strong>Juan Benet</strong>, creator of IPFS and Filecoin.</p>
-<h1 id="The-Masked-Alien-Cryptopunk"><a href="#The-Masked-Alien-Cryptopunk" class="headerlink" title="The Masked Alien Cryptopunk"></a>The Masked Alien Cryptopunk</h1>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/14/Tech/ubuntu/ubuntu-vpn-trojan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/14/Tech/ubuntu/ubuntu-vpn-trojan/" class="post-title-link" itemprop="url">【Tech】 VPN / Trojan on Ubuntu / Linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-14 10:00:00" itemprop="dateCreated datePublished" datetime="2021-09-14T10:00:00+00:00">2021-09-14</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>2 softwares to run Trojan: </p>
-<ol>
-<li>Trojan client : <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan">https://github.com/trojan-gfw/trojan</a></li>
-<li>Qv2ray : <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">https://github.com/Qv2ray/Qv2ray</a></li>
-</ol>
-<h2 id="trojan-vpn-and-ssr-的区别"><a href="#trojan-vpn-and-ssr-的区别" class="headerlink" title="trojan, vpn and ssr 的区别"></a>trojan, vpn and ssr 的区别</h2><p>TODO</p>
-<h1 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h1><h2 id="Install-trojan-client-on-Ubuntu"><a href="#Install-trojan-client-on-Ubuntu" class="headerlink" title="Install trojan client on Ubuntu"></a>Install trojan client on Ubuntu</h2><p>For 18.10 &amp; 19.04</p>
-<pre><code>sudo add-apt-repository ppa:greaterfire/trojan
-sudo apt-get update
-sudo apt-get install trojan</code></pre><p>For &gt;= 19.04 </p>
-<pre><code>sudo apt-get install trojan</code></pre><p>On Manjaro:</p>
-<pre><code>sudo pacman -S trojan</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions">Binary &amp; Package Distributions · trojan-gfw/trojan Wiki</a></p>
-<h2 id="Trojan-client-config"><a href="#Trojan-client-config" class="headerlink" title="Trojan client config"></a>Trojan client config</h2><p>Put config.json under /etc/trojan/config.json (for Arch) 或者 /usr/local/trojan/config.json (for Ubuntu)</p>
-<pre><code>sudo mv /etc/trojan/config.json /etc/trojan/config.json.backup
-sudo vi /etc/trojan/config.json</code></pre><p>To test that trojan is working, run the one-time command:</p>
-<pre><code>/usr/local/trojan/trojan -c /usr/local/trojan/config.json</code></pre><h2 id="Run-on-system-daemon"><a href="#Run-on-system-daemon" class="headerlink" title="Run on system daemon"></a>Run on system daemon</h2><p>Simply, enable trojan：</p>
-<pre><code>systemctl enable trojan
-systemctl start trojan</code></pre><p>If trojan service isn’t available: </p>
-<pre><code>cd /etc/systemd/system/
-sudo vi trojan.service</code></pre><p>Input: </p>
-<pre><code>[Unit]
-Description=trojan
-Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
-After=network.target
-
-[Service]
-Type=simple
-StandardError=journal
-User=nobody
-AmbientCapabilities=CAP_NET_BIND_SERVICE
-ExecStart=/usr/local/trojan/trojan -c /usr/local/trojan/config.json
-ExecReload=/bin/kill -HUP $MAINPID
-Restart=on-failure
-RestartSec=3s
-
-[Install]
-WantedBy=multi-user.target</code></pre><p>Then add to auto-run and config system-wide alias: </p>
-<pre><code>systemctl enable trojan</code></pre><p>Optionally, add alias for quick run: </p>
-<pre><code>sudo vi ~/.bashrc
-# add the following line:
-alias trojan=&apos;/usr/local/trojan/trojan -c /usr/local/trojan/config.json&apos;</code></pre><p>Above, configed trojan successfully on system level. Welcome to beyound the wall. </p>
-<h2 id="Browser-config"><a href="#Browser-config" class="headerlink" title="Browser config"></a>Browser config</h2><p>Next step, download SwitchyOmega for Chrome and Firefox, config SOCKS5</p>
-<p>Download url: <a target="_blank" rel="noopener" href="https://github.com/FelisCatus/SwitchyOmega/releases">https://github.com/FelisCatus/SwitchyOmega/releases</a></p>
-<p>Local file: </p>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi">https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi</a></li>
-<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx">https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx</a></li>
-</ol>
-<p>Go to switchyomega config and set (default) to “SOCKS5” protocol and “127.0.0.1” server, “1080” port. </p>
-<p>Done! </p>
-<h2 id="Known-Issue"><a href="#Known-Issue" class="headerlink" title="Known Issue"></a>Known Issue</h2><p>If you see “unknown protocol” error, then you have mis-configed <strong>http</strong> instead of <strong>socks5</strong>. </p>
-<h1 id="Qv2ray"><a href="#Qv2ray" class="headerlink" title="Qv2ray"></a>Qv2ray</h1><p>Qv2ray仅需下载以下三件套：</p>
-<ol>
-<li><p>Main app: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases">https://github.com/Qv2ray/Qv2ray/releases</a></p>
-</li>
-<li><p>Trojan plugin: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3">https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3</a></p>
-<ol>
-<li>注意：trojan plugin 和 qv2ray 版本必须对应</li>
-</ol>
-</li>
-<li><p>v2core: <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-core/releases">https://github.com/v2fly/v2ray-core/releases</a></p>
-<ol>
-<li>或者 <a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
-<li>注意选择：v2ray-linux-64.zip</li>
-</ol>
-</li>
-</ol>
-<h1 id="After-installation"><a href="#After-installation" class="headerlink" title="After installation"></a>After installation</h1><h2 id="Troubleshoot"><a href="#Troubleshoot" class="headerlink" title="Troubleshoot"></a>Troubleshoot</h2><h3 id="Check-IP-address"><a href="#Check-IP-address" class="headerlink" title="Check IP address"></a>Check IP address</h3><pre><code>curl ifconfig.me</code></pre><h3 id="Test-VPN"><a href="#Test-VPN" class="headerlink" title="Test VPN"></a>Test VPN</h3><p>Test whether proxy / trojan really works</p>
-<pre><code>curl google.com
-echo $https_proxy</code></pre><h2 id="Use-another-machine-as-proxy"><a href="#Use-another-machine-as-proxy" class="headerlink" title="Use another machine as proxy"></a>Use another machine as proxy</h2><p>假如 somehow 你的机器无法 config proxy，你可以使用另一台机器：</p>
-<ol>
-<li>在公用机器上 Config Qv2ray: 监听地址 = 0.0.0.0</li>
-</ol>
-<p><img src="/images/qv2ray-listen-address.png" alt=""></p>
-<ol start="2">
-<li><p>在私人机器上 Set manual proxy: </p>
-<p> Proxy: （公用机器的地址，比如 192.168.31.105）<br> Port: 8889</p>
-</li>
-</ol>
-<h2 id="Terminal-proxy"><a href="#Terminal-proxy" class="headerlink" title="Terminal proxy"></a>Terminal proxy</h2><p>对于 Qv2ray: </p>
-<pre><code>export http_proxy=http://127.0.0.1:8889
-export https_proxy=http://127.0.0.1:8889</code></pre><p>或者：</p>
-<pre><code>export http_proxy=http://127.0.0.1:8889
-export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：</p>
-<pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
-<pre><code>alias fanqiang=&apos;export http_proxy=http://127.0.0.1:8889 &amp;&amp; export https_proxy=socks5://127.0.0.1:1089&apos;</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/13/Tech/ubuntu/ubuntu-mount-apfs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/13/Tech/ubuntu/ubuntu-mount-apfs/" class="post-title-link" itemprop="url">【Tech】 Mount APFS</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-13T00:00:00+00:00">2021-09-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-05-27 05:36:08" itemprop="dateModified" datetime="2022-05-27T05:36:08+00:00">2022-05-27</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><p>encrypted APFS can only run in read-only mode on Ubuntu </p>
-<h2 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h2><p>Instruction: <a target="_blank" rel="noopener" href="https://github.com/sgan81/apfs-fuse">https://github.com/sgan81/apfs-fuse</a></p>
-<p>Find out the <device> using Disk tool, like this: <strong>/dev/sda5</strong>, or <strong>/dev/sdb1</strong></p>
 
       
     </div>
@@ -1103,7 +1149,7 @@ export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：<
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">108</span>
+          <span class="site-state-item-count">111</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
