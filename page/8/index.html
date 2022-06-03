@@ -151,6 +151,164 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/05/Tech/ubuntu/ubuntu-jdk-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/05/Tech/ubuntu/ubuntu-jdk-java/" class="post-title-link" itemprop="url">【Tech】 Install Jdk / Java on Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-05T00:00:00+00:00">2021-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Install-JDK-8"><a href="#Install-JDK-8" class="headerlink" title="Install JDK 8"></a>Install JDK 8</h1><pre><code>sudo apt-get install openjdk-8-jdk
+ls /usr/lib/jvm/java-8-openjdk-amd64/
+
+# Put in ~/.bashrc
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+export PATH=$PATH:$JAVA_HOME/bin
+
+# To verify Java:
+java -version</code></pre><p>To switch java version that you want to use: </p>
+<pre><code>sudo update-alternatives --config java</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/04/Tech/ubuntu/ubuntu-python-pip-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/04/Tech/ubuntu/ubuntu-python-pip-install/" class="post-title-link" itemprop="url">【Tech】 Install Python/pip on Ubuntu 20.04</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-04T00:00:00+00:00">2021-09-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Replace python2 with python3: </p>
+<pre><code>python --version 
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.8
+python --version 
+which python3
+sudo apt install python-is-python3</code></pre><h2 id="Updated-March-2022"><a href="#Updated-March-2022" class="headerlink" title="Updated March 2022"></a>Updated March 2022</h2><p>其实可以直接跑这个，安装最新版 python （as of this writing, latest stable is v3.9.2）:</p>
+<pre><code>sudo apt install python3 python3-pip</code></pre><p>Got:</p>
+<pre><code>chrx@penguin:~/$ python3 --version
+Python 3.9.2
+chrx@penguin:~/$ pip --version 
+pip 20.3.4 from /usr/lib/python3/dist-packages/pip (python 3.9)</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/">https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/</a></p>
+<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><p>To install pip on python3:</p>
+<pre><code>python --version 
+pip
+pip3
+sudo apt install python3-pip
+pip
+pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/03/Tech/ubuntu/ubuntu-golang-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +340,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -252,7 +410,7 @@ go version</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -391,7 +549,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -511,7 +669,7 @@ npm install -g hexo-cli</code></pre><p>To check your globally-installed packges:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -650,7 +808,7 @@ snap info figma-linux</code></pre><h2 id="Install-XMind-8-on-Ubuntu-20"><a href=
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -749,7 +907,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -816,171 +974,10 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/16/Crypto/Auction-terminologies/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/16/Crypto/Auction-terminologies/" class="post-title-link" itemprop="url">【Crypto】 Auction Terms</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-16 13:34:08" itemprop="dateCreated datePublished" datetime="2021-04-16T13:34:08+00:00">2021-04-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="absentee-bid"><a href="#absentee-bid" class="headerlink" title="absentee bid"></a>absentee bid</h1><p>竞买委托</p>
-<p>拍卖人应竞买人的要求，为其提供的代为传递竞买信息的服务。（注：代为传递竞买信息的服务通常包括现场举牌竞价、电话委托竞价、网络竞价等）</p>
-<p>You can bid on an item at an auction even if you are not able to be there yourself by placing an absentee bid. An absentee bidder places their bid with the auctioneer prior to the beginning of the auction. These offers can be submitted in written or verbal form, depending on the terms set by the auction house. It is important to understand how absentee bidding works before using this method to buy items at an auction.</p>
-<p>常用于 online auction</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/07/Read/knowledge/top-10-auction-house/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/04/07/Read/knowledge/top-10-auction-house/" class="post-title-link" itemprop="url">【Read】 世界十大拍卖行</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-04-07 19:17:41" itemprop="dateCreated datePublished" datetime="2021-04-07T19:17:41+00:00">2021-04-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="三大"><a href="#三大" class="headerlink" title="三大"></a>三大</h1><ol>
-<li>苏富比</li>
-<li>佳士得</li>
-<li>菲利普斯</li>
-</ol>
-<p>Together, Sotheby’s, Christie’s and Phillips account for 70% of the Contemporary Art market.</p>
-<h2 id="Ranking"><a href="#Ranking" class="headerlink" title="Ranking"></a>Ranking</h2><p>Auction house    Auction turnover    Sold lots    Top result</p>
-<p>1    Sotheby’s    $623,121,600    2,062    $25,701,500</p>
-<p>2    Christie’s    $481,382,000    2,945    $91,075,000</p>
-<p>3    Phillips    $225,661,500    2,17    $9,500,000</p>
-<h2 id="中国区排名"><a href="#中国区排名" class="headerlink" title="中国区排名"></a>中国区排名</h2><p>4    <strong>China Guardian 中国嘉德</strong>    $73,499,000    540    $6,330,000</p>
-<p>5    <strong>Poly Group 中国保利</strong>    $86,654,000    613    $6,659,000</p>
-<p>6    RomBon Auction 荣宝拍卖 $28,513,000    970    $748,000</p>
-<p>7    Beijing Council    北京匡时国际拍卖 $21,924,500    120    $3,758,000</p>
-<p>8    Beijing Hanhai<br>北京翰海 $21,712,000    651    $1,773,500</p>
-<p>9    Yongle auction 北京永乐国际拍卖有限公司</p>
-<p>10    Beijing Yubao Jiahe 北京御宝嘉和国际拍卖 $15,690,000    137    $3,781,800</p>
-<h2 id="非中国版排名"><a href="#非中国版排名" class="headerlink" title="非中国版排名"></a>非中国版排名</h2><ol>
-<li>Artcurial auction 巴黎拍卖行</li>
-<li>Mainichi Auction 日本每日拍卖行</li>
-<li>德国纳高(Nagel)拍卖公司</li>
-<li>英国大维德拍卖（DAVID’S</li>
-<li>邦瀚斯(Bonhams)是一所私人全资拥有的英国拍卖行</li>
-</ol>
-<h1 id="A-brief-history"><a href="#A-brief-history" class="headerlink" title="A brief history"></a>A brief history</h1><h2 id="苏富比"><a href="#苏富比" class="headerlink" title="苏富比"></a>苏富比</h2><p>1744年3月，诞生了世界上最古老的拍卖行——苏富比。</p>
-<p>2018年10月5日，“苏富比当代艺术晚拍”专场上，英国涂鸦艺术家班克斯（Banksy）的画作《女孩与气球》最后亮相。上演了一出先高价拍出后被自动裁切成碎片的戏码。此举被评论为对艺术受资本控制的一次最有力的嘲弄。</p>
-<h2 id="佳士得"><a href="#佳士得" class="headerlink" title="佳士得"></a>佳士得</h2><p>1766年由詹姆士·佳士得（James Christie）在伦敦创立。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E5%8D%81%E5%A4%A7%E6%8B%8D%E5%8D%96%E8%A1%8C/16226689">https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E5%8D%81%E5%A4%A7%E6%8B%8D%E5%8D%96%E8%A1%8C/16226689</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.artprice.com/artprice-reports/the-contemporary-art-market-report-2019/the-best-auction-houses">https://www.artprice.com/artprice-reports/the-contemporary-art-market-report-2019/the-best-auction-houses</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1046,7 +1043,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">113</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

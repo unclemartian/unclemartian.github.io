@@ -151,6 +151,219 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/18/Crypto/rarity-calculation-methods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/18/Crypto/rarity-calculation-methods/" class="post-title-link" itemprop="url">【Crypto】 Rarity Calculation Methods</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-18T00:00:00+00:00">2021-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p><strong>rarity</strong> is one of the most important factors in determining the value of an individual NFT.</p>
+<p>On Opensea, each NFT have traits: </p>
+<p><img src="/images/nft-calculate-rarity-1.png" alt=""></p>
+<h2 id="Rarity-计算方法"><a href="#Rarity-计算方法" class="headerlink" title="Rarity 计算方法"></a>Rarity 计算方法</h2><ol>
+<li><p>Trait Rarity Ranking 单一属性法<br> 只选最 rare 的 traits，值越小越好。忽略其他一切 traits。</p>
+</li>
+<li><p>Average Trait Rarity 平均数法<br> 所有 traits 权重相等，计算出平均值。</p>
+</li>
+<li><p>Statistical Rarity 乘积法<br> 所有 rarity 值的乘积 （但是有的 nft 缺少某些 traits，比如 22.56% 的 ape 不戴帽子）</p>
+</li>
+<li><p>Rarity score 商值法<br> 用除法计算所有 traits 的分数，最终返回sum。</p>
+</li>
+</ol>
+<p>以下具体说明。</p>
+<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 - Trait Rarity Ranking"></a>1 - Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
+<ol>
+<li>Ape #73 s rarest trait is Sold Gold Fur which 0.46% have</li>
+<li>Ape #9941’s rarest trait is Bored Unshaven Dagger which 0.28% have</li>
+<li>Ape #9542’s rarest trait is Bored Unshaven Pizza which 0.26% have</li>
+</ol>
+<h2 id="weakness"><a href="#weakness" class="headerlink" title="weakness"></a>weakness</h2><p>It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.</p>
+<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 - Average Trait Rarity"></a>2 - Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
+<p><img src="/images/nft-calculate-rarity-2.png" alt=""></p>
+<p>以上的例子如果按照 trait rairty ranking，NFT 1 是最 rare 的，因为 rarity = 10%</p>
+<p>但按照 average trait，那么显然 NFT 2 更 rare。</p>
+<h2 id="weakness-1"><a href="#weakness-1" class="headerlink" title="weakness"></a>weakness</h2><p>It puts too much weight on the overall rarity of every trait, but NFTs with single super rare trait are not valued enough.</p>
+<p>Their rarity value gets too ‘diluted’ by the other traits.</p>
+<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 - Statistical Rarity"></a>3 - Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
+<p>It was first <a target="_blank" rel="noopener" href="https://achekroud.substack.com/p/d8f13e0a-ae26-40e4-bff2-beacb2916ff0">mentioned by Adam Chekroud</a>. </p>
+<p>Basically: calculate the overall rarity of an NFT by multiplying all of it’s trait rarities together.</p>
+<p><img src="/images/nft-calculate-rarity-3.png" alt=""></p>
+<ol>
+<li>Ape #73’s statistical rarity is 0.00000000070744%</li>
+<li>Ape #9941’s statistical rarity is 0.00000056965722%</li>
+<li>Ape #9542’s statistical rarity is 0.00000044983967%</li>
+</ol>
+<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 - Rarity Score"></a>4 - Rarity Score</h1><p>这是个比较特别的计算方法。</p>
+<blockquote>
+<p>[Rarity Score for a Trait Value] = 1 / ([Number of Items with that Trait Value] / [Total Number of Items in Collection])</p>
+</blockquote>
+<p>然后所有 traits 的 rarity score 相加，等于最终的 rarity score。</p>
+<blockquote>
+<p>The total Rarity Score for an NFT is the sum of the Rarity Score of all of it’s trait values.</p>
+</blockquote>
+<p>例如：Punk中只有9个 Alien，那么 Punk Type 这一项的 rarity score 就是 10,000 / 9 = 1111</p>
+<p>Punk中有24个 Ape，那么 Punk Type 这一项的 rarity score 就是 10,000 / 24 = 417</p>
+<p><img src="/images/nft-calculate-rarity-4.png" alt=""><br><em><a target="_blank" rel="noopener" href="https://rarity.tools/cryptopunks/view/7804">https://rarity.tools/cryptopunks/view/7804</a></em></p>
+<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p>Rarity Score 的好处是，不但考虑了所有的 traits，而且对于某些非常 rare 的 traits，有很好的突出的效果。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。</p>
+<p>Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。</p>
+<p>我觉得 Rarity Score 最好。用 <strong>rarity.tools</strong> 作者的原话讲：</p>
+<blockquote>
+<p>Rarity Score give results that give enough emphasis to <strong>single rare traits</strong> and also includes <strong>overall trait rarities</strong> in its calculation. </p>
+</blockquote>
+<blockquote>
+<p>And most importantly the results it gives match better with our human expectations.</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c">https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Tech/ubuntu/install-joplin-linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/04/Tech/ubuntu/install-joplin-linux/" class="post-title-link" itemprop="url">【Tech】 Install Joplin on Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-04T00:00:00+00:00">2021-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Joplin-Terminal"><a href="#Joplin-Terminal" class="headerlink" title="Joplin Terminal"></a>Joplin Terminal</h1><p>这里只讲 terminal 版的 joplin, 不涉及桌面app。</p>
+<p><a target="_blank" rel="noopener" href="https://joplinapp.org/terminal/">https://joplinapp.org/terminal/</a></p>
+<h2 id="Instruction"><a href="#Instruction" class="headerlink" title="Instruction"></a>Instruction</h2><p>按照官方的说法，是这样的：</p>
+<ol>
+<li><p>Install Node/npm</p>
+</li>
+<li><p>Run this：</p>
+<p> NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin<br> sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin</p>
+</li>
+</ol>
+<p>也就是，Joplin 没有编译好的 deb 包，相当于安装了一个 npm 包。</p>
+<p>问题是，很多依赖都在github上面，需要翻墙才能取到。</p>
+<pre><code>:~# npm config get registry
+https://registry.npm.taobao.org/</code></pre><p>实际多次测试表明，换taobao源不能解决问题：</p>
+<pre><code>~/.joplin-bin# NPM_CONFIG_PREFIX=~/.joplin-bin npm install -g joplin
+npm ERR! code 128
+npm ERR! An unknown git error occurred
+npm ERR! command git --no-replace-objects ls-remote ssh://git@github.com/laurent22/uslug.git
+npm ERR! command-line line 0: unsupported option &quot;accept-new&quot;.
+npm ERR! fatal: Could not read from remote repository.
+npm ERR! 
+npm ERR! Please make sure you have the correct access rights
+npm ERR! and the repository exists.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2021-11-03T18_33_32_725Z-debug.log</code></pre><p>这样也无济于事：</p>
+<pre><code>npm i -g uslug</code></pre><p>看来只能路由器翻墙解决了~</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/03/Tech/ubuntu/amlogic-chipset-flash-rom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +395,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -303,7 +516,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -434,7 +647,7 @@ apt --option Dpkg::Options::=&quot;--force-confdef&quot; --option DPkg::Options:
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -520,7 +733,7 @@ a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="header
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -746,7 +959,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -822,7 +1035,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
+                <time title="Modified: 2022-06-03 13:07:53" itemprop="dateModified" datetime="2022-06-03T13:07:53+00:00">2022-06-03</time>
               </span>
 
           
@@ -918,172 +1131,10 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/Read/knowledge/Napoleon-census/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/29/Read/knowledge/Napoleon-census/" class="post-title-link" itemprop="url">【Read】 Napoléon 拿破仑</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-29T00:00:00+00:00">2021-09-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>拿破仑从厄尔巴岛逃出后七天内，一家报纸的题目变换</p>
-<ol>
-<li>第一天，科西嘉怪物在儒安港登陆；</li>
-<li>第二天，吃人魔鬼向格拉斯前进；</li>
-<li>第三天，篡位者进入格勒诺布尔；</li>
-<li>第四天，波拿巴占领里昂；</li>
-<li>第五天，拿破仑接近枫丹白露宫；</li>
-<li>第六天，皇帝抵达巴黎。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/27/Tech/ubuntu/cheap-nas-machines-compare/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/27/Tech/ubuntu/cheap-nas-machines-compare/" class="post-title-link" itemprop="url">【Tech】 不足百元的 Nas 矿渣机对比</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-27 23:00:00" itemprop="dateCreated datePublished" datetime="2021-09-27T23:00:00+00:00">2021-09-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-02 05:23:29" itemprop="dateModified" datetime="2022-06-02T05:23:29+00:00">2022-06-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="玩客云"><a href="#玩客云" class="headerlink" title="玩客云"></a>玩客云</h1><p>32位Arm。可以装：</p>
-<ol>
-<li>Ambian - 可以上宝塔 （http环境，云盘系统）</li>
-<li>OpenWrt - 旁路由 / Samba</li>
-</ol>
-<h1 id="Phicomm-斐讯-N1"><a href="#Phicomm-斐讯-N1" class="headerlink" title="Phicomm 斐讯 N1"></a>Phicomm 斐讯 N1</h1><p>主核S905，4核 2G主频，GPU 450。</p>
-<p>可以 4k 硬解。适合做电视盒子，做 Nas 有点屈才了。</p>
-<p>因为是 64位 Arm，可以 docker 安装应用，而且千兆网口。</p>
-<p>问题是 只有 USB2.0, 跟玩客云一样了。</p>
-<p>斐讯 N1 也是本文中最贵的。</p>
-<h1 id="Raspberry-3B"><a href="#Raspberry-3B" class="headerlink" title="Raspberry 3B"></a>Raspberry 3B</h1><p>性能太弱了，优势就是接口比较多，适合学习。</p>
-<p>散热也不太好。</p>
-<h1 id="我家云"><a href="#我家云" class="headerlink" title="我家云"></a>我家云</h1><p>我家云 = 粒子云 配置一模一样。</p>
-<p>芯片是瑞新微 3288，性能类似 S905，但是没有 HDMI，所以不能做电视盒子。</p>
-<p>据说，有掉盘问题（大于2T的硬盘）。硬改方案可以解决此问题。</p>
-<h1 id="猫盘"><a href="#猫盘" class="headerlink" title="猫盘"></a>猫盘</h1><p>性能弱，但是能装黑群，所以价格就高。</p>
-<p>我家云就不行，只能装 Arm。</p>
-<h1 id="蜗牛星际"><a href="#蜗牛星际" class="headerlink" title="蜗牛星际"></a>蜗牛星际</h1><p>平民级别的NAS。轻量级矿难机。</p>
-<p>便宜的时候200多，值得入手。现在已经涨到300多了。存货非常少。</p>
-<p>很难再遇到了。</p>
-<h1 id="关于价格"><a href="#关于价格" class="headerlink" title="关于价格"></a>关于价格</h1><ol>
-<li>玩客云 40块钱。</li>
-<li>我家云 64位Arm。价格100多。</li>
-<li>猫盘 100块钱以内。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1149,7 +1200,7 @@ systemctl status smbd</code></pre><p>权限有问题。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">113</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
