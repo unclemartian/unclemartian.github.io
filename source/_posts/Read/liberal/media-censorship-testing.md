@@ -58,7 +58,7 @@ tags: liberal
 
 上传之后，自动变这样：
 
-![](/files/%E6%B8%A9%E9%A6%A8%E6%8F%90%E7%A4%BA.avi)
+![](/images/%E6%B8%A9%E9%A6%A8%E6%8F%90%E7%A4%BA.avi)
 
     20140808
     20141024
