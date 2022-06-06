@@ -19,6 +19,8 @@ Btw, WPS is only available in:
 
     APT-Sources: https://apt.atzlinux.com/atzlinux buster/non-free
 
+![](/images/apt-mark-hold-back-version.png)
+
 # Commands
 
 查看信息：
