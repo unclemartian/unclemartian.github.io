@@ -6,7 +6,7 @@ tags: knowledge
 
 # 共济会
 
-英文：Freemasonry, or Freemasons
+英文：Freemasonry, or Freemasons.
 
 ## 定义
 

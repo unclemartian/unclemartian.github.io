@@ -1,5 +1,5 @@
 ---
-title: 【Read】 Napoléon 拿破仑
+title: 【Read】 Napoléon 拿破仑对舆论的影响
 date: 2021-09-29 00:00:00
 tags: knowledge
 ---
