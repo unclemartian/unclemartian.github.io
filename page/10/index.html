@@ -151,6 +151,78 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/01/Tech/technology/virtualbox-compress-vdi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/01/Tech/technology/virtualbox-compress-vdi/" class="post-title-link" itemprop="url">【Tech】 How to compress VDI file for VirtualBox</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-12-01T00:00:00+00:00">2020-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>The growing VirtualBox VDI file is very annoying. </p>
+<p>以下是压缩 vdi 文件的方法。</p>
+<h2 id="On-linux-VM"><a href="#On-linux-VM" class="headerlink" title="On linux VM"></a>On linux VM</h2><p>Run</p>
+<pre><code>dd if=/dev/zero of=/var/tmp/bigemptyfile bs=4096k ; rm /var/tmp/bigemptyfile</code></pre><h2 id="On-windows-host"><a href="#On-windows-host" class="headerlink" title="On windows host"></a>On windows host</h2><p>Run</p>
+<pre><code>cd &apos;C:\Program Files\Oracle\VirtualBox\&apos;
+
+.\VBoxManage.exe modifymedium --compact D:\VMs\abc.vdi</code></pre><p>Done.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size">https://superuser.com/questions/529149/how-to-compact-virtualboxs-vdi-file-size</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/Crypto/P%E7%BD%91%EF%BC%88Poloniex%EF%BC%89and-%EF%BC%88B%E7%BD%91%EF%BC%89Bittrex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +254,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -251,7 +323,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -321,7 +393,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -423,7 +495,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -505,7 +577,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -600,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -696,7 +768,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
+                <time title="Modified: 2022-06-06 14:59:13" itemprop="dateModified" datetime="2022-06-06T14:59:13+00:00">2022-06-06</time>
               </span>
 
           
@@ -746,87 +818,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/19/Crypto/%E5%9B%BD%E4%BA%A7%E5%85%AC%E9%93%BE%E5%B1%8A%E7%9A%84%E5%A4%A9%E7%8E%8B%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/04/19/Crypto/%E5%9B%BD%E4%BA%A7%E5%85%AC%E9%93%BE%E5%B1%8A%E7%9A%84%E5%A4%A9%E7%8E%8B%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">【Crypto】 国产公链届的天王明星项目</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-04-19 23:48:09" itemprop="dateCreated datePublished" datetime="2020-04-19T23:48:09+00:00">2020-04-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-06 00:39:41" itemprop="dateModified" datetime="2022-06-06T00:39:41+00:00">2022-06-06</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>谁是国产第一公链？</p>
-<ol>
-<li>NEO</li>
-<li>ONT</li>
-<li>TRON</li>
-</ol>
-<h1 id="Nervos"><a href="#Nervos" class="headerlink" title="Nervos"></a>Nervos</h1><p><img src="/images/nervos-2.png" alt=""><br><img src="/images/nervos-1.png" alt=""></p>
-<h1 id="Blockstack"><a href="#Blockstack" class="headerlink" title="Blockstack"></a>Blockstack</h1><p>第一个通过SEC合规，公墓价0.3美元。</p>
-<p><img src="/images/blockstack-2.png" alt=""><br><img src="/images/blockstack-1.png" alt=""></p>
-<h1 id="Algo"><a href="#Algo" class="headerlink" title="Algo"></a>Algo</h1><p>第一轮拍卖价2.4美元。</p>
-<p><img src="/images/algorand-2.png" alt=""><br><img src="/images/algorand-3.png" alt=""><br><img src="/images/algorand-1.png" alt=""></p>
-<h1 id="Zil"><a href="#Zil" class="headerlink" title="Zil"></a>Zil</h1><p><img src="/images/zil-2.png" alt=""><br><img src="/images/zil-1.png" alt=""></p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bihu.com/article/1428275457/page/7">https://bihu.com/article/1428275457/page/7</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -892,7 +887,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">112</span>
+          <span class="site-state-item-count">113</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
