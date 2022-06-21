@@ -151,6 +151,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/08/10/Tech/technology/os-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2015/08/10/Tech/technology/os-learning/" class="post-title-link" itemprop="url">【Tech】Operating System learning notes</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2015-08-10 00:00:00" itemprop="dateCreated datePublished" datetime="2015-08-10T00:00:00+00:00">2015-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><h2 id="Top-down-hardware-abstraction-layer"><a href="#Top-down-hardware-abstraction-layer" class="headerlink" title="Top-down: hardware abstraction layer"></a>Top-down: hardware abstraction layer</h2><p><strong>Turn hardware into something that applications can use</strong>. “standard library” “OS as virtual machine”</p>
+<ol>
+<li><p>eg. printf(“hello world”), shows up on screen, App issue system calls to use OS abstractions</p>
+</li>
+<li><p>eg. each app doesn’t have to write a graphics driver.</p>
+</li>
+<li><p>eg. consistent interface: support for scsi/ide/flash disks</p>
+</li>
+</ol>
+<h2 id="Bottom-up-resource-manager-coordinator"><a href="#Bottom-up-resource-manager-coordinator" class="headerlink" title="Bottom-up: resource manager/coordinator"></a>Bottom-up: resource manager/coordinator</h2><p>Manage your computer’s resources. Resource = CPU, Memory, disk, device, bandwidth… </p>
+<ol>
+<li><p>sharing/multiplexing more than 1 app.</p>
+</li>
+<li><p>protect, who gets what when.</p>
+</li>
+<li><p>performance: fair and efficient.</p>
+</li>
+</ol>
+<h1 id="OS-abstraction-Process"><a href="#OS-abstraction-Process" class="headerlink" title="OS abstraction: Process"></a>OS abstraction: Process</h1><p>A key OS abstraction: the applications you use are<br>built of processes. </p>
+<h2 id="Processes-are-protected-from-each-other"><a href="#Processes-are-protected-from-each-other" class="headerlink" title="Processes are protected from each other"></a>Processes are protected from each other</h2><p><strong>In computing, a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Virtual_address_space">virtual address space (VAS)</a> or address space</strong> is the set of ranges of virtual addresses that an operating system makes available to a process.</p>
+<p>This provides several benefits, one of which is, if each process is given a separate address space, <strong>security through process isolation</strong>.</p>
+<h2 id="Unix-process-related-system-calls"><a href="#Unix-process-related-system-calls" class="headerlink" title="Unix process-related system calls"></a>Unix process-related system calls</h2><pre><code>int fork(void) </code></pre><p>create a copy of the invoking process</p>
+<pre><code>int execv (const char* prog, const char* argv[]) </code></pre><p>replace current process with a new one</p>
+<pre><code>int wait(int *status) </code></pre><p>wait for a child to exit</p>
+<h2 id="process-communication-pipe"><a href="#process-communication-pipe" class="headerlink" title="process communication: pipe"></a>process communication: pipe</h2><pre><code>int pipe(int fds[2])</code></pre><ol>
+<li><p>Creates a one way communication channel</p>
+</li>
+<li><p>fds[2] is used to return two file descriptors</p>
+</li>
+<li><p>Bytes written to fds[1] will be read from fds[0]</p>
+</li>
+</ol>
+<h1 id="Kernel-most-interesting-part-of-OS"><a href="#Kernel-most-interesting-part-of-OS" class="headerlink" title="Kernel: most interesting part of OS"></a>Kernel: most interesting part of OS</h1><p>Unix System Architecture: </p>
+<p>{&lt;1&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-07-25%20at%2010.14.54%20PM.png" alt=""></p>
+<h2 id="virtual-machine"><a href="#virtual-machine" class="headerlink" title="virtual machine"></a>virtual machine</h2><p>Export a fake hardware interface so that<br>multiple OS can run on top.</p>
+<p>{&lt;2&gt;}<img src="https://dl.dropboxusercontent.com/u/23764314/ghost_immortalfish/Screen%20Shot%202015-07-25%20at%2010.39.50%20PM.png" alt=""></p>
+<h2 id="batch-processing"><a href="#batch-processing" class="headerlink" title="batch processing"></a>batch processing</h2><p>ordered, bad but high utilization</p>
+<h2 id="spooling"><a href="#spooling" class="headerlink" title="spooling"></a>spooling</h2><blockquote>
+<p>The most common spooling application is print spooling. In print spooling, documents are loaded into a buffer (usually an area on a disk), and then the printer pulls them off the buffer at its own rate. </p>
+</blockquote>
+<blockquote>
+<p>Because the documents are in a buffer where they can be accessed by the printer, you can perform other operations on the computer while the printing takes place in the background. </p>
+</blockquote>
+<h2 id="Multiprogramming"><a href="#Multiprogramming" class="headerlink" title="Multiprogramming"></a>Multiprogramming</h2><p>Several programs are run at the same time <strong>on a uniprocessor</strong>. Since there is only one processor , there can be no true simultaneous execution of different programs. Instead, the operating system executes part of one program, then part of another. </p>
+<p>OS chooses which to run.</p>
+<p>Ref: <a target="_blank" rel="noopener" href="http://www.cs.columbia.edu/~junfeng/13fa-w4118/lectures/l02-os-intro.pdf">http://www.cs.columbia.edu/~junfeng/13fa-w4118/lectures/l02-os-intro.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/06/Tech/technology/http-learning-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +292,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -392,7 +502,7 @@ Content-Type: text/plain
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -622,7 +732,7 @@ Content-Type: text/plain
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -847,7 +957,7 @@ class NameSub1 extends Name
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -1136,7 +1246,7 @@ dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -1264,7 +1374,7 @@ dlrow olleH</code></pre><h2 id="Swapping-variables"><a href="#Swapping-variables
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -1405,7 +1515,7 @@ git push origin master</code></pre><p>You should see it works fine. Notice how w
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -1583,129 +1693,6 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/04/28/Tech/ubuntu/linux-directory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2015/04/28/Tech/ubuntu/linux-directory/" class="post-title-link" itemprop="url">【Tech】 Linux Directory Structure</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2015-04-28 00:00:00" itemprop="dateCreated datePublished" datetime="2015-04-28T00:00:00+00:00">2015-04-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><h2 id="a-brief-introduction"><a href="#a-brief-introduction" class="headerlink" title="a brief introduction"></a>a brief introduction</h2><ol>
-<li>bin - user binary</li>
-<li>boot - boot loader</li>
-<li>dev - device (manipulate your hard drives)</li>
-<li>etc - config files</li>
-<li>home - user home dir except root</li>
-<li>initrd.img </li>
-<li>lib - system library</li>
-<li>lib64</li>
-<li>lost+found</li>
-<li>media - removable devices (CD, USB etc)</li>
-<li>mnt - mount file systems</li>
-<li>opt - optional (eg. desktop environment)</li>
-<li>proc - process info</li>
-<li>root - root user’s home</li>
-<li>run</li>
-<li>sbin - system binary (runnable only by root)</li>
-<li>srv - service data</li>
-<li>sys</li>
-<li>tmp - temporary (delete on restart)</li>
-<li>usr - Unix System Resources (user programs)<ol>
-<li>usr/bin - user programs</li>
-<li>usr/lib - user system lib</li>
-<li>usr/local -  programs that’s <strong>manually compiled</strong> rather than install from package</li>
-<li>usr/sbin - root programs</li>
-</ol>
-</li>
-<li>var - variables, application data (eg. MySQL db, cached files)</li>
-</ol>
-<p>Reference: <cite>Linux Directory Structure (File System Structure) Explained with Examples</cite><a target="_blank" rel="noopener" href="http://www.thegeekstuff.com/2010/09/linux-file-system-structure/">1</a></p>
-<h1 id="Some-important-folders"><a href="#Some-important-folders" class="headerlink" title="Some important folders"></a>Some important folders</h1><h2 id="bin-sbin-usr-bin-usr-sbin"><a href="#bin-sbin-usr-bin-usr-sbin" class="headerlink" title="bin, sbin, usr/bin, usr/sbin"></a>bin, sbin, usr/bin, usr/sbin</h2><p><strong>bin/</strong> stores commands needed during boot-up that might be needed by normal users. eg. cat, tar…</p>
-<blockquote>
-<p>Applications <strong>such as Firefox</strong> are stored in /usr/bin, while important system programs and utilities such as the <strong>bash shell</strong> are located in /bin. </p>
-</blockquote>
-<p><strong>sbin/</strong> is like bin but commands are not intended for normal users. Commands run by LINUX. eg. ifconfig, fdisk…</p>
-<p><strong>/usr/bin</strong> is all user commands, while <strong>/usr/sbin</strong> is system admin commands not needed on the root filesystem. e.g. most server programs.</p>
-<h2 id="proc"><a href="#proc" class="headerlink" title="proc"></a>proc</h2><p>This filesystem is not on a disk. Exists in the kernels imagination (virtual). </p>
-<p>It holds information about kernel parameters and system configuration.</p>
-<h2 id="usr"><a href="#usr" class="headerlink" title="usr"></a>usr</h2><p><strong>/usr</strong> usually contains by far the largest share of data on a system. Hence, this is <a target="_blank" rel="noopener" href="http://www.tldp.org/LDP/Linux-Filesystem-Hierarchy/html/usr.html">one of the most important directories</a> in the system as it contains all the <strong>user binaries, their documentation, libraries, header files</strong>, etc…. </p>
-<p>Reference: <a target="_blank" rel="noopener" href="http://www.comptechdoc.org/os/linux/usersguide/linux_ugfilestruct.html">Linux Directory Structure</a></p>
-<h1 id="A-brief-history"><a href="#A-brief-history" class="headerlink" title="A brief history"></a>A brief history</h1><blockquote>
-<p>Originally, there was /bin for programs, /dev for device files and /lib for extra executable code and /usr for user data. </p>
-</blockquote>
-<blockquote>
-<p>The source code was also often provided somewhere under /usr.</p>
-</blockquote>
-<blockquote>
-<p>And there were a few files in the operating system that didn’t fit in any of the existing categories. This included <strong>a passwd file containing users’ passwords</strong>, and <strong>an mtab file written by mount</strong>. </p>
-</blockquote>
-<blockquote>
-<p>At first, there was no connotation that files in <strong>/etc</strong> were configuration files. In these very early days, if you wanted to customize something, you’d be recompiling that part of the system. As Unix got more powerful, there were more and more things you could do without recompiling. As Unix got used more widely, there were more and more things people wanted to do, and they found ways of doing them without going through the trouble of recompiling. </p>
-</blockquote>
-<blockquote>
-<p>So <strong>/etc</strong> filled up with more and more text files that people could and did customize, hence it gradually became the configuration directory.</p>
-</blockquote>
-<blockquote>
-<p>With the creation of <strong>/sbin</strong> to contain programs intended only for the system administrator, <strong>/etc</strong> ended up containing only text files, many of which can be customized by the system administrator. </p>
-</blockquote>
-<p>Reference: <a target="_blank" rel="noopener" href="http://unix.stackexchange.com/a/56172">Answer by Gilles on StackExchange</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1775,7 +1762,7 @@ location /planet/blog/ &#123; &#125;</code></pre><p>The location can set actual 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

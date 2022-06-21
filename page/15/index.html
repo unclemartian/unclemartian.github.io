@@ -151,6 +151,112 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2000/01/01/Hexo-best-practise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2000/01/01/Hexo-best-practise/" class="post-title-link" itemprop="url">Hexo day to day best practise</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2000-01-01 13:58:00" itemprop="dateCreated datePublished" datetime="2000-01-01T13:58:00+00:00">2000-01-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="关于代码管理"><a href="#关于代码管理" class="headerlink" title="关于代码管理"></a>关于代码管理</h1><ol>
+<li>hexo blog 管理一切文字 + 图片内容，包括知识，技术和区块链内容</li>
+<li>一律使用 Github Pages + Travis Ci 管理发布</li>
+<li>mindmap 使用私人飞书管理，不再参与同步，不上传 hexo</li>
+<li>不再使用 tiddlywiki，因为当文件 &gt; 40MB 时，保存太慢</li>
+</ol>
+<h1 id="关于-tags，categories"><a href="#关于-tags，categories" class="headerlink" title="关于 tags，categories"></a>关于 tags，categories</h1><ol>
+<li>Title prefix 写大类</li>
+<li>使用 tags 管理细类</li>
+<li>不使用 categories</li>
+</ol>
+<h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><ol>
+<li>每篇 post 都需要有 prefix，如 【Crypto】 ，【Tech】</li>
+<li>每个 prefix 都对应一些特定的 tags，比如 nft 对应【Crypto】 </li>
+</ol>
+<p><strong>具体安排如下</strong></p>
+<ul>
+<li>【Crypto】 <ul>
+<li>tags: nft</li>
+<li>tags: defi</li>
+<li>tags: crypto people</li>
+</ul>
+</li>
+<li>【Tech】<ul>
+<li>tags: ubuntu</li>
+<li>tags: technology</li>
+</ul>
+</li>
+<li>【Read】 <ul>
+<li>tags: arts</li>
+<li>tags: books</li>
+<li>tags: knowledge</li>
+</ul>
+</li>
+</ul>
+<h1 id="Hexo-day-to-day"><a href="#Hexo-day-to-day" class="headerlink" title="Hexo day-to-day"></a>Hexo day-to-day</h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><a target="_blank" rel="noopener" href="https://www.markdownguide.org/basic-syntax/">https://www.markdownguide.org/basic-syntax/</a></p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>Hexo 发布流程如下：</p>
+<ol>
+<li>保证 Sync 成功</li>
+<li>运行：git push origin hexo-source </li>
+<li>hexo generate is not required</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2000/01/01/Hexo-getting-started-self-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +288,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-07 07:45:30" itemprop="dateModified" datetime="2022-06-07T07:45:30+00:00">2022-06-07</time>
+                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
               </span>
 
           
@@ -373,7 +479,7 @@ git push origin hexo-source </code></pre><p>Once it’s complete, checkout the p
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">113</span>
+          <span class="site-state-item-count">114</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
