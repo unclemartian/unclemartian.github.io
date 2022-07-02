@@ -151,6 +151,139 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/29/Tech/ubuntu/chromebook-4-use-galliumos/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/03/29/Tech/ubuntu/chromebook-4-use-galliumos/" class="post-title-link" itemprop="url">【Tech】 Chromebook Tutorial 4 - Using GalliumOS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-03-29 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-29T00:00:00+00:00">2022-03-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p><strong><a target="_blank" rel="noopener" href="https://wiki.galliumos.org/Welcome_to_the_GalliumOS_Wiki">GalliumOS</a></strong> is built solely for Chromebooks.</p>
+<p>这个 Linux 系统是基于 Ubuntu 18.04 (bionic) 的。</p>
+<h1 id="GalliumOS-Basics-系统配置"><a href="#GalliumOS-Basics-系统配置" class="headerlink" title="GalliumOS Basics 系统配置"></a>GalliumOS Basics 系统配置</h1><h2 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h2><p>Give yourself <strong>‘su’</strong> previlege!</p>
+<p>在 Users Settings 中，把 Account Type 改为 Administrator. </p>
+<p>不换源的话，language 和 fcitx 安装会出问题。</p>
+<p><img src="/images/TODO.png" alt=""></p>
+<h2 id="HiDPI"><a href="#HiDPI" class="headerlink" title="HiDPI"></a>HiDPI</h2><p>Most simply way: <strong>Go to Settings Manager &gt; Appearance &gt; Fonts &gt; Custom DPI setting and change from 96 to</strong>:</p>
+<ul>
+<li>144 in you are on external (1080p) display</li>
+<li>192 if you are on 2K laptop screen</li>
+</ul>
+<p>There is <a target="_blank" rel="noopener" href="https://jeromewu.github.io/how-to-fix-hidpi-issues-in-gulliam-os-3.1/">a script to automate this process</a>, I made it simple by hosting a copy <a href="/files/fix-hidpi-in-galliumos-3.1.sh">here</a></p>
+<pre><code>sh fix-hidpi-in-galliumos-3.1.sh</code></pre><p>Next, change the right bottom battery icon: </p>
+<pre><code>vi ~/.config/gtk-3.0/gtk.css</code></pre><p>File content:</p>
+<pre><code>#xfce4-power-manager-plugin * &#123;
+    -gtk-icon-transform: scale(0.38);
+&#125;</code></pre><p>However, based on my experience, changing <strong>/etc/profile.d/gdkscale.sh</strong> doesn’t work very properly. </p>
+<h3 id="Update-March-30-2022"><a href="#Update-March-30-2022" class="headerlink" title="Update March 30, 2022"></a>Update March 30, 2022</h3><p>I found there is additional issues with scaling. Thus this is my conclusion: </p>
+<ol>
+<li>如果是双屏幕，dpi不同，最好的办法就是改分辨率，反正笔记本屏幕也不是主力屏。<br> （我将 CB713-1W 的屏幕改成 1400 x 900 ，配合 1080p 的外显使用）</li>
+<li>其实样式可以直接到 Appearance-&gt;Fonts 里面，DPI 改成 96 或者 144</li>
+<li>去 Window Manager 里，可改窗口样式。</li>
+<li>for more：<a target="_blank" rel="noopener" href="https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html">https://v1.marksolters.com/programming/2016/05/13/pixel-gallium.html</a></li>
+</ol>
+<h2 id="声音"><a href="#声音" class="headerlink" title="声音"></a>声音</h2><p>看了很多 Kaby Lake 如何 fix audio 的帖子：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/">https://www.reddit.com/r/chrultrabook/comments/r6v4j2/audio_on_kaby_lake_device_acer_chromebook_13_cb713/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/">https://www.reddit.com/r/GalliumOS/comments/gk5bpg/no_sound_with_galliumos_31_kabylake_14da0011dx/</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/GalliumOS/galliumos-distro/issues/536">https://github.com/GalliumOS/galliumos-distro/issues/536</a></li>
+</ol>
+<p>最终决定：直接用外接显示器上的声卡吧！</p>
+<p>（可插耳机）</p>
+<h2 id="换源-Change-source"><a href="#换源-Change-source" class="headerlink" title="换源 Change source"></a>换源 Change source</h2><pre><code>cd /etc/apt/
+vi sources.list</code></pre><p>The aliyun source:</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</code></pre><h2 id="输入法：fcitx"><a href="#输入法：fcitx" class="headerlink" title="输入法：fcitx"></a>输入法：fcitx</h2><p>首先，下载搜狗：</p>
+<p><a target="_blank" rel="noopener" href="https://pinyin.sogou.com/linux/">https://pinyin.sogou.com/linux/</a></p>
+<p>Go to “Language Support” 或者“语言支持”，添加“中文”，并且把输入法设置成：fcitx。</p>
+<p><img src="/images/galliumos-fcitx-sogoupinyin.png" alt=""></p>
+<p>然后：</p>
+<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb</code></pre><p>如果缺依赖，就：</p>
+<pre><code>sudo apt -f install</code></pre><p>这时候仍然可能会失败，报以下错：<strong>installing sogoupinyin would break fcitx-ui-qimpanel</strong>。这个原因是<a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/MyJxmX4p5n/">搜狗拼音安装包中含有fcitx-ui-qimpanel，与系统已有的fcitx-ui-qimpanel产生了冲突</a>，所以，删除 fcitx-ui-qimpanel。</p>
+<pre><code>sudo apt-get remove fcitx-ui-qimpanel</code></pre><p>后来，再安装sogou，或者先安sogou后安locale包，再重启机器，总之就好了。版本号：搜狗个人版 4.0.0.1605 （2022年3月）。</p>
+<h1 id="Install-Software"><a href="#Install-Software" class="headerlink" title="Install Software"></a>Install Software</h1><h2 id="Chrome-VSCode"><a href="#Chrome-VSCode" class="headerlink" title="Chrome, VSCode"></a>Chrome, VSCode</h2><p>Just download and install:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.google.cn/chrome/">https://www.google.cn/chrome/</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></li>
+</ol>
+<h2 id="Install-MySQL-Workbench"><a href="#Install-MySQL-Workbench" class="headerlink" title="Install MySQL Workbench"></a>Install MySQL Workbench</h2><p>Workbench 最近版是 Workbench 8.0.28，但是不支持 bionic。</p>
+<p>故选择<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/get/p/8/file/mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb">mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</a></p>
+<p>先安依赖：</p>
+<pre><code>sudo apt install libzip4
+sudo dpkg -i mysql-workbench-community_8.0.22-1ubuntu18.04_amd64.deb</code></pre><p>就好了。</p>
+<h2 id="Spotify"><a href="#Spotify" class="headerlink" title="Spotify"></a>Spotify</h2><p>According to the <a target="_blank" rel="noopener" href="https://www.spotify.com/us/download/linux/">official tutorial</a>:</p>
+<pre><code>curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+echo &quot;deb http://repository.spotify.com stable non-free&quot; | sudo tee /etc/apt/sources.list.d/spotify.list</code></pre><p>Then you can install the Spotify client:</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install spotify-client
+spotify</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/03/28/Tech/ubuntu/chromebook-3-install-galliumos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +315,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -338,7 +471,7 @@ sudo firmware-util.sh</code></pre><p> Or under Linux: </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -463,7 +596,7 @@ StartupNotify=true</code></pre><p>Done. </p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -574,7 +707,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -657,7 +790,7 @@ sudo setfacl -R -m &quot;u:[whoami]:rwx&quot; /home/rslsync</code></pre><p>Now t
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -769,7 +902,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -853,7 +986,7 @@ tmux at</code></pre>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -919,83 +1052,6 @@ done</code></pre><p>Simply:</p>
 <p>Old content: <a href="/files/RSS反派影评Feed.txt">here</a></p>
 <p>New content: <a href="/files/RSS反派影评Feed-new.txt">here</a></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/01/10/Tech/technology/virtualbox-mount-shared-folder/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/01/10/Tech/technology/virtualbox-mount-shared-folder/" class="post-title-link" itemprop="url">【Tech】 How to mount shared folder for VirtualBox</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-10T00:00:00+00:00">2022-01-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Mount shared folders in VirtualBox.</p>
-<h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
-<pre><code>cd /media/osboxes/VBox_GAs_6.1.28
-sudo ./VBoxLinuxAdditions.run
-sudo reboot</code></pre><h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。</p>
-<p><img src="/images/virtualbox-mount-shared-folder.png" alt=""></p>
-<p>对于 Linux 系统，无需写 “挂载点”。</p>
-<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>Windows下，自动挂在。</p>
-<p>Linux下，不会自动加载。这样操作手动加载：</p>
-<pre><code>cd ~/Desktop/
-mkdir shared-folder
-sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后就行了。</p>
-<p>如果权限出了问题，可以这样：</p>
-<pre><code>sudo adduser $USER vboxsf</code></pre>
       
     </div>
 

@@ -151,6 +151,100 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/05/28/Tech/technology/joplin-tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/05/28/Tech/technology/joplin-tutorial/" class="post-title-link" itemprop="url">【Tech】 Joplin Tutorial</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-28T00:00:00+00:00">2022-05-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Joplin-usage"><a href="#Joplin-usage" class="headerlink" title="Joplin usage"></a>Joplin usage</h1><p>我常用的Joplin commands如下：</p>
+<pre><code>:mknote &apos;hello world&apos;
+:rmnote $n
+:sync
+:exit</code></pre><h2 id="缩写"><a href="#缩写" class="headerlink" title="缩写"></a>缩写</h2><p>See below for <a target="_blank" rel="noopener" href="https://joplinapp.org/terminal/">the full list of default shortcuts</a>:</p>
+<pre><code>:                 enter_command_line_mode
+TAB               focus_next
+ENTER             activate
+DELETE, BACKSPACE delete
+(SPACE)           todo toggle $n
+n                 next_link
+b                 previous_link
+o                 open_link
+__tc__                toggle_console
+tm                toggle_metadata
+/                 search &quot;&quot;
+__mn__                mknote &quot;&quot;
+mt                mktodo &quot;&quot;
+mb                mkbook &quot;&quot;
+yn                cp $n &quot;&quot;
+dn                mv $n &quot;&quot;</code></pre><h2 id="如果不小心按了空格"><a href="#如果不小心按了空格" class="headerlink" title="如果不小心按了空格"></a>如果不小心按了空格</h2><p>如果不小心按了空格，会发现note title前面多了一个[x]。每次再按空格，就会变一下。</p>
+<p>这个note实际上被 convert to 一个 todo item 了。</p>
+<p>Quote：</p>
+<pre><code>(SPACE)           todo toggle $n</code></pre><p>还有：</p>
+<pre><code>todo &lt;todo-command&gt; &lt;note-pattern&gt;
+
+&lt;todo-command&gt; can either be &quot;toggle&quot; or &quot;clear&quot;. Use &quot;toggle&quot; to toggle
+the given to-do between completed and uncompleted state (If the target is
+a regular note it will be converted to a to-do). Use &quot;clear&quot; to convert
+the to-do back to a regular note.</code></pre><p>所以，出现这种情况，这样就行：</p>
+<pre><code>:todo clear $n</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/05/20/Read/liberal/media-censorship-testing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +276,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -319,7 +413,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -447,7 +541,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -525,7 +619,7 @@ apt-mark showhold</code></pre><p>然后就可以安全的：</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -604,7 +698,7 @@ apt-mark showhold</code></pre><p>然后就可以安全的：</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -705,7 +799,7 @@ Copyright ?  2019 Jellyfin Contributors. Code released under the GNU General Pub
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -771,7 +865,7 @@ Copyright ?  2019 Jellyfin Contributors. Code released under the GNU General Pub
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+                <time title="Modified: 2022-07-02 21:47:07" itemprop="dateModified" datetime="2022-07-02T21:47:07+00:00">2022-07-02</time>
               </span>
 
           
@@ -798,82 +892,6 @@ sudo apt install cinnamon-desktop-environment lightdm</code></pre><p>（这里�
 dpkg -l | grep .xfce. 
 dpkg -l | grep .xfce. | xargs sudo apt-get remove
 sudo dpkg -l | grep .xfce. | xargs sudo apt-get remove</code></pre><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.ubuntubuzz.com/2019/05/how-to-completely-remove-xfce-desktop-from-mint-xfce-191.html">https://www.ubuntubuzz.com/2019/05/how-to-completely-remove-xfce-desktop-from-mint-xfce-191.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/26/Tech/technology/mp3-compression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/26/Tech/technology/mp3-compression/" class="post-title-link" itemprop="url">【Tech】 MP3 compression</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-26T00:00:00+00:00">2022-04-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p>我使用了 Ubuntu 上的 lightweight audio tool：<strong>Sound Converter</strong></p>
-<pre><code>sudo apt-get install soundconverter</code></pre><p>Config 方面，我尝试了 variable / low quality，感觉质量不错。</p>
-<p>如下图。</p>
-<p><img src="/images/mp3-compression-sound-converter.jpg" alt=""></p>
-<h1 id="File-Types"><a href="#File-Types" class="headerlink" title="File Types"></a>File Types</h1><p>I tested out: </p>
-<ol>
-<li>MP3 format with dynamic average 54kbps with 32khz</li>
-<li>AAC(m4a) format with fixed 64kbps with 44khz</li>
-</ol>
-<p>两个文件大小差不多，m4a在大比率的情况下只比mp3大18%。</p>
-<p>听上去效果是一样的。</p>
-<p>所以最终选择了 mp3 格式。</p>
 
       
     </div>
