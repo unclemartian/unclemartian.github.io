@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/05/Tech/ubuntu/ubuntu-jdk-java/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/19/Tech/ubuntu/armbian-day-to-day%20copy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/05/Tech/ubuntu/ubuntu-jdk-java/" class="post-title-link" itemprop="url">【Tech】 Install Jdk / Java on Linux</a>
+            <a href="/2021/10/19/Tech/ubuntu/armbian-day-to-day%20copy/" class="post-title-link" itemprop="url">【Tech】 Armbian day to day 使用教程</a>
         </h2>
 
         <div class="post-meta">
@@ -175,14 +175,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-05T00:00:00+00:00">2021-09-05</time>
+              <time title="Created: 2021-10-19 09:00:00" itemprop="dateCreated datePublished" datetime="2021-10-19T09:00:00+00:00">2021-10-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
               </span>
 
           
@@ -196,100 +196,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Install-JDK-8"><a href="#Install-JDK-8" class="headerlink" title="Install JDK 8"></a>Install JDK 8</h1><pre><code>sudo apt-get install openjdk-8-jdk
-ls /usr/lib/jvm/java-8-openjdk-amd64/
-
-# Put in ~/.bashrc
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-export PATH=$PATH:$JAVA_HOME/bin
-
-# To verify Java:
-java -version</code></pre><p>To switch java version that you want to use: </p>
-<pre><code>sudo update-alternatives --config java</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/04/Tech/ubuntu/ubuntu-python-pip-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/04/Tech/ubuntu/ubuntu-python-pip-install/" class="post-title-link" itemprop="url">【Tech】 Install Python/pip on Ubuntu 20.04</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-04T00:00:00+00:00">2021-09-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Replace python2 with python3: </p>
-<pre><code>python --version 
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt install python3.8
-python --version 
-which python3
-sudo apt install python-is-python3</code></pre><h2 id="Updated-March-2022"><a href="#Updated-March-2022" class="headerlink" title="Updated March 2022"></a>Updated March 2022</h2><p>其实可以直接跑这个，安装最新版 python （as of this writing, latest stable is v3.9.2）:</p>
-<pre><code>sudo apt install python3 python3-pip</code></pre><p>Got:</p>
-<pre><code>chrx@penguin:~/$ python3 --version
-Python 3.9.2
-chrx@penguin:~/$ pip --version 
-pip 20.3.4 from /usr/lib/python3/dist-packages/pip (python 3.9)</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/">https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/</a></p>
-<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><p>To install pip on python3:</p>
-<pre><code>python --version 
-pip
-pip3
-sudo apt install python3-pip
-pip
-pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. </p>
+          <h1 id="SSH-登陆"><a href="#SSH-登陆" class="headerlink" title="SSH 登陆"></a>SSH 登陆</h1><p>WKY</p>
+<pre><code>export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@192.168.123.215
+a***</code></pre><p>wky上面有两个账户：root和wky，密码一样。</p>
+<h2 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h2><pre><code>tmux ls
+tmux attach -t 0 (or simply tmux attach)
+tmux detach -a</code></pre><p>窗口操作：</p>
+<pre><code>Ctrl+b % Split current pane horizontally
+Ctrl+b &quot; Split current pane vertically
+Ctrl+b 0 Switch to window 0 (by number)
+Ctrl+b o Go to the next pane
+Ctrl+b ; Toggle between the current and previous pane
+Ctrl+b x Close the current pane
+Ctrl+b d detach current pane</code></pre><p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
+<h1 id="WKY控制台"><a href="#WKY控制台" class="headerlink" title="WKY控制台"></a>WKY控制台</h1><p>Webmin 在 10,000 端口。</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:10000">https://192.168.123.215:10000</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Resilio-同步"><a href="#Resilio-同步" class="headerlink" title="Resilio 同步"></a>Resilio 同步</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<pre><code>wky
+a***</code></pre><h2 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h2><p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<pre><code>wky
+a***</code></pre><h1 id="N1桌面系统"><a href="#N1桌面系统" class="headerlink" title="N1桌面系统"></a>N1桌面系统</h1><p>（deprecated）</p>
+<p>RDP：192.168.123.242:3389</p>
 
       
     </div>
@@ -309,7 +237,7 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/03/Tech/ubuntu/ubuntu-golang-install/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/15/Tech/ubuntu/debian9-on-wankeyun/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -323,7 +251,7 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/03/Tech/ubuntu/ubuntu-golang-install/" class="post-title-link" itemprop="url">【Tech】 Install Golang on Ubuntu 20.04</a>
+            <a href="/2021/10/15/Tech/ubuntu/debian9-on-wankeyun/" class="post-title-link" itemprop="url">【Tech】 Debian 9 (Armbian) on N1/Wky 使用教程</a>
         </h2>
 
         <div class="post-meta">
@@ -333,14 +261,14 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-03T00:00:00+00:00">2021-09-03</time>
+              <time title="Created: 2021-10-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-15T00:00:00+00:00">2021-10-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
               </span>
 
           
@@ -354,13 +282,169 @@ pip --version </code></pre><p>Now you have python3 and pip installed on Ubuntu. 
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>First, download Golang.</p>
-<p>Then:</p>
-<pre><code>rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
-ls /usr/local/go
-vi ~/.profile
-source ~/.profile 
-go version</code></pre>
+          <p>这里使用 N1 和 玩客云（简称wky）。</p>
+<h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 / Debian 9.9 版的 Armbian 系统。</p>
+<p>硬件信息如下：</p>
+<pre><code> ____   ___   ___  ____
+/ ___| ( _ ) / _ \| ___|
+\___ \ / _ \| | | |___ \
+ ___) | (_) | |_| |___) |
+|____/ \___/ \___/|____/
+
+Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
+System load:   0.70 0.52 0.26      Up time:       7 min
+Memory usage:  8 % of 996MB      IP:            192.168.31.33
+Usage of /:    25% of 6.4G</code></pre><p>Debian 9.9 （stretch）</p>
+<pre><code>root@aml:~# lsb_release -a
+No LSB modules are available.
+Distributor ID:    Debian
+Description:    Debian GNU/Linux 9.9 (stretch)
+Release:    9.9
+Codename:    stretch</code></pre><p>而N1，则是使用 ARMBIAN 5.77 / Debian 9.8 版的固件:</p>
+<pre><code> ____  ___   ___  ____  
+/ ___|/ _ \ / _ \| ___| 
+\___ \ (_) | | | |___ \ 
+ ___) \__, | |_| |___) |
+|____/  /_/ \___/|____/ 
+
+
+Welcome to ARMBIAN 5.77 user-built Debian GNU/Linux 9 (stretch) 5.0.2-aml-s905   
+System load:   2.21 2.80 2.86   Up time:       6:33 hours               
+Memory usage:  30 % of 1838MB   Zram usage:    26 % of 919Mb    IP:            169.254.10.11 192.168.123.242
+CPU temp:      50°C             
+Usage of /:    11% of 29G       storage/:      44% of 128M </code></pre><p>更新至最新版 stretch：</p>
+<pre><code>arm@armbian-n1-white-32g:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 9.13 (stretch)
+Release:        9.13
+Codename:       stretch</code></pre><h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><h3 id="on-WKY"><a href="#on-WKY" class="headerlink" title="on WKY"></a>on WKY</h3><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
+<p>然后插上wky，自动重装系统装如EMMC（不用刷inphic底包），很方便。</p>
+<p>WKY可能不支持卡载 armbian？</p>
+<h3 id="on-N1"><a href="#on-N1" class="headerlink" title="on N1"></a>on N1</h3><p>N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块钱的U盘，故无法确定卡载系统的稳定性。</p>
+<p>刷机很简单，将这两个固件任选其一：</p>
+<ol>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_20190401.img</li>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_desktop_20190401.img</li>
+</ol>
+<p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
+<p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
+<h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><p>默认密码 default：</p>
+<p>root/1234</p>
+<h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT</code></pre><h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config</code></pre><p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
+<h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check / Change:</p>
+<pre><code>hostname
+sudo hostname armbian-wky</code></pre><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><pre><code>cd /etc/apt/
+vi sources.list</code></pre><h3 id="For-Debian-9-stretch"><a href="#For-Debian-9-stretch" class="headerlink" title="For Debian 9 stretch"></a>For Debian 9 stretch</h3><p>Note that Tsinghua and 163.com sources DO NOT WORK.</p>
+<pre><code>deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free</code></pre><p>如果签名报错，运行这一行：</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥（例如648ACFD622F3D138）</code></pre><p>就好了。</p>
+<p>For docker</p>
+<pre><code>https://mirrors.ustc.edu.cn/docker-ce</code></pre><h3 id="For-Ubuntu-18-bionic"><a href="#For-Ubuntu-18-bionic" class="headerlink" title="For Ubuntu 18 bionic"></a>For Ubuntu 18 bionic</h3><p>这个比较难搞，arm 版本的源不好找。</p>
+<p>不是 “Failed to fetch” 就是 certificate 有问题。</p>
+<p>亲测以下可用:</p>
+<pre><code># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse</code></pre><p>或者：</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://www.bianchengquan.com/article/453596.html">https://www.bianchengquan.com/article/453596.html</a><br>和 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd3a2d153505">https://www.jianshu.com/p/fd3a2d153505</a></p>
+<h2 id="Some-useful-apt-to-install"><a href="#Some-useful-apt-to-install" class="headerlink" title="Some useful apt to install"></a>Some useful apt to install</h2><pre><code>apt install python-setuptools
+apt install tmux
+apt install mosh</code></pre><h2 id="Install-Webmin"><a href="#Install-Webmin" class="headerlink" title="Install Webmin"></a>Install Webmin</h2><p>国外版的宝塔。</p>
+<pre><code>/etc/apt/sources.list.d/
+vi webmin.list</code></pre><p>内容：</p>
+<pre><code>deb http://download.webmin.com/download/repository sarge contrib</code></pre><p>然后：</p>
+<pre><code>wget http://www.webmin.com/jcameron-key.asc --no-check-certificate
+apt-key add jcameron-key.asc
+apt update
+apt install webmin</code></pre><p>然后就可以在 10000 端口查看 webmin 面板了。</p>
+<h1 id="自动同步-挂在U盘"><a href="#自动同步-挂在U盘" class="headerlink" title="自动同步 + 挂在U盘"></a>自动同步 + 挂在U盘</h1><h2 id="挂载-U盘"><a href="#挂载-U盘" class="headerlink" title="挂载 U盘"></a>挂载 U盘</h2><p>TODO</p>
+<p>一定不要修改 fstab。教训。</p>
+<h2 id="同步软件"><a href="#同步软件" class="headerlink" title="同步软件"></a>同步软件</h2><ol>
+<li>resilio sync</li>
+<li>syncthing</li>
+</ol>
+<h3 id="Resilio-sync"><a href="#Resilio-sync" class="headerlink" title="Resilio-sync"></a>Resilio-sync</h3><pre><code>apt install resilio-sync
+systemctl status resilio
+systemctl start resilio-sync
+systemctl status resilio-sync
+systemctl enable resilio-sync</code></pre><p>查看：</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<h3 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h3><pre><code>sudo apt install syncthing
+syncthing --version </code></pre><p>For Debian:</p>
+<pre><code>cd /lib/systemd/system/</code></pre><p>For Ubuntu:</p>
+<pre><code>cd /etc/systemd/system/</code></pre><p>Note the following config is ready:</p>
+<pre><code>cat syncthing@.service
+sudo systemctl enable syncthing@$USER</code></pre><p>After this, <strong>/etc/systemd/system/multi-user.target.wants/syncthing@root.service</strong> is created. </p>
+<p>Run syncthing:</p>
+<pre><code>sudo systemctl start syncthing@$USER
+sudo systemctl status syncthing@$USER
+vi /root/.config/syncthing/config.xml</code></pre><p>将 <address>127.0.0.1:8384</address> 改成 0.0.0.0:8384</p>
+<p>tls=“false” 改成 true</p>
+<p>然后：</p>
+<pre><code>sudo systemctl restart syncthing@$USER
+sudo systemctl status syncthing@$USER</code></pre><p>查看：</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384">https://192.168.123.215:8384</a></p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h2><p>Debian可以有桌面系统。</p>
+<h3 id="配置远程登陆"><a href="#配置远程登陆" class="headerlink" title="配置远程登陆"></a>配置远程登陆</h3><pre><code>sudo apt install xrdp xorgxrdp
+sudo systemctl enable xrdp
+sudo reboot</code></pre><p>然后就可以用windows remote 软件来登陆了。Mac也可以。</p>
+<p>端口号3389。</p>
+<h3 id="桌面自动登陆"><a href="#桌面自动登陆" class="headerlink" title="桌面自动登陆"></a>桌面自动登陆</h3><pre><code>sudo vi /etc/lightdm/lightdm.conf</code></pre><p>Remove the # and change it to have your username after (for example: autologin-user=test).</p>
+<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
+sudo vi /etc/locale.gen</code></pre><p>去掉zh_CN.UTF-8前面的# 保存</p>
+<pre><code>fc-cache -v
+sudo vi /etc/default/locale </code></pre><p>在 LANG=en_US.UTF-8 后面增加 LC_CTYPE=zh_CN.UTF-8</p>
+<h2 id="自动化-Hexo"><a href="#自动化-Hexo" class="headerlink" title="自动化 Hexo"></a>自动化 Hexo</h2><pre><code>sudo vi /root/.bashrc
+source /root/.bashrc </code></pre><p>Add</p>
+<pre><code>alias wiki=&quot;cd /home/rslsync/Resilio\ Sync/yellowpage/unclemartian &amp;&amp; git status &amp;&amp; git add . &amp;&amp; git commit -m &apos;auto hexo post update&apos; &amp;&amp; git push origin hexo-source &amp;&amp; git status&quot;</code></pre><p>下次，只需要执行一行就行了：</p>
+<pre><code>wiki</code></pre><h2 id="Samba"><a href="#Samba" class="headerlink" title="Samba"></a>Samba</h2><pre><code>apt-get install samba
+systemctl status smbd
+(maybe optional)smbpasswd -a smb</code></pre><p>然后</p>
+<pre><code>sudo vi /etc/samba/smb.conf
+
+[wky]
+    comment = wky-arm
+    path = /home/rslsync/Resilio Sync/
+    comment = share all
+    browseable = yes
+    public = yes
+    writable = yes
+    valid users = wky
+    force user = wky
+    force group = wky</code></pre><p>重启：</p>
+<pre><code>systemctl restart smbd
+systemctl status smbd</code></pre><p>权限有问题。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a><br><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/alpwnxmp/">https://post.smzdm.com/p/alpwnxmp/</a><br><a target="_blank" rel="noopener" href="https://blog.ztluo.dev/post/0057-phicomm-n1/">https://blog.ztluo.dev/post/0057-phicomm-n1/</a></p>
+
       
     </div>
 
@@ -379,7 +463,7 @@ go version</code></pre>
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/02/Tech/ubuntu/ubuntu-mysql-install/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/10/11/Crypto/nft-2-types/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -393,7 +477,7 @@ go version</code></pre>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/02/Tech/ubuntu/ubuntu-mysql-install/" class="post-title-link" itemprop="url">【Tech】 Install MySQL 5.7 on Ubuntu 20.04</a>
+            <a href="/2021/10/11/Crypto/nft-2-types/" class="post-title-link" itemprop="url">【Crypto】 NFT 未来的2条发展路线</a>
         </h2>
 
         <div class="post-meta">
@@ -403,14 +487,14 @@ go version</code></pre>
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T00:00:00+00:00">2021-09-02</time>
+              <time title="Created: 2021-10-11 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-11T00:00:00+00:00">2021-10-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
               </span>
 
           
@@ -424,81 +508,18 @@ go version</code></pre>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><pre><code>apt-get update
-apt-get install wget
-mkdir /downloads
-cd /downloads
-wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
-# if the prompt is closed by accident, run:
-sudo dpkg-reconfigure mysql-apt-config</code></pre><p>Here, select MySQL 5.7, you will be prompt that Ubuntu 20.04 does not support MySQL 5.7. </p>
-<p>Don’t worry, select Ubuntu bionic. Then OK. </p>
-<pre><code>sudo apt-get update
-apt-cache policy mysql-server</code></pre><p>We can see</p>
-<pre><code>5.7.35-1ubuntu18.04 500 
-   500 http://repo.mysql.com/apt/ubuntu bionic/mysql-5.7 amd64 Packages</code></pre><p>Now simulate the installation first, then actually install:</p>
+          <h1 id="2条路线"><a href="#2条路线" class="headerlink" title="2条路线"></a>2条路线</h1><ol>
+<li>精品化路线（IP    化）</li>
+</ol>
 <blockquote>
-<p>Use the -s flag to simulate an action. </p>
-<p>For example: “apt-get -s install <package_name>“ will simulate installing the package, showing you what packages will be installed and configured.</p>
+<p>MekaVerse 的爆火，首先得益于项目结合了高达这一大 IP。</p>
+<p>尽管并未获得官方授权，但未来可能构成 Meka 宇宙，赋予了用户足够的想象空间，这可能也将是 NFT 市场接下来的一大发展趋势，类似的项目还有比如 The Project Zero、CryptoBots 等。</p>
 </blockquote>
-<pre><code>sudo apt install -s -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
-sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*</code></pre><p>then:</p>
-<pre><code>sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
-sudo apt-get install mysql-client=5.7.34-1ubuntu18.04
-sudo apt-get install -s mysql-community-server=5.7.34-1ubuntu18.04
-sudo apt-get install mysql-community-server=5.7.34-1ubuntu18.04</code></pre><p>Or simply:</p>
-<pre><code>sudo apt-get install -s mysql-server=5.7.35-1ubuntu18.04
-sudo apt-get install mysql-server=5.7.35-1ubuntu18.04
-mysql -V
-mysql -u root -p</code></pre><p>As a next-step, you need to check status of your wirefall and open up Port 3306:</p>
-<pre><code>sudo ufw status
-sudo ufw allow 80
-sudo ufw allow 3306</code></pre><h2 id="Prevent-MySql-upgrade"><a href="#Prevent-MySql-upgrade" class="headerlink" title="Prevent MySql upgrade"></a>Prevent MySql upgrade</h2><p>Modify this file: </p>
-<pre><code>vi /etc/apt/preferences.d/mysql</code></pre><p>File content: </p>
-<pre><code>Package: mysql-server
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-client
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-community-server
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-community-client
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-apt-config
-Pin: version 0.8.12-1
-Pin-Priority: 1001</code></pre><p>Try to update mysql-server and you will get notified: </p>
-<pre><code>mysql-server is already the newest version (5.7.35-1ubuntu18.04). 
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.</code></pre><h1 id="Run-MySQL"><a href="#Run-MySQL" class="headerlink" title="Run MySQL"></a>Run MySQL</h1><pre><code>mysql -u root -p
-select version();
-CREATE USER &apos;michael&apos;@&apos;%&apos; IDENTIFIED BY &apos;ran&apos;;
-CREATE USER &apos;alex&apos;@&apos;%&apos; IDENTIFIED BY &apos;aliuchuang&apos;;
-select host,user,password_last_changed from mysql.user;</code></pre><h2 id="Config-privileges"><a href="#Config-privileges" class="headerlink" title="Config privileges"></a>Config privileges</h2><p>Now flash privileges for non-root users:</p>
-<pre><code>mysql -u root -p
-use mysql;
-select host, user from user; 
-update user set host = &apos;%&apos; where user = &apos;root&apos;;
-select host, user from user;
-flush privileges;</code></pre><p>Allow remote access of MySQL:</p>
-<p>因为默认3306端口只允许本地访问的，注释掉这行</p>
-<pre><code>sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
-
-# By default we only accept connections from localhost
-# bind-address  = 127.0.0.1</code></pre><p>Restart MySQL: </p>
-<pre><code>service mysql restart
-systemctl restart mysql</code></pre><h1 id="Install-an-MySQL-client"><a href="#Install-an-MySQL-client" class="headerlink" title="Install an MySQL client"></a>Install an MySQL client</h1><p>If you are on ubuntu 18: </p>
-<pre><code>sudo apt-get install emma</code></pre><p>If you are on ubuntu 20, use DBeaver. </p>
-<h1 id="To-uninstall"><a href="#To-uninstall" class="headerlink" title="To uninstall"></a>To uninstall</h1><pre><code>service mysql status
-service mysql stop
-sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
-sudo rm -rf /etc/mysql /var/lib/mysql
-sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a target="_blank" rel="noopener" href="https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/">https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wang666/p/10218950.html">https://www.cnblogs.com/wang666/p/10218950.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenlove/p/9552438.html">https://www.cnblogs.com/chenlove/p/9552438.html</a></p>
+<ol>
+<li><p>可编程化路线</p>
+<p>参考 Loot</p>
+</li>
+</ol>
 
       
     </div>
@@ -518,7 +539,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/Tech/ubuntu/ubuntu-nvm-node/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/Crypto/loot-master-wiki/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -532,7 +553,7 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/01/Tech/ubuntu/ubuntu-nvm-node/" class="post-title-link" itemprop="url">【Tech】 Install Node/npm using Nvm</a>
+            <a href="/2021/09/29/Crypto/loot-master-wiki/" class="post-title-link" itemprop="url">【Crypto】 Loot master wiki</a>
         </h2>
 
         <div class="post-meta">
@@ -542,14 +563,14 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+00:00">2021-09-01</time>
+              <time title="Created: 2021-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-29T00:00:00+00:00">2021-09-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
               </span>
 
           
@@ -563,403 +584,461 @@ sudo apt autoremove</code></pre><h1 id="Ref"><a href="#Ref" class="headerlink" t
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><p>Use ‘nvm’ to manage node versions</p>
-<h2 id="Bash-Install"><a href="#Bash-Install" class="headerlink" title="Bash Install"></a>Bash Install</h2><ol>
-<li><p>Install nvm thru <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">nvm bash</a></p>
-<pre><code>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p> Or:</p>
-<pre><code>wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash</code></pre><p> Or (from this blog):</p>
-<pre><code>wget -qO- https://unclemartian.github.io/files/nvm-0391-install.sh | bash</code></pre></li>
-<li><p>You may be stuck here, right after you saw this:</p>
-<pre><code>=&gt; Downloading nvm from git to &apos;/home/ubuntu/.nvm&apos;
-=&gt; Cloning into &apos;/home/ubuntu/.nvm&apos;...
-remote: Enumerating objects: 354, done.
-remote: Counting objects: 100% (354/354), done.
-remote: Compressing objects: 100% (302/302), done.
-remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
-Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
-Resolving deltas: 100% (40/40), done.</code></pre></li>
-<li><p>Wait patiently for a bit. If still no luck, manually paste this to ~/.bashrc</p>
-<pre><code>export NVM_DIR=&quot;$HOME/.nvm&quot;
-[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
-[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre></li>
-<li><p>Run the following. You are all set!</p>
-<pre><code>source ~/.bashrc</code></pre></li>
+          <h1 id="Loot-Intro"><a href="#Loot-Intro" class="headerlink" title="Loot Intro"></a>Loot Intro</h1><p>Loot 是由 Dom Hofmann 发起、靠社区推动的一个 NFT 项目。</p>
+<p>上线于2021年8月27日。</p>
+<p><a target="_blank" rel="noopener" href="https://etherscan.io/address/0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7">https://etherscan.io/address/0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7</a></p>
+<blockquote>
+<p>Dom Hofmann, 视频共享应用程序 Vine 的联合创始人</p>
+</blockquote>
+<p>每一枚 Loot 代表一组具有随机稀缺特性的冒险装备</p>
+<ol>
+<li>upper body<ol>
+<li>武器（Weapons）</li>
+<li>头甲（Head Armor）</li>
+<li>胸甲（Chest Armor）</li>
 </ol>
-<h2 id="Alternative-Git-Install"><a href="#Alternative-Git-Install" class="headerlink" title="Alternative: Git Install"></a>Alternative: Git Install</h2><p>Bash install might fail for network reasons. </p>
-<p>Thus do this: </p>
-<pre><code>cd ~/ from anywhere then git clone https://github.com/nvm-sh/nvm.git .nvm
-cd ~/.nvm and check out the latest version with git checkout v0.39.1
-activate nvm by sourcing it from your shell: . ./nvm.sh
-
-Now add these lines to your ~/.bashrc, ~/.profile, or ~/.zshrc file to have it automatically sourced upon login: (you may have to add to more than one of the above files)
-
-export NVM_DIR=&quot;$HOME/.nvm&quot;
-[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
-[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#git-install">https://github.com/nvm-sh/nvm#git-install</a></p>
-<h2 id="Basic-Usage"><a href="#Basic-Usage" class="headerlink" title="Basic Usage"></a>Basic Usage</h2><ol>
-<li><p>Check current node versions</p>
-<pre><code>nvm ls
-nvm ls-remote</code></pre></li>
-<li><p>Install node and npm</p>
-<pre><code>nvm install v12</code></pre></li>
-<li><p>Use the following command</p>
-<pre><code>nvm use 12</code></pre></li>
+</li>
+<li>lower body<ol>
+<li>腰甲（Waist Armor）</li>
+<li>手甲（Hand Armor）</li>
+<li>脚甲（Foot Armor）</li>
 </ol>
-<h2 id="Please-Note"><a href="#Please-Note" class="headerlink" title="Please Note"></a>Please Note</h2><p>You may need to uninstall the system version node/npm, otherwise sudo have issues.</p>
-<p>A pretty simple work-around would be:</p>
+</li>
+<li>accessory<ol>
+<li>项链（Necklaces）</li>
+<li>戒指（Rings）</li>
+</ol>
+</li>
+</ol>
+<h1 id="特点总结"><a href="#特点总结" class="headerlink" title="特点总结"></a>特点总结</h1><p>表面：NFT 从 JPG 到 TXT 的一次<strong>呈现形式</strong>的创新。</p>
+<p>深层：往后看。</p>
+<h2 id="Before-Loot"><a href="#Before-Loot" class="headerlink" title="Before Loot"></a>Before Loot</h2><h3 id="NFT所有权-–-gt-通过-hash-value-锁定的一个-JPG-文件"><a href="#NFT所有权-–-gt-通过-hash-value-锁定的一个-JPG-文件" class="headerlink" title="NFT所有权 –&gt; 通过 hash value 锁定的一个 JPG 文件"></a>NFT所有权 –&gt; 通过 hash value 锁定的一个 JPG 文件</h3><p><img src="/images/loot-before-loot.jpeg" alt=""></p>
+<p>具体操作：</p>
+<ol>
+<li><p>发行方将 JPG 数据映射成一串 signature (哈希指纹) 用于完整性校验。例如 <a target="_blank" rel="noopener" href="https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b">https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b</a></p>
+</li>
+<li><p>将该 ipfs signature、文件路径与内容描述、发行信息、创作者签名等信息构成 Metadata (元数据)。例如 <a target="_blank" rel="noopener" href="https://metadata.theunstablehorsesyard.com/horse/32">https://metadata.theunstablehorsesyard.com/horse/32</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Metadata：</span><br><span class="line">&#123;&quot;image&quot;:&quot;https://gateway.pinata.cloud/ipfs/QmUnRSRJF7JWViesqHTiNSSpeRCEj5AND58jqDghAbPG2b&quot;,&quot;description&quot;:&quot;The Unstable Horses Yard are unique collectibles, with provably randomized traits and physical attributes. Own, trade, and play in the 3D world with your unique horse.&quot;,&quot;attributes&quot;:[&#123;&quot;trait_type&quot;:&quot;hoof&quot;,&quot;value&quot;:&quot;Paper&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;clothes&quot;,&quot;value&quot;:&quot;Muskateer&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;ear&quot;,&quot;value&quot;:&quot;Earrings&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;eyes expression&quot;,&quot;value&quot;:&quot;Unstable&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;eyes&quot;,&quot;value&quot;:&quot;Monocle&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;neck&quot;,&quot;value&quot;:&quot;Love Necklace&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mane&quot;,&quot;value&quot;:&quot;Blonde&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mouth expression&quot;,&quot;value&quot;:&quot;Closed Mouth&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;mouth&quot;,&quot;value&quot;:&quot;Cigarette&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;hat&quot;,&quot;value&quot;:&quot;Ribbon&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;breed&quot;,&quot;value&quot;:&quot;Zebra Cross&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;Generation&quot;,&quot;value&quot;:1,&quot;display_type&quot;:&quot;number&quot;&#125;,&#123;&quot;trait_type&quot;:&quot;Stamina&quot;,&quot;value&quot;:98,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Strength&quot;,&quot;value&quot;:86,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Natural Speed&quot;,&quot;value&quot;:77,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Adaptibility&quot;,&quot;value&quot;:99,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Pedigree&quot;,&quot;value&quot;:90,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Instability&quot;,&quot;value&quot;:60,&quot;max_value&quot;:100&#125;,&#123;&quot;trait_type&quot;:&quot;Alertness&quot;,&quot;value&quot;:80,&quot;max_value&quot;:100&#125;]&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Metadata 很长，通常不存在链上，而是将储存 Metadata 的路径再次以哈希摘要的形式上传至区块链。</p>
+<ol>
+<li>参考上述例子，这个链接最终存在了链上： <a target="_blank" rel="noopener" href="https://metadata.theunstablehorsesyard.com/horse/32">https://metadata.theunstablehorsesyard.com/horse/32</a> （合约地址： <a target="_blank" rel="noopener" href="https://etherscan.io/address/0x0e4245ccb9954ead73f8bab13607cd2d86efc84c#readContract）">https://etherscan.io/address/0x0e4245ccb9954ead73f8bab13607cd2d86efc84c#readContract）</a></li>
+<li>更好的办法是，存在 IPFS上，这样数据安全性更靠谱一点。</li>
+</ol>
+</li>
+</ol>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>metadata 和 ownership 是分离的</p>
+<ol>
+<li>可能导致数据可用性和数据完整性问题</li>
+<li>如果把原始图像全都上链，又会占用本就稀缺的公共资源</li>
+<li>上面那个例子更为甚者，中心化网站可以直接修改 metadata 内容。</li>
+</ol>
+<h3 id="进一步问题"><a href="#进一步问题" class="headerlink" title="进一步问题"></a>进一步问题</h3><p>IP 的进化、游戏道具的升级，无法解决。</p>
+<blockquote>
+<p>目前在 Axie Infinity 等游戏中通过「孵化」<strong>生成一个新的 NFT</strong> 来达到这一目的。</p>
+</blockquote>
+<h2 id="After-Loot"><a href="#After-Loot" class="headerlink" title="After Loot"></a>After Loot</h2><p>将 NFT 的“art”层从“information”层剥离，只保留txt。有点类似 Ubuntu 和 Linux kernel 的关系。</p>
+<ol>
+<li>可组合性、互操作性，更多元体验；</li>
+<li>程序化生成技术 (GenArt) 中引入了<strong>社交随机性</strong>元素。</li>
+</ol>
+<p><img src="/images/loot-after-loot.jpeg" alt=""></p>
+<h1 id="Generative-art"><a href="#Generative-art" class="headerlink" title="Generative art"></a>Generative art</h1><p>又称：<strong>程序化生成（procedural generation）</strong></p>
+<p>Loot 是程序化生成（procedural generation）的一种实例。</p>
+<p>Crypto Punks 的项目方 Larva Labs 也率先开发了此类产品 Autoglyphs。</p>
+<p>曾经不知名的链上生成类艺术品 NFT 培育平台 Art Blocks 已然实现周交易量排名第 5</p>
+<blockquote>
+<p>Art Blocks 是一个邀请制艺术家培育平台，为艺术家提供了程序化生成算法的创作平台。培育出的作品集对应的生成算法脚本（例如 p5js）将作为一个 project 储存于以太坊智能合约。<br>收藏家可根据作品风格挑选 project，购买的 NFT 将根据内置随机种子产生一组随机变量，该变量控制生成算法生成一幅符合该风格的作品，不限于 静态图像、 3D 模型 或 可交互的体验（鼠标互动）。</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.chainnews.com/articles/908208201053.htm">https://www.chainnews.com/articles/908208201053.htm</a>?<br><a target="_blank" rel="noopener" href="https://medium.com/treum_io/on-chain-artwork-nfts-f0556653c9f3">https://medium.com/treum_io/on-chain-artwork-nfts-f0556653c9f3</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/29/Read/knowledge/Napoleon-census/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/29/Read/knowledge/Napoleon-census/" class="post-title-link" itemprop="url">【Read】 Napoléon 拿破仑对舆论的影响</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-29T00:00:00+00:00">2021-09-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>拿破仑从厄尔巴岛逃出后七天内，一家报纸的题目变换</p>
+<ol>
+<li>第一天，科西嘉怪物在儒安港登陆；</li>
+<li>第二天，吃人魔鬼向格拉斯前进；</li>
+<li>第三天，篡位者进入格勒诺布尔；</li>
+<li>第四天，波拿巴占领里昂；</li>
+<li>第五天，拿破仑接近枫丹白露宫；</li>
+<li>第六天，皇帝抵达巴黎。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/27/Tech/ubuntu/cheap-nas-machines-compare/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/27/Tech/ubuntu/cheap-nas-machines-compare/" class="post-title-link" itemprop="url">【Tech】 不足百元的 Nas 矿渣机对比</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-27 23:00:00" itemprop="dateCreated datePublished" datetime="2021-09-27T23:00:00+00:00">2021-09-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="玩客云"><a href="#玩客云" class="headerlink" title="玩客云"></a>玩客云</h1><p>32位Arm。可以装：</p>
+<ol>
+<li>Ambian - 可以上宝塔 （http环境，云盘系统）</li>
+<li>OpenWrt - 旁路由 / Samba</li>
+</ol>
+<h1 id="Phicomm-斐讯-N1"><a href="#Phicomm-斐讯-N1" class="headerlink" title="Phicomm 斐讯 N1"></a>Phicomm 斐讯 N1</h1><p>主核S905，4核 2G主频，GPU 450。</p>
+<p>可以 4k 硬解。适合做电视盒子，做 Nas 有点屈才了。</p>
+<p>因为是 64位 Arm，可以 docker 安装应用，而且千兆网口。</p>
+<p>问题是 只有 USB2.0, 跟玩客云一样了。</p>
+<p>斐讯 N1 也是本文中最贵的。</p>
+<h1 id="Raspberry-3B"><a href="#Raspberry-3B" class="headerlink" title="Raspberry 3B"></a>Raspberry 3B</h1><p>性能太弱了，优势就是接口比较多，适合学习。</p>
+<p>散热也不太好。</p>
+<h1 id="我家云"><a href="#我家云" class="headerlink" title="我家云"></a>我家云</h1><p>我家云 = 粒子云 配置一模一样。</p>
+<p>芯片是瑞新微 3288，性能类似 S905，但是没有 HDMI，所以不能做电视盒子。</p>
+<p>据说，有掉盘问题（大于2T的硬盘）。硬改方案可以解决此问题。</p>
+<h1 id="猫盘"><a href="#猫盘" class="headerlink" title="猫盘"></a>猫盘</h1><p>性能弱，但是能装黑群，所以价格就高。</p>
+<p>我家云就不行，只能装 Arm。</p>
+<h1 id="蜗牛星际"><a href="#蜗牛星际" class="headerlink" title="蜗牛星际"></a>蜗牛星际</h1><p>平民级别的NAS。轻量级矿难机。</p>
+<p>便宜的时候200多，值得入手。现在已经涨到300多了。存货非常少。</p>
+<p>很难再遇到了。</p>
+<h1 id="关于价格"><a href="#关于价格" class="headerlink" title="关于价格"></a>关于价格</h1><ol>
+<li>玩客云 40块钱。</li>
+<li>我家云 64位Arm。价格100多。</li>
+<li>猫盘 100块钱以内。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/26/Crypto/top%20selling%20nft%20and%20consensus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/26/Crypto/top%20selling%20nft%20and%20consensus/" class="post-title-link" itemprop="url">【Crypto】 Top selling NFTs and their consensus</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-26T00:00:00+00:00">2021-09-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Community-Consensus"><a href="#Community-Consensus" class="headerlink" title="Community Consensus"></a>Community Consensus</h1><p>这里以 2 个超高价成交的 NFT 为例子，探索一下 nft 社区共识形成的方式。</p>
+<ol>
+<li>CryptoPunk #7804 sold by Dylan Field</li>
+<li>CryptoPunk sold by Sillytuna</li>
+</ol>
+<blockquote>
+<p>CryptoPunk was a low-res, algorithmically generated picture NFT.</p>
+</blockquote>
+<h1 id="The-digital-Mona-Lisa"><a href="#The-digital-Mona-Lisa" class="headerlink" title="The digital Mona Lisa"></a>The digital Mona Lisa</h1><p>CryptoPunk #7804, the ‘digital Mona Lisa.’ according to Dylan Field. </p>
+<p><a href=""></a></p>
+<h2 id="Dylan-Field"><a href="#Dylan-Field" class="headerlink" title="Dylan Field"></a>Dylan Field</h2><p>CEO of Figma.</p>
+<p>Used to live in a house with <strong>Juan Benet</strong>, creator of IPFS and Filecoin.</p>
+<h1 id="The-Masked-Alien-Cryptopunk"><a href="#The-Masked-Alien-Cryptopunk" class="headerlink" title="The Masked Alien Cryptopunk"></a>The Masked Alien Cryptopunk</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/14/Tech/ubuntu/ubuntu-vpn-trojan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/14/Tech/ubuntu/ubuntu-vpn-trojan/" class="post-title-link" itemprop="url">【Tech】 VPN / Trojan on Ubuntu / Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-09-14 10:00:00" itemprop="dateCreated datePublished" datetime="2021-09-14T10:00:00+00:00">2021-09-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-07-02 21:34:58" itemprop="dateModified" datetime="2022-07-02T21:34:58+00:00">2022-07-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>2 softwares to run Trojan: </p>
+<ol>
+<li>Trojan client : <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan">https://github.com/trojan-gfw/trojan</a></li>
+<li>Qv2ray : <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray">https://github.com/Qv2ray/Qv2ray</a></li>
+</ol>
+<h2 id="trojan-vpn-and-ssr-的区别"><a href="#trojan-vpn-and-ssr-的区别" class="headerlink" title="trojan, vpn and ssr 的区别"></a>trojan, vpn and ssr 的区别</h2><p>TODO</p>
+<h1 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h1><h2 id="Install-trojan-client-on-Ubuntu"><a href="#Install-trojan-client-on-Ubuntu" class="headerlink" title="Install trojan client on Ubuntu"></a>Install trojan client on Ubuntu</h2><p>For 18.10 &amp; 19.04</p>
+<pre><code>sudo add-apt-repository ppa:greaterfire/trojan
+sudo apt-get update
+sudo apt-get install trojan</code></pre><p>For &gt;= 19.04 </p>
+<pre><code>sudo apt-get install trojan</code></pre><p>On Manjaro:</p>
+<pre><code>sudo pacman -S trojan</code></pre><p>Reference: <a target="_blank" rel="noopener" href="https://github.com/trojan-gfw/trojan/wiki/Binary-&-Package-Distributions">Binary &amp; Package Distributions · trojan-gfw/trojan Wiki</a></p>
+<h2 id="Trojan-client-config"><a href="#Trojan-client-config" class="headerlink" title="Trojan client config"></a>Trojan client config</h2><p>Put config.json under /etc/trojan/config.json (for Arch) 或者 /usr/local/trojan/config.json (for Ubuntu)</p>
+<pre><code>sudo mv /etc/trojan/config.json /etc/trojan/config.json.backup
+sudo vi /etc/trojan/config.json</code></pre><p>To test that trojan is working, run the one-time command:</p>
+<pre><code>/usr/local/trojan/trojan -c /usr/local/trojan/config.json</code></pre><h2 id="Run-on-system-daemon"><a href="#Run-on-system-daemon" class="headerlink" title="Run on system daemon"></a>Run on system daemon</h2><p>Simply, enable trojan：</p>
+<pre><code>systemctl enable trojan
+systemctl start trojan</code></pre><p>If trojan service isn’t available: </p>
+<pre><code>cd /etc/systemd/system/
+sudo vi trojan.service</code></pre><p>Input: </p>
+<pre><code>[Unit]
+Description=trojan
+Documentation=man:trojan(1) https://trojan-gfw.github.io/trojan/config https://trojan-gfw.github.io/trojan/
+After=network.target
+
+[Service]
+Type=simple
+StandardError=journal
+User=nobody
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+ExecStart=/usr/local/trojan/trojan -c /usr/local/trojan/config.json
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target</code></pre><p>Then add to auto-run and config system-wide alias: </p>
+<pre><code>systemctl enable trojan</code></pre><p>Optionally, add alias for quick run: </p>
+<pre><code>sudo vi ~/.bashrc
+# add the following line:
+alias trojan=&apos;/usr/local/trojan/trojan -c /usr/local/trojan/config.json&apos;</code></pre><p>Above, configed trojan successfully on system level. Welcome to beyound the wall. </p>
+<h2 id="Browser-config"><a href="#Browser-config" class="headerlink" title="Browser config"></a>Browser config</h2><p>Next step, download SwitchyOmega for Chrome and Firefox, config SOCKS5</p>
+<p>Download url: <a target="_blank" rel="noopener" href="https://github.com/FelisCatus/SwitchyOmega/releases">https://github.com/FelisCatus/SwitchyOmega/releases</a></p>
+<p>Local file: </p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi">https://unclemartian.github.io/files/proxy_switchyomega-2.5.20-an+fx.xpi</a></li>
+<li><a target="_blank" rel="noopener" href="https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx">https://unclemartian.github.io/files/SwitchyOmega_Chromium.crx</a></li>
+</ol>
+<p>Go to switchyomega config and set (default) to “SOCKS5” protocol and “127.0.0.1” server, “1080” port. </p>
+<p>Done! </p>
+<h2 id="Known-Issue"><a href="#Known-Issue" class="headerlink" title="Known Issue"></a>Known Issue</h2><p>If you see “unknown protocol” error, then you have mis-configed <strong>http</strong> instead of <strong>socks5</strong>. </p>
+<h1 id="Qv2ray"><a href="#Qv2ray" class="headerlink" title="Qv2ray"></a>Qv2ray</h1><p>Qv2ray仅需下载以下三件套：</p>
+<ol>
+<li><p>Main app: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/Qv2ray/releases">https://github.com/Qv2ray/Qv2ray/releases</a></p>
+</li>
+<li><p>Trojan plugin: <a target="_blank" rel="noopener" href="https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3">https://github.com/Qv2ray/QvPlugin-Trojan/releases/tag/v3.0.0-pre3</a></p>
+<ol>
+<li>注意：trojan plugin 和 qv2ray 版本必须对应</li>
+</ol>
+</li>
+<li><p>v2core: <a target="_blank" rel="noopener" href="https://github.com/v2fly/v2ray-core/releases">https://github.com/v2fly/v2ray-core/releases</a></p>
+<ol>
+<li>或者 <a target="_blank" rel="noopener" href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>注意选择：v2ray-linux-64.zip</li>
+</ol>
+</li>
+</ol>
+<h1 id="After-installation"><a href="#After-installation" class="headerlink" title="After installation"></a>After installation</h1><h2 id="Troubleshoot"><a href="#Troubleshoot" class="headerlink" title="Troubleshoot"></a>Troubleshoot</h2><h3 id="Check-IP-address"><a href="#Check-IP-address" class="headerlink" title="Check IP address"></a>Check IP address</h3><pre><code>curl ifconfig.me</code></pre><h3 id="Test-VPN"><a href="#Test-VPN" class="headerlink" title="Test VPN"></a>Test VPN</h3><p>Test whether proxy / trojan really works</p>
+<pre><code>curl google.com
+echo $https_proxy</code></pre><h2 id="Use-another-machine-as-proxy"><a href="#Use-another-machine-as-proxy" class="headerlink" title="Use another machine as proxy"></a>Use another machine as proxy</h2><p>假如 somehow 你的机器无法 config proxy，你可以使用另一台机器：</p>
+<ol>
+<li>在公用机器上 Config Qv2ray: 监听地址 = 0.0.0.0</li>
+</ol>
+<p><img src="/images/qv2ray-listen-address.png" alt=""></p>
+<ol start="2">
+<li><p>在私人机器上 Set manual proxy: </p>
+<p> Proxy: （公用机器的地址，比如 192.168.31.105）<br> Port: 8889</p>
+</li>
+</ol>
+<h2 id="Terminal-proxy"><a href="#Terminal-proxy" class="headerlink" title="Terminal proxy"></a>Terminal proxy</h2><p>对于 Qv2ray: </p>
+<pre><code>export http_proxy=http://127.0.0.1:8889
+export https_proxy=http://127.0.0.1:8889</code></pre><p>或者：</p>
+<pre><code>export http_proxy=http://127.0.0.1:8889
+export https_proxy=socks5://127.0.0.1:1089</code></pre><p>然后加入 alias：</p>
 <pre><code>sudo vi ~/.bashrc</code></pre><p>Content：</p>
-<pre><code>alias node=&apos;$NVM_BIN/node&apos;
-alias npm=&apos;$NVM_BIN/npm&apos;
-alias sudo=&apos;sudo env PATH=$PATH:$NVM_BIN&apos;</code></pre><h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org/
-npm config set registry https://registry.npmjs.org/</code></pre><h2 id="To-check"><a href="#To-check" class="headerlink" title="To check"></a>To check</h2><pre><code>npm info underscore
-npm --registry https://registry.npm.taobao.org info underscore
-npm config get registry</code></pre><h1 id="Useful-npm-packages"><a href="#Useful-npm-packages" class="headerlink" title="Useful npm packages"></a>Useful npm packages</h1><p>You might need to install these just in case you need them:</p>
-<pre><code>npm install -g eslint yarn @vue/cli
-npm install -g npx
-npm install -g now truffle
-npm install -g hexo-cli</code></pre><p>To check your globally-installed packges:</p>
-<pre><code>npm list -g --depth 0</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/13/Tech/ubuntu/ubuntu-system-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/13/Tech/ubuntu/ubuntu-system-commands/" class="post-title-link" itemprop="url">【Tech】 Ubuntu System Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-13T00:00:00+00:00">2021-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="System-commands"><a href="#System-commands" class="headerlink" title="System commands"></a>System commands</h1><h2 id="Check-version-of-Ubuntu"><a href="#Check-version-of-Ubuntu" class="headerlink" title="Check version of Ubuntu"></a>Check version of Ubuntu</h2><pre><code>lsb_release -a
-cat /etc/issue
-cat /etc/os-release
-hostnamectl</code></pre><h2 id="Ubuntu-switch-to-Aliyun-source"><a href="#Ubuntu-switch-to-Aliyun-source" class="headerlink" title="Ubuntu switch to Aliyun source"></a>Ubuntu switch to Aliyun source</h2><pre><code>ls /etc/apt/
-sudo cp -ra /etc/apt/sources.list /etc/apt/sources.list.backup</code></pre><p>Next check current system’s codename: </p>
-<pre><code>lsb_release -a</code></pre><p>把’TODO’的地方换成上面的Codename</p>
-<pre><code>deb http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse</code></pre><p>Alternatively, 也可以用 163网易源（下面以 Ubuntu 20.04 focal 为例）：</p>
-<pre><code>deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse</code></pre><p>下面以 Debian GNU/Linux 11 (bullseye) 为例: </p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye main non-free contrib</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian-security/">https://mirrors.aliyun.com/debian-security/</a> bullseye-security main<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian-security/">https://mirrors.aliyun.com/debian-security/</a> bullseye-security main</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-updates main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-updates main non-free contrib</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-backports main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-backports main non-free contrib</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuguanglin/p/debian11_repo.html">https://www.cnblogs.com/liuguanglin/p/debian11_repo.html</a></p>
-<p>Done, after this do: sudo apt-get update and upgrade.</p>
-<h2 id="Ubuntu-安装中文输入法"><a href="#Ubuntu-安装中文输入法" class="headerlink" title="Ubuntu 安装中文输入法"></a>Ubuntu 安装中文输入法</h2><p>Uninstall ibus first, then install fcitx: </p>
-<pre><code>sudo apt-get purge ibus
-sudo apt-get autoremove
-sudo apt-get install fcitx</code></pre><p>Then go to system language config, install Chinese and apply system-wide.</p>
-<p>Change input from ibus to fcitx. Reboot system.<br>Then run:</p>
-<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
-sudo apt -f install</code></pre><h3 id="默认输入法-切换简繁体字"><a href="#默认输入法-切换简繁体字" class="headerlink" title="默认输入法 切换简繁体字"></a>默认输入法 切换简繁体字</h3><p>Use “Ctrl + Shift + F”</p>
-<h2 id="设置-alias-短命令"><a href="#设置-alias-短命令" class="headerlink" title="设置 alias 短命令"></a>设置 alias 短命令</h2><pre><code>alias new_name=&apos;old command&apos;</code></pre><p>要创建永久别名，您必须.bashrc在主目录中编辑文件。</p>
-<h2 id="系统无法读写"><a href="#系统无法读写" class="headerlink" title="系统无法读写"></a>系统无法读写</h2><p>Encounter “Missing write access to /usr/local/lib/node_modules”</p>
-<p>Run the following: </p>
-<pre><code>sudo chown -R $USER /usr/local</code></pre><p>Reference：<a target="_blank" rel="noopener" href="https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules">https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules</a></p>
-<h2 id="Ubuntu16-04挂载exfat格式U盘"><a href="#Ubuntu16-04挂载exfat格式U盘" class="headerlink" title="Ubuntu16.04挂载exfat格式U盘"></a>Ubuntu16.04挂载exfat格式U盘</h2><pre><code>sudo apt-get install exfat-fuse</code></pre><h2 id="Check-disk-usage"><a href="#Check-disk-usage" class="headerlink" title="Check disk usage"></a>Check disk usage</h2><pre><code>df -h | grep -v &apos;/snap\|tmp&apos;</code></pre><p>The -v inverses the grep search</p>
-<p>The | 实现grep OR的操作</p>
-<p>Example output:</p>
-<pre><code>Filesystem       Size  Used Avail Use% Mounted on
-udev             3.8G     0  3.8G   0% /dev
-/dev/nvme0n1p8    26G  5.1G   20G  21% /
-/dev/nvme0n1p9    35G  6.3G   27G  20% /usr
-/dev/nvme0n1p7   343M  139M  178M  44% /boot
-/dev/nvme0n1p10   54G  4.0G   47G   8% /home</code></pre><h1 id="Software-commands"><a href="#Software-commands" class="headerlink" title="Software commands"></a>Software commands</h1><h2 id="Install-software-using-Snap"><a href="#Install-software-using-Snap" class="headerlink" title="Install software using Snap"></a>Install software using Snap</h2><p>Snap is the command-line version of “Ubuntu Software”, but the latter is very slow.</p>
-<pre><code>snap search figma-linux
-snap install figma-linux 
-snap list
-snap info figma-linux</code></pre><h2 id="Install-XMind-8-on-Ubuntu-20"><a href="#Install-XMind-8-on-Ubuntu-20" class="headerlink" title="Install XMind 8 on Ubuntu 20"></a>Install XMind 8 on Ubuntu 20</h2><p>新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。</p>
-<ol>
-<li><p>解压缩 “xmind-8-update9-linux.zip” 到桌面。</p>
-</li>
-<li><p>创建 XMind8.desktop 以下内容：</p>
-<p> [Desktop Entry]<br> Name=XMind8<br> Exec=/home/michael/Desktop/xmind-8-update9-linux/XMind_amd64/XMind<br> Path=/home/michael/Desktop/xmind-8-update9-linux/XMind_amd64<br> Terminal=false<br> Type=Application<br> Icon=xmind<br> Comment=Xmind8<br> Categories=Utility;</p>
-</li>
-<li><p>一定注意，Path= 这个地方很重要，否则xmind将会无法找到 config。</p>
-<p> Refer to <a target="_blank" rel="noopener" href="https://bbs.deepin.org/post/174888">https://bbs.deepin.org/post/174888</a></p>
-</li>
-<li><p>然后，右键点击这个 icon，选择 allow launching。<br>就可以啦～ </p>
-</li>
-<li><p>optionally，可以把这个 icon 复制到系统 applications 文件夹，如下：</p>
-<p> sudo cp xmind-8.desktop /usr/share/applications/</p>
-</li>
-</ol>
-<h2 id="Install-screen-recorder"><a href="#Install-screen-recorder" class="headerlink" title="Install screen recorder"></a>Install screen recorder</h2><pre><code>sudo apt install python3-cairo python3-xlib kazam</code></pre><h2 id="Install-video-player"><a href="#Install-video-player" class="headerlink" title="Install video player"></a>Install video player</h2><pre><code>sudo apt-get install vlc -y</code></pre><h2 id="Install-Brackets"><a href="#Install-Brackets" class="headerlink" title="Install Brackets"></a>Install Brackets</h2><pre><code>sudo snap install brackets --classic</code></pre><h2 id="Install-Chrome"><a href="#Install-Chrome" class="headerlink" title="Install Chrome"></a>Install Chrome</h2><p>Use the deb file. </p>
-<p>Remove Chromium since it’s not possible to sync with Google any more. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/01/Tech/ubuntu/centos-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/01/Tech/ubuntu/centos-commands/" class="post-title-link" itemprop="url">【Tech】 CentOS 7 Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-01T00:00:00+00:00">2021-07-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一边学一边写的，不太完整。</p>
-<h1 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h1><p>Installation: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/simple1025/p/11394312.html">centos7安装nginx并配置前端环境 - simplesally - 博客园</a></p>
-<p>Change to root: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feifei10244499/article/details/105714574/">jenkins 构建出现 permission-denied问题_feifei10244499的博客-CSDN博客</a></p>
-<p>Install maven: <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1556981">linux 安装 maven 、解决：bash: mvn: command not found</a></p>
-<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><p>Start and stop nginx locally:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/webserver/nginx/sbin</span><br><span class="line"></span><br><span class="line"># Run Nginx</span><br><span class="line">./nginx -v</span><br><span class="line">./nginx</span><br><span class="line"></span><br><span class="line"># Stop Nginx</span><br><span class="line">./nginx -s stop</span><br></pre></td></tr></table></figure>
-
-<p>Config nginx when system starts:</p>
-<p>(config nginx to systemctl first, then systemctl enable)</p>
-<p>Ref: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/iverson-3/p/12301009.html">centos7下安装、配置Nginx、设置Nginx开机自启动 - 阿木工作室 - 博客园</a></p>
-<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Kill process</p>
-<pre><code># check port
-netstat -apn | grep 9999
-
-# check process iD
-ps -ef | grep httpd
-
-# kill process
-kill -HUP PID
-kill -9 PID</code></pre><h2 id="Get-my-IP-address"><a href="#Get-my-IP-address" class="headerlink" title="Get my IP address"></a>Get my IP address</h2><pre><code>ip addr show</code></pre><h2 id="Extract-tar-gz"><a href="#Extract-tar-gz" class="headerlink" title="Extract tar.gz"></a>Extract tar.gz</h2><pre><code># 解开一个tar 
-tar -xvf etcbak.tar
-
-# 解压一个tar.gz
-tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
-<ol>
-<li>z    通过gzip支持的压缩或解压缩。还有其他的压缩或解压缩方式，比如j表示bzip2的方式</li>
-<li>x    解压缩</li>
-<li>v    在压缩或解压缩过程中显示正在处理的文件名</li>
-<li>f    f后面必须跟上要处理的文件名。</li>
-</ol>
-<h2 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h2><p><a target="_blank" rel="noopener" href="https://xbsj6147.xyz/pagesv2/download-linux.html">Trojan For Linux 教程 - 西部世界VPN</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src/trojan</span><br><span class="line">./trojan -l ./trojan.log -c ./config.json</span><br><span class="line">ss -tlnp | grep 1080</span><br><span class="line">curl --socks5 127.0.0.1:1080 https://www.google.com -k </span><br><span class="line"></span><br><span class="line"># test IP addrees </span><br><span class="line">curl http://icanhazip.com</span><br><span class="line"># should return singapore IP address 149.129.53.1</span><br></pre></td></tr></table></figure>
-
-<p>把 proxychains 放入 shell 中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Nginx</span><br><span class="line">proxychains4 -q /bin/bash </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/05/01/Crypto/MataMask-Dropped-Replaced/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/01/Crypto/MataMask-Dropped-Replaced/" class="post-title-link" itemprop="url">【Crypto】 MataMask状态：Dropped & Replaced</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-01 18:18:21" itemprop="dateCreated datePublished" datetime="2021-05-01T18:18:21+00:00">2021-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-06-21 01:30:25" itemprop="dateModified" datetime="2022-06-21T01:30:25+00:00">2022-06-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
-<p>有两种状态：</p>
-<ol>
-<li>Dropped Transaction</li>
-<li>Dropped &amp; Replaced Transaction</li>
-</ol>
-<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
-<p>是Ethereum nodes（也就是矿工）的操作。</p>
-<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
-<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
-<li><p>Ethereum nodes dropped it from transaction pool</p>
-<ul>
-<li>Ethereum nodes 指的是 Geth or Parity</li>
-<li>most likely due to lower gas price</li>
-</ul>
-</li>
-<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
-<ul>
-<li>depends on settings/limits of the individual clients</li>
-</ul>
-</li>
-</ul>
-<h1 id="Dropped-amp-Replaced-Transaction"><a href="#Dropped-amp-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
-<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
-<li>previous txhash invalidated</li>
-</ol>
-<h2 id="Dropped-amp-Replaced-原因"><a href="#Dropped-amp-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
-<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
-<ul>
-<li>a second tx with higher gas price was created to replace it</li>
-</ul>
-</li>
-<li><p>The Ethereum Node that the wallet/service connected to was not fully synced, and an incorrect nonce was used</p>
-</li>
-<li><p>User-initiated to replace or cancel a pending transaction</p>
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://info.etherscan.com/transaction-dropped-replaced/">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
-
+<pre><code>alias fanqiang=&apos;export http_proxy=http://127.0.0.1:8889 &amp;&amp; export https_proxy=socks5://127.0.0.1:1089&apos;</code></pre>
       
     </div>
 
@@ -977,7 +1056,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -1043,7 +1122,7 @@ tar -zxvf etcbak.tar.gz</code></pre><p>Meaning of <strong>zxvf</strong>:</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">114</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
