@@ -1,6 +1,6 @@
 ---
 title: 【Read】 Shame on Sackler
-date: 2020-07-03 00:00:01
+date: 2022-07-03 00:00:01
 tags: knowledge
 ---
 
@@ -11,6 +11,12 @@ Members of the Sackler family own Purdue Pharma, the company that manufactures t
 According to the [American Society of Addiction Medicine](https://www.asam.org/docs/default-source/advocacy/opioid-addiction-disease-facts-figures.pdf), more than 20,000 overdose deaths in 2015 related to prescription pain relievers. 
 
 According to [another report in 2016 from CDC](https://www.cdc.gov/mmwr/volumes/65/wr/mm655051e1.htm), 115 per day die from an opioid overdose. (相当于一年4万人)
+
+## 阿片类药物
+
+2007年，普渡制药公司及其3名高管就因对奥施康定过度宣传而被罚款6.35亿美元
+
+2017年10月，时任__美国总统特朗普__宣布，因阿片类药物上瘾和滥用危机严重，美国正式进入__全国公共卫生紧急状态__。
 
 # Metropolitan Museum
 
