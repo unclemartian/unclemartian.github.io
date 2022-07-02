@@ -1,25 +1,8 @@
 ---
-title: 【Read】 Harvard Justice - 2/3/4
+title: 【Read】 Harvard Justice 案例之：Queen v. Dudley and Stephens
 date: 2022-04-05 00:00:00
 tags: liberal
 ---
-
-# Jeremy Bentham
-
-1. Born in England 1748
-1. 12 years old, went to Oxford
-1. 15 years old, went to law school
-1. 19 years old, admitted to the bar
-
-Bentham never practiced law, instead he devoted his life to __jurisprudence and moral philosophy__.
-
-## Theory
-
-The right thing to do is to maximize utility. (Utility = Balance of pleasure over Pain, Happiness over Suffering.)
-
-## Slogan
-
-The greatest good for the greatest number
 
 # Queen v. Dudley and Stephens
 
@@ -37,36 +20,26 @@ Dudley describes their rescue in his diary with staggering euphemism, quote:
 
 ## Discussion
 
-1. __Asking for Consent__
+### 1. Asking for Consent
 
-    If the 17-year-old Richard Parker were asked consent, would it be morally justifiable?
+    If the 17-year-old __Richard Parker__ were asked consent, would it be morally justifiable?
 
     Otherwise, it's a __coerced consent__. 
 
     What if Richard volunteers?
 
-2. __Lottery__
+### 2. Lottery
 
-    Lack of fair procedure.
+    Lack of __fair procedure__.
 
     What about the lottery idea? Would it make a moral difference?
 
     Maybe what bothers you is not the cannibalism, but __the lack of due process__.
 
-3. __Categorically wrong__
+### 3. Categorically wrong
 
     Murder is murder. 
 
     > In fact the London newspaper at the time and popular opinion sympathized with Dudley in Stephens.
     >
     > The paper said, "If they weren't motivated by affection and concern for their loved ones and dependents, surely they wouldn't have done this."
-
-# Utilitarianism
-
-The highest principle of morality (whether personal or political morality)
-
-is to maximize the __general welfare__ or the __collective happiness__
-
-or the overall balance of __pleasure over pain__
-
-in a phrase maximize utility.

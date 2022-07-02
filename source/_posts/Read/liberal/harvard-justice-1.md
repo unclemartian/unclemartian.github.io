@@ -1,5 +1,5 @@
 ---
-title: 【Read】 Harvard Justice - 1
+title: 【Read】 Harvard Justice (1) 电车困境
 date: 2022-04-05 00:00:00
 tags: liberal
 ---
@@ -110,6 +110,7 @@ Famous for __categorical moral reasoning__
 # Risks
 
 Risk of self-knowledge: 
+
 1. Personal
 1. Political
 
