@@ -4,9 +4,7 @@ date: 2022-06-30 00:00:00
 tags: liberal
 ---
 
-版权归作者所有，任何形式转载请联系作者。
-作者：闲看花落（来自豆瓣）
-来源：https://www.douban.com/note/578567122/
+
 
   第19讲：《好公民》 亚里士多德的正义理论引起了有关高尔夫球的辩论，特别是高尔夫球的“目的”。学生们辩论美国PGA在这件事上的做法是否错误--不允许残疾人选手Casey Martin在职业巡回赛中使用球具手推车。 AristotleWhen we attend to the telos, or the purpose, sometimes we disagree and argue about what the purpose of a social practice really consists in. And when we have those arguments, part of what’s at stake in those disagreements is not just who will get what, but also an honorific question. What qualities of persons will be honored?Aristotle: to know how political authority should be distributed, we have, first, to inquire into the purpose, the point, the telos, of politics.“Any polis which is truly so called, and is not merely one in name, must devote itself to the end of encouraging goodness. Otherwise, political association sinks into a mere alliance. Law becomes a mere convenant, a guarantor of man’s rights against one another, instead of being – as it should be – a way of life such as will make the members of a polis good and just. A polis is not an association for residents on a common site, or for the sake of preventing mutual injustice and easing exchange. The end and purpose of a polis is the good life, and the institutions of social life are means to that end.”Those who contribute the most to an association that aims at the good, should have a greater share in political rule and in the honors of the polis. And the reason is, they are in a position to contribute most to what political community is essentially about.The polis, the political community, exists by nature and is prior to the individual. Not prior in time, but prior in its purpose. （人类需要通过生活在城邦里来习得语言，which亚里士多德认为是判断是非对错的前提，因此城邦生活是人之所以为人的必要条件）“A man who is isolated, who is unable to share in the benefits of political association, or who has no need to share, because he’s already self-sufficient, such a person must be either a beast or god.”
 
