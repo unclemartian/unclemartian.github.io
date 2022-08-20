@@ -106,6 +106,6 @@ From each as they choose, to each as they are chosen.
 
 # 总结
 
-自由派主张 __avoid a society__ and with account of Justice where some people can be used for the sake of common welfare.  
+自由派主张 __avoid__ a society where some people can be used __for the sake of common welfare__.
 
 We should resort to the intuitively powerful idea that: __we are the proprietors of our own person__. 
