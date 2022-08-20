@@ -151,6 +151,141 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/19/Tech/ubuntu/remove-libre-office/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/19/Tech/ubuntu/remove-libre-office/" class="post-title-link" itemprop="url">【Tech】 Remove Libre Office from Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-19T00:00:00+00:00">2022-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Libre-Office"><a href="#Libre-Office" class="headerlink" title="Libre Office"></a>Libre Office</h1><p>虽然，Draw 和 Math 好像还挺有用的。</p>
+<p>删掉大概能节省 500M 空间。</p>
+<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><p>注意：星号。</p>
+<pre><code>sudo apt remove libreoffice*
+sudo apt purge libreoffice*
+sudo apt autoremove
+sudo apt update &amp;&amp; sudo apt upgrade -y</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/18/Tech/ubuntu/linux-create-link-ln/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/18/Tech/ubuntu/linux-create-link-ln/" class="post-title-link" itemprop="url">【Tech】 Create Link using 'ln' in Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-18T00:00:00+00:00">2022-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><pre><code>ln -s /home/rslsync/Resilio\ Sync/res-work/ Documents/res-work
+ln -s /home/rslsync/Resilio\ Sync/res-shared/ Documents/res-shared</code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/17/Tech/ubuntu/popos_install_sunloginclient/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +317,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
               </span>
 
           
@@ -319,7 +454,7 @@ sudo mv /etc/os-release.backup /etc/os-release</code></pre><p>结束，撒花。
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
               </span>
 
           
@@ -428,7 +563,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
               </span>
 
           
@@ -509,7 +644,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
               </span>
 
           
@@ -578,7 +713,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
               </span>
 
           
@@ -721,7 +856,7 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
+                <time title="Modified: 2022-08-20 06:08:51" itemprop="dateModified" datetime="2022-08-20T06:08:51+00:00">2022-08-20</time>
               </span>
 
           
@@ -853,190 +988,6 @@ wget https://unclemartian.github.io/files/init-system-helpers_1.57_all.deb</code
 <h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>I’ve tried to suggest through theses stories and these arguments some sense of the risks and temptations of the perils and the possibilities.</p>
 <p>I would simply conclude by saying that: the aim of this course is <strong>to awaken the restlessness of reason</strong> (唤醒你们永不停息的理性思考) and to see where it might lead thank you very much.</p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/05/Read/liberal/harvard-justice-queen-dudley/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/05/Read/liberal/harvard-justice-queen-dudley/" class="post-title-link" itemprop="url">【Read】 Harvard Justice 案例之：Queen v. Dudley and Stephens</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-05T00:00:00+00:00">2022-04-05</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Queen-v-Dudley-and-Stephens"><a href="#Queen-v-Dudley-and-Stephens" class="headerlink" title="Queen v. Dudley and Stephens"></a>Queen v. Dudley and Stephens</h1><p>Known as <strong>the case of cannibalism at sea</strong> (a 19th century British law case).</p>
-<p>Dudley describes their rescue in his diary with staggering euphemism, quote:</p>
-<blockquote>
-<p>“on the twenty fourth day as we were having our breakfast a ship appeared at last.”</p>
-<p>The three survivors were picked up by a German ship. They were taken back to Falmouth in England where they were arrested and tried.</p>
-</blockquote>
-<blockquote>
-<p>They claimed they had acted out of necessity.</p>
-<p>they argued in effect better that one should die so that three could survive</p>
-</blockquote>
-<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><h3 id="1-Asking-for-Consent"><a href="#1-Asking-for-Consent" class="headerlink" title="1. Asking for Consent"></a>1. Asking for Consent</h3><pre><code>If the 17-year-old __Richard Parker__ were asked consent, would it be morally justifiable?
-
-Otherwise, it&apos;s a __coerced consent__. 
-
-What if Richard volunteers?</code></pre><h3 id="2-Lottery"><a href="#2-Lottery" class="headerlink" title="2. Lottery"></a>2. Lottery</h3><pre><code>Lack of __fair procedure__.
-
-What about the lottery idea? Would it make a moral difference?
-
-Maybe what bothers you is not the cannibalism, but __the lack of due process__.</code></pre><h3 id="3-Categorically-wrong"><a href="#3-Categorically-wrong" class="headerlink" title="3. Categorically wrong"></a>3. Categorically wrong</h3><pre><code>Murder is murder. 
-
-&gt; In fact the London newspaper at the time and popular opinion sympathized with Dudley in Stephens.
-&gt;
-&gt; The paper said, &quot;If they weren&apos;t motivated by affection and concern for their loved ones and dependents, surely they wouldn&apos;t have done this.&quot;</code></pre>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/04/01/Tech/ubuntu/debian-9-10-minimal/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/01/Tech/ubuntu/debian-9-10-minimal/" class="post-title-link" itemprop="url">【Tech】 Debian 9/10 minimal</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-01T00:00:00+00:00">2022-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-20 06:05:36" itemprop="dateModified" datetime="2022-08-20T06:05:36+00:00">2022-08-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><p>One advantage of using Debian is: lightweight. </p>
-<p>Some commands are different from ubuntu, thus archiving here. </p>
-<h2 id="Disk-Free"><a href="#Disk-Free" class="headerlink" title="Disk Free"></a>Disk Free</h2><p>Debian 9:</p>
-<pre><code>deb@debian9:~$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            1.5G     0  1.5G   0% /dev
-tmpfs           302M  4.3M  297M   2% /run
-/dev/sda1       6.0G  1.8G  3.9G  32% /
-tmpfs           1.5G     0  1.5G   0% /dev/shm
-tmpfs           5.0M     0  5.0M   0% /run/lock
-tmpfs           1.5G     0  1.5G   0% /sys/fs/cgroup
-tmpfs           302M     0  302M   0% /run/user/1000</code></pre><p>Debian 10: </p>
-<pre><code>deb@debian10:~$ df -h
-Filesystem      Size  Used Avail Use% Mounted on
-udev            984M     0  984M   0% /dev
-tmpfs           200M  3.0M  197M   2% /run
-/dev/sda1       6.9G  1.8G  4.8G  27% /
-tmpfs           998M     0  998M   0% /dev/shm
-tmpfs           5.0M     0  5.0M   0% /run/lock
-tmpfs           998M     0  998M   0% /sys/fs/cgroup
-tmpfs           200M     0  200M   0% /run/user/1000</code></pre><h2 id="Hostname"><a href="#Hostname" class="headerlink" title="Hostname"></a>Hostname</h2><p>To check</p>
-<pre><code>hostname
-hostnamectl</code></pre><p>To change it: </p>
-<pre><code>hostnamectl set-hostname new-hostname
-vi /etc/hosts</code></pre><p>Run hostnamectl command again.</p>
-<h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><pre><code>sudo apt install ssh
-sudo systemctl status ssh
-sudo systemctl start ssh</code></pre><p>If you are connecting using VirtualBox, change network settings to Bridge (instead of NAT).</p>
-<p>Then: </p>
-<pre><code>sudo apt install net-tools
-ip addr
-hostname -I</code></pre><p>Edit: /etc/ssh/sshd_config on your VM:</p>
-<pre><code>PasswordAuthentication yes</code></pre><p>Now, restart SSH server. Done.</p>
-<h2 id="Install-make-and-gcc"><a href="#Install-make-and-gcc" class="headerlink" title="Install make and gcc"></a>Install make and gcc</h2><p>Otherwise, you won’t be able to build a lot of packages, including npm. </p>
-<pre><code>apt-get install gcc automake autoconf libtool make</code></pre><h1 id="Install-bt"><a href="#Install-bt" class="headerlink" title="Install bt"></a>Install bt</h1>
       
     </div>
 
