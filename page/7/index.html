@@ -182,7 +182,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -266,7 +266,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -286,7 +286,7 @@
 <li>(out of date) <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss">https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss</a></li>
 <li>(up to date)<a target="_blank" rel="noopener" href="https://anchor.fm/fanpaifilm">https://anchor.fm/fanpaifilm</a></li>
 <li>(马后炮节目) <a target="_blank" rel="noopener" href="https://rss.shawnxli.com/fanpie-film-ma">https://rss.shawnxli.com/fanpie-film-ma</a></li>
-<li>Latest: </li>
+<li>Latest: <a target="_blank" rel="noopener" href="https://www.listennotes.com/zh-hans/podcasts/%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84%E8%80%B3%E6%97%81%E9%A3%8E-%E6%B3%A2%E7%B1%B3%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC-pRWES8tY-6H/">https://www.listennotes.com/zh-hans/podcasts/%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84%E8%80%B3%E6%97%81%E9%A3%8E-%E6%B3%A2%E7%B1%B3%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC-pRWES8tY-6H/</a></li>
 </ol>
 <h1 id="首次尝试"><a href="#首次尝试" class="headerlink" title="首次尝试"></a>首次尝试</h1><p>I did some research on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_podcast_clients"><strong>podcatcher softwares</strong></a>, and no luck finding a good one. </p>
 <p>Failed. </p>
@@ -314,6 +314,7 @@ done</code></pre><p>Simply:</p>
 <pre><code>bash rss_script.sh</code></pre><p>and you shall have a nice time. Enjoy.</p>
 <h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>All MP3s are in sub-folders like ‘201604’ or ‘202112’, however, I wasn’t able to get the right title this time. </p>
 <h1 id="第四次尝试"><a href="#第四次尝试" class="headerlink" title="第四次尝试"></a>第四次尝试</h1><p>最终我发现，还是通过多项选择，表格，curl 的方法来弄比较好。</p>
+<p>至于如何多行搜索选择，<a href="/2022/04/20/Tech/technology/vscode-copy-all-search-results/">可以看这里</a></p>
 <p>这里拿 <a target="_blank" rel="noopener" href="https://anchor.fm/s/4a4df770/podcast/rss">https://anchor.fm/s/4a4df770/podcast/rss</a> 这个link 的下载过程，简单记录一下：</p>
 <ol>
 <li>Extract title and mp3 links: <a href="/files/rss-extracted-title.txt">title</a>, <a href="/files/rss-extracted-mp3.txt">mp3</a></li>
@@ -324,10 +325,11 @@ done</code></pre><p>Simply:</p>
 </ol>
 </li>
 <li>Put them together in a csv file (maybe use Excel): <a href="/files/rss-title-mp3.csv">the csv file</a></li>
-<li>Make a <a href="/files/rss-curl-download.sh">curl bash</a></li>
+<li>Make a <a href="/files/rss-fanpai-main.sh">curl bash</a> and another <a href="/files/rss-fanpai-er.sh">example</a></li>
 <li>Execute the curl</li>
 <li>Done</li>
 </ol>
+<p>注意：在mac上，不要用 iTerm，而是用 Terminal，否则 copy special character 会出错。</p>
 <h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>sed tutorial: <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux">https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux</a></p>
 <p>Old content: <a href="/files/RSS反派影评Feed.txt">here</a></p>
 <p>New content: <a href="/files/RSS反派影评Feed-new.txt">here</a></p>
@@ -381,7 +383,7 @@ done</code></pre><p>Simply:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -458,7 +460,7 @@ sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -529,7 +531,7 @@ sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -600,7 +602,7 @@ sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -669,7 +671,7 @@ sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
@@ -776,7 +778,7 @@ sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/</code></pre><p>之后�
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-08-21 08:19:29" itemprop="dateModified" datetime="2022-08-21T08:19:29+00:00">2022-08-21</time>
+                <time title="Modified: 2022-11-07 14:01:21" itemprop="dateModified" datetime="2022-11-07T14:01:21+00:00">2022-11-07</time>
               </span>
 
           
