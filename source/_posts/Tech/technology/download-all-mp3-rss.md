@@ -13,7 +13,7 @@ However, most RSS clients are not tailored for my use case, so instead of using 
 1. (out of date) https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss
 1. (up to date)https://anchor.fm/fanpaifilm
 1. (马后炮节目) https://rss.shawnxli.com/fanpie-film-ma
-1. Latest: 
+1. Latest: https://www.listennotes.com/zh-hans/podcasts/%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84%E8%80%B3%E6%97%81%E9%A3%8E-%E6%B3%A2%E7%B1%B3%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC-pRWES8tY-6H/
 
 # 首次尝试
 
@@ -78,6 +78,8 @@ All MP3s are in sub-folders like '201604' or '202112', however, I wasn't able to
 
 最终我发现，还是通过多项选择，表格，curl 的方法来弄比较好。
 
+至于如何多行搜索选择，[可以看这里](/2022/04/20/Tech/technology/vscode-copy-all-search-results/)
+
 这里拿 https://anchor.fm/s/4a4df770/podcast/rss 这个link 的下载过程，简单记录一下：
 
 1. Extract title and mp3 links: [title](/files/rss-extracted-title.txt), [mp3](/files/rss-extracted-mp3.txt)
@@ -86,9 +88,11 @@ All MP3s are in sub-folders like '201604' or '202112', however, I wasn't able to
 	1. %3A 改为 :
 	1. https:.*https 改为 https
 1. Put them together in a csv file (maybe use Excel): [the csv file](/files/rss-title-mp3.csv)
-1. Make a [curl bash](/files/rss-curl-download.sh)
+1. Make a [curl bash](/files/rss-fanpai-main.sh) and another [example](/files/rss-fanpai-er.sh)
 1. Execute the curl
 1. Done
+
+注意：在mac上，不要用 iTerm，而是用 Terminal，否则 copy special character 会出错。
 
 # Reference
 

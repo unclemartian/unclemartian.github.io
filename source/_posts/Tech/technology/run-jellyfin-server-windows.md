@@ -52,4 +52,4 @@ jellyfin.exe --help
 
 在桌面上创建一个 bat 文件，内容如下：
 
-	powershell -Command "D:\Green\jellyfin-server_10.7.7\jellyfin.exe -d D:\Documents\jellyfin-datadir -w D:\Green\jellyfin-web_10.7.7 -C D:\Documents\jellyfin-datadir\cache"
+	powershell -Command "D:\green\jellyfin-server\jellyfin.exe -d D:\Documents\jellyfin-datadir -w D:\green\jellyfin-web -C D:\Documents\jellyfin-datadir\cache"
