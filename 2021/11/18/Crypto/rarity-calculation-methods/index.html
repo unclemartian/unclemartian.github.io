@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"unclemartian.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Whyrarity is one of the most important factors in determining the value of an individual NFT. On Opensea, each NFT have traits:   Rarity 计算方法 Trait Rarity Ranking 单一属性法 只选最 rare 的 traits，值越小越好。忽略其他一切">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Crypto】 Rarity Calculation Methods">
+<meta property="og:url" content="https://unclemartian.github.io/2021/11/18/Crypto/rarity-calculation-methods/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="Whyrarity is one of the most important factors in determining the value of an individual NFT. On Opensea, each NFT have traits:   Rarity 计算方法 Trait Rarity Ranking 单一属性法 只选最 rare 的 traits，值越小越好。忽略其他一切">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://unclemartian.github.io/images/nft-calculate-rarity-1.png">
+<meta property="og:image" content="https://unclemartian.github.io/images/nft-calculate-rarity-2.png">
+<meta property="og:image" content="https://unclemartian.github.io/images/nft-calculate-rarity-3.png">
+<meta property="og:image" content="https://unclemartian.github.io/images/nft-calculate-rarity-4.png">
+<meta property="article:published_time" content="2021-11-18T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-13T20:05:37.389Z">
+<meta property="article:author" content="Uncle Martian">
+<meta property="article:tag" content="crypto">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://unclemartian.github.io/images/nft-calculate-rarity-1.png">
+
+<link rel="canonical" href="https://unclemartian.github.io/2021/11/18/Crypto/rarity-calculation-methods/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Crypto】 Rarity Calculation Methods | Hexo Blog of Uncle Martian</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo Blog of Uncle Martian</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">read-blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/18/Crypto/rarity-calculation-methods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Crypto】 Rarity Calculation Methods
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-18T00:00:00+00:00">2021-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-13 20:05:37" itemprop="dateModified" datetime="2025-04-13T20:05:37+00:00">2025-04-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p><strong>rarity</strong> is one of the most important factors in determining the value of an individual NFT.</p>
+<p>On Opensea, each NFT have traits: </p>
+<p><img src="/images/nft-calculate-rarity-1.png"></p>
+<h2 id="Rarity-计算方法"><a href="#Rarity-计算方法" class="headerlink" title="Rarity 计算方法"></a>Rarity 计算方法</h2><ol>
+<li><p>Trait Rarity Ranking 单一属性法<br> 只选最 rare 的 traits，值越小越好。忽略其他一切 traits。</p>
+</li>
+<li><p>Average Trait Rarity 平均数法<br> 所有 traits 权重相等，计算出平均值。</p>
+</li>
+<li><p>Statistical Rarity 乘积法<br> 所有 rarity 值的乘积 （但是有的 nft 缺少某些 traits，比如 22.56% 的 ape 不戴帽子）</p>
+</li>
+<li><p>Rarity score 商值法<br> 用除法计算所有 traits 的分数，最终返回sum。</p>
+</li>
+</ol>
+<p>以下具体说明。</p>
+<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 - Trait Rarity Ranking"></a>1 - Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
+<ol>
+<li>Ape #73 s rarest trait is Sold Gold Fur which 0.46% have</li>
+<li>Ape #9941’s rarest trait is Bored Unshaven Dagger which 0.28% have</li>
+<li>Ape #9542’s rarest trait is Bored Unshaven Pizza which 0.26% have</li>
+</ol>
+<h2 id="weakness"><a href="#weakness" class="headerlink" title="weakness"></a>weakness</h2><p>It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.</p>
+<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 - Average Trait Rarity"></a>2 - Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
+<p><img src="/images/nft-calculate-rarity-2.png"></p>
+<p>以上的例子如果按照 trait rairty ranking，NFT 1 是最 rare 的，因为 rarity &#x3D; 10%</p>
+<p>但按照 average trait，那么显然 NFT 2 更 rare。</p>
+<h2 id="weakness-1"><a href="#weakness-1" class="headerlink" title="weakness"></a>weakness</h2><p>It puts too much weight on the overall rarity of every trait, but NFTs with single super rare trait are not valued enough.</p>
+<p>Their rarity value gets too ‘diluted’ by the other traits.</p>
+<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 - Statistical Rarity"></a>3 - Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
+<p>It was first <a target="_blank" rel="noopener" href="https://achekroud.substack.com/p/d8f13e0a-ae26-40e4-bff2-beacb2916ff0">mentioned by Adam Chekroud</a>. </p>
+<p>Basically: calculate the overall rarity of an NFT by multiplying all of it’s trait rarities together.</p>
+<p><img src="/images/nft-calculate-rarity-3.png"></p>
+<ol>
+<li>Ape #73’s statistical rarity is 0.00000000070744%</li>
+<li>Ape #9941’s statistical rarity is 0.00000056965722%</li>
+<li>Ape #9542’s statistical rarity is 0.00000044983967%</li>
+</ol>
+<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 - Rarity Score"></a>4 - Rarity Score</h1><p>这是个比较特别的计算方法。</p>
+<blockquote>
+<p>[Rarity Score for a Trait Value] &#x3D; 1 &#x2F; ([Number of Items with that Trait Value] &#x2F; [Total Number of Items in Collection])</p>
+</blockquote>
+<p>然后所有 traits 的 rarity score 相加，等于最终的 rarity score。</p>
+<blockquote>
+<p>The total Rarity Score for an NFT is the sum of the Rarity Score of all of it’s trait values.</p>
+</blockquote>
+<p>例如：Punk中只有9个 Alien，那么 Punk Type 这一项的 rarity score 就是 10,000 &#x2F; 9 &#x3D; 1111</p>
+<p>Punk中有24个 Ape，那么 Punk Type 这一项的 rarity score 就是 10,000 &#x2F; 24 &#x3D; 417</p>
+<p><img src="/images/nft-calculate-rarity-4.png"><br><em><a target="_blank" rel="noopener" href="https://rarity.tools/cryptopunks/view/7804">https://rarity.tools/cryptopunks/view/7804</a></em></p>
+<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p>Rarity Score 的好处是，不但考虑了所有的 traits，而且对于某些非常 rare 的 traits，有很好的突出的效果。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。</p>
+<p>Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。</p>
+<p>我觉得 Rarity Score 最好。用 <strong>rarity.tools</strong> 作者的原话讲：</p>
+<blockquote>
+<p>Rarity Score give results that give enough emphasis to <strong>single rare traits</strong> and also includes <strong>overall trait rarities</strong> in its calculation. </p>
+</blockquote>
+<blockquote>
+<p>And most importantly the results it gives match better with our human expectations.</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c">https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/crypto/" rel="tag"># crypto</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/04/Tech/ubuntu/install-joplin-linux/" rel="prev" title="【Tech】 Install Joplin on Linux">
+      <i class="fa fa-chevron-left"></i> 【Tech】 Install Joplin on Linux
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/11/28/Crypto/crypto-people/interview-ryan-zurrer/" rel="next" title="【Crypto】 Ryan Zurrer 与 theDAO">
+      【Crypto】 Ryan Zurrer 与 theDAO <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Why"><span class="nav-number">1.</span> <span class="nav-text">Why</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rarity-%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">Rarity 计算方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Trait-Rarity-Ranking"><span class="nav-number">2.</span> <span class="nav-text">1 - Trait Rarity Ranking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#weakness"><span class="nav-number">2.1.</span> <span class="nav-text">weakness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Average-Trait-Rarity"><span class="nav-number">3.</span> <span class="nav-text">2 - Average Trait Rarity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#weakness-1"><span class="nav-number">3.1.</span> <span class="nav-text">weakness</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Statistical-Rarity"><span class="nav-number">4.</span> <span class="nav-text">3 - Statistical Rarity</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-Rarity-Score"><span class="nav-number">5.</span> <span class="nav-text">4 - Rarity Score</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Advantage"><span class="nav-number">5.1.</span> <span class="nav-text">Advantage</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Uncle Martian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uncle Martian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
