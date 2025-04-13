@@ -1,11 +1,9 @@
 version: 2.1
 orbs:
-  node: circleci/node@5
+  node: circleci/node@5.0.2
 jobs:
-  build-and-deploy:
-    executor:
-      name: node/default
-      tag: '20'
+  build_and_test:
+    executor: node/default
     steps:
       - checkout
       - node/install-packages:
@@ -26,4 +24,4 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build-and-deploy
+      - build_and_test
