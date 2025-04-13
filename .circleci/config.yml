@@ -2,8 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@5
 jobs:
-  build-node:
-    # Build node project
+  build-and-deploy:
     executor:
       name: node/default
       tag: '20'
@@ -13,30 +12,18 @@ jobs:
           cache-path: ~/project/node_modules
           override-ci-command: npm install
       - run:
-          command: npm run build
+          name: Install Hexo CLI
+          command: npm install -g hexo-cli
       - run:
-          name: Create the ~/artifacts directory if it doesn't exist
-          command: mkdir -p ~/artifacts
-      # Copy output to artifacts dir
+          name: Generate Hexo Site
+          command: hexo generate
       - run:
-          name: Copy artifacts
-          command: cp -R build dist public .output .next .docusaurus ~/artifacts 2>/dev/null || true
-      - store_artifacts:
-          path: ~/artifacts
-          destination: node-build
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          name: Deploy to GitHub Pages
+          command: |
+            git config --global user.email "mmmran@163.com"
+            git config --global user.name "unclemartian"
+            hexo deploy
 workflows:
-  build:
+  build-and-deploy:
     jobs:
-      - build-node
-    # - deploy:
-    #     requires:
-    #       - build-node
+      - build-and-deploy
