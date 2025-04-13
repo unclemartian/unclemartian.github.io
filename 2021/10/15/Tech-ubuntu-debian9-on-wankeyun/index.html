@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"unclemartian.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="这里使用 N1 和 玩客云（简称wky）。 Debian 9以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 &#x2F; Debian 9.9 版的 Armbian 系统。 硬件信息如下：  ____   ___   ___  ____ &#x2F; ___| ( _ ) &#x2F; _ \| ___| \___ \ &#x2F; _ \| | | |___ \  ___) | (_) | |_| |___) |">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Tech】 Debian 9 (Armbian) on N1&#x2F;Wky 使用教程">
+<meta property="og:url" content="https://unclemartian.github.io/2021/10/15/Tech-ubuntu-debian9-on-wankeyun/index.html">
+<meta property="og:site_name" content="Hexo Blog of Uncle Martian">
+<meta property="og:description" content="这里使用 N1 和 玩客云（简称wky）。 Debian 9以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 &#x2F; Debian 9.9 版的 Armbian 系统。 硬件信息如下：  ____   ___   ___  ____ &#x2F; ___| ( _ ) &#x2F; _ \| ___| \___ \ &#x2F; _ \| | | |___ \  ___) | (_) | |_| |___) |">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-10-15T00:00:00.000Z">
+<meta property="article:modified_time" content="2025-04-13T21:07:54.118Z">
+<meta property="article:author" content="Uncle Martian">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://unclemartian.github.io/2021/10/15/Tech-ubuntu-debian9-on-wankeyun/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>【Tech】 Debian 9 (Armbian) on N1/Wky 使用教程 | Hexo Blog of Uncle Martian</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo Blog of Uncle Martian</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">read-blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/10/15/Tech-ubuntu-debian9-on-wankeyun/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Tech】 Debian 9 (Armbian) on N1/Wky 使用教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-10-15 00:00:00" itemprop="dateCreated datePublished" datetime="2021-10-15T00:00:00+00:00">2021-10-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-13 21:07:54" itemprop="dateModified" datetime="2025-04-13T21:07:54+00:00">2025-04-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>这里使用 N1 和 玩客云（简称wky）。</p>
+<h1 id="Debian-9"><a href="#Debian-9" class="headerlink" title="Debian 9"></a>Debian 9</h1><p>以 玩客云 硬件为例，测试使用 ARMBIAN 5.88 &#x2F; Debian 9.9 版的 Armbian 系统。</p>
+<p>硬件信息如下：</p>
+<pre><code> ____   ___   ___  ____
+/ ___| ( _ ) / _ \| ___|
+\___ \ / _ \| | | |___ \
+ ___) | (_) | |_| |___) |
+|____/ \___/ \___/|____/
+
+Welcome to ARMBIAN 5.88 user-built Debian GNU/Linux 9 (stretch) Mr-Li,QQ:691048250
+System load:   0.70 0.52 0.26  	Up time:       7 min
+Memory usage:  8 % of 996MB  	IP:            192.168.31.33
+Usage of /:    25% of 6.4G
+</code></pre>
+<p>Debian 9.9 （stretch）</p>
+<pre><code>root@aml:~# lsb_release -a
+No LSB modules are available.
+Distributor ID:	Debian
+Description:	Debian GNU/Linux 9.9 (stretch)
+Release:	9.9
+Codename:	stretch
+</code></pre>
+<p>而N1，则是使用 ARMBIAN 5.77 &#x2F; Debian 9.8 版的固件:</p>
+<pre><code> ____  ___   ___  ____  
+/ ___|/ _ \ / _ \| ___| 
+\___ \ (_) | | | |___ \ 
+ ___) \__, | |_| |___) |
+|____/  /_/ \___/|____/ 
+						
+
+Welcome to ARMBIAN 5.77 user-built Debian GNU/Linux 9 (stretch) 5.0.2-aml-s905   
+System load:   2.21 2.80 2.86   Up time:       6:33 hours               
+Memory usage:  30 % of 1838MB   Zram usage:    26 % of 919Mb    IP:            169.254.10.11 192.168.123.242
+CPU temp:      50°C             
+Usage of /:    11% of 29G       storage/:      44% of 128M 
+</code></pre>
+<p>更新至最新版 stretch：</p>
+<pre><code>arm@armbian-n1-white-32g:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Debian
+Description:    Debian GNU/Linux 9.13 (stretch)
+Release:        9.13
+Codename:       stretch
+</code></pre>
+<h2 id="Armbian-installation"><a href="#Armbian-installation" class="headerlink" title="Armbian installation"></a>Armbian installation</h2><h3 id="on-WKY"><a href="#on-WKY" class="headerlink" title="on WKY"></a>on WKY</h3><p>只要是将U盘烧好了“Armbian_5.88内置emmc需要U盘刷” 固件（1.5GB img file）。</p>
+<p>然后插上wky，自动重装系统装如EMMC（不用刷inphic底包），很方便。</p>
+<p>WKY可能不支持卡载 armbian？</p>
+<h3 id="on-N1"><a href="#on-N1" class="headerlink" title="on N1"></a>on N1</h3><p>N1是支持卡在armbian的，但是我用了几个小时，搞坏了一个20块钱的U盘，故无法确定卡载系统的稳定性。</p>
+<p>刷机很简单，将这两个固件任选其一：</p>
+<ol>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_20190401.img</li>
+<li>Armbian_5.77_Aml-s905_Debian_stretch_default_5.0.2_desktop_20190401.img</li>
+</ol>
+<p>用 balenaEtcher 写入U盘，然后改一下 uEnv.ini 就行了。</p>
+<p>如果无法启动，通过 Reboot to Elec apk来引导一下就行。</p>
+<h2 id="首次启动"><a href="#首次启动" class="headerlink" title="首次启动"></a>首次启动</h2><p>默认密码 default：</p>
+<p>root&#x2F;1234</p>
+<h2 id="Check-32-bit-or-64-bit"><a href="#Check-32-bit-or-64-bit" class="headerlink" title="Check 32 bit or 64 bit"></a>Check 32 bit or 64 bit</h2><pre><code>getconf LONG_BIT
+</code></pre>
+<h2 id="修改系统时区"><a href="#修改系统时区" class="headerlink" title="修改系统时区"></a>修改系统时区</h2><pre><code>armbian-config
+</code></pre>
+<p>#选择Personal<br>#选择Timezone<br>#选择Asia<br>#选择Shanghai<br>#然后依次选择 back exit 退出。</p>
+<h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>Check &#x2F; Change:</p>
+<pre><code>hostname
+sudo hostname armbian-wky
+</code></pre>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><pre><code>cd /etc/apt/
+vi sources.list
+</code></pre>
+<h3 id="For-Debian-9-stretch"><a href="#For-Debian-9-stretch" class="headerlink" title="For Debian 9 stretch"></a>For Debian 9 stretch</h3><p>Note that Tsinghua and 163.com sources DO NOT WORK.</p>
+<pre><code>deb https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-updates main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian/ stretch-backports main contrib non-free
+
+deb https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
+deb-src https://mirrors.ustc.edu.cn/debian-security/ stretch/updates main contrib non-free
+</code></pre>
+<p>如果签名报错，运行这一行：</p>
+<pre><code>sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 公钥（例如648ACFD622F3D138）
+</code></pre>
+<p>就好了。</p>
+<p>For docker</p>
+<pre><code>https://mirrors.ustc.edu.cn/docker-ce
+</code></pre>
+<h3 id="For-Ubuntu-18-bionic"><a href="#For-Ubuntu-18-bionic" class="headerlink" title="For Ubuntu 18 bionic"></a>For Ubuntu 18 bionic</h3><p>这个比较难搞，arm 版本的源不好找。</p>
+<p>不是 “Failed to fetch” 就是 certificate 有问题。</p>
+<p>亲测以下可用:</p>
+<pre><code># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-updates main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-backports main restricted universe multiverse
+deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ bionic-security main restricted universe multiverse
+</code></pre>
+<p>或者：</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates main
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-updates universe
+
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security main
+deb http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+deb-src http://mirrors.aliyun.com/ubuntu-ports/ xenial-security universe
+</code></pre>
+<p>Reference: <a target="_blank" rel="noopener" href="https://www.bianchengquan.com/article/453596.html">https://www.bianchengquan.com/article/453596.html</a><br>和 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/fd3a2d153505">https://www.jianshu.com/p/fd3a2d153505</a></p>
+<h2 id="Some-useful-apt-to-install"><a href="#Some-useful-apt-to-install" class="headerlink" title="Some useful apt to install"></a>Some useful apt to install</h2><pre><code>apt install python-setuptools
+apt install tmux
+apt install mosh
+</code></pre>
+<h2 id="Install-Webmin"><a href="#Install-Webmin" class="headerlink" title="Install Webmin"></a>Install Webmin</h2><p>国外版的宝塔。</p>
+<pre><code>/etc/apt/sources.list.d/
+vi webmin.list
+</code></pre>
+<p>内容：</p>
+<pre><code>deb http://download.webmin.com/download/repository sarge contrib
+</code></pre>
+<p>然后：</p>
+<pre><code>wget http://www.webmin.com/jcameron-key.asc --no-check-certificate
+apt-key add jcameron-key.asc
+apt update
+apt install webmin
+</code></pre>
+<p>然后就可以在 10000 端口查看 webmin 面板了。</p>
+<h1 id="自动同步-挂在U盘"><a href="#自动同步-挂在U盘" class="headerlink" title="自动同步 + 挂在U盘"></a>自动同步 + 挂在U盘</h1><h2 id="挂载-U盘"><a href="#挂载-U盘" class="headerlink" title="挂载 U盘"></a>挂载 U盘</h2><p>TODO</p>
+<p>一定不要修改 fstab。教训。</p>
+<h2 id="同步软件"><a href="#同步软件" class="headerlink" title="同步软件"></a>同步软件</h2><ol>
+<li>resilio sync</li>
+<li>syncthing</li>
+</ol>
+<h3 id="Resilio-sync"><a href="#Resilio-sync" class="headerlink" title="Resilio-sync"></a>Resilio-sync</h3><pre><code>apt install resilio-sync
+systemctl status resilio
+systemctl start resilio-sync
+systemctl status resilio-sync
+systemctl enable resilio-sync
+</code></pre>
+<p>查看：</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:8888/gui/">https://192.168.123.215:8888/gui/</a></p>
+<h3 id="Syncthing"><a href="#Syncthing" class="headerlink" title="Syncthing"></a>Syncthing</h3><pre><code>sudo apt install syncthing
+syncthing --version 
+</code></pre>
+<p>For Debian:</p>
+<pre><code>cd /lib/systemd/system/
+</code></pre>
+<p>For Ubuntu:</p>
+<pre><code>cd /etc/systemd/system/
+</code></pre>
+<p>Note the following config is ready:</p>
+<pre><code>cat syncthing@.service
+sudo systemctl enable syncthing@$USER
+</code></pre>
+<p>After this, <strong>&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;multi-user.target.wants&#x2F;<a href="mailto:&#x73;&#x79;&#x6e;&#99;&#x74;&#x68;&#105;&#x6e;&#103;&#64;&#114;&#111;&#x6f;&#116;&#46;&#115;&#x65;&#114;&#118;&#105;&#99;&#x65;">syncthing@root.service</a></strong> is created. </p>
+<p>Run syncthing:</p>
+<pre><code>sudo systemctl start syncthing@$USER
+sudo systemctl status syncthing@$USER
+vi /root/.config/syncthing/config.xml
+</code></pre>
+<p>将 <address>127.0.0.1:8384</address> 改成 0.0.0.0:8384</p>
+<p>tls&#x3D;“false” 改成 true</p>
+<p>然后：</p>
+<pre><code>sudo systemctl restart syncthing@$USER
+sudo systemctl status syncthing@$USER
+</code></pre>
+<p>查看：</p>
+<p><a target="_blank" rel="noopener" href="https://192.168.123.215:8384/">https://192.168.123.215:8384</a></p>
+<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="桌面环境"><a href="#桌面环境" class="headerlink" title="桌面环境"></a>桌面环境</h2><p>Debian可以有桌面系统。</p>
+<h3 id="配置远程登陆"><a href="#配置远程登陆" class="headerlink" title="配置远程登陆"></a>配置远程登陆</h3><pre><code>sudo apt install xrdp xorgxrdp
+sudo systemctl enable xrdp
+sudo reboot
+</code></pre>
+<p>然后就可以用windows remote 软件来登陆了。Mac也可以。</p>
+<p>端口号3389。</p>
+<h3 id="桌面自动登陆"><a href="#桌面自动登陆" class="headerlink" title="桌面自动登陆"></a>桌面自动登陆</h3><pre><code>sudo vi /etc/lightdm/lightdm.conf
+</code></pre>
+<p>Remove the # and change it to have your username after (for example: autologin-user&#x3D;test).</p>
+<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><pre><code>sudo apt-get install ttf-wqy-zenhei
+sudo vi /etc/locale.gen
+</code></pre>
+<p>去掉zh_CN.UTF-8前面的# 保存</p>
+<pre><code>fc-cache -v
+sudo vi /etc/default/locale 
+</code></pre>
+<p>在 LANG&#x3D;en_US.UTF-8 后面增加 LC_CTYPE&#x3D;zh_CN.UTF-8</p>
+<h2 id="自动化-Hexo"><a href="#自动化-Hexo" class="headerlink" title="自动化 Hexo"></a>自动化 Hexo</h2><pre><code>sudo vi /root/.bashrc
+source /root/.bashrc 
+</code></pre>
+<p>Add</p>
+<pre><code>alias wiki=&quot;cd /home/rslsync/Resilio\ Sync/yellowpage/unclemartian &amp;&amp; git status &amp;&amp; git add . &amp;&amp; git commit -m &#39;auto hexo post update&#39; &amp;&amp; git push origin hexo-source &amp;&amp; git status&quot;
+</code></pre>
+<p>下次，只需要执行一行就行了：</p>
+<pre><code>wiki
+</code></pre>
+<h2 id="Samba"><a href="#Samba" class="headerlink" title="Samba"></a>Samba</h2><pre><code>apt-get install samba
+systemctl status smbd
+(maybe optional)smbpasswd -a smb
+</code></pre>
+<p>然后</p>
+<pre><code>sudo vi /etc/samba/smb.conf
+
+[wky]
+	comment = wky-arm
+	path = /home/rslsync/Resilio Sync/
+	comment = share all
+	browseable = yes
+	public = yes
+	writable = yes
+	valid users = wky
+	force user = wky
+	force group = wky
+</code></pre>
+<p>重启：</p>
+<pre><code>systemctl restart smbd
+systemctl status smbd
+</code></pre>
+<p>权限有问题。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://leeyr.com/323.html">https://leeyr.com/323.html</a><br><a target="_blank" rel="noopener" href="https://www.znds.com/tv-1197649-1-1.html">https://www.znds.com/tv-1197649-1-1.html</a><br><a target="_blank" rel="noopener" href="https://post.smzdm.com/p/alpwnxmp/">https://post.smzdm.com/p/alpwnxmp/</a><br><a target="_blank" rel="noopener" href="https://blog.ztluo.dev/post/0057-phicomm-n1/">https://blog.ztluo.dev/post/0057-phicomm-n1/</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ubuntu/" rel="tag"># ubuntu</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/10/11/Crypto-nft-2-types/" rel="prev" title="【Crypto】 NFT 未来的2条发展路线">
+      <i class="fa fa-chevron-left"></i> 【Crypto】 NFT 未来的2条发展路线
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/10/19/Tech-ubuntu-armbian-day-to-day-copy/" rel="next" title="【Tech】 Armbian day to day 使用教程">
+      【Tech】 Armbian day to day 使用教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Debian-9"><span class="nav-number">1.</span> <span class="nav-text">Debian 9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Armbian-installation"><span class="nav-number">1.1.</span> <span class="nav-text">Armbian installation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#on-WKY"><span class="nav-number">1.1.1.</span> <span class="nav-text">on WKY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#on-N1"><span class="nav-number">1.1.2.</span> <span class="nav-text">on N1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E6%AC%A1%E5%90%AF%E5%8A%A8"><span class="nav-number">1.2.</span> <span class="nav-text">首次启动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Check-32-bit-or-64-bit"><span class="nav-number">1.3.</span> <span class="nav-text">Check 32 bit or 64 bit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E6%97%B6%E5%8C%BA"><span class="nav-number">1.4.</span> <span class="nav-text">修改系统时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hostname"><span class="nav-number">1.5.</span> <span class="nav-text">hostname</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E6%BA%90"><span class="nav-number">1.6.</span> <span class="nav-text">换源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Debian-9-stretch"><span class="nav-number">1.6.1.</span> <span class="nav-text">For Debian 9 stretch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-Ubuntu-18-bionic"><span class="nav-number">1.6.2.</span> <span class="nav-text">For Ubuntu 18 bionic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Some-useful-apt-to-install"><span class="nav-number">1.7.</span> <span class="nav-text">Some useful apt to install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Webmin"><span class="nav-number">1.8.</span> <span class="nav-text">Install Webmin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5-%E6%8C%82%E5%9C%A8U%E7%9B%98"><span class="nav-number">2.</span> <span class="nav-text">自动同步 + 挂在U盘</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%82%E8%BD%BD-U%E7%9B%98"><span class="nav-number">2.1.</span> <span class="nav-text">挂载 U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E8%BD%AF%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">同步软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Resilio-sync"><span class="nav-number">2.2.1.</span> <span class="nav-text">Resilio-sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Syncthing"><span class="nav-number">2.2.2.</span> <span class="nav-text">Syncthing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.</span> <span class="nav-text">桌面环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E8%BF%9C%E7%A8%8B%E7%99%BB%E9%99%86"><span class="nav-number">3.1.1.</span> <span class="nav-text">配置远程登陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E8%87%AA%E5%8A%A8%E7%99%BB%E9%99%86"><span class="nav-number">3.1.2.</span> <span class="nav-text">桌面自动登陆</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%87%E6%94%AF%E6%8C%81"><span class="nav-number">3.2.</span> <span class="nav-text">中文支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96-Hexo"><span class="nav-number">3.3.</span> <span class="nav-text">自动化 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Samba"><span class="nav-number">3.4.</span> <span class="nav-text">Samba</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Uncle Martian</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Uncle Martian</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
