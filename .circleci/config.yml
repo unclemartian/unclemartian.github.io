@@ -42,7 +42,4 @@ workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - hexo_deploy:
-          filters:
-            branches:
-              only: master
+      - hexo_deploy
