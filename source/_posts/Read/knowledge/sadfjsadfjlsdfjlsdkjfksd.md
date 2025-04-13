@@ -1,3 +1,12 @@
+---
+title: 【Read】Test test 1233 build-and-deploy
+date: 2025-07-08 17:28:24
+tags: knowledge
+---
+
+circleci-project-setup
+
+```
 version: 2.1
 orbs:
   node: circleci/node@5.1 # Use a more specific minor version
@@ -43,3 +52,4 @@ workflows:
   build-and-deploy:
     jobs:
       - hexo_deploy
+```
