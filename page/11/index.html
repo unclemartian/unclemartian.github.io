@@ -151,6 +151,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/05/01/Crypto-MataMask-Dropped-Replaced/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/05/01/Crypto-MataMask-Dropped-Replaced/" class="post-title-link" itemprop="url">【Crypto】 MataMask状态：Dropped & Replaced</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-05-01 18:18:21" itemprop="dateCreated datePublished" datetime="2021-05-01T18:18:21+00:00">2021-05-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
+<p>有两种状态：</p>
+<ol>
+<li>Dropped Transaction</li>
+<li>Dropped &amp; Replaced Transaction</li>
+</ol>
+<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
+<p>是Ethereum nodes（也就是矿工）的操作。</p>
+<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
+<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
+<li><p>Ethereum nodes dropped it from transaction pool</p>
+<ul>
+<li>Ethereum nodes 指的是 Geth or Parity</li>
+<li>most likely due to lower gas price</li>
+</ul>
+</li>
+<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
+<ul>
+<li>depends on settings&#x2F;limits of the individual clients</li>
+</ul>
+</li>
+</ul>
+<h1 id="Dropped-Replaced-Transaction"><a href="#Dropped-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
+<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
+<li>previous txhash invalidated</li>
+</ol>
+<h2 id="Dropped-Replaced-原因"><a href="#Dropped-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
+<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
+<ul>
+<li>a second tx with higher gas price was created to replace it</li>
+</ul>
+</li>
+<li><p>The Ethereum Node that the wallet&#x2F;service connected to was not fully synced, and an incorrect nonce was used</p>
+</li>
+<li><p>User-initiated to replace or cancel a pending transaction</p>
+</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://info.etherscan.com/transaction-dropped-replaced/">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/04/16/Crypto-Auction-terminologies/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -182,7 +284,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -250,7 +352,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -343,7 +445,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -454,7 +556,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -539,7 +641,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -605,7 +707,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -693,7 +795,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
+                <time title="Modified: 2025-04-13 21:38:52" itemprop="dateModified" datetime="2025-04-13T21:38:52+00:00">2025-04-13</time>
               </span>
 
           
@@ -720,73 +822,6 @@
 <h1 id="李书沸"><a href="#李书沸" class="headerlink" title="李书沸"></a>李书沸</h1><p>火币副总裁<br>    1. 原OKEX CEO<br>    2. 曾经的OK二当家，CFO<br>    3. 主要做海外市场</p>
 <h1 id="张楠赓（nan-geng）"><a href="#张楠赓（nan-geng）" class="headerlink" title="张楠赓（nán gēng）"></a>张楠赓（nán gēng）</h1><p>嘉楠耘智 创始人<br>    1. 2013 年 1 月，全球第一台 ASIC 矿机终于研发成功<br>    2. 阿瓦隆一代采用 110 nm 技术，算力一天能挖出 357 枚比特币<br>    3. 吴忌寒，曾是阿瓦隆芯片的代理商</p>
 <h1 id="鲁斌"><a href="#鲁斌" class="headerlink" title="鲁斌"></a>鲁斌</h1><p>币乎CEO<br>    1. 2007 浙江大学毕业 - Bitshares（比特股）</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/12/06/Crypto-714-gao-pao-service/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/06/Crypto-714-gao-pao-service/" class="post-title-link" itemprop="url">【Crypto】 714高炮 高炮业务</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-12-06 01:09:22" itemprop="dateCreated datePublished" datetime="2020-12-06T01:09:22+00:00">2020-12-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-13 21:20:00" itemprop="dateModified" datetime="2025-04-13T21:20:00+00:00">2025-04-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="714高炮"><a href="#714高炮" class="headerlink" title="714高炮"></a>714高炮</h1><p>期限为7天或14天 的 <strong>高利息网络贷款</strong></p>
-<h2 id="“高炮”"><a href="#“高炮”" class="headerlink" title="“高炮”"></a>“高炮”</h2><p>指其高额的“砍头息”及“逾期费用”。</p>
-<p>年化利息都超过1500%（被江湖称之为“高炮”）</p>
 
       
     </div>
@@ -871,7 +906,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
