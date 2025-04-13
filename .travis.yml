@@ -1,12 +1,14 @@
 sudo: false
 language: node_js
 node_js:
-  - 14 # try upgrade to nodejs v14
-cache: npm
+  - 20 # Use a more common LTS version, 22 is very new and might have issues
+cache:
+  npm: true # Corrected syntax for npm cache
 branches:
   only:
-    - hexo-source # build master branch only
+    - hexo-source # build hexo-source branch only
 script:
+  - npm install hexo-cli -g # Install hexo-cli globally
   - hexo generate # generate static files
 deploy:
   provider: pages
@@ -15,6 +17,5 @@ deploy:
   keep-history: true
   target_branch: master # generate static files to master
   on:
-#   branch: main
     branch: hexo-source
   local-dir: public
