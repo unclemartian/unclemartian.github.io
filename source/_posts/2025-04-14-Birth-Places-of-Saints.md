@@ -39,11 +39,16 @@ I should note that this question involves some theological complexity, as some o
   - 耶路撒冷(Jerusalem)以南10公里处，人口约3万人。
   - 约公元前4-6年
 
+![](/images/saint-birth-Bethlehem.jpg)
+
+
 ## 伊斯兰教（Islam）
 - **安拉**（Allah）- 在伊斯兰教中，安拉是永恒的，没有出生地
 - **先知穆罕默德**（Prophet Muhammad，创始人）- 诞生于麦加（Mecca）
   - 位于现今的沙特阿拉伯
   - 约公元570年
+
+![](/images/saint-birth-Mecca-city.jpg)
 
 ## 印度教（Hinduism）
 - 印度教有多位主要神明：
@@ -53,9 +58,15 @@ I should note that this question involves some theological complexity, as some o
   - **罗摩神**（Lord Rama，毗湿奴的化身）- 诞生于阿约提亚（Ayodhya）
     - 位于现今的印度北方邦
 
+![](/images/saint-birth-Mathura-Uttar Pradesh.jpg)
+
+![](/images/saint-birth-Mathura-and-Ayodhya.jpg)
+
 ## 佛教（Buddhism）
 - **佛陀**（释迦牟尼，Siddhartha Gautama）- 诞生于蓝毗尼（Lumbini）
   - 位于现今的尼泊尔
   - 约公元前563年
+
+![](/images/saint-birth-Location_of_Lumbini.jpeg)
 
 注：在伊斯兰教和某些佛教传统中，安拉被视为无始无终的存在，而佛陀在许多佛教传统中被视为觉悟者而非神明。
