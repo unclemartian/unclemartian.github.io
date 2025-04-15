@@ -58,7 +58,7 @@ I should note that this question involves some theological complexity, as some o
   - **罗摩神**（Lord Rama，毗湿奴的化身）- 诞生于阿约提亚（Ayodhya）
     - 位于现今的印度北方邦
 
-![](/images/saint-birth-Mathura-Uttar Pradesh.jpg)
+![](/images/saint-birth-Mathura-Uttar-Pradesh.jpg)
 
 ![](/images/saint-birth-Mathura-and-Ayodhya.jpg)
 
