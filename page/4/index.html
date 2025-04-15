@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/05/05/Tech-technology-run-jellyfin-server-windows/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/05/Read-liberal-harvard-justice-queen-dudley/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/05/05/Tech-technology-run-jellyfin-server-windows/" class="post-title-link" itemprop="url">【Tech】 Run Jellyfin server on Windows</a>
+            <a href="/2022/04/05/Read-liberal-harvard-justice-queen-dudley/" class="post-title-link" itemprop="url">【Read】 Harvard Justice 案例之：Queen v. Dudley and Stephens</a>
         </h2>
 
         <div class="post-meta">
@@ -175,14 +175,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-05-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-05T00:00:00+00:00">2022-05-05</time>
+              <time title="Created: 2022-04-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-05T00:00:00+00:00">2022-04-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -196,372 +196,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><p>记得要选 dir，否则 jellyfin 的文件全都存在 C盘，清理起来很麻烦。</p>
+          <h1 id="Queen-v-Dudley-and-Stephens"><a href="#Queen-v-Dudley-and-Stephens" class="headerlink" title="Queen v. Dudley and Stephens"></a>Queen v. Dudley and Stephens</h1><p>Known as <strong>the case of cannibalism at sea</strong> (a 19th century British law case).</p>
+<p>Dudley describes their rescue in his diary with staggering euphemism, quote:</p>
 <blockquote>
-<p>If you really need to clean up those cache on Windows, it’s under:</p>
-<p>C:\Users\Admin\AppData\Local\jellyfin</p>
+<p>“on the twenty fourth day as we were having our breakfast a ship appeared at last.”</p>
+<p>The three survivors were picked up by a German ship. They were taken back to Falmouth in England where they were arrested and tried.</p>
 </blockquote>
-<h2 id="parameters"><a href="#parameters" class="headerlink" title="parameters"></a>parameters</h2><p>jellyfin.exe –help</p>
-<pre><code>Jellyfin.Server 10.7.7.0
-Copyright ?  2019 Jellyfin Contributors. Code released under the GNU General Public License
-
-  -d, --datadir             Path to use for the data folder (database files, etc.).
-
-  --nowebclient             Indicates that the web server should not host the web client.
-
-  -w, --webdir              Path to the Jellyfin web UI resources.
-
-  -C, --cachedir            Path to use for caching.
-
-  -c, --configdir           Path to use for configuration data (user settings and pictures).
-
-  -l, --logdir              Path to use for writing log files.
-
-  --ffmpeg                  Path to external FFmpeg executable to use in place of default found in
-							PATH.
-
-  --service                 Run as headless service.
-
-  --package-name            Used when packaging Jellyfin (example, synology).
-
-  --restartpath             Path to restart script.
-
-  --restartargs             Arguments for restart script.
-
-  --published-server-url    Jellyfin Server URL to publish via auto discover process
-
-  --help                    Display this help screen.
-
-  --version                 Display version information.
-</code></pre>
-<h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><p>在桌面上创建一个 bat 文件，内容如下：</p>
-<pre><code>powershell -Command &quot;D:\green\jellyfin-server\jellyfin.exe -d D:\Documents\jellyfin-datadir -w D:\green\jellyfin-web -C D:\Documents\jellyfin-datadir\cache&quot;
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/27/Tech-ubuntu-check-folder-size-linux/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/27/Tech-ubuntu-check-folder-size-linux/" class="post-title-link" itemprop="url">【Tech】 Check Folder Size on Linux</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-27T00:00:00+00:00">2022-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h1><p>Go to the folder and: </p>
-<pre><code>du -ah --max-depth=1
-</code></pre>
-<p>To view the sorted result: </p>
-<pre><code>du -a --max-depth=1 | sort -n -r
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/27/Tech-ubuntu-mint-remove-xfce-install-cinnamon/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/27/Tech-ubuntu-mint-remove-xfce-install-cinnamon/" class="post-title-link" itemprop="url">【Tech】 Mint Linux - remove Xfce and install Cinnamon</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-27 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-27T00:00:00+00:00">2022-04-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Install-Cinnamon"><a href="#Install-Cinnamon" class="headerlink" title="Install Cinnamon"></a>Install Cinnamon</h1><pre><code>sudo apt install cinnamon
-sudo apt install cinnamon-desktop-environment lightdm
-</code></pre>
-<p>（这里，lightdm 安装之后好像不需要配置）</p>
-<p>登录的时候，可以选一下桌面环境：</p>
-<ol>
-<li>Xfce</li>
-<li>Cinnamon</li>
-<li>Cinnamon with Software Rendering</li>
-</ol>
-<p>选第二项。</p>
-<h1 id="Remove-Xfce"><a href="#Remove-Xfce" class="headerlink" title="Remove Xfce"></a>Remove Xfce</h1><pre><code>sudo apt remove xfce*
-dpkg -l | grep .xfce. 
-dpkg -l | grep .xfce. | xargs sudo apt-get remove
-sudo dpkg -l | grep .xfce. | xargs sudo apt-get remove
-</code></pre>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.ubuntubuzz.com/2019/05/how-to-completely-remove-xfce-desktop-from-mint-xfce-191.html">https://www.ubuntubuzz.com/2019/05/how-to-completely-remove-xfce-desktop-from-mint-xfce-191.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/26/Tech-technology-mp3-compression/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/26/Tech-technology-mp3-compression/" class="post-title-link" itemprop="url">【Tech】 MP3 compression</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-26 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-26T00:00:00+00:00">2022-04-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h1><p>我使用了 Ubuntu 上的 lightweight audio tool：<strong>Sound Converter</strong></p>
-<pre><code>sudo apt-get install soundconverter
-</code></pre>
-<p>Config 方面，我尝试了 variable &#x2F; low quality，感觉质量不错。</p>
-<p>如下图。</p>
-<p><img src="/images/mp3-compression-sound-converter.jpg"></p>
-<h1 id="File-Types"><a href="#File-Types" class="headerlink" title="File Types"></a>File Types</h1><p>I tested out: </p>
-<ol>
-<li>MP3 format with dynamic average 54kbps with 32khz</li>
-<li>AAC(m4a) format with fixed 64kbps with 44khz</li>
-</ol>
-<p>两个文件大小差不多，m4a在大比率的情况下只比mp3大18%。</p>
-<p>听上去效果是一样的。</p>
-<p>所以最终选择了 mp3 格式。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/24/Tech-ubuntu-gnome-extension-Gmenu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/04/24/Tech-ubuntu-gnome-extension-Gmenu/" class="post-title-link" itemprop="url">【Tech】 Gnome extension - Gnomenu</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-24T00:00:00+00:00">2022-04-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Gnomenu"><a href="#Gnomenu" class="headerlink" title="Gnomenu"></a>Gnomenu</h1><p><a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/608/gnomenu/">Gno-Menu</a> is a traditional styled <strong>full featured Gnome-Shell apps menu</strong>, that aims to offer all the essentials in a simple uncluttered intuitive interface.</p>
-<p>Source Code: <a target="_blank" rel="noopener" href="https://github.com/The-Panacea-Projects/Gnomenu">https://github.com/The-Panacea-Projects/Gnomenu</a></p>
-<h1 id="Challenges"><a href="#Challenges" class="headerlink" title="Challenges"></a>Challenges</h1><p>在 Pop!_OS上面，安装报错如下：</p>
-<pre><code>pop-os gnome-shell[60693]: JS ERROR: Extension gnomenu@panacier.gmail.com: Error: Requiring GMenu, version none: Typelib file for namespace &#39;GMenu&#39; (an&gt;
-    @/home/username/.local/share/gnome-shell/extensions/gnomenu@panacier.gmail.com/extension.js:22:15
-    _callExtensionInit@resource:///org/gnome/shell/ui/extensionSystem.js:425:13
-    loadExtension@resource:///org/gnome/shell/ui/extensionSystem.js:346:27
-    callback@resource:///org/gnome/shell/ui/extensionDownloader.js:234:39
-    gotExtensionZipFile/&lt;@resource:///org/gnome/shell/ui/extensionDownloader.js:115:13
-</code></pre>
-<h2 id="查看错误"><a href="#查看错误" class="headerlink" title="查看错误"></a>查看错误</h2><p>用 journalctl 来查看报错：</p>
-<pre><code>sudo journalctl /usr/bin/gnome-shell --since &quot;2022-04-23 23:15:00&quot;
-</code></pre>
-<p>Or:</p>
-<pre><code>sudo journalctl /usr/bin/gnome-shell | grep &#39;gnomenu&#39;
-</code></pre>
-<h2 id="GMenu"><a href="#GMenu" class="headerlink" title="GMenu"></a>GMenu</h2><p>从报错看，是缺少了 GMenu。但是直接 apt install 是不行了。<a target="_blank" rel="noopener" href="https://github.com/The-Panacea-Projects/Gnomenu/issues/125">原因在此</a>.</p>
-<p>Quote: </p>
 <blockquote>
-<p>With Pop_OS 19.04 you need package gir1.2-gmenu-3.0 and it dependency libgnome-menu-3-0 for this extension to work. After that “Download button” top right. Rename the extracted folder to “ <a href="mailto:&#x67;&#x6e;&#111;&#109;&#x65;&#110;&#x75;&#64;&#112;&#x61;&#x6e;&#x61;&#99;&#105;&#101;&#x72;&#x2e;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#111;&#x6d;">gnomenu@panacier.gmail.com</a> “ and move to your extensions folder. restart gnome-shell or logout&#x2F;login.</p>
-<p>For the record the error message was:<br>Aug 10 17:25:33 pop-os gnome-shell[3231]: Extension “<a href="mailto:&#103;&#x6e;&#111;&#109;&#x65;&#110;&#x75;&#x40;&#112;&#x61;&#110;&#x61;&#99;&#x69;&#101;&#x72;&#46;&#x67;&#109;&#97;&#x69;&#108;&#46;&#99;&#x6f;&#109;">gnomenu@panacier.gmail.com</a>“ had error: Error: Requiring GMenu, version none: Typelib file for namespace ‘GMenu’ (any version) not found</p>
-<p>methilnet commented on Aug 11, 2019</p>
+<p>They claimed they had acted out of necessity.</p>
+<p>they argued in effect better that one should die so that three could survive</p>
 </blockquote>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>安装依赖：</p>
-<pre><code>sudo apt install gnome-menus
-sudo apt install gir1.2-gmenu-3.0
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><h3 id="1-Asking-for-Consent"><a href="#1-Asking-for-Consent" class="headerlink" title="1. Asking for Consent"></a>1. Asking for Consent</h3><pre><code>If the 17-year-old __Richard Parker__ were asked consent, would it be morally justifiable?
+
+Otherwise, it&#39;s a __coerced consent__. 
+
+What if Richard volunteers?
 </code></pre>
-<p>下载 zip，手动解压并重命名为“<a href="mailto:&#103;&#x6e;&#x6f;&#109;&#101;&#110;&#117;&#64;&#112;&#97;&#110;&#97;&#x63;&#x69;&#x65;&#114;&#x2e;&#x67;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">gnomenu@panacier.gmail.com</a>”，移动到 &#x2F;home&#x2F;username&#x2F;.local&#x2F;share&#x2F;gnome-shell&#x2F;extensions&#x2F;</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/The-Panacea-Projects/Gnomenu">https://github.com/The-Panacea-Projects/Gnomenu</a></p>
-<p>最后，重启 gnome</p>
-<p>Alt + F2，输入‘r’ (<a target="_blank" rel="noopener" href="https://ubunlog.com/en/restart-frozen-gnome-session/">This command mainly restarts the session without closing it.</a>)</p>
-<p>大功告成！</p>
+<h3 id="2-Lottery"><a href="#2-Lottery" class="headerlink" title="2. Lottery"></a>2. Lottery</h3><pre><code>Lack of __fair procedure__.
+
+What about the lottery idea? Would it make a moral difference?
+
+Maybe what bothers you is not the cannibalism, but __the lack of due process__.
+</code></pre>
+<h3 id="3-Categorically-wrong"><a href="#3-Categorically-wrong" class="headerlink" title="3. Categorically wrong"></a>3. Categorically wrong</h3><pre><code>Murder is murder. 
+
+&gt; In fact the London newspaper at the time and popular opinion sympathized with Dudley in Stephens.
+&gt;
+&gt; The paper said, &quot;If they weren&#39;t motivated by affection and concern for their loved ones and dependents, surely they wouldn&#39;t have done this.&quot;
+</code></pre>
 
       
     </div>
@@ -581,7 +243,7 @@ sudo apt install gir1.2-gmenu-3.0
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/24/Tech-ubuntu-gnome-extension-radio/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/03/17/Read-liberal-berlin-movie-festival/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -595,7 +257,7 @@ sudo apt install gir1.2-gmenu-3.0
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/24/Tech-ubuntu-gnome-extension-radio/" class="post-title-link" itemprop="url">【Tech】 Gnome extension - Internet Radio</a>
+            <a href="/2022/03/17/Read-liberal-berlin-movie-festival/" class="post-title-link" itemprop="url">【Read】 柏林国际电影节 - 金熊奖/银熊奖</a>
         </h2>
 
         <div class="post-meta">
@@ -605,14 +267,14 @@ sudo apt install gir1.2-gmenu-3.0
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-04-24 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-24T00:00:00+00:00">2022-04-24</time>
+              <time title="Created: 2022-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-17T00:00:00+00:00">2022-03-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -626,19 +288,25 @@ sudo apt install gir1.2-gmenu-3.0
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Internet-Radio"><a href="#Internet-Radio" class="headerlink" title="Internet Radio"></a>Internet Radio</h1><p>其实 Gnome 上不止一个 radio extension，但是没有一个是 work out-of-the-box on Pop!_OS. </p>
-<p>这是官网推荐的： <a target="_blank" rel="noopener" href="https://extensions.gnome.org/extension/836/internet-radio/">Listen to an Internet Radio Stream</a></p>
-<p>直接安装，出错。</p>
-<h2 id="安装报错"><a href="#安装报错" class="headerlink" title="安装报错"></a>安装报错</h2><pre><code>Requiring GstPbutils, version none: Typelib file for namespace &#39;GstPbutils&#39; (any version) not found
-</code></pre>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>根据<a target="_blank" rel="noopener" href="https://github.com/hslbck/gnome-shell-extension-radio/issues/117">网友建议</a>: Installing <strong>gir1.2-gst-plugins-base-1.0</strong> fixes the error. The internet radio now works.</p>
-<p>所以安装依赖：</p>
-<pre><code>sudo apt install gir1.2-gst-plugins-base-1.0
-</code></pre>
-<p>然后重新安装 internet-radio，最后重启 gnome。</p>
-<p>Alt + F2，输入‘r’ (<a target="_blank" rel="noopener" href="https://ubunlog.com/en/restart-frozen-gnome-session/">This command mainly restarts the session without closing it.</a>)</p>
-<p>大功告成！</p>
-<h2 id="Radio-Catalog"><a href="#Radio-Catalog" class="headerlink" title="Radio Catalog"></a>Radio Catalog</h2><p><a target="_blank" rel="noopener" href="https://www.radio-browser.info/search?page=1&order=clickcount&reverse=true&hidebroken=true&has_extended_info=true">https://www.radio-browser.info/search?page=1&amp;order=clickcount&amp;reverse=true&amp;hidebroken=true&amp;has_extended_info=true</a></p>
+          <h1 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h1><ol>
+<li>柏林国际电影节</li>
+<li>Berlin International Film Festival</li>
+<li>Internationale Filmfestspiele Berlin</li>
+</ol>
+<p>原名__西柏林国际电影节__，创立于1951年</p>
+<p>柏林国际电影节分为“主竞赛”、“遇见”、“短片竞赛”、“全景”、“论坛”、“特别展映”、“新生代”等单元。</p>
+<h2 id="欧洲三大国际电影节"><a href="#欧洲三大国际电影节" class="headerlink" title="欧洲三大国际电影节"></a>欧洲三大国际电影节</h2><ol>
+<li>柏林国际电影节</li>
+<li>戛纳国际电影节</li>
+<li>威尼斯国际电影节</li>
+</ol>
+<blockquote>
+<p>欧洲三大电影节分别是:法国的戛纳国际电影节，德国的柏林国际电影节和意大利的威尼斯国际电影节</p>
+<p>创办时间:威尼斯1932、戛纳1939、柏林1951。</p>
+<p>三大电影节中，<strong>威尼斯电影节历史最悠久，嘎纳电影节影响力最大，柏林电影节最政治化 (同时，奖项设置最接近奥斯卡)</strong>。它们的最高奖分别叫__金狮奖、金棕榈奖、金熊奖__。</p>
+</blockquote>
+<p>欧洲三大电影节都有强烈的“排他性”，一部影片只能参加一个电影节，如果“脚踩两只船”那两边都不会给你奖。</p>
+<h1 id="银熊奖"><a href="#银熊奖" class="headerlink" title="银熊奖"></a>银熊奖</h1><p>银熊奖（Silver Bear Award）是德国柏林国际电影节的主要奖项，仅次于最高奖项金熊奖。银熊奖分为评审团大奖银熊奖、最佳导演银熊奖、最佳主角银熊奖、最佳配角银熊奖、最佳剧本银熊奖、杰出艺术贡献银熊奖等。</p>
 
       
     </div>
@@ -658,7 +326,7 @@ sudo apt install gir1.2-gmenu-3.0
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/20/Tech-technology-vscode-copy-all-search-results/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/03/05/Crypto-sybil-attack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -672,7 +340,7 @@ sudo apt install gir1.2-gmenu-3.0
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/20/Tech-technology-vscode-copy-all-search-results/" class="post-title-link" itemprop="url">【Tech】 VSCode： copy all search results</a>
+            <a href="/2022/03/05/Crypto-sybil-attack/" class="post-title-link" itemprop="url">【Crypto】 Sybil Attack</a>
         </h2>
 
         <div class="post-meta">
@@ -682,14 +350,14 @@ sudo apt install gir1.2-gmenu-3.0
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-04-20 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-20T00:00:00+00:00">2022-04-20</time>
+              <time title="Created: 2022-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-05T00:00:00+00:00">2022-03-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -703,14 +371,96 @@ sudo apt install gir1.2-gmenu-3.0
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="复制所有搜过结果"><a href="#复制所有搜过结果" class="headerlink" title="复制所有搜过结果"></a>复制所有搜过结果</h1><ol>
-<li>CTRL + F, Type your search string</li>
-<li>CTRL + SHIFT + L to select all occurrences found (max. 999)</li>
-<li>ESC (or close search dialog with top-right X)</li>
-<li>[Optionally] CTRL + I to select whole lines</li>
-<li>CTRL + C</li>
-<li>Open new file</li>
-<li>CTRL + V</li>
+          <h1 id="Sybil-Attack"><a href="#Sybil-Attack" class="headerlink" title="Sybil Attack"></a>Sybil Attack</h1><p>2002年，由微软研究院的John R. Douceur在《the Sybil Attack》提出，它是p2p网络中的一种攻击形式，主要是针对服务器节点的攻击。</p>
+<blockquote>
+<p>Flora Rhea Schreiberie 在1973年的小说《女巫》（Sybil）改编的同名电影，是一个化名Sybil Dorsett的女人心理治疗的故事。</p>
+<p>她被诊断为分离性身份认同障碍，兼具16种人格。我的那个天。高度精分一枚。</p>
+</blockquote>
+<h2 id="Why-exist"><a href="#Why-exist" class="headerlink" title="Why exist?"></a>Why exist?</h2><p>女巫攻击之所以存在：</p>
+<ol>
+<li>网络中很难保证每一个未知的节点是一个确定的“身份”。</li>
+<li>而女巫攻击是攻击数据冗余机制的一种有效手段。</li>
+</ol>
+<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ol>
+<li>矿工利用n个身份，承诺会存储n份数据。但是，实际上只存储小于n份的数据，但谎报自己存储了n份数据。</li>
+<li>羊毛党在一台计算机上通过软件切换ip手段大量薅羊毛；</li>
+<li>网络投票的时候，可以通过利用多个ip地址来作假等</li>
+<li>很多公司也利用女巫攻击来获得google等搜索引擎的排名，骗取大量用户去点击。</li>
+</ol>
+<h1 id="联盟链中的-sybil-attack"><a href="#联盟链中的-sybil-attack" class="headerlink" title="联盟链中的 sybil attack"></a>联盟链中的 sybil attack</h1><p>联盟链当中，女巫攻击问题更为棘手。</p>
+<p>因为公有链的共识机制是不依赖节点数量的，所以不存在女巫攻击的风险。而联盟链为了提高共识效率，将节点数减少在一定范围内。就相当于把共识机制变简单了，所以攻击也变得简单了。这样，女巫攻击就有了“用武之地”。</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.tuoluo.cn/article/detail-9992848.html">https://www.tuoluo.cn/article/detail-9992848.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://0xzx.com/2022021204132081029.html">https://0xzx.com/2022021204132081029.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/30/crypto-1111111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/30/crypto-1111111/" class="post-title-link" itemprop="url">【Crypto】 Title</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Crypto】 prefx should be tagged as one of: </p>
+<ol>
+<li>crypto</li>
+<li>nft</li>
+<li>defi</li>
+<li>crypto-people</li>
 </ol>
 
       
@@ -731,7 +481,7 @@ sudo apt install gir1.2-gmenu-3.0
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/04/19/Tech-ubuntu-check-desktop-environment-linux/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/30/tech-1111111/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -745,7 +495,7 @@ sudo apt install gir1.2-gmenu-3.0
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/04/19/Tech-ubuntu-check-desktop-environment-linux/" class="post-title-link" itemprop="url">【Tech】 Check which desktop environment is running on Linux</a>
+            <a href="/2021/11/30/tech-1111111/" class="post-title-link" itemprop="url">【Tech】 Title</a>
         </h2>
 
         <div class="post-meta">
@@ -755,14 +505,14 @@ sudo apt install gir1.2-gmenu-3.0
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-04-19 00:00:00" itemprop="dateCreated datePublished" datetime="2022-04-19T00:00:00+00:00">2022-04-19</time>
+              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -776,14 +526,311 @@ sudo apt install gir1.2-gmenu-3.0
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Major-DEs"><a href="#Major-DEs" class="headerlink" title="Major DEs"></a>Major DEs</h1><p>TODO</p>
-<h1 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h1><pre><code>env | grep DESK
-</code></pre>
-<p>example 结果：</p>
-<pre><code>DESKTOP_SESSION=xfce
-XDG_SESSION_DESKTOP=xfce
-XDG_CURRENT_DESKTOP=XFCE
-</code></pre>
+          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Tech】 prefx should be tagged as one of: </p>
+<ol>
+<li>technology</li>
+<li>ubuntu</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/30/read-1111111/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/30/read-1111111/" class="post-title-link" itemprop="url">【Read】 Title</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Read】 prefx should be tagged as one of:</p>
+<ol>
+<li>liberal</li>
+<li>books</li>
+<li>knowledge</li>
+<li>people</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/28/Crypto-crypto-people-interview-ryan-zurrer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/28/Crypto-crypto-people-interview-ryan-zurrer/" class="post-title-link" itemprop="url">【Crypto】 Ryan Zurrer 与 theDAO</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-28T00:00:00+00:00">2021-11-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ryan-Zurrer"><a href="#Ryan-Zurrer" class="headerlink" title="Ryan Zurrer"></a>Ryan Zurrer</h1><ul>
+<li>Polychain 前合伙人</li>
+<li>后来 Web 3 Foundation 总监</li>
+<li>后来重启 theDAO 项目</li>
+</ul>
+<h1 id="Key-Take-aways"><a href="#Key-Take-aways" class="headerlink" title="Key Take-aways"></a>Key Take-aways</h1><h2 id="Chit-chat"><a href="#Chit-chat" class="headerlink" title="Chit-chat"></a>Chit-chat</h2><p>以下是 Ryan 的观点。</p>
+<ol>
+<li>亚洲市场微妙。不能用美国的投资逻辑。</li>
+<li>唯一能在中国实现商业化取得成功的方法：找本地合作伙伴，给予激励，实现双赢。</li>
+<li>中国人更喜欢社会主义、喜欢强权政府、喜欢资源聚合，只为完成一件事情。</li>
+<li>798 艺术区的艺术在进化：从 90年代表达伤心、愤怒和政治宣言的「伤痕艺术「 到今天的比较自信、表现民族精神风貌的艺术表达。</li>
+</ol>
+<blockquote>
+<p>以前可以看到金发女性更多出现在艺术作品里，等我过几年再回来，就成了更自信的表达中国独有的女性美的作品。</p>
+</blockquote>
+<h2 id="Web-3-0"><a href="#Web-3-0" class="headerlink" title="Web 3.0"></a>Web 3.0</h2><ul>
+<li>Web 2.0 是一个中心化网络，一个__资本和权利协同统治__的网络。</li>
+<li>MakerDAO 是一套中国哲学的项目 —— 核心团队有比较强的决策权，也包括一票否决权。</li>
+<li>百度 CEO 说过，中国人喜欢放弃隐私或者说是愿意为了方便而做出妥协。这与 web 3.0 并不矛盾 —— 这是用户为中心。</li>
+</ul>
+<h2 id="如果想实现-Web-3-0"><a href="#如果想实现-Web-3-0" class="headerlink" title="如果想实现 Web 3.0"></a>如果想实现 Web 3.0</h2><ol>
+<li>实现__隐私保护__和去中心化。</li>
+<li>在新的经济体制下，有竞争力的__金融激励机制__，吸引用户__参与和创造__。</li>
+<li>不应该拿自己是 decentralized 作为理由，不注重用户 UI&#x2F;UX 的体验。</li>
+</ol>
+<h2 id="关于协议-vs-应用"><a href="#关于协议-vs-应用" class="headerlink" title="关于协议 vs 应用"></a>关于协议 vs 应用</h2><blockquote>
+<p>Joel Monegro 提出的「胖协议」理论非常棒，但是前几天我们谈过一次，他也有了关于协议层和应用层的一些认知转变。他也承认现在很多价值还是会落到应用层面的，所谓的「瘦」，更多是相比我们经历的上一个时代的应用「瘦」，但是可能相比于协议层还是可能是更大的机会。比如 Web 3 的各种应用，都应该是千亿级别的机会。人们之前过于兴奋，一直都在谈协议层、协议层、协议层，但我们现在也看到很多人重新聚焦于应用上。</p>
+<p>比如 MetaCartel，就花了很多精力放在产品开发上，为人们提供了很好用的 UI 界面。当然还有很多问题需要解决，比如通用链上身份这种任何 app 都有需求的。庆幸的是，我看到了越来越多的人才加入这个开发圈子，这些人都给了我很好的启发。</p>
+</blockquote>
+<h2 id="关于-UX"><a href="#关于-UX" class="headerlink" title="关于 UX"></a>关于 UX</h2><blockquote>
+<p>人们不愿意相信自己的电脑，不相信自己的硬盘，自己的脑子，最不信任的却是自己。我们得把 UI 设计的恰当，才能让人们相信自己能够真正地掌控自己的资产，而不是每天晚上睡觉前都在担心会忘记助记词，或者担心有人爬进屋里偷走电脑和私钥，也不用每天早上醒来去学一遍 Shamir’s 密钥分片技术来把自己的私钥分片存储起来。这些限制都是普通人难以接受的。</p>
+</blockquote>
+<h1 id="theDao"><a href="#theDao" class="headerlink" title="theDao"></a>theDao</h1><p>Ryan 关于 The Dao 的看法，摘抄如下：</p>
+<blockquote>
+<p>所以我想创造这么一种社区，就是每个人通过在社区里带来的价值来定义。每个人都由两类属性来评价定义，一种是都客观可查的数据指标，比如说 github 的代码提交次数，Google pagerank 搜索排名数据，Discord 讨论数量，另一种是主观的数据，比如由基于个人名誉和贡献加权的同伴评价。比如创始人已经在项目里面做了很多贡献，那他对一个人的评价所占的比重就要比一个还没什么贡献的新人的评价占的比重高。</p>
+</blockquote>
+<blockquote>
+<p>这就类似 Ray Dalio 的「可信度」指标，我参与进来，贡献价值，就可以获得好的名声，投票的时候我的票就更有价值。这与个人财富无关，与呆的时间长短无关，只跟名誉值有关，也就是与你在历史上创造了多少价值有关。当我在做 A 事的时候做了贡献，拿了名誉，在社区进行到 B 事准备分配奖励的时候，我更有话语权去说谁可以拿到更多奖励。并且整个过程并非完全主观的，我们还是有一部分基于第一类客观指标的评估。因此我们就可以通过调整这些参数的占比，来激励不同类型社区的参与者，我认为这才是 DAO 的核心基石。</p>
+</blockquote>
+<blockquote>
+<p>这是历史上首次，信用来源（source credit）让我们能够将去中心化的团队组织起来，实现去中心化的价值创造。例如，你 Mable 作为一个专业的投资人，参与了投资人社区，在社区里开始推荐项目。当社区几个参与者投资了这个项目并且获得了收益，Mable 就会由于最初带这个项目进来，也获得一部分分红奖励，因为在这个社区里，Mable 是最初那个带来价值创造的人。</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80354805">https://zhuanlan.zhihu.com/p/80354805</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/18/Crypto-rarity-calculation-methods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/18/Crypto-rarity-calculation-methods/" class="post-title-link" itemprop="url">【Crypto】 Rarity Calculation Methods</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2021-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-18T00:00:00+00:00">2021-11-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p><strong>rarity</strong> is one of the most important factors in determining the value of an individual NFT.</p>
+<p>On Opensea, each NFT have traits: </p>
+<p><img src="/images/nft-calculate-rarity-1.png"></p>
+<h2 id="Rarity-计算方法"><a href="#Rarity-计算方法" class="headerlink" title="Rarity 计算方法"></a>Rarity 计算方法</h2><ol>
+<li><p>Trait Rarity Ranking 单一属性法<br> 只选最 rare 的 traits，值越小越好。忽略其他一切 traits。</p>
+</li>
+<li><p>Average Trait Rarity 平均数法<br> 所有 traits 权重相等，计算出平均值。</p>
+</li>
+<li><p>Statistical Rarity 乘积法<br> 所有 rarity 值的乘积 （但是有的 nft 缺少某些 traits，比如 22.56% 的 ape 不戴帽子）</p>
+</li>
+<li><p>Rarity score 商值法<br> 用除法计算所有 traits 的分数，最终返回sum。</p>
+</li>
+</ol>
+<p>以下具体说明。</p>
+<h1 id="1-Trait-Rarity-Ranking"><a href="#1-Trait-Rarity-Ranking" class="headerlink" title="1 - Trait Rarity Ranking"></a>1 - Trait Rarity Ranking</h1><p>Simply comparing the rarest trait of each NFT（只选最小值），例如：</p>
+<ol>
+<li>Ape #73 s rarest trait is Sold Gold Fur which 0.46% have</li>
+<li>Ape #9941’s rarest trait is Bored Unshaven Dagger which 0.28% have</li>
+<li>Ape #9542’s rarest trait is Bored Unshaven Pizza which 0.26% have</li>
+</ol>
+<h2 id="weakness"><a href="#weakness" class="headerlink" title="weakness"></a>weakness</h2><p>It doesn’t look at the overall rarity of the NFTs at all, just the rarest trait.</p>
+<h1 id="2-Average-Trait-Rarity"><a href="#2-Average-Trait-Rarity" class="headerlink" title="2 - Average Trait Rarity"></a>2 - Average Trait Rarity</h1><p>Averaging the rarity of traits that exist on the NFT.</p>
+<p><img src="/images/nft-calculate-rarity-2.png"></p>
+<p>以上的例子如果按照 trait rairty ranking，NFT 1 是最 rare 的，因为 rarity &#x3D; 10%</p>
+<p>但按照 average trait，那么显然 NFT 2 更 rare。</p>
+<h2 id="weakness-1"><a href="#weakness-1" class="headerlink" title="weakness"></a>weakness</h2><p>It puts too much weight on the overall rarity of every trait, but NFTs with single super rare trait are not valued enough.</p>
+<p>Their rarity value gets too ‘diluted’ by the other traits.</p>
+<h1 id="3-Statistical-Rarity"><a href="#3-Statistical-Rarity" class="headerlink" title="3 - Statistical Rarity"></a>3 - Statistical Rarity</h1><p>This become a somewhat popular method and is used very often in community made spreadsheets.</p>
+<p>It was first <a target="_blank" rel="noopener" href="https://achekroud.substack.com/p/d8f13e0a-ae26-40e4-bff2-beacb2916ff0">mentioned by Adam Chekroud</a>. </p>
+<p>Basically: calculate the overall rarity of an NFT by multiplying all of it’s trait rarities together.</p>
+<p><img src="/images/nft-calculate-rarity-3.png"></p>
+<ol>
+<li>Ape #73’s statistical rarity is 0.00000000070744%</li>
+<li>Ape #9941’s statistical rarity is 0.00000056965722%</li>
+<li>Ape #9542’s statistical rarity is 0.00000044983967%</li>
+</ol>
+<h1 id="4-Rarity-Score"><a href="#4-Rarity-Score" class="headerlink" title="4 - Rarity Score"></a>4 - Rarity Score</h1><p>这是个比较特别的计算方法。</p>
+<blockquote>
+<p>[Rarity Score for a Trait Value] &#x3D; 1 &#x2F; ([Number of Items with that Trait Value] &#x2F; [Total Number of Items in Collection])</p>
+</blockquote>
+<p>然后所有 traits 的 rarity score 相加，等于最终的 rarity score。</p>
+<blockquote>
+<p>The total Rarity Score for an NFT is the sum of the Rarity Score of all of it’s trait values.</p>
+</blockquote>
+<p>例如：Punk中只有9个 Alien，那么 Punk Type 这一项的 rarity score 就是 10,000 &#x2F; 9 &#x3D; 1111</p>
+<p>Punk中有24个 Ape，那么 Punk Type 这一项的 rarity score 就是 10,000 &#x2F; 24 &#x3D; 417</p>
+<p><img src="/images/nft-calculate-rarity-4.png"><br><em><a target="_blank" rel="noopener" href="https://rarity.tools/cryptopunks/view/7804">https://rarity.tools/cryptopunks/view/7804</a></em></p>
+<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><p>Rarity Score 的好处是，不但考虑了所有的 traits，而且对于某些非常 rare 的 traits，有很好的突出的效果。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>Trait Rarity Ranking 只考虑单一的 traits，略显不平衡。</p>
+<p>Average Rarity，Statistical Rarity 又比较容易稀释那些特别稀有的 traits，例如 Alien Punk。</p>
+<p>我觉得 Rarity Score 最好。用 <strong>rarity.tools</strong> 作者的原话讲：</p>
+<blockquote>
+<p>Rarity Score give results that give enough emphasis to <strong>single rare traits</strong> and also includes <strong>overall trait rarities</strong> in its calculation. </p>
+</blockquote>
+<blockquote>
+<p>And most importantly the results it gives match better with our human expectations.</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c">https://raritytools.medium.com/ranking-rarity-understanding-rarity-calculation-methods-86ceaeb9b98c</a></p>
 
       
     </div>
@@ -802,7 +849,7 @@ XDG_CURRENT_DESKTOP=XFCE
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -868,14 +915,14 @@ XDG_CURRENT_DESKTOP=XFCE
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

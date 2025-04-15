@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/09/05/Tech-ubuntu-ubuntu-jdk-java/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2000/01/01/Hexo-best-practise/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/05/Tech-ubuntu-ubuntu-jdk-java/" class="post-title-link" itemprop="url">【Tech】 Install Jdk / Java on Linux</a>
+            <a href="/2000/01/01/Hexo-best-practise/" class="post-title-link" itemprop="url">Hexo day to day best practise</a>
         </h2>
 
         <div class="post-meta">
@@ -175,14 +175,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-05T00:00:00+00:00">2021-09-05</time>
+              <time title="Created: 2000-01-01 13:58:00" itemprop="dateCreated datePublished" datetime="2000-01-01T13:58:00+00:00">2000-01-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -196,19 +196,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Install-JDK-8"><a href="#Install-JDK-8" class="headerlink" title="Install JDK 8"></a>Install JDK 8</h1><pre><code>sudo apt-get install openjdk-8-jdk
-ls /usr/lib/jvm/java-8-openjdk-amd64/
-
-# Put in ~/.bashrc
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
-export PATH=$PATH:$JAVA_HOME/bin
-
-# To verify Java:
-java -version
-</code></pre>
-<p>To switch java version that you want to use: </p>
-<pre><code>sudo update-alternatives --config java
-</code></pre>
+          <h1 id="关于代码管理"><a href="#关于代码管理" class="headerlink" title="关于代码管理"></a>关于代码管理</h1><ol>
+<li>hexo blog 管理一切文字 + 图片内容，包括知识，技术和区块链内容</li>
+<li>一律使用 Github Pages + Travis Ci 管理发布</li>
+<li>mindmap 使用私人飞书管理，不再参与同步，不上传 hexo</li>
+<li>不再使用 tiddlywiki，因为当文件 &gt; 40MB 时，保存太慢</li>
+</ol>
+<h1 id="关于-tags，categories"><a href="#关于-tags，categories" class="headerlink" title="关于 tags，categories"></a>关于 tags，categories</h1><ol>
+<li>Title prefix 写大类</li>
+<li>使用 tags 管理细类</li>
+<li>不使用 categories</li>
+</ol>
+<h2 id="Rules"><a href="#Rules" class="headerlink" title="Rules"></a>Rules</h2><ol>
+<li>每篇 post 都需要有 prefix，如 【Crypto】 ，【Tech】</li>
+<li>每个 prefix 都对应一些特定的 tags，比如 nft 对应【Crypto】</li>
+</ol>
+<p><strong>具体安排如下</strong></p>
+<ul>
+<li>【Crypto】 <ul>
+<li>tags: nft</li>
+<li>tags: defi</li>
+<li>tags: crypto people</li>
+</ul>
+</li>
+<li>【Tech】<ul>
+<li>tags: ubuntu</li>
+<li>tags: technology</li>
+</ul>
+</li>
+<li>【Read】 <ul>
+<li>tags: arts</li>
+<li>tags: books</li>
+<li>tags: knowledge</li>
+</ul>
+</li>
+</ul>
+<h1 id="Hexo-day-to-day"><a href="#Hexo-day-to-day" class="headerlink" title="Hexo day-to-day"></a>Hexo day-to-day</h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><a target="_blank" rel="noopener" href="https://www.markdownguide.org/basic-syntax/">https://www.markdownguide.org/basic-syntax/</a></p>
+<h2 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h2><p>Hexo 发布流程如下：</p>
+<ol>
+<li>保证 Sync 成功</li>
+<li>运行：git push origin hexo-source </li>
+<li>hexo generate is not required</li>
+</ol>
 
       
     </div>
@@ -228,7 +257,7 @@ java -version
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/09/04/Tech-ubuntu-ubuntu-python-pip-install/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2000/01/01/Hexo-getting-started-self-guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -242,7 +271,7 @@ java -version
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/09/04/Tech-ubuntu-ubuntu-python-pip-install/" class="post-title-link" itemprop="url">【Tech】 Install Python/pip on Ubuntu 20.04</a>
+            <a href="/2000/01/01/Hexo-getting-started-self-guide/" class="post-title-link" itemprop="url">Hexo getting started self guide</a>
         </h2>
 
         <div class="post-meta">
@@ -252,14 +281,14 @@ java -version
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-09-04 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-04T00:00:00+00:00">2021-09-04</time>
+              <time title="Created: 2000-01-01 13:58:00" itemprop="dateCreated datePublished" datetime="2000-01-01T13:58:00+00:00">2000-01-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -273,808 +302,113 @@ java -version
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>Replace python2 with python3: </p>
-<pre><code>python --version 
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
-sudo apt update
-sudo apt install python3.8
-python --version 
-which python3
-sudo apt install python-is-python3
-</code></pre>
-<h2 id="Updated-March-2022"><a href="#Updated-March-2022" class="headerlink" title="Updated March 2022"></a>Updated March 2022</h2><p>其实可以直接跑这个，安装最新版 python （as of this writing, latest stable is v3.9.2）:</p>
-<pre><code>sudo apt install python3 python3-pip
-</code></pre>
-<p>Got:</p>
-<pre><code>chrx@penguin:~/$ python3 --version
-Python 3.9.2
-chrx@penguin:~/$ pip --version 
-pip 20.3.4 from /usr/lib/python3/dist-packages/pip (python 3.9)
-</code></pre>
-<p>Reference: <a target="_blank" rel="noopener" href="https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/">https://www.how2shout.com/linux/install-python-3-x-or-2-7-on-debian-11-bullseye-linux/</a></p>
-<h2 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h2><p>To install pip on python3:</p>
-<pre><code>python --version 
-pip
-pip3
-sudo apt install python3-pip
-pip
-pip --version 
-</code></pre>
-<p>Now you have python3 and pip installed on Ubuntu. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/09/03/Tech-ubuntu-ubuntu-golang-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/03/Tech-ubuntu-ubuntu-golang-install/" class="post-title-link" itemprop="url">【Tech】 Install Golang on Ubuntu 20.04</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-03T00:00:00+00:00">2021-09-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><p>First, download Golang.</p>
-<p>Then:</p>
-<pre><code>rm -rf /usr/local/go &amp;&amp; tar -C /usr/local -xzf go1.17.linux-amd64.tar.gz
-ls /usr/local/go
-vi ~/.profile
-source ~/.profile 
-go version
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/09/02/Tech-ubuntu-ubuntu-mysql-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/02/Tech-ubuntu-ubuntu-mysql-install/" class="post-title-link" itemprop="url">【Tech】 Install MySQL 5.7 on Ubuntu 20.04</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-02 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-02T00:00:00+00:00">2021-09-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><pre><code>apt-get update
-apt-get install wget
-mkdir /downloads
-cd /downloads
-wget wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
-# if the prompt is closed by accident, run:
-sudo dpkg-reconfigure mysql-apt-config
-</code></pre>
-<p>Here, select MySQL 5.7, you will be prompt that Ubuntu 20.04 does not support MySQL 5.7. </p>
-<p>Don’t worry, select Ubuntu bionic. Then OK. </p>
-<pre><code>sudo apt-get update
-apt-cache policy mysql-server
-</code></pre>
-<p>We can see</p>
-<pre><code>5.7.35-1ubuntu18.04 500 
-   500 http://repo.mysql.com/apt/ubuntu bionic/mysql-5.7 amd64 Packages
-</code></pre>
-<p>Now simulate the installation first, then actually install:</p>
+          <h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><p>Build on Node.js, Hexo is a much more user-friendly blogging platform compared to Jekyll or Octopress. However, setting up the source&#x2F;public branch and Github Pages may not be so straight-forward.</p>
+<p>Here is my personal guide. I refer the the steps below: </p>
+<p><img src="/images/hexo-setup-guide-overview.png"></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>有两种管理 Github Pages 的方法。</p>
+<p>一种是 Github 默认的 Pages 功能，我们只需要本地 hexo build 之后 hexo deploy 就好，原理是上传了本地编译好的 &#x2F;public 文件夹。</p>
 <blockquote>
-<p>Use the -s flag to simulate an action. </p>
-<p>For example: “apt-get -s install <package_name>“ will simulate installing the package, showing you what packages will be installed and configured.</p>
+<p>For GitHub pages deployment, you have to push the <strong>public folder</strong> of Hexo to the <strong>master branch</strong> of “yourname.github.io” repo in your GitHub account.<br>Make sure the repo name is correct. And “yourname” must match the GitHub account name.<br>After “hexo deploy”, the changes should be reflected within 5 seconds.</p>
 </blockquote>
-<pre><code>sudo apt install -s -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
-sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+<p>第二种方式是，线上编译（使用 Trvis 免费版）。</p>
+<p>前者比较难管理 git remote，所以我决定用后者方式管理发布。</p>
+<h1 id="Step-1-setup-hexo-locally"><a href="#Step-1-setup-hexo-locally" class="headerlink" title="Step 1: setup hexo locally"></a>Step 1: setup hexo locally</h1><h2 id="如果已有-repo"><a href="#如果已有-repo" class="headerlink" title="如果已有 repo"></a>如果已有 repo</h2><p>注意一定不要 <strong>clone master branch</strong>，因为没有任何有效信息。</p>
+<p>一定要 <strong>clone hexo-source</strong> 这个 branch！！！</p>
+<pre><code>git clone -b hexo-source git@github.com:unclemartian/unclemartian.github.io.git
+cd unclemartian.github.io/
+git branch
+git clone https://github.com/theme-next/hexo-theme-next themes/next
+cd themes/next/
+rm -rf .git .gitattributes
+rm -rf .github/
+cd ../..
+git branch
+git status
+npm i
+hexo g
+hexo s
 </code></pre>
-<p>then:</p>
-<pre><code>sudo apt-get install -s mysql-client=5.7.34-1ubuntu18.04
-sudo apt-get install mysql-client=5.7.34-1ubuntu18.04
-sudo apt-get install -s mysql-community-server=5.7.34-1ubuntu18.04
-sudo apt-get install mysql-community-server=5.7.34-1ubuntu18.04
+<p>为什么要删掉 theme 文件夹 里面的git信息呢？因为 git 使用 submodule 来管理嵌套的 repo，导致 travis 拿不到theme 的源码，之后的自动发布步骤，travis 会报错说 “no layout…”。</p>
+<p>所以，一定要把 theme 文件当作源码的一部分，check in 到 hexo 博客代码中去。（当然，我也看过说<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903751908605965">用 fork&#x2F;merge 的方法</a>来管理，还可以得到 theme updates。太麻烦了，算了）。</p>
+<h2 id="如果是新建-repo"><a href="#如果是新建-repo" class="headerlink" title="如果是新建 repo"></a>如果是新建 repo</h2><pre><code>npm install hexo-cli -g
+hexo init unclemartian-blog
+cd unclemartian-blog/
+npm i // npm install
+hexo g // generate
+hexo s // serve
 </code></pre>
-<p>Or simply:</p>
-<pre><code>sudo apt-get install -s mysql-server=5.7.35-1ubuntu18.04
-sudo apt-get install mysql-server=5.7.35-1ubuntu18.04
-mysql -V
-mysql -u root -p
+<p>Next step, make sure public&#x2F; is gitignore-ed but the theme&#x2F; folder is not: </p>
+<pre><code>.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+debug.log
 </code></pre>
-<p>As a next-step, you need to check status of your wirefall and open up Port 3306:</p>
-<pre><code>sudo ufw status
-sudo ufw allow 80
-sudo ufw allow 3306
+<p>Then on GitHub, create a repo named unclemartian.github.io</p>
+<pre><code>git checkout -B hexo-source
+git remote add origin git@github.com:unclemartian/unclemartian.github.io.git
+git push -u origin hexo-source
 </code></pre>
-<h2 id="Prevent-MySql-upgrade"><a href="#Prevent-MySql-upgrade" class="headerlink" title="Prevent MySql upgrade"></a>Prevent MySql upgrade</h2><p>Modify this file: </p>
-<pre><code>vi /etc/apt/preferences.d/mysql
-</code></pre>
-<p>File content: </p>
-<pre><code>Package: mysql-server
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-client
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-community-server
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-community-client
-Pin: version 5.7.35-1ubuntu18.04
-Pin-Priority: 1001
-
-Package: mysql-apt-config
-Pin: version 0.8.12-1
-Pin-Priority: 1001
-</code></pre>
-<p>Try to update mysql-server and you will get notified: </p>
-<pre><code>mysql-server is already the newest version (5.7.35-1ubuntu18.04). 
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-</code></pre>
-<h1 id="Run-MySQL"><a href="#Run-MySQL" class="headerlink" title="Run MySQL"></a>Run MySQL</h1><pre><code>mysql -u root -p
-select version();
-CREATE USER &#39;michael&#39;@&#39;%&#39; IDENTIFIED BY &#39;bob&#39;;
-CREATE USER &#39;alex&#39;@&#39;%&#39; IDENTIFIED BY &#39;alice&#39;;
-select host,user,password_last_changed from mysql.user;
-</code></pre>
-<h2 id="Config-privileges"><a href="#Config-privileges" class="headerlink" title="Config privileges"></a>Config privileges</h2><p>Now flash privileges for non-root users:</p>
-<pre><code>mysql -u root -p
-use mysql;
-select host, user from user; 
-update user set host = &#39;%&#39; where user = &#39;root&#39;;
-select host, user from user;
-flush privileges;
-</code></pre>
-<p>Allow remote access of MySQL:</p>
-<p>因为默认3306端口只允许本地访问的，注释掉这行</p>
-<pre><code>sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
-
-# By default we only accept connections from localhost
-# bind-address  = 127.0.0.1
-</code></pre>
-<p>Restart MySQL: </p>
-<pre><code>service mysql restart
-systemctl restart mysql
-</code></pre>
-<h1 id="Install-an-MySQL-client"><a href="#Install-an-MySQL-client" class="headerlink" title="Install an MySQL client"></a>Install an MySQL client</h1><p>If you are on ubuntu 18: </p>
-<pre><code>sudo apt-get install emma
-</code></pre>
-<p>If you are on ubuntu 20, use DBeaver. </p>
-<h1 id="To-uninstall"><a href="#To-uninstall" class="headerlink" title="To uninstall"></a>To uninstall</h1><pre><code>service mysql status
-service mysql stop
-sudo apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
-sudo rm -rf /etc/mysql /var/lib/mysql
-sudo apt autoremove
-</code></pre>
-<h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p><a target="_blank" rel="noopener" href="https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/">https://techexpert.tips/mysql/installing-mysql-5-7-ubuntu-20-04/</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wang666/p/10218950.html">https://www.cnblogs.com/wang666/p/10218950.html</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chenlove/p/9552438.html">https://www.cnblogs.com/chenlove/p/9552438.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/09/01/Tech-ubuntu-ubuntu-nvm-node/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/01/Tech-ubuntu-ubuntu-nvm-node/" class="post-title-link" itemprop="url">【Tech】 Install Node/npm using Nvm</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-09-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-09-01T00:00:00+00:00">2021-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Install-Node-js-using-nvm"><a href="#Install-Node-js-using-nvm" class="headerlink" title="Install Node.js using nvm"></a>Install Node.js using nvm</h1><p>Use ‘nvm’ to manage node versions</p>
-<h2 id="Bash-Install"><a href="#Bash-Install" class="headerlink" title="Bash Install"></a>Bash Install</h2><ol>
-<li><p>Install nvm thru <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#install--update-script">nvm bash</a></p>
-<pre><code> curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-</code></pre>
-<p> Or:</p>
-<pre><code> wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-</code></pre>
-<p> Or (from this blog):</p>
-<pre><code> wget -qO- https://unclemartian.github.io/files/nvm-0391-install.sh | bash
-</code></pre>
+<p>Now your Github should have hexo code under <strong>hexo-source</strong> branch.</p>
+<p>以上，Hexo 本地配置完成，我们转战线上发版。</p>
+<h1 id="Step-2-setup-travis-ci"><a href="#Step-2-setup-travis-ci" class="headerlink" title="Step 2: setup travis-ci"></a>Step 2: setup travis-ci</h1><p>Travis CI is a continuous integration &amp; continuous delivery platform. </p>
+<p>Travis-ci 主要功能，如开篇的图所示：拿到 hexo-source 的代码，运行 hexo generate，然后部署到 github 的 master 分支上，到此为止。余下的工作由 github pages 自动进行。</p>
+<h2 id="Basic-Setup"><a href="#Basic-Setup" class="headerlink" title="Basic Setup"></a>Basic Setup</h2><ol>
+<li><p>Add Travis CI to your account.<br> <a target="_blank" rel="noopener" href="https://github.com/marketplace/travis-ci">https://github.com/marketplace/travis-ci</a></p>
 </li>
-<li><p>You may be stuck here, right after you saw this:</p>
-<pre><code> =&gt; Downloading nvm from git to &#39;/home/ubuntu/.nvm&#39;
- =&gt; Cloning into &#39;/home/ubuntu/.nvm&#39;...
- remote: Enumerating objects: 354, done.
- remote: Counting objects: 100% (354/354), done.
- remote: Compressing objects: 100% (302/302), done.
- remote: Total 354 (delta 40), reused 156 (delta 27), pack-reused 0
- Receiving objects: 100% (354/354), 207.03 KiB | 2.52 MiB/s, done.
- Resolving deltas: 100% (40/40), done.
-</code></pre>
+<li><p>Go to Applications settings, configure Travis CI to have access to the repo.<br> <a target="_blank" rel="noopener" href="https://github.com/settings/installations">https://github.com/settings/installations</a></p>
 </li>
-<li><p>Wait patiently for a bit. If still no luck, manually paste this to ~&#x2F;.bashrc</p>
-<pre><code> export NVM_DIR=&quot;$HOME/.nvm&quot;
- [ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
- [ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
-</code></pre>
+<li><p>On Github, generate a new token with repo scopes. Note down the token value.<br> <a target="_blank" rel="noopener" href="https://github.com/settings/tokens">https://github.com/settings/tokens</a></p>
 </li>
-<li><p>Run the following. You are all set!</p>
-<pre><code> source ~/.bashrc
-</code></pre>
+<li><p>On Travis page, go to your repo’s setting. Under <strong>Environment Variables</strong>, put <strong>GH_TOKEN</strong> as name and paste the token onto value. Click <strong>Add</strong>.<br> <a target="_blank" rel="noopener" href="https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings">https://travis-ci.com/github/unclemartian/unclemartian.github.io/settings</a></p>
 </li>
 </ol>
-<h2 id="Alternative-Git-Install"><a href="#Alternative-Git-Install" class="headerlink" title="Alternative: Git Install"></a>Alternative: Git Install</h2><p>Bash install might fail for network reasons. </p>
-<p>Thus do this: </p>
-<pre><code>cd ~/ from anywhere then git clone https://github.com/nvm-sh/nvm.git .nvm
-cd ~/.nvm and check out the latest version with git checkout v0.39.1
-activate nvm by sourcing it from your shell: . ./nvm.sh
-
-Now add these lines to your ~/.bashrc, ~/.profile, or ~/.zshrc file to have it automatically sourced upon login: (you may have to add to more than one of the above files)
-
-export NVM_DIR=&quot;$HOME/.nvm&quot;
-[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot;  # This loads nvm
-[ -s &quot;$NVM_DIR/bash_completion&quot; ] &amp;&amp; \. &quot;$NVM_DIR/bash_completion&quot;  # This loads nvm bash_completion
+<h2 id="Publish-to-master"><a href="#Publish-to-master" class="headerlink" title="Publish to master"></a>Publish to master</h2><p>It is required that GitHub Pages <strong>MUST</strong> publish the (content of) public folder on <strong>master branch</strong>.</p>
+<p>Create <strong>.travis.yml</strong> in hexo folder (alongside _config.yml &amp; package.json).</p>
+<pre><code>sudo: false
+language: node_js
+node_js:
+  - 14 # use nodejs v10 LTS
+cache: npm
+branches:
+  only:
+    - hexo-source # build master branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  target_branch: master # generate static files to master
+  on:
+    branch: hexo-source
+  local-dir: public
 </code></pre>
-<p>Reference: <a target="_blank" rel="noopener" href="https://github.com/nvm-sh/nvm#git-install">https://github.com/nvm-sh/nvm#git-install</a></p>
-<h2 id="Basic-Usage"><a href="#Basic-Usage" class="headerlink" title="Basic Usage"></a>Basic Usage</h2><ol>
-<li><p>Check current node versions</p>
-<pre><code> nvm ls
- nvm ls-remote
-</code></pre>
-</li>
-<li><p>Install node and npm</p>
-<pre><code> nvm install v12
-</code></pre>
-</li>
-<li><p>Use the following command</p>
-<pre><code> nvm use 12
-</code></pre>
-</li>
+<p>Commit to Github, and Travis CI should start automatically. </p>
+<h1 id="Step-3-monitor-and-release"><a href="#Step-3-monitor-and-release" class="headerlink" title="Step 3: monitor and release"></a>Step 3: monitor and release</h1><h2 id="Useful-links"><a href="#Useful-links" class="headerlink" title="Useful links"></a>Useful links</h2><ol>
+<li>查看 hexo-source 源码状态：<br> <a target="_blank" rel="noopener" href="https://github.com/unclemartian/unclemartian.github.io/commits/hexo-source">https://github.com/unclemartian/unclemartian.github.io/commits/hexo-source</a></li>
+<li>查看 trvis-ci 状态：<br> <a target="_blank" rel="noopener" href="https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds">https://app.travis-ci.com/github/unclemartian/unclemartian.github.io/builds</a></li>
+<li>查看 master branch 部署状态：<br> <a target="_blank" rel="noopener" href="https://github.com/unclemartian/unclemartian.github.io/commits/master">https://github.com/unclemartian/unclemartian.github.io/commits/master</a></li>
+<li>查看 Github Pages 部署的状态 (this step can fail sometimes)：<br> <a target="_blank" rel="noopener" href="https://github.com/unclemartian/unclemartian.github.io/deployments">https://github.com/unclemartian/unclemartian.github.io/deployments</a></li>
 </ol>
-<h2 id="Please-Note"><a href="#Please-Note" class="headerlink" title="Please Note"></a>Please Note</h2><p>You may need to uninstall the system version node&#x2F;npm, otherwise sudo have issues.</p>
-<p>A pretty simple work-around would be:</p>
-<pre><code>sudo vi ~/.bashrc
+<h2 id="Hexo-commands-abbreviation"><a href="#Hexo-commands-abbreviation" class="headerlink" title="Hexo commands abbreviation"></a>Hexo commands abbreviation</h2><pre><code>#常用
+hexo n == hexo new
+hexo g == hexo generate
+hexo s == hexo server
+
+#不要使用
+hexo d == hexo deploy 
 </code></pre>
-<p>Content：</p>
-<pre><code>alias node=&#39;$NVM_BIN/node&#39;
-alias npm=&#39;$NVM_BIN/npm&#39;
-alias sudo=&#39;sudo env PATH=$PATH:$NVM_BIN&#39;
+<h2 id="Hexo-day-to-day"><a href="#Hexo-day-to-day" class="headerlink" title="Hexo day-to-day"></a>Hexo day-to-day</h2><p>以后每天更博之后，只需要运行3行代码，既可自动发版（甚至可以用VSCode自动化）：</p>
+<pre><code>git add .
+git commit -m &#39;modify hexo get started guide&#39; 
+git push origin hexo-source 
 </code></pre>
-<h1 id="Change-node-registry-to-taobao"><a href="#Change-node-registry-to-taobao" class="headerlink" title="Change node registry to taobao"></a>Change node registry to taobao</h1><pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org/
-npm config set registry https://registry.npmjs.org/
-</code></pre>
-<h2 id="To-check"><a href="#To-check" class="headerlink" title="To check"></a>To check</h2><pre><code>npm info underscore
-npm --registry https://registry.npm.taobao.org info underscore
-npm config get registry
-</code></pre>
-<h1 id="Useful-npm-packages"><a href="#Useful-npm-packages" class="headerlink" title="Useful npm packages"></a>Useful npm packages</h1><p>You might need to install these just in case you need them:</p>
-<pre><code>npm install -g eslint yarn @vue/cli
-npm install -g npx
-npm install -g now truffle
-npm install -g hexo-cli
-</code></pre>
-<p>To check your globally-installed packges:</p>
-<pre><code>npm list -g --depth 0
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/08/13/Tech-ubuntu-ubuntu-system-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/08/13/Tech-ubuntu-ubuntu-system-commands/" class="post-title-link" itemprop="url">【Tech】 Ubuntu System Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-08-13 00:00:00" itemprop="dateCreated datePublished" datetime="2021-08-13T00:00:00+00:00">2021-08-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="System-commands"><a href="#System-commands" class="headerlink" title="System commands"></a>System commands</h1><h2 id="Check-version-of-Ubuntu"><a href="#Check-version-of-Ubuntu" class="headerlink" title="Check version of Ubuntu"></a>Check version of Ubuntu</h2><pre><code>lsb_release -a
-cat /etc/issue
-cat /etc/os-release
-hostnamectl
-</code></pre>
-<h2 id="Ubuntu-switch-to-Aliyun-source"><a href="#Ubuntu-switch-to-Aliyun-source" class="headerlink" title="Ubuntu switch to Aliyun source"></a>Ubuntu switch to Aliyun source</h2><pre><code>ls /etc/apt/
-sudo cp -ra /etc/apt/sources.list /etc/apt/sources.list.backup
-</code></pre>
-<p>Next check current system’s codename: </p>
-<pre><code>lsb_release -a
-</code></pre>
-<p>把’TODO’的地方换成上面的Codename</p>
-<pre><code>deb http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-security main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-updates main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-proposed main restricted universe multiverse
-
-deb http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ TODO-backports main restricted universe multiverse
-</code></pre>
-<p>Alternatively, 也可以用 163网易源（下面以 Ubuntu 20.04 focal 为例）：</p>
-<pre><code>deb http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-deb http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-security main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src http://mirrors.163.com/ubuntu/ focal-backports main restricted universe multiverse
-</code></pre>
-<p>下面以 Debian GNU&#x2F;Linux 11 (bullseye) 为例: </p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye main non-free contrib</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian-security/">https://mirrors.aliyun.com/debian-security/</a> bullseye-security main<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian-security/">https://mirrors.aliyun.com/debian-security/</a> bullseye-security main</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-updates main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-updates main non-free contrib</p>
-<p>deb <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-backports main non-free contrib<br>deb-src <a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/debian/">https://mirrors.aliyun.com/debian/</a> bullseye-backports main non-free contrib</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuguanglin/p/debian11_repo.html">https://www.cnblogs.com/liuguanglin/p/debian11_repo.html</a></p>
-<p>Done, after this do: sudo apt-get update and upgrade.</p>
-<h2 id="Ubuntu-安装中文输入法"><a href="#Ubuntu-安装中文输入法" class="headerlink" title="Ubuntu 安装中文输入法"></a>Ubuntu 安装中文输入法</h2><p>Uninstall ibus first, then install fcitx: </p>
-<pre><code>sudo apt-get purge ibus
-sudo apt-get autoremove
-sudo apt-get install fcitx
-</code></pre>
-<p>Then go to system language config, install Chinese and apply system-wide.</p>
-<p>Change input from ibus to fcitx. Reboot system.<br>Then run:</p>
-<pre><code>sudo dpkg -i sogoupinyin_2.4.0.3469_amd64.deb
-sudo apt -f install
-</code></pre>
-<h3 id="默认输入法-切换简繁体字"><a href="#默认输入法-切换简繁体字" class="headerlink" title="默认输入法 切换简繁体字"></a>默认输入法 切换简繁体字</h3><p>Use “Ctrl + Shift + F”</p>
-<h2 id="设置-alias-短命令"><a href="#设置-alias-短命令" class="headerlink" title="设置 alias 短命令"></a>设置 alias 短命令</h2><pre><code>alias new_name=&#39;old command&#39;
-</code></pre>
-<p>要创建永久别名，您必须.bashrc在主目录中编辑文件。</p>
-<h2 id="系统无法读写"><a href="#系统无法读写" class="headerlink" title="系统无法读写"></a>系统无法读写</h2><p>Encounter “Missing write access to &#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules”</p>
-<p>Run the following: </p>
-<pre><code>sudo chown -R $USER /usr/local
-</code></pre>
-<p>Reference：<a target="_blank" rel="noopener" href="https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules">https://teamtreehouse.com/community/getting-error-missing-write-access-to-usrlocallibnodemodules</a></p>
-<h2 id="Ubuntu16-04挂载exfat格式U盘"><a href="#Ubuntu16-04挂载exfat格式U盘" class="headerlink" title="Ubuntu16.04挂载exfat格式U盘"></a>Ubuntu16.04挂载exfat格式U盘</h2><pre><code>sudo apt-get install exfat-fuse
-</code></pre>
-<h2 id="Check-disk-usage"><a href="#Check-disk-usage" class="headerlink" title="Check disk usage"></a>Check disk usage</h2><pre><code>df -h | grep -v &#39;/snap\|tmp&#39;
-</code></pre>
-<p>The -v inverses the grep search</p>
-<p>The | 实现grep OR的操作</p>
-<p>Example output:</p>
-<pre><code>Filesystem       Size  Used Avail Use% Mounted on
-udev             3.8G     0  3.8G   0% /dev
-/dev/nvme0n1p8    26G  5.1G   20G  21% /
-/dev/nvme0n1p9    35G  6.3G   27G  20% /usr
-/dev/nvme0n1p7   343M  139M  178M  44% /boot
-/dev/nvme0n1p10   54G  4.0G   47G   8% /home
-</code></pre>
-<h1 id="Software-commands"><a href="#Software-commands" class="headerlink" title="Software commands"></a>Software commands</h1><h2 id="Install-software-using-Snap"><a href="#Install-software-using-Snap" class="headerlink" title="Install software using Snap"></a>Install software using Snap</h2><p>Snap is the command-line version of “Ubuntu Software”, but the latter is very slow.</p>
-<pre><code>snap search figma-linux
-snap install figma-linux 
-snap list
-snap info figma-linux
-</code></pre>
-<h2 id="Install-XMind-8-on-Ubuntu-20"><a href="#Install-XMind-8-on-Ubuntu-20" class="headerlink" title="Install XMind 8 on Ubuntu 20"></a>Install XMind 8 on Ubuntu 20</h2><p>新版本的XMind太多广告了，所以我安装了老版本的XMind 8 (R3.7.9 released in 2019)。</p>
-<ol>
-<li><p>解压缩 “xmind-8-update9-linux.zip” 到桌面。</p>
-</li>
-<li><p>创建 XMind8.desktop 以下内容：</p>
-<p> [Desktop Entry]<br> Name&#x3D;XMind8<br> Exec&#x3D;&#x2F;home&#x2F;michael&#x2F;Desktop&#x2F;xmind-8-update9-linux&#x2F;XMind_amd64&#x2F;XMind<br> Path&#x3D;&#x2F;home&#x2F;michael&#x2F;Desktop&#x2F;xmind-8-update9-linux&#x2F;XMind_amd64<br> Terminal&#x3D;false<br> Type&#x3D;Application<br> Icon&#x3D;xmind<br> Comment&#x3D;Xmind8<br> Categories&#x3D;Utility;</p>
-</li>
-<li><p>一定注意，Path&#x3D; 这个地方很重要，否则xmind将会无法找到 config。</p>
-<p> Refer to <a target="_blank" rel="noopener" href="https://bbs.deepin.org/post/174888">https://bbs.deepin.org/post/174888</a></p>
-</li>
-<li><p>然后，右键点击这个 icon，选择 allow launching。<br>就可以啦～ </p>
-</li>
-<li><p>optionally，可以把这个 icon 复制到系统 applications 文件夹，如下：</p>
-<p> sudo cp xmind-8.desktop &#x2F;usr&#x2F;share&#x2F;applications&#x2F;</p>
-</li>
-</ol>
-<h2 id="Install-screen-recorder"><a href="#Install-screen-recorder" class="headerlink" title="Install screen recorder"></a>Install screen recorder</h2><pre><code>sudo apt install python3-cairo python3-xlib kazam
-</code></pre>
-<h2 id="Install-video-player"><a href="#Install-video-player" class="headerlink" title="Install video player"></a>Install video player</h2><pre><code>sudo apt-get install vlc -y
-</code></pre>
-<h2 id="Install-Brackets"><a href="#Install-Brackets" class="headerlink" title="Install Brackets"></a>Install Brackets</h2><pre><code>sudo snap install brackets --classic
-</code></pre>
-<h2 id="Install-Chrome"><a href="#Install-Chrome" class="headerlink" title="Install Chrome"></a>Install Chrome</h2><p>Use the deb file. </p>
-<p>Remove Chromium since it’s not possible to sync with Google any more. </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/07/01/Tech-ubuntu-centos-commands/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/07/01/Tech-ubuntu-centos-commands/" class="post-title-link" itemprop="url">【Tech】 CentOS 7 Commands</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-07-01 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-01T00:00:00+00:00">2021-07-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>一边学一边写的，不太完整。</p>
-<h1 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h1><p>Installation: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/simple1025/p/11394312.html">centos7安装nginx并配置前端环境 - simplesally - 博客园</a></p>
-<p>Change to root: <a target="_blank" rel="noopener" href="https://blog.csdn.net/feifei10244499/article/details/105714574/">jenkins 构建出现 permission-denied问题_feifei10244499的博客-CSDN博客</a></p>
-<p>Install maven: <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1556981">linux 安装 maven 、解决：bash: mvn: command not found</a></p>
-<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><p>Start and stop nginx locally:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/webserver/nginx/sbin</span><br><span class="line"></span><br><span class="line"># Run Nginx</span><br><span class="line">./nginx -v</span><br><span class="line">./nginx</span><br><span class="line"></span><br><span class="line"># Stop Nginx</span><br><span class="line">./nginx -s stop</span><br></pre></td></tr></table></figure>
-
-<p>Config nginx when system starts:</p>
-<p>(config nginx to systemctl first, then systemctl enable)</p>
-<p>Ref: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/iverson-3/p/12301009.html">centos7下安装、配置Nginx、设置Nginx开机自启动 - 阿木工作室 - 博客园</a></p>
-<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><p>Kill process</p>
-<pre><code># check port
-netstat -apn | grep 9999
-
-# check process iD
-ps -ef | grep httpd
-
-# kill process
-kill -HUP PID
-kill -9 PID
-</code></pre>
-<h2 id="Get-my-IP-address"><a href="#Get-my-IP-address" class="headerlink" title="Get my IP address"></a>Get my IP address</h2><pre><code>ip addr show
-</code></pre>
-<h2 id="Extract-tar-gz"><a href="#Extract-tar-gz" class="headerlink" title="Extract tar.gz"></a>Extract tar.gz</h2><pre><code># 解开一个tar 
-tar -xvf etcbak.tar
-
-# 解压一个tar.gz
-tar -zxvf etcbak.tar.gz
-</code></pre>
-<p>Meaning of <strong>zxvf</strong>:</p>
-<ol>
-<li>z	通过gzip支持的压缩或解压缩。还有其他的压缩或解压缩方式，比如j表示bzip2的方式</li>
-<li>x	解压缩</li>
-<li>v	在压缩或解压缩过程中显示正在处理的文件名</li>
-<li>f	f后面必须跟上要处理的文件名。</li>
-</ol>
-<h2 id="Trojan"><a href="#Trojan" class="headerlink" title="Trojan"></a>Trojan</h2><p><a target="_blank" rel="noopener" href="https://xbsj6147.xyz/pagesv2/download-linux.html">Trojan For Linux 教程 - 西部世界VPN</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src/trojan</span><br><span class="line">./trojan -l ./trojan.log -c ./config.json</span><br><span class="line">ss -tlnp | grep 1080</span><br><span class="line">curl --socks5 127.0.0.1:1080 https://www.google.com -k </span><br><span class="line"></span><br><span class="line"># test IP addrees </span><br><span class="line">curl http://icanhazip.com</span><br><span class="line"># should return singapore IP address 149.129.53.1</span><br></pre></td></tr></table></figure>
-
-<p>把 proxychains 放入 shell 中：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Nginx</span><br><span class="line">proxychains4 -q /bin/bash </span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/05/01/Crypto-MataMask-Dropped-Replaced/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/01/Crypto-MataMask-Dropped-Replaced/" class="post-title-link" itemprop="url">【Crypto】 MataMask状态：Dropped & Replaced</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-05-01 18:18:21" itemprop="dateCreated datePublished" datetime="2021-05-01T18:18:21+00:00">2021-05-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><strong>Dropped &amp; Replaced</strong> is a tx status in MetaMask.</p>
-<p>有两种状态：</p>
-<ol>
-<li>Dropped Transaction</li>
-<li>Dropped &amp; Replaced Transaction</li>
-</ol>
-<h1 id="Dropped-Transaction"><a href="#Dropped-Transaction" class="headerlink" title="Dropped Transaction"></a>Dropped Transaction</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>由broadcasted状态 –&gt; 变为dropped状态</p>
-<p>是Ethereum nodes（也就是矿工）的操作。</p>
-<p>A Dropped transaction can be re-broadcasted and re-appear as a Pending transaction (by any Eth node).</p>
-<h2 id="Dropped-常见原因"><a href="#Dropped-常见原因" class="headerlink" title="Dropped 常见原因"></a>Dropped 常见原因</h2><ul>
-<li><p>Ethereum nodes dropped it from transaction pool</p>
-<ul>
-<li>Ethereum nodes 指的是 Geth or Parity</li>
-<li>most likely due to lower gas price</li>
-</ul>
-</li>
-<li><p>Max amount of Pending transactions an Ethereum node reached(this</p>
-<ul>
-<li>depends on settings&#x2F;limits of the individual clients</li>
-</ul>
-</li>
-</ul>
-<h1 id="Dropped-Replaced-Transaction"><a href="#Dropped-Replaced-Transaction" class="headerlink" title="Dropped &amp; Replaced Transaction"></a>Dropped &amp; Replaced Transaction</h1><h2 id="成立条件"><a href="#成立条件" class="headerlink" title="成立条件"></a>成立条件</h2><ol>
-<li>a newly created transaction with the same FROM account nonce is accepted and confirmed</li>
-<li>previous txhash invalidated</li>
-</ol>
-<h2 id="Dropped-Replaced-原因"><a href="#Dropped-Replaced-原因" class="headerlink" title="Dropped &amp; Replaced 原因"></a>Dropped &amp; Replaced 原因</h2><ul>
-<li><p>The earlier tx had low gas price which would take a very long time to confirm,</p>
-<ul>
-<li>a second tx with higher gas price was created to replace it</li>
-</ul>
-</li>
-<li><p>The Ethereum Node that the wallet&#x2F;service connected to was not fully synced, and an incorrect nonce was used</p>
-</li>
-<li><p>User-initiated to replace or cancel a pending transaction</p>
-</li>
-</ul>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://info.etherscan.com/transaction-dropped-replaced/">https://info.etherscan.com/transaction-dropped-replaced/</a></p>
+<p>Once it’s complete, checkout the published blog at: <a href="https://unclemartian.github.io/">https://unclemartian.github.io/</a></p>
 
       
     </div>
@@ -1093,7 +427,7 @@ tar -zxvf etcbak.tar.gz
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
   </nav>
 
 
@@ -1159,14 +493,14 @@ tar -zxvf etcbak.tar.gz
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -151,7 +151,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/03/11/Tech-ubuntu-tmux-and-mosh/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/05/18/Crypto-crypto-people-viaBTC-%E6%9D%A8%E6%B5%B7%E5%9D%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -165,7 +165,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/11/Tech-ubuntu-tmux-and-mosh/" class="post-title-link" itemprop="url">【Tech】 Tmux and Mosh</a>
+            <a href="/2020/05/18/Crypto-crypto-people-viaBTC-%E6%9D%A8%E6%B5%B7%E5%9D%A1/" class="post-title-link" itemprop="url">【Crypto】 ViaBTC(微比特) and CoinEx CEO 杨海坡</a>
         </h2>
 
         <div class="post-meta">
@@ -175,14 +175,14 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-03-11 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-11T00:00:00+00:00">2022-03-11</time>
+              <time title="Created: 2020-05-18 19:05:11" itemprop="dateCreated datePublished" datetime="2020-05-18T19:05:11+00:00">2020-05-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -196,68 +196,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>The combination of Tmux and Mosh can increase your life happiness by 15%. </p>
-<h1 id="Mosh"><a href="#Mosh" class="headerlink" title="Mosh"></a>Mosh</h1><p>In a very nutshell;</p>
-<h2 id="Server-side"><a href="#Server-side" class="headerlink" title="Server side"></a>Server side</h2><pre><code>mosh-server new -c 256 -s -l LANG=en_US.UTF-8 -p 60000
-mosh -v
-nc -lu 60001
-iptables -I INPUT -p udp --dport 60001 -j ACCEPT
-iptables -I INPUT -p udp --dport 60002 -j ACCEPT
-</code></pre>
-<h2 id="Client-side"><a href="#Client-side" class="headerlink" title="Client side"></a>Client side</h2><pre><code>mosh root@x.x.x.x
-Or
-export LC_ALL=&quot;en_US.UTF-8&quot; &amp;&amp; mosh root@x.x.x.x
-</code></pre>
-<p>To debug:</p>
-<pre><code>nc -zvu 124.223.5.33 60001
-</code></pre>
-<p>很多时候，问题就是防火墙。参考上面 iptables 那个 command。</p>
-<h1 id="Tmux"><a href="#Tmux" class="headerlink" title="Tmux"></a>Tmux</h1><h2 id="Tmux-Usage"><a href="#Tmux-Usage" class="headerlink" title="Tmux Usage"></a>Tmux Usage</h2><pre><code>tmux ls
-tmux attach -t 0 (or simply tmux attach)
-tmux detach -a
-</code></pre>
-<p>窗口操作：</p>
-<pre><code>Ctrl+b % Split current pane horizontally
-Ctrl+b &quot; Split current pane vertically
-Ctrl+b 0 Switch to window 0 (by number)
-Ctrl+b o Go to the next pane
-Ctrl+b ; Toggle between the current and previous pane
-Ctrl+b x Close the current pane
-Ctrl+b d detach current pane
-</code></pre>
-<p>最常用的：</p>
-<ol>
-<li><p>% 左右平分出两个窗格</p>
-</li>
-<li><p>“ 上下平分出两个窗格</p>
-</li>
-<li><p>x 关闭当前窗格</p>
-</li>
-<li><p>{ 当前窗格前移</p>
-</li>
-<li><p>} 当前窗格后移</p>
-</li>
-<li><p>; 选择上次使用的窗格</p>
-</li>
-<li><p>o 选择下一个窗格，也可以使用上下左右方向键来选择</p>
-</li>
-<li><p>space 切换窗格布局，tmux 内置了五种窗格布局，也可以通过 ⌥1 至 ⌥5来切换</p>
-</li>
-<li><p>z 最大化当前窗格，再次执行可恢复原来大小</p>
-</li>
-<li><p>tmux at [-t 会话名]</p>
-</li>
-</ol>
-<p>参考 <a target="_blank" rel="noopener" href="https://linuxize.com/post/getting-started-with-tmux/">https://linuxize.com/post/getting-started-with-tmux/</a></p>
-<h1 id="Common-Practise"><a href="#Common-Practise" class="headerlink" title="Common Practise"></a>Common Practise</h1><p>At facebook: </p>
-<pre><code>alias m=&#39;mosh -6&#39;
-alias x=&#39;mosh -6 dev -- tmux attach -d&#39;
-</code></pre>
-<p>Common Usage: </p>
-<pre><code>mosh root@x.x.x.x
-tmux ls
-tmux at
-</code></pre>
+          <h1 id="杨海坡"><a href="#杨海坡" class="headerlink" title="杨海坡"></a>杨海坡</h1><p>CEO of ViaBTC 微比特</p>
+<p>同时也是CoinEx的创始人（以BCH为基准的交易所）。</p>
+<p>毕业于西北工业大学数学与应用数学专业，曾就职于腾讯 TEG&#x2F;微博、富途证券。</p>
+<p>2011 年开始接触比特币。2013 年开始参与比特币社区，2014-2015年加入宙斯科技 （全球前三 SCRYPT 矿机品牌）担任技术负责人，开始比特币领域创业。</p>
+<p>2016 年 3 月投入比特币矿池的部署开发，一人独立完成 ViaBTC 矿池全部代码并在 2个月后成功上线。</p>
+<p>从2016年6月上线以来，ViaBTC原来主要经营矿池业务，随后开始探索扩大业务布局，于11月推出云挖矿产品，向投资者出售算力收益权；未来计划推出国内和海外比特币交易平台。</p>
 
       
     </div>
@@ -277,7 +221,7 @@ tmux at
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/03/05/Crypto-sybil-attack/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/05/18/Crypto-crypto-people-Brief-history-of-Craig-Steven-Wright/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -291,7 +235,7 @@ tmux at
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/03/05/Crypto-sybil-attack/" class="post-title-link" itemprop="url">【Crypto】 Sybil Attack</a>
+            <a href="/2020/05/18/Crypto-crypto-people-Brief-history-of-Craig-Steven-Wright/" class="post-title-link" itemprop="url">【Crypto】 Brief history of Craig Steven Wright</a>
         </h2>
 
         <div class="post-meta">
@@ -301,14 +245,14 @@ tmux at
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-05T00:00:00+00:00">2022-03-05</time>
+              <time title="Created: 2020-05-18 11:07:37" itemprop="dateCreated datePublished" datetime="2020-05-18T11:07:37+00:00">2020-05-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -322,149 +266,44 @@ tmux at
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Sybil-Attack"><a href="#Sybil-Attack" class="headerlink" title="Sybil Attack"></a>Sybil Attack</h1><p>2002年，由微软研究院的John R. Douceur在《the Sybil Attack》提出，它是p2p网络中的一种攻击形式，主要是针对服务器节点的攻击。</p>
+          <h1 id="先说说中本聪"><a href="#先说说中本聪" class="headerlink" title="先说说中本聪"></a>先说说中本聪</h1><ol>
+<li><p>2008 年 8 月，有人匿名注册了域名 <a target="_blank" rel="noopener" href="http://bitcoin.org/">http://bitcoin.org/</a></p>
+</li>
+<li><p>2008 年 10 月，一位名叫中本聪的作者在 <a target="_blank" rel="noopener" href="http://metzdowd.com/%EF%BC%88%E4%B8%80%E4%B8%AA%E5%8A%A0%E5%AF%86%E7%88%B1%E5%A5%BD%E8%80%85%E7%BD%91%E7%AB%99%EF%BC%89%E7%9A%84%E9%82%AE%E4%BB%B6%E5%88%97%E8%A1%A8%E4%B8%8A%E5%8F%91%E8%A1%A8%E4%BA%86%E4%B8%80%E7%AF%87%E3%80%8A%E6%AF%94%E7%89%B9%E5%B8%81%EF%BC%9A%E4%B8%80%E4%B8%AA%E7%82%B9%E5%AF%B9%E7%82%B9%E7%9A%84%E7%94%B5%E5%AD%90%E7%8E%B0%E9%87%91%E7%B3%BB%E7%BB%9F%E3%80%8B%E7%9A%84%E7%99%BD%E7%9A%AE%E4%B9%A6%E3%80%82">http://metzdowd.com/（一个加密爱好者网站）的邮件列表上发表了一篇《比特币：一个点对点的电子现金系统》的白皮书。</a></p>
+</li>
+<li><p>2009 年 1 月，中本聪发布了比特币第一版的实现</p>
+<ol>
+<li>同时挖出了第一组比特币</li>
+<li>比特币的第一次转账发生在中本聪和 Hal Finney 之间，Hal 是最早响应并支持中本聪的比特币早期先驱之一。</li>
+</ol>
+</li>
+<li><p>在接下来的 10 天里，中本聪是唯一的矿工，他挖出了超过 100 万比特币，这些比特币至今未被移动过。</p>
+</li>
+<li><p>中本聪在邮件和论坛中 (这里说的论坛不是 BitcoinTalk 哦) 与其它人交流关于比特币的设计与发展，他很早就说过：“比特币的本质是，第 0.1 版一经发布，其核心设计即已固定，并在整个生命周期中保持不变。”</p>
+<ol>
+<li>这些记录可以在 <a target="_blank" rel="noopener" href="https://nakamotoinstitute.org/">https://nakamotoinstitute.org/</a> 上查阅。</li>
+</ol>
+</li>
+<li><p>2011 年 4 月 23 日，中本聪发送了最后一条电子邮件：“我已经转向了其他事情。在 Gavin 和其他人的带领下比特币会越来越好”。随后，中本聪的所有活动很快就停止了。</p>
+</li>
+</ol>
+<h1 id="Craig-Steven-Wright"><a href="#Craig-Steven-Wright" class="headerlink" title="Craig Steven Wright"></a>Craig Steven Wright</h1><ol>
+<li><p>2015 年 12 月 8 日，Wired 和 Gizmodo 媒体分别声称 CSW 可能是中本聪</p>
+<p> 11 月收到了一系列匿名电子邮件，里面提供了 Craig Wright 的许多邮件、通话信息、财务记录等等，种种迹象</p>
+<p> CSW 使用电子邮件地址 <a href="mailto:&#115;&#x61;&#x74;&#x6f;&#115;&#x68;&#x69;&#x40;&#x76;&#105;&#x73;&#x74;&#111;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">satoshi@vistomail.com</a> 在 2014 年 1 月通过电子邮件发送给他的同事</p>
+</li>
+<li><p>2016 年 5 月 2 日，CSW 主动站出来，在博客上宣称自己就是 Satoshi Nakamoto，比特币之父。</p>
+<p> 得到了 Gavin Andresen，Ian Grigg 和 Jon Matonis 等人的认可</p>
 <blockquote>
-<p>Flora Rhea Schreiberie 在1973年的小说《女巫》（Sybil）改编的同名电影，是一个化名Sybil Dorsett的女人心理治疗的故事。</p>
-<p>她被诊断为分离性身份认同障碍，兼具16种人格。我的那个天。高度精分一枚。</p>
+<p>我相信我可以把隐姓埋名的日子抛在脑后。但是，随着本周事件的发展，以及我准备发表获得最早私钥的证明，我崩溃了。我没有勇气。我不能。。。。。但我知道，世界现在永远不会相信这一点。我只能说对不起。再见。</p>
 </blockquote>
-<h2 id="Why-exist"><a href="#Why-exist" class="headerlink" title="Why exist?"></a>Why exist?</h2><p>女巫攻击之所以存在：</p>
-<ol>
-<li>网络中很难保证每一个未知的节点是一个确定的“身份”。</li>
-<li>而女巫攻击是攻击数据冗余机制的一种有效手段。</li>
-</ol>
-<h2 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h2><ol>
-<li>矿工利用n个身份，承诺会存储n份数据。但是，实际上只存储小于n份的数据，但谎报自己存储了n份数据。</li>
-<li>羊毛党在一台计算机上通过软件切换ip手段大量薅羊毛；</li>
-<li>网络投票的时候，可以通过利用多个ip地址来作假等</li>
-<li>很多公司也利用女巫攻击来获得google等搜索引擎的排名，骗取大量用户去点击。</li>
-</ol>
-<h1 id="联盟链中的-sybil-attack"><a href="#联盟链中的-sybil-attack" class="headerlink" title="联盟链中的 sybil attack"></a>联盟链中的 sybil attack</h1><p>联盟链当中，女巫攻击问题更为棘手。</p>
-<p>因为公有链的共识机制是不依赖节点数量的，所以不存在女巫攻击的风险。而联盟链为了提高共识效率，将节点数减少在一定范围内。就相当于把共识机制变简单了，所以攻击也变得简单了。这样，女巫攻击就有了“用武之地”。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://www.tuoluo.cn/article/detail-9992848.html">https://www.tuoluo.cn/article/detail-9992848.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://0xzx.com/2022021204132081029.html">https://0xzx.com/2022021204132081029.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/03/01/Tech-technology-download-all-mp3-rss/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/03/01/Tech-technology-download-all-mp3-rss/" class="post-title-link" itemprop="url">【Tech】 Download all MP3 files in RSS feed</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2022-03-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-01T00:00:00+00:00">2022-03-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h1><p>For some reason, certain podcast are not accessible in China. Thus for good audio RSS content that I am afraid of missing out, downloading them and keep it offline is a nice idea. </p>
-<p>However, most RSS clients are not tailored for my use case, so instead of using any tools, I did some research and finally was able to download all MP3 from this podcast: </p>
-<ol>
-<li>(out of date) <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss">https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss</a></li>
-<li>(up to date)<a target="_blank" rel="noopener" href="https://anchor.fm/fanpaifilm">https://anchor.fm/fanpaifilm</a></li>
-<li>(马后炮节目) <a target="_blank" rel="noopener" href="https://rss.shawnxli.com/fanpie-film-ma">https://rss.shawnxli.com/fanpie-film-ma</a></li>
-<li>Latest: <a target="_blank" rel="noopener" href="https://www.listennotes.com/zh-hans/podcasts/%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84%E8%80%B3%E6%97%81%E9%A3%8E-%E6%B3%A2%E7%B1%B3%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC-pRWES8tY-6H/">https://www.listennotes.com/zh-hans/podcasts/%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84%E8%80%B3%E6%97%81%E9%A3%8E-%E6%B3%A2%E7%B1%B3%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC-pRWES8tY-6H/</a></li>
-</ol>
-<h1 id="首次尝试"><a href="#首次尝试" class="headerlink" title="首次尝试"></a>首次尝试</h1><p>I did some research on <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/List_of_podcast_clients"><strong>podcatcher softwares</strong></a>, and no luck finding a good one. </p>
-<p>Failed. </p>
-<h1 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h1><p>Got some help from: </p>
-<p><a target="_blank" rel="noopener" href="https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss-feed">https://www.commandlinefu.com/commands/view/14685/download-files-linked-in-a-rss-feed</a></p>
-<p>And I used this command to exact all MP3 links:</p>
-<pre><code>export HTTP_PROXY=http://127.0.0.1:58591; export HTTPS_PROXY=http://127.0.0.1:58591; export ALL_PROXY=socks5://127.0.0.1:51837
-
-curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o &#39;&lt;enclosure url=&quot;[^&quot;]*&#39; | grep -o &#39;[^&quot;]*$&#39;
-</code></pre>
-<p>Here are the results: <a href="/files/rss-kaola-links.txt">Kaolafm content</a></p>
-<p>Simply dump those links into IDM softwares and the rest are set. </p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>I got a bunch of files with naming like these: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">82013211-c782-4a84-ad20-9001d1bdcd2e.mp3</span><br><span class="line">4c6a181e-f8ff-4b9e-9c20-4a05e8edac84.mp3</span><br></pre></td></tr></table></figure>
-
-<p>No timestamp, no title, no good. </p>
-<h1 id="第三次尝试"><a href="#第三次尝试" class="headerlink" title="第三次尝试"></a>第三次尝试</h1><p>I found this blog super useful:</p>
-<p><a target="_blank" rel="noopener" href="https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/">https://rakhesh.com/coding/downloading-all-episodes-of-a-podcast/</a></p>
-<p>Thus I wrote the following <strong>rss_script.sh</strong>:</p>
-<pre><code>for i in $(curl -s https://raw.githubusercontent.com/Reyshawn/FanpieFilmFeed/master/fanPieFilm.rss | grep -o &#39;&lt;enclosure url=&quot;[^&quot;]*&#39; | grep -o &#39;[^&quot;]*$&#39;); do
-    url=$i
-    audiodir=$(echo $i | sed &#39;s|http://image\.kaolafm\.net/mz/audios/||&#39; | sed &#39;s/\/.*\.mp3//&#39;)
-    outfile=$(echo $i | sed &#39;s|http://image\.kaolafm\.net/mz/audios/||&#39;)
-    mkdir $audiodir
-    wget -q $url -O $outfile
-done
-</code></pre>
-<p>Simply:</p>
-<pre><code>bash rss_script.sh
-</code></pre>
-<p>and you shall have a nice time. Enjoy.</p>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>All MP3s are in sub-folders like ‘201604’ or ‘202112’, however, I wasn’t able to get the right title this time. </p>
-<h1 id="第四次尝试"><a href="#第四次尝试" class="headerlink" title="第四次尝试"></a>第四次尝试</h1><p>最终我发现，还是通过多项选择，表格，curl 的方法来弄比较好。</p>
-<p>至于如何多行搜索选择，<a href="/2022/04/20/Tech/technology/vscode-copy-all-search-results/">可以看这里</a></p>
-<p>这里拿 <a target="_blank" rel="noopener" href="https://anchor.fm/s/4a4df770/podcast/rss">https://anchor.fm/s/4a4df770/podcast/rss</a> 这个link 的下载过程，简单记录一下：</p>
-<ol>
-<li>Extract title and mp3 links: <a href="/files/rss-extracted-title.txt">title</a>, <a href="/files/rss-extracted-mp3.txt">mp3</a></li>
-<li>url 中有一些特殊字符需要处理：<ol>
-<li>%2F 改为 &#x2F;</li>
-<li>%3A 改为 :</li>
-<li>https:.*https 改为 https</li>
-</ol>
 </li>
-<li>Put them together in a csv file (maybe use Excel): <a href="/files/rss-title-mp3.csv">the csv file</a></li>
-<li>Make a <a href="/files/rss-fanpai-main.sh">curl bash</a> and another <a href="/files/rss-fanpai-er.sh">example</a></li>
-<li>Execute the curl</li>
-<li>Done</li>
+<li><p>2017 年，比特币扩容纷争的一个分水岭。矿工群体分裂为直接修改上限的链上扩容 和 发展隔离见证 + 闪电网络的链下扩容两个阵营。</p>
+</li>
+<li><p>CSW 是坚决反对引入隔离见证的方式的，他认为这将更改比特币系统的激励机制，并引入一些法律上的风险。大声疾呼 Bitcoin isn’t broken，并痛批 Core 开发团队限制扩容的做法</p>
+</li>
 </ol>
-<p>注意：在mac上，不要用 iTerm，而是用 Terminal，否则 copy special character 会出错。</p>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>sed tutorial: <a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux">https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux</a></p>
-<p>Old content: <a href="/files/RSS%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84Feed.txt">here</a></p>
-<p>New content: <a href="/files/RSS%E5%8F%8D%E6%B4%BE%E5%BD%B1%E8%AF%84Feed-new.txt">here</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/6jo1pWQjlS0Z95pivGTFNw">https://mp.weixin.qq.com/s/6jo1pWQjlS0Z95pivGTFNw</a></p>
 
       
     </div>
@@ -484,7 +323,7 @@ done
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2022/01/10/Tech-technology-virtualbox-mount-shared-folder/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/05/13/Crypto-Satoshi-and-Gavin-Andresen/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -498,7 +337,7 @@ done
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/01/10/Tech-technology-virtualbox-mount-shared-folder/" class="post-title-link" itemprop="url">【Tech】 How to mount shared folder for VirtualBox</a>
+            <a href="/2020/05/13/Crypto-Satoshi-and-Gavin-Andresen/" class="post-title-link" itemprop="url">【Crypto】 中本聪和Gavin Andresen</a>
         </h2>
 
         <div class="post-meta">
@@ -508,14 +347,14 @@ done
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2022-01-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-10T00:00:00+00:00">2022-01-10</time>
+              <time title="Created: 2020-05-13 19:17:55" itemprop="dateCreated datePublished" datetime="2020-05-13T19:17:55+00:00">2020-05-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -529,96 +368,24 @@ done
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>Mount shared folders in VirtualBox.</p>
-<h2 id="Install-guest-add-on"><a href="#Install-guest-add-on" class="headerlink" title="Install guest add-on"></a>Install guest add-on</h2><p>Run</p>
-<pre><code> cd /media/osboxes/VBox_GAs_6.1.28
- sudo ./VBoxLinuxAdditions.run
- sudo reboot
-</code></pre>
-<h2 id="config-shared-folder"><a href="#config-shared-folder" class="headerlink" title="config shared folder"></a>config shared folder</h2><p>这里我们可以把共享文件夹名称设置成：“virtualbox-shared”。</p>
-<p><img src="/images/virtualbox-mount-shared-folder.png"></p>
-<p>对于 Linux 系统，无需写 “挂载点”。</p>
-<h2 id="Auto-mount"><a href="#Auto-mount" class="headerlink" title="Auto mount"></a>Auto mount</h2><p>Windows下，自动挂在。</p>
-<p>Linux下，不会自动加载。这样操作手动加载：</p>
-<pre><code>  cd ~/Desktop/
-  mkdir shared-folder
-  sudo mount -t vboxsf virtualbox-shared ~/Desktop/shared/
-</code></pre>
-<p>之后就行了。</p>
-<p>如果权限出了问题，可以这样：</p>
-<pre><code>sudo adduser $USER vboxsf
-</code></pre>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/30/crypto-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/crypto-1111111/" class="post-title-link" itemprop="url">【Crypto】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Crypto】 prefx should be tagged as one of: </p>
+          <p>Gavin Andresen，是比特币奠基人之一</p>
+<p>他已成为了比特币现金(BCH)最重要的支持者之一</p>
+<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>真名 Gavin Bell</p>
 <ol>
-<li>crypto</li>
-<li>nft</li>
-<li>defi</li>
-<li>crypto-people</li>
+<li>1988年从普林斯顿大学计算机系毕业，一直从事软件工程师</li>
+<li>硅谷计算公司Silicon Graphics任职7年</li>
+<li>随后为盲人专用的网络游戏研发3D画图软件产品。</li>
+<li>2010年，中本聪本人邀请Andresen加入比特币行业</li>
+<li>2010年创立了 Bitcoin Faucet网站，每名访问者免费获得5枚比特币</li>
+<li>2011年，接受中情局的邀请（4天前，Satoshi最后一封邮件）</li>
+<li>2013年，Andresen创立了非盈利比特币基金组织，作为比特币管理的最高层。</li>
+<li>2013年比特币基金组织支付了他209648美元报酬。</li>
+<li>2015年，Gavin建议社区扩容至20MB，被中国矿工集体抗议</li>
+<li>2016年，Gavin组织Bitcoin Classic。并且他对Craig Wright表示支持</li>
 </ol>
+<p>后来，Gavin转而支持 BCH。</p>
+<h2 id="观点"><a href="#观点" class="headerlink" title="观点"></a>观点</h2><p>Gavin一直是大区块的支持者</p>
+<p><a target="_blank" rel="noopener" href="https://www.leiphone.com/news/201406/the-man-who-really-built-bitcoin.html">https://www.leiphone.com/news/201406/the-man-who-really-built-bitcoin.html</a><br><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/vdAaIkag_ihdq2Th3VX0lg">https://mp.weixin.qq.com/s/vdAaIkag_ihdq2Th3VX0lg</a></p>
 
       
     </div>
@@ -638,7 +405,7 @@ done
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/30/read-1111111/">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/05/11/Crypto-Stable-token-compliance-and-legal-considerations/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -652,7 +419,7 @@ done
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/11/30/read-1111111/" class="post-title-link" itemprop="url">【Read】 Title</a>
+            <a href="/2020/05/11/Crypto-Stable-token-compliance-and-legal-considerations/" class="post-title-link" itemprop="url">【Crypto】 Stable token compliance and legal considerations</a>
         </h2>
 
         <div class="post-meta">
@@ -662,14 +429,14 @@ done
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
+              <time title="Created: 2020-05-11 12:30:08" itemprop="dateCreated datePublished" datetime="2020-05-11T12:30:08+00:00">2020-05-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
               </span>
 
           
@@ -683,189 +450,419 @@ done
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Read】 prefx should be tagged as one of:</p>
-<ol>
-<li>liberal</li>
-<li>books</li>
-<li>knowledge</li>
-<li>people</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/30/tech-1111111/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/30/tech-1111111/" class="post-title-link" itemprop="url">【Tech】 Title</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-30T00:00:00+00:00">2021-11-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h1><p>All note with 【Tech】 prefx should be tagged as one of: </p>
-<ol>
-<li>technology</li>
-<li>ubuntu</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2021/11/28/Crypto-crypto-people-interview-ryan-zurrer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Uncle Martian">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/11/28/Crypto-crypto-people-interview-ryan-zurrer/" class="post-title-link" itemprop="url">【Crypto】 Ryan Zurrer 与 theDAO</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2021-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-28T00:00:00+00:00">2021-11-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-04-15 10:12:03" itemprop="dateModified" datetime="2025-04-15T10:12:03+00:00">2025-04-15</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Ryan-Zurrer"><a href="#Ryan-Zurrer" class="headerlink" title="Ryan Zurrer"></a>Ryan Zurrer</h1><ul>
-<li>Polychain 前合伙人</li>
-<li>后来 Web 3 Foundation 总监</li>
-<li>后来重启 theDAO 项目</li>
-</ul>
-<h1 id="Key-Take-aways"><a href="#Key-Take-aways" class="headerlink" title="Key Take-aways"></a>Key Take-aways</h1><h2 id="Chit-chat"><a href="#Chit-chat" class="headerlink" title="Chit-chat"></a>Chit-chat</h2><p>以下是 Ryan 的观点。</p>
-<ol>
-<li>亚洲市场微妙。不能用美国的投资逻辑。</li>
-<li>唯一能在中国实现商业化取得成功的方法：找本地合作伙伴，给予激励，实现双赢。</li>
-<li>中国人更喜欢社会主义、喜欢强权政府、喜欢资源聚合，只为完成一件事情。</li>
-<li>798 艺术区的艺术在进化：从 90年代表达伤心、愤怒和政治宣言的「伤痕艺术「 到今天的比较自信、表现民族精神风貌的艺术表达。</li>
-</ol>
-<blockquote>
-<p>以前可以看到金发女性更多出现在艺术作品里，等我过几年再回来，就成了更自信的表达中国独有的女性美的作品。</p>
-</blockquote>
-<h2 id="Web-3-0"><a href="#Web-3-0" class="headerlink" title="Web 3.0"></a>Web 3.0</h2><ul>
-<li>Web 2.0 是一个中心化网络，一个__资本和权利协同统治__的网络。</li>
-<li>MakerDAO 是一套中国哲学的项目 —— 核心团队有比较强的决策权，也包括一票否决权。</li>
-<li>百度 CEO 说过，中国人喜欢放弃隐私或者说是愿意为了方便而做出妥协。这与 web 3.0 并不矛盾 —— 这是用户为中心。</li>
-</ul>
-<h2 id="如果想实现-Web-3-0"><a href="#如果想实现-Web-3-0" class="headerlink" title="如果想实现 Web 3.0"></a>如果想实现 Web 3.0</h2><ol>
-<li>实现__隐私保护__和去中心化。</li>
-<li>在新的经济体制下，有竞争力的__金融激励机制__，吸引用户__参与和创造__。</li>
-<li>不应该拿自己是 decentralized 作为理由，不注重用户 UI&#x2F;UX 的体验。</li>
-</ol>
-<h2 id="关于协议-vs-应用"><a href="#关于协议-vs-应用" class="headerlink" title="关于协议 vs 应用"></a>关于协议 vs 应用</h2><blockquote>
-<p>Joel Monegro 提出的「胖协议」理论非常棒，但是前几天我们谈过一次，他也有了关于协议层和应用层的一些认知转变。他也承认现在很多价值还是会落到应用层面的，所谓的「瘦」，更多是相比我们经历的上一个时代的应用「瘦」，但是可能相比于协议层还是可能是更大的机会。比如 Web 3 的各种应用，都应该是千亿级别的机会。人们之前过于兴奋，一直都在谈协议层、协议层、协议层，但我们现在也看到很多人重新聚焦于应用上。</p>
-<p>比如 MetaCartel，就花了很多精力放在产品开发上，为人们提供了很好用的 UI 界面。当然还有很多问题需要解决，比如通用链上身份这种任何 app 都有需求的。庆幸的是，我看到了越来越多的人才加入这个开发圈子，这些人都给了我很好的启发。</p>
-</blockquote>
-<h2 id="关于-UX"><a href="#关于-UX" class="headerlink" title="关于 UX"></a>关于 UX</h2><blockquote>
-<p>人们不愿意相信自己的电脑，不相信自己的硬盘，自己的脑子，最不信任的却是自己。我们得把 UI 设计的恰当，才能让人们相信自己能够真正地掌控自己的资产，而不是每天晚上睡觉前都在担心会忘记助记词，或者担心有人爬进屋里偷走电脑和私钥，也不用每天早上醒来去学一遍 Shamir’s 密钥分片技术来把自己的私钥分片存储起来。这些限制都是普通人难以接受的。</p>
-</blockquote>
-<h1 id="theDao"><a href="#theDao" class="headerlink" title="theDao"></a>theDao</h1><p>Ryan 关于 The Dao 的看法，摘抄如下：</p>
-<blockquote>
-<p>所以我想创造这么一种社区，就是每个人通过在社区里带来的价值来定义。每个人都由两类属性来评价定义，一种是都客观可查的数据指标，比如说 github 的代码提交次数，Google pagerank 搜索排名数据，Discord 讨论数量，另一种是主观的数据，比如由基于个人名誉和贡献加权的同伴评价。比如创始人已经在项目里面做了很多贡献，那他对一个人的评价所占的比重就要比一个还没什么贡献的新人的评价占的比重高。</p>
+          <h1 id="Libra"><a href="#Libra" class="headerlink" title="Libra"></a>Libra</h1><p>Libra的法币储备问题尚未在白皮书中披露具体细节.</p>
+<p>监管部门担心的是Libra是否会成为影子银行，在拥有大量法币储备的情况下，开展类银行业务却缺乏相应的监管。</p>
+<p>目前，针对托管机构和牌照问题，Libra官方尚未披露具体细节。</p>
+<h2 id="兑换-赎回"><a href="#兑换-赎回" class="headerlink" title="兑换 &amp; 赎回"></a>兑换 &amp; 赎回</h2><p>Libra包含的货币和低风险债券使得其资产池可能类似于货币基金。</p>
+<h1 id="Celo"><a href="#Celo" class="headerlink" title="Celo"></a>Celo</h1><blockquote>
+<p>我们和Facebook确实存在很大区别。Celo的使命是赋能个人与社区，因此我们从一开始就采用非常开放的态度。反观Libra以及其最近的一些变化，可以看出它是一个需要许可的网络，而Celo是无需许可的。Celo是真正的去中心化治理，也即任何人都可以运行一个全节点或验证节点或参与网络。而Libra联盟则是有限制的、中心化的。此外我们和Libra的稳定币机制也不一样。</p>
 </blockquote>
 <blockquote>
-<p>这就类似 Ray Dalio 的「可信度」指标，我参与进来，贡献价值，就可以获得好的名声，投票的时候我的票就更有价值。这与个人财富无关，与呆的时间长短无关，只跟名誉值有关，也就是与你在历史上创造了多少价值有关。当我在做 A 事的时候做了贡献，拿了名誉，在社区进行到 B 事准备分配奖励的时候，我更有话语权去说谁可以拿到更多奖励。并且整个过程并非完全主观的，我们还是有一部分基于第一类客观指标的评估。因此我们就可以通过调整这些参数的占比，来激励不同类型社区的参与者，我认为这才是 DAO 的核心基石。</p>
+<p>我们积极参与全球范围内对新冠疫情下加密货币的合规以及央行发行数字货币的讨论。其中有2位同事在加入Celo前是在美联储工作，有长期的央行工作经验。我们认为未来将会有多家央行发行自己的数字货币。对于Celo而言，这意味着巨大的机会，我们可以为央行提供基础设施支持 。我们的团队也发表了很多这方面的论文，包括最近一篇研究央行通过发行数字货币，控制货币流通速度的论文，获得了良好的反响。</p>
+</blockquote>
+<h1 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h1><h1 id="regulated-by-Bank-not-Trust"><a href="#regulated-by-Bank-not-Trust" class="headerlink" title="regulated by Bank, not Trust"></a>regulated by Bank, not Trust</h1><ol>
+<li>GUSD、PAX等稳定币由信托公司托管，因此他们寻求了地方监管方的批准。</li>
+<li>USDC的资产受到银行托管，银行的监管要求更高，资产更安全。</li>
+</ol>
+<p>可以理解为，信托公司本身存在一定风险，需要取得牌照来证明其合规性，<br>而银行本身受政府监管，并对其他金融业务起监管作用，因此USDC的资产安全度更高。</p>
+<p>另外，USDC的发行方Circle目前拥有__美国、英国和欧盟的支付牌照__以及__纽约州BitLicense__，是加密资产行业全球牌照数目最多的公司，拥有美元、英镑、欧元进出加密资产的合规通路。之后加入CENTRE架构发行USDC的发行方也必须获得当地的加密资产行业牌照。</p>
+<p>致同会计师事务所（<strong>Grant Thornton，全球六大跨国会计师事务所公司之一</strong>）会对Circle进行定期审计，<strong>每月公开报告Circle所发行USDC的财务状况</strong>，审计报告会在CENTRE官方平台公布，整个行业都会知晓抵押的数量。</p>
+<p>CENTRE架构也受到独立监管，每个人都可以看到这个架构上的源代码。</p>
+<h2 id="CENTRE"><a href="#CENTRE" class="headerlink" title="CENTRE"></a>CENTRE</h2><p>CENTRE是一种架构，</p>
+<p>为全球的交易所、钱包以及交易者提供了稳定、合规的交流生态。</p>
+<p><img src="/images/centre-circle.png"></p>
+<p>达到CENTRE要求的加密交易所或汇款机构均可加入，并且可以发行USDC或者其他以法币为抵押的稳定币，受CENTRE统一监管。</p>
+<p>该生态得到Circle、高盛和比特大陆等业内权威的支持。</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><ol>
+<li>Libra没有公布合规框架，也没公布货币基金合作组织名单。</li>
+<li>Celo不合规</li>
+<li>Pax，GUSD，Circle的发行方式相同。前2者由信托公司托管，后者银行托管。</li>
+<li>Circle有Uk，US的payment license，NY的 BitLicense</li>
+<li>CENTRE是一套开源的合规框架（goldman + circle + bitmain）。</li>
+</ol>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="http://www.yidianzixun.com/article/0PHjv7Xb">http://www.yidianzixun.com/article/0PHjv7Xb</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6ea93b4e5160">https://www.jianshu.com/p/6ea93b4e5160</a><br><a target="_blank" rel="noopener" href="https://new.qq.com/omn/20190730/20190730A0HQLU00">https://new.qq.com/omn/20190730/20190730A0HQLU00</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/05/11/Crypto-Cross-border-messaging-and-settlement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/11/Crypto-Cross-border-messaging-and-settlement/" class="post-title-link" itemprop="url">【Crypto】 Cross-border settlement (SWIFT & CLS)</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-11 10:57:29" itemprop="dateCreated datePublished" datetime="2020-05-11T10:57:29+00:00">2020-05-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="几个系统的关联和区别"><a href="#几个系统的关联和区别" class="headerlink" title="几个系统的关联和区别"></a>几个系统的关联和区别</h1><p>Clearing and settlement systems主要分为：</p>
+<ol>
+<li>Net settlement systems</li>
+<li>Real-time gross settlement (RTGS) systems</li>
+</ol>
+<p>Cross-border messaging and settlement主要分为：</p>
+<ol>
+<li>SWIFT (The Society for Worldwide Inter-bank Financial Telecommunications)</li>
+<li>TARGET2</li>
+<li>The European Banking Association (EBA)</li>
+<li>Continuous linked settlement (CLS)</li>
+</ol>
+<p>etc。</p>
+<h2 id="TARGET2"><a href="#TARGET2" class="headerlink" title="TARGET2"></a>TARGET2</h2><p>Was originally introduced in 1999 to provide a real-time gross settlement system for the euro.</p>
+<h2 id="The-European-Banking-Association-EBA"><a href="#The-European-Banking-Association-EBA" class="headerlink" title="The European Banking Association (EBA)"></a>The European Banking Association (EBA)</h2><p>Was founded in 1985 to promote the European Currency Unit (ECU) </p>
+<h2 id="Continuous-linked-settlement-CLS"><a href="#Continuous-linked-settlement-CLS" class="headerlink" title="Continuous linked settlement (CLS)"></a>Continuous linked settlement (CLS)</h2><p>A number of the world’s largest <strong>foreign exchange banks</strong> have joined together in 2002 to form a company: CLS Services Limited. </p>
+<p>They are <strong>not allowed to compete for US domestic banking business</strong>. CLS Bank is regulated by the Federal Reserve Bank, the US Central Bank, and can handle transactions denominated in 17 currencies: <strong>GBP, USD, JPY, EUR</strong>, CHF, CAD, AUD, DKK, NOK, SEK, <strong>SGD, HKD</strong>, NZD, <strong>KRW</strong>, ZAR, MXN and ILS.</p>
+<p>has the ability to eliminate Herstatt risk (Payment vs Payment)</p>
+<h1 id="CLS-in-details"><a href="#CLS-in-details" class="headerlink" title="CLS in details"></a>CLS in details</h1><p>CLS is a <strong>Payment versus Payment (PvP) settlement</strong> system.</p>
+<blockquote>
+<p>Reduces the gross intraday liquidity required to settle individual FX transactions<br>but introduce a time specific intraday liquidity position, the pay-in&#x2F;pay-out time for each currency – which in many instances is outside ‘normal’ settlement times. </p>
+</blockquote>
+<h2 id="The-consequences-of-Herstatt-Risk"><a href="#The-consequences-of-Herstatt-Risk" class="headerlink" title="The consequences of Herstatt Risk"></a>The consequences of Herstatt Risk</h2><blockquote>
+<p>This type of risk is named after Bank Herstatt that failed in 1974 and refers to risks that span more than one market – usually involving foreign exchange or securities instruments.<br>In the case of Bank Herstatt, the bank had entered into a number of foreign exchange deals and received payment from its European counterparts, but went into liquidation before it delivered the counter-value to its non European counterparts. </p>
 </blockquote>
 <blockquote>
-<p>这是历史上首次，信用来源（source credit）让我们能够将去中心化的团队组织起来，实现去中心化的价值创造。例如，你 Mable 作为一个专业的投资人，参与了投资人社区，在社区里开始推荐项目。当社区几个参与者投资了这个项目并且获得了收益，Mable 就会由于最初带这个项目进来，也获得一部分分红奖励，因为在这个社区里，Mable 是最初那个带来价值创造的人。</p>
+<p>The only way to eliminate settlement exposure of this nature entirely is to settle both the debit and credit transaction at the same time using real-time gross settlement (RTGS) processes.</p>
 </blockquote>
-<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/80354805">https://zhuanlan.zhihu.com/p/80354805</a></p>
+<p>Today (2018) around 50% of cross-border FX transactions are processed via CLS</p>
+<p>There has been historically a lack of transparency related to the status of payments. </p>
+<p>some national payment systems (e.g. Fedwire and CHIPS in US, the Australian, Swiss and Japanese RTGS systems) do not use SWIFT messages.</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://wiki.treasurers.org/wiki/Payments_and_payment_systems">https://wiki.treasurers.org/wiki/Payments_and_payment_systems</a><br><a target="_blank" rel="noopener" href="https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf">https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/05/09/Crypto-Real-time-gross-settlement/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/09/Crypto-Real-time-gross-settlement/" class="post-title-link" itemprop="url">【Crypto】 Real-time gross settlement</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-09 17:17:45" itemprop="dateCreated datePublished" datetime="2020-05-09T17:17:45+00:00">2020-05-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h1><p>RTGS</p>
+<p>A funds transfer system where <strong>the transfer of money</strong> takes place from one bank to any other bank on a “<strong>real-time</strong>“ and on <strong>a “gross” basis</strong> (no bundling or netting).</p>
+<p>Settlement is <strong>immediate, final and irrevocable</strong>. Credit <strong>risks</strong> due to settlement lags are eliminated.</p>
+<p>RTGS is an alternative to <strong>net settlement system</strong>.</p>
+<h2 id="History"><a href="#History" class="headerlink" title="History"></a>History</h2><p>The first RTGS system is the US Fedwire system. </p>
+<h1 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h1><p>RTGS systems are usually <strong>operated by a country’s central bank</strong> as it is seen as a critical infrastructure for a country’s economy.</p>
+<p>an efficient national payment system reduces the cost of exchanging goods and services</p>
+<h2 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h2><ol>
+<li>does not require physical exchange of money</li>
+<li>central bank makes adjustments in the accounts of Bank A and Bank B</li>
+<li>is suited for low-volume, high-value transactions</li>
+</ol>
+<h1 id="Some-RTGS-names"><a href="#Some-RTGS-names" class="headerlink" title="Some RTGS names"></a>Some RTGS names</h1><ol>
+<li>China —— China National Advanced Payment System (CNAPS)</li>
+<li>US —— Fedwire</li>
+<li>UK —— CHAPS (Clearing House Automated Payment System)</li>
+<li>Singapore —— MEPS+ (MAS Electronic Payment System Plus)</li>
+<li>Hong Kong —— Clearing House Automated Transfer System (CHATS)</li>
+<li>Philippines —— PhilPaSS</li>
+<li>Thailand —— BAHTNET (Bank of Thailand Automated High Value Transfer Network)</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/04/19/Crypto-%E5%9B%BD%E4%BA%A7%E5%85%AC%E9%93%BE%E5%B1%8A%E7%9A%84%E5%A4%A9%E7%8E%8B%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/19/Crypto-%E5%9B%BD%E4%BA%A7%E5%85%AC%E9%93%BE%E5%B1%8A%E7%9A%84%E5%A4%A9%E7%8E%8B%E6%98%8E%E6%98%9F%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">【Crypto】 国产公链届的天王明星项目</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-19 23:48:09" itemprop="dateCreated datePublished" datetime="2020-04-19T23:48:09+00:00">2020-04-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>谁是国产第一公链？</p>
+<ol>
+<li>NEO</li>
+<li>ONT</li>
+<li>TRON</li>
+</ol>
+<h1 id="Nervos"><a href="#Nervos" class="headerlink" title="Nervos"></a>Nervos</h1><p><img src="/images/nervos-2.png"><br><img src="/images/nervos-1.png"></p>
+<h1 id="Blockstack"><a href="#Blockstack" class="headerlink" title="Blockstack"></a>Blockstack</h1><p>第一个通过SEC合规，公墓价0.3美元。</p>
+<p><img src="/images/blockstack-2.png"><br><img src="/images/blockstack-1.png"></p>
+<h1 id="Algo"><a href="#Algo" class="headerlink" title="Algo"></a>Algo</h1><p>第一轮拍卖价2.4美元。</p>
+<p><img src="/images/algorand-2.png"><br><img src="/images/algorand-3.png"><br><img src="/images/algorand-1.png"></p>
+<h1 id="Zil"><a href="#Zil" class="headerlink" title="Zil"></a>Zil</h1><p><img src="/images/zil-2.png"><br><img src="/images/zil-1.png"></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://bihu.com/article/1428275457/page/7">https://bihu.com/article/1428275457/page/7</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://unclemartian.github.io/2020/04/15/Crypto-correspondent-banking-in-payments/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Uncle Martian">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo Blog of Uncle Martian">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/04/15/Crypto-correspondent-banking-in-payments/" class="post-title-link" itemprop="url">【Crypto】 Correspondent Banking in Swift Payments</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-04-15 21:48:36" itemprop="dateCreated datePublished" datetime="2020-04-15T21:48:36+00:00">2020-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-04-15 15:00:53" itemprop="dateModified" datetime="2025-04-15T15:00:53+00:00">2025-04-15</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Opening-Message"><a href="#Opening-Message" class="headerlink" title="Opening Message"></a>Opening Message</h1><p>The SWIFT message is merely the instruction: the movement of funds is done by debiting and crediting several accounts at each institution and relies on banks maintaining accounts with each other (either directly or through intermediary banks). Check <a target="_blank" rel="noopener" href="https://gendal.me/2013/11/24/a-simple-explanation-of-how-money-moves-around-the-banking-system/">this link</a> out.</p>
+<h2 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h2><h3 id="Correspondent-Bank"><a href="#Correspondent-Bank" class="headerlink" title="Correspondent Bank"></a>Correspondent Bank</h3><p>“an arrangement under which one bank (correspondent) holds deposits owned by other banks (respondents) and provides payment and other services to those respondent banks” (BIS, 2016).</p>
+<h3 id="Settlement"><a href="#Settlement" class="headerlink" title="Settlement"></a>Settlement</h3><p>“the discharge of an obligation in accordance with the terms of the underlying contract” (BIS, Glossary),</p>
+<h2 id="The-Risks"><a href="#The-Risks" class="headerlink" title="The Risks"></a>The Risks</h2><ol>
+<li>Market, </li>
+<li>FX, </li>
+<li>credit</li>
+<li>counterparty </li>
+<li>regulatory risk (e.g. Anti-Money Laundering (AML) and Counter Terrorism Financing (CTF))</li>
+</ol>
+<p>What is <strong>settlement risk</strong>? The bank could default. (eg. Herstatt Bank)</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>Continued decrease in correspondent banking relationships, regulatory compliance is certainly playing a role</p>
+<p>50% of banks have &lt;&#x3D; 2 correspond banks</p>
+<h1 id="SWIFT-Org"><a href="#SWIFT-Org" class="headerlink" title="SWIFT Org"></a>SWIFT Org</h1><p>1973 The Society for Worldwide Interbank Financial Telecommunication (“S.W.I.F.T.”). Or SWIFT</p>
+<p>Not for profit organisation</p>
+<p>Provide hardware with global data centres, typically:</p>
+<ol>
+<li>banks connect via HSM</li>
+<li>corporates connect via a service bureau (who is host and manage a HSM).</li>
+</ol>
+<p>Typically the payload is message (FIN service) of file based (FileAct)</p>
+<blockquote>
+<p>FIN service: 基于SWIFT网络最主要的应用。即日常银行发送、接收、制作的业务报文都基于FIN服务。比如MT103、MT700等等报文。</p>
+</blockquote>
+<p>It can work in a number of modes (Realtime&#x2F;Store and Forward) and in the case of Fin will perform basic validations on submittal.</p>
+<blockquote>
+<p>SWIFT FileAct: 提供交互和存储与转发两种文件自动传输方式，适合大批量数据的传输。</p>
+</blockquote>
+<h2 id="ISO20022"><a href="#ISO20022" class="headerlink" title="ISO20022"></a>ISO20022</h2><p>ISO20022 又称为UNIFI (UNIversal Financial Industry)</p>
+<p>是2004年由国际标准化组织制定并发布的国际标准，提供了一种面向业务建立通用报文的解决方案。</p>
+<p>ISO20022是一个以XML为基础之讯息标准，主要系由SWIFT组织XML讯息标准(SWIFT XML,MX)、贸易产业标准FIX组织标准(FIXml)及金融衍生性商品交易讯息标准(FpML)，为主要骨干所形成之架构。</p>
+<h2 id="MT103-MT202"><a href="#MT103-MT202" class="headerlink" title="MT103, MT202"></a>MT103, MT202</h2><p>MT103, MT202 are message types in SWIFT communication.</p>
+<ol>
+<li>swift MT103报文名称叫做 single customer credit transfer 也就是单笔客户的汇款</li>
+<li>swift MT202报文名称叫做 general fin inst transfer 也就是金融机构间资金调拨报文</li>
+</ol>
+<p>MT 103 type corresponds to single credit customer transfer, in which a payment is settled directly to the account. Whereas, MT 202 is a cover transfer in which a correspondent bank’s NOSTRO account is involved through which remittance is further transferred to beneficiary.</p>
+<p>Generally wire transfers use a Swift MT103 to transfer money on behalf of their client. There are exeptions to this. Such as SEPA transfers in europe, internal book transfer, and in some countries they do not use use Swift for their own currency (like russia). Also note that sometimes payments get netted so the amount on the MT103 may be different.</p>
+<p>Banks use MT202 (and MT200) to transfer money on their own behalf and cash management purposes.</p>
+<p>So there are many MT103 send throughout the day for clients, and only a few MT202&#x2F;MT200 are send for funding&#x2F;defunding banks own nostro accounts.</p>
+<h1 id="Correspondent-Banking"><a href="#Correspondent-Banking" class="headerlink" title="Correspondent Banking"></a>Correspondent Banking</h1><p>No bank have relationship with every possible bank that customers may want to transfer money to. So, they usually keep relationships with a correspondence bank; one (or multiple) banks for each transfer currency.</p>
+<p>Bank would transfer money from your account into a holding account; and send a notice to their correspondence bank (usually over SWIFT). </p>
+<p>Most domestic (ach) systems are file based, especially for low value clearing. Urgent or high value domestic payments will be message based.</p>
+<p>Globally, there is a progression to near real-time domestic payments. New systems are based on ISO20022 (file) , or Swift(message).</p>
+<h2 id="DNS-and-RTGS"><a href="#DNS-and-RTGS" class="headerlink" title="DNS and RTGS"></a>DNS and RTGS</h2><h3 id="deferred-net-settlement-DNS"><a href="#deferred-net-settlement-DNS" class="headerlink" title="deferred net settlement (DNS)"></a>deferred net settlement (DNS)</h3><p>also called Designated-time net settlement system (DNS).</p>
+<p>A net settlement mechanism which settles on a net basis at the end of a predefined settlement cycle.</p>
+<h3 id="Real-time-gross-settlement-RTGS"><a href="#Real-time-gross-settlement-RTGS" class="headerlink" title="Real-time gross settlement (RTGS)"></a>Real-time gross settlement (RTGS)</h3><p>Specialist funds transfer systems where the transfer of money takes place from one bank to any another on a “real-time” and on a “gross” basis.</p>
+<h2 id="Nostro-and-Vostro-accounts"><a href="#Nostro-and-Vostro-accounts" class="headerlink" title="Nostro and Vostro accounts"></a>Nostro and Vostro accounts</h2><p>Also called <strong>Correspondent bank account</strong>. Nostro and Vostro are variations on the Latin words “ours” and “yours,” respectively.</p>
+<p>These accounts are established to enable the domestic bank to make payments or money transfers on behalf of the foreign bank.</p>
+<p>Nostro accounts with debit balances are <strong>considered cash assets</strong>. Contrarily, Vostro accounts with a credit balance are <strong>considered liabilities</strong></p>
+<blockquote>
+<p>Both the Central Bank of China and Central Bank of France, credit the IOUs to the Bank. The Banks (namely Bank of China and BNP Paribas) now have an IOU Credit liability for further credit into the account of the beneficiary which would be Xing Framers and John Pierre Imports respectively.</p>
+</blockquote>
+<p><img src="/images/lemonade-money-transfer.jpg"></p>
+<h2 id="Pre-Fund-Model"><a href="#Pre-Fund-Model" class="headerlink" title="Pre-Fund Model"></a>Pre-Fund Model</h2><blockquote>
+<p>The pre-fund model is the most common and works on per corridor basis.<br>This model makes it possible for sending agents to settle the net amount with the beneficiary bank quickly.<br>Periodically, sending agent will replenish their prefunded account with the beneficiary banks using SWIFT. In some places, net off is not allowed.</p>
+</blockquote>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><h2 id="SWIFT-Protocol"><a href="#SWIFT-Protocol" class="headerlink" title="SWIFT Protocol"></a>SWIFT Protocol</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers">https://www.quora.com/Do-all-wire-transactions-have-MT103-and-MT202-Or-does-MT202-take-place-only-for-non-direct-relationships-between-originator-and-beneficiary-bank-transfers</a><br><a target="_blank" rel="noopener" href="https://www.quora.com/What-is-the-SWIFT-messaging-protocol">https://www.quora.com/What-is-the-SWIFT-messaging-protocol</a></p>
+<h2 id="Correspondent-Bank-1"><a href="#Correspondent-Bank-1" class="headerlink" title="Correspondent Bank"></a>Correspondent Bank</h2><p><a target="_blank" rel="noopener" href="https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled">https://www.quora.com/How-are-international-SWIFT-wire-transfers-settled</a><br><a target="_blank" rel="noopener" href="https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work">https://www.quora.com/How-does-money-transfer-between-banks-and-different-countries-work</a><br><a target="_blank" rel="noopener" href="https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp">https://www.investopedia.com/ask/answers/051815/what-difference-between-nostro-and-vostro-account.asp</a></p>
+<h2 id="Swift-Institution"><a href="#Swift-Institution" class="headerlink" title="Swift Institution"></a>Swift Institution</h2><p><a target="_blank" rel="noopener" href="https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf">https://swiftinstitute.org/wp-content/uploads/2018/10/SIWP-2017-001-The-Future-of-Correspondent-Banking_FINALv2.pdf</a></p>
 
       
     </div>
@@ -884,7 +881,7 @@ done
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -950,14 +947,14 @@ done
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">129</span>
+          <span class="site-state-item-count">74</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
